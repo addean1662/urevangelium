@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Urevangelium
 
-## Getting Started
+Word-by-word alignment of the four Gospels across six manuscript witnesses, displayed in fixed chronological column order.
 
-First, run the development server:
+## Domain
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**Target domain:** urevangelium.com (not yet purchased — Cloudflare DNS + Vercel deployment, same pattern as ProtoVorlage)
+
+---
+
+## Six-Column Architecture
+
+Columns appear in this fixed chronological order and may not be rearranged:
+
+| # | Witness | Identifier | Date | Script |
+|---|---------|------------|------|--------|
+| 1 | **Earliest Papyrus** | P45, P52, P64+P67, P66, P75, etc. | c. 125–250 CE (per fragment) | Greek |
+| 2 | **Vaticanus** | B / 03 | c. 325 CE | Greek uncial |
+| 3 | **Sinaiticus** | ℵ / 01 | c. 350 CE | Greek uncial |
+| 4 | **Vulgate** | Stuttgart / Weber-Gryson | c. 400 CE | Latin |
+| 5 | **Peshitta** | BFBS 1905/1920 | c. 400–450 CE | Syriac |
+| 6 | **Byzantine** | Robinson-Pierpont 2005 | Medieval | Greek |
+
+Column headers display the witness name and its date.
+
+---
+
+## Architectural Locks
+
+These constraints are fixed and may not be deviated from without a documented decision record:
+
+1. **Desktop-only.** Minimum viewport 1440 px. No mobile responsive logic. No column collapse. No horizontal scroll fallback.
+
+2. **Fixed chronological column order.** The six-column sequence listed above is immutable.
+
+3. **Every word gets its own row.** No merged cells for multi-word phrases. Equivalent words across columns land on the same row; non-corresponding words (particles, connectives, enclitics with no cross-witness counterpart) get their own row with dashes in every other column.
+
+4. **All source text is local pre-built JSON.** Zero API calls for source text. The role of any AI in this project is word alignment only; manuscript text itself is pre-loaded data in `/data/`.
+
+5. **Earliest Papyrus column behavior:**
+   - When a papyrus is extant for that word: display the Greek word with its fragment identifier(s) (e.g., "P45", "P66 · P75").
+   - When no papyrus is extant: display red lost-dots (same visual pattern as ProtoVorlage's DSS lost-dot rendering).
+
+6. **Lacuna handling:** When a witness has no extant text due to physical damage, display red lost-character dots in that column's cell.
+
+7. **Alignment rule:** Align by propositional content (semantic contribution to meaning), not by morphology. See `/docs/ALIGNMENT_RULE.md`.
+
+8. **Syriac column RTL:** `dir="rtl"` scoped to the Syriac column only. Page direction remains LTR.
+
+9. **Nomina sacra:** Display the contraction (e.g., ΘΣ, ΚΣ, ΙΣ, ΧΣ) with hover-expansion to the full form. Do not silently expand.
+
+10. **Greek display:** Normalizes to modern lowercase polytonic with accents. Diplomatic-display toggle (majuscule, scriptio continua) is a v2 feature — hook is present in font config but not implemented.
+
+---
+
+## Tech Stack
+
+- **Framework:** Next.js 16+ (App Router)
+- **Language:** TypeScript (strict mode)
+- **Styling:** Tailwind CSS v4
+- **Deployment:** Vercel + Cloudflare DNS
+- **Fonts:** locally hosted from `/public/fonts/` — no CDN calls at runtime
+
+### Typography
+
+| Script | Primary | Fallback |
+|--------|---------|----------|
+| Greek | Cardo | serif |
+| Latin | EB Garamond | Cardo, serif |
+| Syriac | Beth Mardutho Estrangelo Edessa (OFL) | Serto Jerusalem (OFL), serif |
+| UI chrome | system-ui | sans-serif |
+
+**v2 hook:** SBL Greek is reserved as the future Greek primary pending written license clarification from the Society of Biblical Literature. See `/public/fonts/LICENSES.md`.
+
+---
+
+## Data Source Workstream (separate sessions)
+
+The following sources need to be licensed/acquired and converted to the local JSON schema defined in `/lib/types.ts`:
+
+- **Greek (Vaticanus, Sinaiticus, Byzantine):** CNTR / Nestle-Aland apparatus; Robinson-Pierpont 2005
+- **Latin:** Stuttgart Vulgate (Weber-Gryson)
+- **Syriac:** BFBS Peshitta 1905/1920
+- **Papyri:** per-fragment diplomatic transcriptions
+
+---
+
+## Routing
+
+```
+/matthew/[chapter]/[verse]   — e.g., /matthew/1/1
+/mark/[chapter]/[verse]
+/luke/[chapter]/[verse]
+/john/[chapter]/[verse]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev     # development server on http://localhost:3000
+npm run build   # production build
+npm run test    # Vitest test suite (must pass twice consecutively)
+npm run lint    # ESLint
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Project Siblings
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **ProtoVorlage** — `C:\Users\addea\proto-vorlage` (separate codebase — do not touch from this repo)
