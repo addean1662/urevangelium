@@ -1,5 +1,37 @@
 export type Gospel = 'matthew' | 'mark' | 'luke' | 'john';
 
+// ── Gloss provenance ──────────────────────────────────────────────────────────
+
+export const GLOSS_SOURCES = [
+  // Greek witnesses
+  'TAGNT',        // STEPBible Translators Amalgamated Greek NT (CC BY 4.0)
+  'CNTR',         // Center for NT Restoration
+  'Swanson',      // Swanson Greek NT
+  // Latin witnesses
+  'Whitaker',     // Whitaker's Words DICTLINE (public domain)
+  'DouayRheims',  // Douay-Rheims Bible (public domain)
+  'LewisShort',   // Lewis & Short Latin Dictionary (public domain)
+  // Syriac witnesses
+  'PayneSmith',   // Payne Smith Compendious Syriac Dictionary (public domain)
+  'CAL',          // Comprehensive Aramaic Lexicon
+  'Etheridge',    // Etheridge Peshitta translation (public domain)
+  'Murdock',      // Murdock Peshitta translation (public domain)
+  // Meta
+  'alignment-orphan', // word has no counterpart in this witness; gloss = em-dash
+] as const;
+
+export type GlossSource = (typeof GLOSS_SOURCES)[number];
+
+export function isGlossSource(value: unknown): value is GlossSource {
+  return GLOSS_SOURCES.includes(value as GlossSource);
+}
+
+export type GlossCell = {
+  gloss: string;
+  source: GlossSource;
+  deviation?: boolean; // true when source differs from the default for this witness
+};
+
 export const GOSPELS: Gospel[] = ['matthew', 'mark', 'luke', 'john'];
 
 export const GOSPEL_CHAPTER_COUNTS: Record<Gospel, number> = {
@@ -19,11 +51,12 @@ export type NominaSacraExpansion = {
   expansion: string;     // e.g. "θεός"
 };
 
-// A cell that contains actual text (optionally with nomina sacra markup)
+// A cell that contains actual text (optionally with nomina sacra markup and/or a gloss)
 export type TextCell = {
   type: 'text';
   text: string;
   nominaSacra?: NominaSacraExpansion;
+  gloss?: GlossCell;
 };
 
 // A cell that is empty due to an alignment gap (language has no word for this unit)
@@ -49,6 +82,7 @@ export type PapyrusExtantCell = {
   fragments: PapyrusFragment[];  // all fragments covering this word
   text: string;
   nominaSacra?: NominaSacraExpansion;
+  gloss?: GlossCell;
 };
 
 export type PapyrusCell = PapyrusExtantCell | LostCell | LacunaCell;

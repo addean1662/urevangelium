@@ -1,4 +1,5 @@
 import type { Gospel, VerseData } from '@/lib/types';
+import { VerseDataSchema } from '@/lib/validate';
 
 export async function loadVerse(
   gospel: Gospel,
@@ -6,8 +7,16 @@ export async function loadVerse(
   verse: number
 ): Promise<VerseData | null> {
   try {
-    const data = await import(`@/data/${gospel}/${chapter}/${verse}.json`);
-    return data.default as VerseData;
+    const raw = await import(`@/data/${gospel}/${chapter}/${verse}.json`);
+    const result = VerseDataSchema.safeParse(raw.default);
+    if (!result.success) {
+      console.error(
+        `Invalid verse data ${gospel} ${chapter}:${verse}`,
+        result.error.format()
+      );
+      return null;
+    }
+    return result.data as VerseData;
   } catch {
     return null;
   }
