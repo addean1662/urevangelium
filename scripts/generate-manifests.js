@@ -1,4 +1,6 @@
 // @ts-check
+/* eslint-disable @typescript-eslint/no-require-imports */
+// Plain Node.js CJS script — require() is intentional here.
 const path = require('path');
 const fs = require('fs');
 

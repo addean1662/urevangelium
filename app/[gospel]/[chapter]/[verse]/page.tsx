@@ -1,11 +1,12 @@
 import { notFound } from 'next/navigation';
-import type { PageProps } from 'next/types';
 import type { Gospel } from '@/lib/types';
 import { GOSPELS } from '@/lib/types';
 import { loadVerse } from '@/lib/data';
 import { AlignmentTable } from '@/components/AlignmentTable/AlignmentTable';
 import { GospelSelector } from '@/components/GospelSelector';
 import { PassageNav } from '@/components/PassageNav';
+
+type Params = Promise<{ gospel: string; chapter: string; verse: string }>;
 
 const GOSPEL_DISPLAY: Record<Gospel, string> = {
   matthew: 'Matthew',
@@ -15,14 +16,10 @@ const GOSPEL_DISPLAY: Record<Gospel, string> = {
 };
 
 export async function generateStaticParams() {
-  return GOSPELS.flatMap((gospel) =>
-    [{ gospel, chapter: '1', verse: '1' }]
-  );
+  return GOSPELS.map((gospel) => ({ gospel, chapter: '1', verse: '1' }));
 }
 
-export default async function PassagePage({
-  params,
-}: PageProps<'/[gospel]/[chapter]/[verse]'>) {
+export default async function PassagePage({ params }: { params: Params }) {
   const { gospel, chapter: chapterStr, verse: verseStr } = await params;
 
   if (!GOSPELS.includes(gospel as Gospel)) notFound();
