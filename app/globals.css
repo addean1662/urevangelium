@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================
+   Font-face declarations — all fonts served from /fonts/.
+   Font files must be placed in /public/fonts/ before deployment.
+   See /public/fonts/LICENSES.md for license details.
+   ============================================================ */
+
+@font-face {
+  font-family: 'Cardo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Cardo-Regular.woff2') format('woff2');
 }
+
+@font-face {
+  font-family: 'Cardo';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Cardo-Italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Cardo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Cardo-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/EBGaramond-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/EBGaramond-Italic.woff2') format('woff2');
+}
+
+/* Beth Mardutho OFL Estrangela Edessa — primary Syriac font.
+   NOT the Microsoft-bundled Estrangelo Edessa. See LICENSES.md. */
+@font-face {
+  font-family: 'EstrangeloEdessa-BM';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/EstrangeloEdessa-BM.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Serto Jerusalem';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/SertoJerusalem.woff2') format('woff2');
+}
+
+/* v2 hook — SBL Greek (do not enable until license clarified):
+@font-face {
+  font-family: 'SBL Greek';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/SBLGreek.woff2') format('woff2');
+}
+*/
+
+/* ============================================================
+   Tailwind theme extensions (v4 CSS-first config)
+   ============================================================ */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-greek: 'Cardo', serif;
+  --font-latin: 'EB Garamond', Cardo, serif;
+  --font-syriac: 'EstrangeloEdessa-BM', 'Serto Jerusalem', serif;
+  --font-ui: system-ui, sans-serif;
+
+  /* v2: swap --font-greek to 'SBL Greek' once license is cleared */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================================
+   Base styles
+   ============================================================ */
+
+:root {
+  --background: #ffffff;
+  --foreground: #1c1917;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-ui);
+  min-width: 1440px; /* Desktop-only per architectural lock */
 }
+
+/* Script utility classes */
+.font-greek  { font-family: var(--font-greek); }
+.font-latin  { font-family: var(--font-latin); }
+.font-syriac { font-family: var(--font-syriac); }
