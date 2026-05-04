@@ -1,9 +1,16 @@
 # Source: Byzantine column
 
 ## Greek text
-Robinson-Pierpont, *The New Testament in the Original Greek: Byzantine Textform 2005*.
-Chilton Book Publishing, 2005. The editors released this text with a permissive license
-allowing free redistribution for non-commercial use; see the RP2005 preface for terms.
+byztxt/byzantine-majority-text — a community-maintained digital edition of the
+Robinson-Pierpont Byzantine Textform.
+
+**License:** Unlicense (public domain dedication)
+**Source repo:** https://github.com/byztxt/byzantine-majority-text
+**Files acquired:** `MAT.csv`, `MAR.csv`, `LUK.csv`, `JOH.csv` from `csv-unicode/ccat/no-variants/`
+**Access date:** 2026-05-03
+
+The underlying Robinson-Pierpont text (RP 2005) was released by its editors for free redistribution.
+The byztxt repo places the digital transcription in the public domain via the Unlicense.
 
 ## Gloss source: STEPBible TAGNT + TBESG
 

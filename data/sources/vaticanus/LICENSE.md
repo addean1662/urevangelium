@@ -1,8 +1,21 @@
 # Source: Vaticanus column
 
 ## Greek text
-Codex Vaticanus (c. 325 CE) — public domain. Transcription based on the NA28/UBS5 critical
-apparatus tradition; underlying manuscript is unambiguously public domain.
+CNTR (Center for New Testament Restoration) transcription of Codex Vaticanus, manuscript `03`.
+
+**Source repo:** https://github.com/Center-for-New-Testament-Restoration/transcriptions
+**File acquired:** `class 1/03.txt` (7,140 lines, full NT)
+**Access date:** 2026-05-03
+
+**License:** CC BY-SA 4.0 (Creative Commons Attribution-ShareAlike 4.0 International)
+**ShareAlike — resolved:** The project accepts CC BY-SA 4.0 for the full alignment dataset
+(see root `LICENSE` and `/docs/SOURCE_DATA.md`). Alignment JSON files derived from this
+CNTR transcription inherit CC BY-SA 4.0 from this source. The underlying manuscript
+(Codex Vaticanus, c. 325 CE) is unambiguously public domain; the CC BY-SA 4.0 obligation
+applies only to CNTR's transcription work — their editorial choices, lacuna markers, and
+apparatus notation.
+
+**Attribution:** Center for New Testament Restoration — https://github.com/Center-for-New-Testament-Restoration
 
 ## Gloss source: STEPBible TAGNT + TBESG
 

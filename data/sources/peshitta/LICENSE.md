@@ -1,9 +1,18 @@
 # Source: Peshitta column
 
 ## Syriac text
-BFBS (British and Foreign Bible Society) Peshitta edition, 1905/1920 (Lee text).
-This edition is in the public domain (pre-1928 publication). The Peshitta text
-itself (c. 400–450 CE) is unambiguously public domain.
+Peshitta New Testament — public domain.
+The Peshitta (c. 400–450 CE) is the standard Syriac Christian Bible.
+
+**Source:** scrollmapper/bible_databases, `formats/txt/Peshitta.txt`
+**Source repo:** https://github.com/scrollmapper/bible_databases
+**Source README:** `sources/syr/Peshitta/README.md` — "License: Public Domain"
+**Repo license:** MIT (for the database infrastructure; the text itself is public domain)
+**File acquired:** `Peshitta.txt` (31,300 lines, full Bible)
+**Access date:** 2026-05-03
+
+The text represents the received Peshitta text (based on the Urmia/BFBS Lee tradition),
+which is public domain in all jurisdictions by virtue of its antiquity.
 
 ## Gloss source: Payne Smith — manual curated TSV
 
@@ -11,14 +20,7 @@ itself (c. 400–450 CE) is unambiguously public domain.
 |------|-------------|
 | `payne-smith-proof-verses.tsv` | Hand-curated Syriac→English glosses for all four proof verses |
 
-**Primary reference:** Payne Smith, R. (ed. J. Payne Smith). *A Compendious Syriac Dictionary*.
-Oxford: Clarendon Press, 1903. Public domain (pre-1928).
-
-**Cross-reference:** CAL — Comprehensive Aramaic Lexicon, Hebrew Union College–Jewish Institute of
-Religion (cal.huc.edu). Freely searchable; individual entry data referenced for verification only,
-not redistributed.
-
-**Access date:** 2026-05-02
+See `../glosses/payne-smith/LICENSE.md` for provenance and license details.
 
 ## Gloss pipeline (at scale)
 

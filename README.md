@@ -2,6 +2,16 @@
 
 Word-by-word alignment of the four Gospels across six manuscript witnesses, displayed in fixed chronological column order.
 
+## License
+
+This project is licensed under [Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/).
+
+The ShareAlike obligation arises from the CNTR transcriptions of Vaticanus (03), Sinaiticus (01), and the Gospel papyri (P1, P45, P66, P75), which are CC BY-SA 4.0. Rather than mitigate around this obligation, the project accepts it: the full alignment dataset is released under CC BY-SA 4.0, consistent with the project's open-scholarship intent.
+
+See `LICENSE` for the full license text and `/docs/SOURCE_DATA.md` for per-source attribution requirements.
+
+---
+
 ## Domain
 
 **Target domain:** urevangelium.com (not yet purchased — Cloudflare DNS + Vercel deployment, same pattern as ProtoVorlage)

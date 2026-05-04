@@ -147,7 +147,7 @@ The BFBS Peshitta is an established critical text. Lacuna cells would reflect on
 
 **Display name:** Byzantine  
 **Edition:** Robinson-Pierpont 2005 (The New Testament in the Original Greek: Byzantine Textform)  
-**Date:** Medieval (textform crystallized c. 9th–15th CE)  
+**Date:** c. 5th–9th c. (textform crystallized across multiple centuries)  
 **Script:** Greek (minuscule in most manuscripts)
 
 ### What it represents

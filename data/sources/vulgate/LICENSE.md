@@ -1,28 +1,26 @@
 # Source: Vulgate column
 
 ## Latin text
-Weber-Gryson Biblia Sacra Vulgata (Stuttgart Vulgate, 5th ed. 2007) — the critical text.
-The underlying Vulgate itself (Jerome, c. 400 CE) is public domain. The critical apparatus
-and editorial decisions of the Weber-Gryson edition are proprietary (Deutsche Bibelgesellschaft).
-Only the Latin word forms (which match the received text) are stored; no apparatus data is used.
+Clementine Vulgate (Biblia Sacra juxta Vulgatam Clementinam, 1592/1598) — public domain.
+The Clementine Vulgate is the text promulgated by Pope Clement VIII and used in the Catholic
+Church for centuries. As a 16th-century text, it is unambiguously public domain in all jurisdictions.
+
+**Source:** scrollmapper/bible_databases, `formats/txt/VulgClementine.txt`
+**Source repo:** https://github.com/scrollmapper/bible_databases
+**Source README:** `sources/la/VulgClementine/README.md` — "License: Public Domain"
+**Repo license:** MIT (for the database infrastructure; the text itself is public domain)
+**File acquired:** `VulgClementine.txt` (37,489 lines, full Bible)
+**Access date:** 2026-05-03
+
+**Note on editions:** The Clementine Vulgate is the standard received Latin text for Catholic use.
+The Weber-Gryson Stuttgart Vulgate (5th ed., 2007) is a modern critical edition with a proprietary
+critical apparatus (Deutsche Bibelgesellschaft) — this project uses the Clementine text, not Stuttgart.
+The Latin word forms of the received text passages are equivalent; only the critical apparatus differs.
 
 ## Gloss source: Whitaker's Words — DICTLINE.GEN
 
-| File | Description |
-|------|-------------|
-| `DICTLINE.GEN` | Latin dictionary in Whitaker's Words machine-readable format |
+| File | Location |
+|------|----------|
+| `DICTLINE.GEN` | `../glosses/whitaker/DICTLINE.GEN` |
 
-**Author:** William Whitaker (1924–2007); released as public domain by the author.
-**Mirror:** https://github.com/mk270/whitakers-words (Martin Keegan, maintainer)
-**License:** Public domain
-**Access date:** 2026-05-02
-
-DICTLINE.GEN is a lexicon of Latin lemmas with grammatical tags and English glosses,
-used by the Whitaker's Words Latin→English parser. Each entry maps a Latin word form
-to a dictionary head form and gloss.
-
-## Supplementary gloss source: Douay-Rheims (verse-level)
-
-For verse-level English renderings shown alongside individual word glosses, the
-Douay-Rheims Bible (1582/1609, revised 1752) is used. Public domain in all jurisdictions.
-No separate download required; verse renderings are entered manually from the public domain text.
+See `../glosses/whitaker/LICENSE.md` for provenance and license details.
