@@ -1,23 +1,52 @@
+import fs from 'fs';
+import path from 'path';
 import type { Gospel, VerseData } from '@/lib/types';
 import { VerseDataSchema } from '@/lib/validate';
+import { getCachedVerse, cacheVerse } from '@/lib/cache';
+import { computeAlignment } from '@/lib/alignment/computeAlignment';
+
+function handCodedPath(gospel: Gospel, chapter: number, verse: number): string {
+  return path.join(process.cwd(), 'data', gospel, String(chapter), `${verse}.json`);
+}
+
+function readJson(filePath: string): VerseData | null {
+  try {
+    const raw = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    const result = VerseDataSchema.safeParse(raw);
+    if (!result.success) {
+      console.error(`Invalid verse data at ${filePath}`, result.error.format());
+      return null;
+    }
+    return result.data as VerseData;
+  } catch {
+    return null;
+  }
+}
 
 export async function loadVerse(
   gospel: Gospel,
   chapter: number,
   verse: number
 ): Promise<VerseData | null> {
+  // 1. Check hand-coded proof verses (never recomputed or overwritten)
+  const handCoded = handCodedPath(gospel, chapter, verse);
+  if (fs.existsSync(handCoded)) {
+    return readJson(handCoded);
+  }
+
+  // 2. Check Redis / disk cache
+  const cached = await getCachedVerse(gospel, chapter, verse);
+  if (cached) return cached;
+
+  // 3. Compute alignment on demand
   try {
-    const raw = await import(`@/data/${gospel}/${chapter}/${verse}.json`);
-    const result = VerseDataSchema.safeParse(raw.default);
-    if (!result.success) {
-      console.error(
-        `Invalid verse data ${gospel} ${chapter}:${verse}`,
-        result.error.format()
-      );
-      return null;
+    const data = await computeAlignment(gospel, chapter, verse);
+    if (data) {
+      await cacheVerse(gospel, chapter, verse, data);
     }
-    return result.data as VerseData;
-  } catch {
+    return data;
+  } catch (err) {
+    console.error(`computeAlignment failed for ${gospel} ${chapter}:${verse}`, err);
     return null;
   }
 }
