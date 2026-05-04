@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+import { extractFirstSense } from '@/lib/glosses/extractFirstSense';
 
-// Map from lowercase stem → first English definition
+// Map from lowercase stem → full first-semicolon-segment definition
 let stemMap: Map<string, string> | null = null;
 
 function loadDictline(): Map<string, string> {
@@ -22,7 +23,6 @@ function loadDictline(): Map<string, string> {
 
     // Find the 5-flag block: five consecutive single uppercase letters
     // The definition follows immediately after the flags.
-    // Search from the right to find the last such group before non-single-letter text.
     let defStart = -1;
     for (let i = tokens.length - 6; i >= 0; i--) {
       const five = tokens.slice(i, i + 5);
@@ -46,7 +46,7 @@ function loadDictline(): Map<string, string> {
   }
 
   stemMap = map;
-  return map;
+  return stemMap;
 }
 
 // Common Latin inflectional endings to strip when looking up a stem
@@ -54,33 +54,27 @@ const ENDINGS = [
   'tionem', 'tionis', 'tioni', 'tione', 'tiones',
   'ationem', 'ationis', 'ationi', 'atione', 'ationes',
   'orum', 'arum', 'ibus', 'issimum', 'issimus', 'issima',
-  'orum', 'orum',
   'isque', 'umque',
   'que',
   'ntis', 'ntem', 'nti', 'nte', 'ntes',
   'antis', 'antem', 'anti', 'ante', 'antes',
   'entis', 'entem', 'enti', 'ente', 'entes',
-  'atis', 'ati', 'atis',
+  'atis', 'ati',
   'imus', 'itis', 'erunt', 'erat', 'erant', 'erit', 'erint',
-  'amus', 'atis', 'abam', 'abas', 'abat', 'abamus', 'abatis', 'abant',
+  'amus', 'abam', 'abas', 'abat', 'abamus', 'abatis', 'abant',
   'abo', 'abis', 'abit', 'abimus', 'abitis', 'abunt',
   'onem', 'onis', 'oni', 'one', 'ones',
   'itatis', 'itati', 'itatem', 'itate', 'itates',
-  'atis', 'ate', 'ates',
+  'ate', 'ates',
   'orum', 'is', 'os', 'um', 'us', 'ae', 'am', 'as',
   'em', 'ei', 'eo', 'es', 'e',
   'i', 'o',
 ];
 
-export function getLatinGloss(word: string): string | null {
+function lookup(lower: string): string | null {
   const map = loadDictline();
-  const lower = word.toLowerCase().replace(/[.,;:!?]+$/, '');
-
-  // Direct lookup first
   const direct = map.get(lower);
   if (direct) return direct;
-
-  // Try progressive ending strips
   for (const ending of ENDINGS) {
     if (lower.endsWith(ending) && lower.length - ending.length >= 2) {
       const stem = lower.slice(0, lower.length - ending.length);
@@ -88,6 +82,17 @@ export function getLatinGloss(word: string): string | null {
       if (found) return found;
     }
   }
-
   return null;
+}
+
+// Returns the full first-semicolon-segment definition (all comma-senses)
+export function getLatinGlossFull(word: string): string | null {
+  const lower = word.toLowerCase().replace(/[.,;:!?]+$/, '');
+  return lookup(lower);
+}
+
+// Returns the first comma-sense only (display brevity)
+export function getLatinGloss(word: string): string | null {
+  const full = getLatinGlossFull(word);
+  return full ? extractFirstSense(full) : null;
 }
