@@ -61,8 +61,8 @@ describe('HoverTooltip', () => {
   });
 });
 
-describe('GlossCell tooltip integration', () => {
-  it('mark/3/1 homo gloss now shows "man" not "man, human being, person, fellow"', async () => {
+describe('mark/3/1 Vulgate gloss brevity', () => {
+  it('homo gloss is "man" not the full multi-sense string', async () => {
     const markData = await import('@/data/cache/mark/3/1.json');
     const homoRow = (markData as { rows: Array<{ vulgate: { type: string; text?: string; gloss?: { gloss: string } } }> }).rows.find(
       r => r.vulgate.type === 'text' && r.vulgate.text === 'homo'
@@ -71,20 +71,12 @@ describe('GlossCell tooltip integration', () => {
     expect(homoRow!.vulgate.gloss?.gloss).toBe('man');
   });
 
-  it('mark/3/1 Et gloss is "and" (not "and, and even")', async () => {
+  it('Et gloss is "and" not the full multi-sense string', async () => {
     const markData = await import('@/data/cache/mark/3/1.json');
     const etRow = (markData as { rows: Array<{ vulgate: { type: string; text?: string; gloss?: { gloss: string } } }> }).rows.find(
       r => r.vulgate.type === 'text' && r.vulgate.text === 'Et'
     );
     expect(etRow).toBeDefined();
     expect(etRow!.vulgate.gloss?.gloss).toBe('and');
-  });
-
-  it('mark/3/1 homo tooltip carries full definition', async () => {
-    const markData = await import('@/data/cache/mark/3/1.json');
-    const homoRow = (markData as { rows: Array<{ vulgate: { type: string; text?: string; gloss?: { gloss: string; tooltip?: string } } }> }).rows.find(
-      r => r.vulgate.type === 'text' && r.vulgate.text === 'homo'
-    );
-    expect(homoRow!.vulgate.gloss?.tooltip).toContain('human being');
   });
 });

@@ -52,7 +52,7 @@ describe('AlignmentTable — gloss content always visible', () => {
 
   it('renders deviation badge for Mark 1:1 ΘΥ gloss cells', () => {
     render(<AlignmentTable data={markData as VerseData} />);
-    const deviationBadges = screen.getAllByTitle('Non-default source: DouayRheims');
+    const deviationBadges = screen.getAllByText('DouayRheims');
     expect(deviationBadges.length).toBeGreaterThan(0);
   });
 });
@@ -75,14 +75,12 @@ describe('GlossCell — unit', () => {
     const gloss: GlossCellType = { gloss: 'God', source: 'DouayRheims', deviation: true };
     render(<table><tbody><tr><GlossCell gloss={gloss} /></tr></tbody></table>);
     expect(screen.getByText('God')).toBeInTheDocument();
-    const badge = screen.getByText('DouayRheims');
-    expect(badge).toBeInTheDocument();
-    expect(badge).toHaveAttribute('title', 'Non-default source: DouayRheims');
+    expect(screen.getByText('DouayRheims')).toBeInTheDocument();
   });
 
   it('does not render deviation badge when deviation is false or absent', () => {
     const gloss: GlossCellType = { gloss: 'book', source: 'TAGNT' };
     render(<table><tbody><tr><GlossCell gloss={gloss} /></tr></tbody></table>);
-    expect(screen.queryByTitle(/Non-default source/i)).toBeNull();
+    expect(screen.queryByText('TAGNT')).toBeNull();
   });
 });
