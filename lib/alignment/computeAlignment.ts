@@ -11,16 +11,18 @@ import { getNominaSacra } from '@/lib/sources/nominaSacra';
 import { getVulgateVerse } from '@/lib/sources/parseVulgate';
 import { getPeshittaVerse } from '@/lib/sources/parsePeshitta';
 import { getCoveringPapyri } from '@/lib/sources/parsePapyrus';
-import { getLatinGloss } from '@/lib/sources/dictline';
+import { getLatinGloss, getLatinGlossFull } from '@/lib/sources/dictline';
 
 // Greek article grammar codes start with T-
 function isArticle(grammar: string): boolean {
   return grammar.startsWith('T-');
 }
 
-// Build a GlossCell from TAGNT data
-function tagntGloss(gloss: string): GlossCell | undefined {
-  return gloss ? { gloss, source: 'TAGNT' } : undefined;
+// Build a GlossCell from TAGNT data, with tooltip carrying Strong's + form + gloss
+function tagntGloss(word: { gloss: string; strong: string; greek: string }): GlossCell | undefined {
+  if (!word.gloss) return undefined;
+  const tooltip = `${word.strong}  ${word.greek}\n${word.gloss}`;
+  return { gloss: word.gloss, source: 'TAGNT', tooltip };
 }
 
 export async function computeAlignment(
@@ -64,7 +66,7 @@ export async function computeAlignment(
   const rows: AlignmentRow[] = tagntWords.map((tw, i) => {
     const nomina = getNominaSacra(tw.strong, tw.grammar, tw.greek);
     const displayGreek = nomina ? nomina.contraction : tw.greek;
-    const gloss = tagntGloss(tw.gloss);
+    const gloss = tagntGloss(tw);
 
     // Papyrus cell
     let papyrus: PapyrusCell;
@@ -109,10 +111,17 @@ export async function computeAlignment(
       const vWord = vulgateByRow.get(i);
       if (vWord) {
         const vGloss = getLatinGloss(vWord);
+        const vFull  = getLatinGlossFull(vWord);
         vulgateCell = {
           type: 'text',
           text: vWord,
-          ...(vGloss ? { gloss: { gloss: vGloss, source: 'Whitaker' } } : {}),
+          ...(vGloss ? {
+            gloss: {
+              gloss: vGloss,
+              source: 'Whitaker',
+              ...(vFull ? { tooltip: vFull } : {}),
+            },
+          } : {}),
         };
       } else {
         vulgateCell = { type: 'empty' };
