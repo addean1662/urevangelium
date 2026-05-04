@@ -30,6 +30,7 @@ export type GlossCell = {
   gloss: string;
   source: GlossSource;
   deviation?: boolean; // true when source differs from the default for this witness
+  tooltip?: string;    // full lexicon entry for hover display
 };
 
 export const GOSPELS: Gospel[] = ['matthew', 'mark', 'luke', 'john'];
