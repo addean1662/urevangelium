@@ -1,4 +1,4 @@
-import type { PapyrusCell as PapyrusCellType } from '@/lib/types';
+import type { PapyrusCell as PapyrusCellType, WitnessCell as WitnessCellType } from '@/lib/types';
 
 const cellBase = 'py-1.5 text-center border-b border-rule-hairline align-middle';
 const dotBase = 'inline-block w-2 h-2 rounded-full flex-shrink-0';
@@ -37,6 +37,21 @@ export function PapyrusIndicator({ cell }: PapyrusIndicatorProps) {
   );
 }
 
-export function EmptyIndicator() {
+interface WitnessIndicatorProps {
+  cell: WitnessCellType;
+}
+
+export function WitnessIndicator({ cell }: WitnessIndicatorProps) {
+  if (cell.type === 'lost') {
+    return (
+      <td className={cellBase}>
+        <span
+          className={`${dotBase} bg-semantic-lacuna`}
+          aria-label="word lost — manuscript damaged or fragmentary"
+          title="Manuscript damaged or fragmentary"
+        />
+      </td>
+    );
+  }
   return <td className={cellBase} />;
 }

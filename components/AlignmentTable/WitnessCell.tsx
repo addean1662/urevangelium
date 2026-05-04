@@ -13,7 +13,10 @@ interface Props {
 export function WitnessCell({ cell, className = '', showTranslit = false }: Props) {
   const base = `px-2 py-1.5 text-lg border-b border-rule-hairline align-middle text-right text-ink-primary ${className}`;
 
-  if (cell.type === 'lost' || cell.type === 'lacuna') {
+  if (cell.type === 'lost') {
+    return <td className={base} />;
+  }
+  if (cell.type === 'lacuna') {
     return <td className={base}><LostDots /></td>;
   }
 

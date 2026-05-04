@@ -16,7 +16,10 @@ interface Props {
 export function SyriacCell({ cell }: Props) {
   const base = 'px-2 py-1.5 text-lg border-b border-rule-hairline align-middle text-right text-ink-primary';
 
-  if (cell.type === 'lost' || cell.type === 'lacuna') {
+  if (cell.type === 'lost') {
+    return <td className={base} dir="rtl" />;
+  }
+  if (cell.type === 'lacuna') {
     return (
       <td className={base} dir="rtl">
         <LostDots />

@@ -1,6 +1,6 @@
 import type { AlignmentRow as AlignmentRowType, GlossCell as GlossCellType, PapyrusCell, WitnessCell } from '@/lib/types';
 import { PapyrusCell as PapyrusCellComponent } from './PapyrusCell';
-import { PapyrusIndicator, EmptyIndicator } from './IndicatorCell';
+import { PapyrusIndicator, WitnessIndicator } from './IndicatorCell';
 import { SyriacCell } from './SyriacCell';
 import { WitnessCell as WitnessCellComponent } from './WitnessCell';
 import { GlossCell } from './GlossCell';
@@ -24,23 +24,23 @@ export function AlignmentRow({ row }: Props) {
       <GlossCell gloss={cellGloss(row.papyrus)} />
 
       <WitnessCellComponent cell={row.vaticanus} className="font-greek" showTranslit />
-      <EmptyIndicator />
+      <WitnessIndicator cell={row.vaticanus} />
       <GlossCell gloss={cellGloss(row.vaticanus)} />
 
       <WitnessCellComponent cell={row.sinaiticus} className="font-greek" showTranslit />
-      <EmptyIndicator />
+      <WitnessIndicator cell={row.sinaiticus} />
       <GlossCell gloss={cellGloss(row.sinaiticus)} />
 
       <WitnessCellComponent cell={row.vulgate} className="font-latin" />
-      <EmptyIndicator />
+      <WitnessIndicator cell={row.vulgate} />
       <GlossCell gloss={cellGloss(row.vulgate)} />
 
       <SyriacCell cell={row.peshitta} />
-      <EmptyIndicator />
+      <WitnessIndicator cell={row.peshitta} />
       <GlossCell gloss={cellGloss(row.peshitta)} />
 
       <WitnessCellComponent cell={row.byzantine} className="font-greek" showTranslit />
-      <EmptyIndicator />
+      <WitnessIndicator cell={row.byzantine} />
       <GlossCell gloss={cellGloss(row.byzantine)} />
     </tr>
   );

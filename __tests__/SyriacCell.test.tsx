@@ -23,16 +23,15 @@ describe('SyriacCell', () => {
     expect(table?.getAttribute('dir')).toBeNull();
   });
 
-  it('renders lost dots for lost cells without dir="rtl" interfering', () => {
+  it('renders empty cell for lost cells — red dot lives in WitnessIndicator', () => {
     const { container } = render(
       <table><tbody><tr>
         <SyriacCell cell={{ type: 'lost' }} />
       </tr></tbody></table>
     );
     const td = container.querySelector('td');
-    // lost cells still get dir="rtl" per spec (column stays RTL)
     expect(td?.getAttribute('dir')).toBe('rtl');
-    expect(td?.textContent).toContain('·');
+    expect(td?.textContent).toBe('');
   });
 
   it('renders dash for empty cells (alignment gap)', () => {
