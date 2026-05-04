@@ -8,19 +8,15 @@ interface Props {
 }
 
 export function WitnessCell({ cell, className = '' }: Props) {
-  const base = `px-3 py-1.5 text-sm border-b border-stone-200 align-top ${className}`;
+  const base = `px-2 py-1.5 text-lg border-b border-rule-hairline align-middle text-right text-ink-primary ${className}`;
 
   if (cell.type === 'lost' || cell.type === 'lacuna') {
-    return (
-      <td className={base}>
-        <LostDots />
-      </td>
-    );
+    return <td className={base}><LostDots /></td>;
   }
 
   if (cell.type === 'empty') {
     return (
-      <td className={`${base} text-stone-300`} aria-label="alignment gap">
+      <td className={`${base} text-ink-muted`} aria-label="alignment gap">
         —
       </td>
     );
@@ -28,11 +24,7 @@ export function WitnessCell({ cell, className = '' }: Props) {
 
   return (
     <td className={base}>
-      {cell.nominaSacra ? (
-        <NominaSacra ns={cell.nominaSacra} />
-      ) : (
-        cell.text
-      )}
+      {cell.nominaSacra ? <NominaSacra ns={cell.nominaSacra} /> : cell.text}
     </td>
   );
 }

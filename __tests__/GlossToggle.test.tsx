@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { describe, it, expect } from 'vitest';
 import { AlignmentTable } from '@/components/AlignmentTable/AlignmentTable';
 import { GlossCell } from '@/components/AlignmentTable/GlossCell';
@@ -8,85 +7,53 @@ import type { VerseData, GlossCell as GlossCellType } from '@/lib/types';
 import matthewData from '@/data/matthew/1/1.json';
 import markData from '@/data/mark/1/1.json';
 
-describe('GlossToggle — button state', () => {
-  it('renders "Show glosses" button by default', () => {
-    render(<AlignmentTable data={matthewData as VerseData} />);
-    const btn = screen.getByRole('button', { name: /show glosses/i });
-    expect(btn).toBeInTheDocument();
-    expect(btn).toHaveAttribute('aria-pressed', 'false');
-  });
-
-  it('toggles to "Hide glosses" on click', async () => {
-    const user = userEvent.setup();
-    render(<AlignmentTable data={matthewData as VerseData} />);
-    const btn = screen.getByRole('button', { name: /show glosses/i });
-    await user.click(btn);
-    expect(screen.getByRole('button', { name: /hide glosses/i })).toHaveAttribute('aria-pressed', 'true');
-  });
-
-  it('returns to "Show glosses" on second click', async () => {
-    const user = userEvent.setup();
-    render(<AlignmentTable data={matthewData as VerseData} />);
-    const btn = screen.getByRole('button', { name: /show glosses/i });
-    await user.click(btn);
-    await user.click(screen.getByRole('button', { name: /hide glosses/i }));
-    expect(screen.getByRole('button', { name: /show glosses/i })).toHaveAttribute('aria-pressed', 'false');
+describe('AlignmentTable — witness header band token', () => {
+  it('witness header row uses bg-witness-band, not bg-band', () => {
+    const { container } = render(<AlignmentTable data={matthewData as VerseData} />);
+    const headerRow = container.querySelector('thead tr');
+    expect(headerRow?.className).toContain('bg-witness-band');
+    expect(headerRow?.className).not.toMatch(/(?<![a-z-])bg-band(?![a-z-])/);
   });
 });
 
-describe('GlossToggle — 12-column layout', () => {
-  it('renders 6 column headers when glosses are hidden', () => {
+describe('AlignmentTable — 12-column always-on layout', () => {
+  it('renders 6 column headers (primary only — no sub-header row)', () => {
     render(<AlignmentTable data={matthewData as VerseData} />);
     const headers = screen.getAllByRole('columnheader');
     expect(headers).toHaveLength(6);
   });
 
-  it('renders 12 column headers when glosses are shown', async () => {
-    const user = userEvent.setup();
+  it('shows gloss source names in primary headers', () => {
     render(<AlignmentTable data={matthewData as VerseData} />);
-    await user.click(screen.getByRole('button', { name: /show glosses/i }));
-    const headers = screen.getAllByRole('columnheader');
-    // 6 primary + 6 sub-headers (Text / Gloss · Source)
-    expect(headers.length).toBeGreaterThanOrEqual(12);
+    expect(screen.getAllByText('TAGNT').length).toBeGreaterThan(0);
+    expect(screen.getByText('Whitaker')).toBeInTheDocument();
+    expect(screen.getByText('PayneSmith')).toBeInTheDocument();
   });
 
-  it('shows gloss sub-headers with correct lexicon names', async () => {
-    const user = userEvent.setup();
+  it('does not render a Show/Hide glosses button', () => {
     render(<AlignmentTable data={matthewData as VerseData} />);
-    await user.click(screen.getByRole('button', { name: /show glosses/i }));
-    expect(screen.getAllByText(/Gloss · TAGNT/i).length).toBeGreaterThan(0);
-    expect(screen.getByText(/Gloss · Whitaker/i)).toBeInTheDocument();
-    expect(screen.getByText(/Gloss · PayneSmith/i)).toBeInTheDocument();
-  });
-
-  it('shows Text sub-headers for each witness', async () => {
-    const user = userEvent.setup();
-    render(<AlignmentTable data={matthewData as VerseData} />);
-    await user.click(screen.getByRole('button', { name: /show glosses/i }));
-    const textHeaders = screen.getAllByText('Text');
-    expect(textHeaders).toHaveLength(6);
+    expect(screen.queryByRole('button', { name: /glosses/i })).toBeNull();
   });
 });
 
-describe('GlossToggle — gloss content', () => {
-  it('shows English glosses after toggling on (Matthew 1:1)', async () => {
-    const user = userEvent.setup();
+describe('AlignmentTable — gloss content always visible', () => {
+  it('shows English glosses on initial render (Matthew 1:1)', () => {
     render(<AlignmentTable data={matthewData as VerseData} />);
-    await user.click(screen.getByRole('button', { name: /show glosses/i }));
-    // Greek gloss for Βίβλος
     expect(screen.getAllByText('book').length).toBeGreaterThan(0);
-    // Latin gloss from DouayRheims
     expect(screen.getAllByText('of the generation').length).toBeGreaterThan(0);
-    // Syriac gloss
     expect(screen.getAllByText('of his generation').length).toBeGreaterThan(0);
   });
 
-  it('shows "no gloss" dash cells for alignment-gap rows (Mark 1:1 τοῦ row)', async () => {
-    const user = userEvent.setup();
+  it('shows "no gloss" dash cells for alignment-gap rows (Mark 1:1 τοῦ row)', () => {
     render(<AlignmentTable data={markData as VerseData} />);
-    await user.click(screen.getByRole('button', { name: /show glosses/i }));
     const noGlossCells = screen.getAllByLabelText('no gloss');
     expect(noGlossCells.length).toBeGreaterThan(0);
+  });
+
+  it('renders deviation badge for Mark 1:1 ΘΥ gloss cells', () => {
+    render(<AlignmentTable data={markData as VerseData} />);
+    const deviationBadges = screen.getAllByTitle('Non-default source: DouayRheims');
+    expect(deviationBadges.length).toBeGreaterThan(0);
   });
 });
 
@@ -117,14 +84,5 @@ describe('GlossCell — unit', () => {
     const gloss: GlossCellType = { gloss: 'book', source: 'TAGNT' };
     render(<table><tbody><tr><GlossCell gloss={gloss} /></tr></tbody></table>);
     expect(screen.queryByTitle(/Non-default source/i)).toBeNull();
-  });
-
-  it('renders deviation badge for Mark 1:1 r7 ΘΥ Greek cells', async () => {
-    const user = userEvent.setup();
-    render(<AlignmentTable data={markData as VerseData} />);
-    await user.click(screen.getByRole('button', { name: /show glosses/i }));
-    // Mark r7 Greek cells have deviation=true gloss "God" from DouayRheims
-    const deviationBadges = screen.getAllByTitle('Non-default source: DouayRheims');
-    expect(deviationBadges.length).toBeGreaterThan(0);
   });
 });

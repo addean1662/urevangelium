@@ -1,9 +1,5 @@
-'use client';
-
-import { useState } from 'react';
 import type { VerseData } from '@/lib/types';
 import { AlignmentRow } from './AlignmentRow';
-import { GlossToggle } from './GlossToggle';
 
 interface Props {
   data: VerseData;
@@ -15,79 +11,74 @@ const COLUMNS = [
   { key: 'sinaiticus', label: 'Sinaiticus',         date: 'c. 350 CE',     script: 'Greek',  glossSource: 'TAGNT'      },
   { key: 'vulgate',    label: 'Vulgate',            date: 'c. 400 CE',     script: 'Latin',  glossSource: 'Whitaker'   },
   { key: 'peshitta',   label: 'Peshitta',           date: 'c. 400–450 CE', script: 'Syriac', glossSource: 'PayneSmith' },
-  { key: 'byzantine',  label: 'Byzantine',          date: 'Medieval',      script: 'Greek',  glossSource: 'TAGNT'      },
+  { key: 'byzantine',  label: 'Byzantine',          date: 'c. 5th–9th c.', script: 'Greek',  glossSource: 'TAGNT'      },
+] as const;
+
+// Each witness: TEXT (45%) | DOT (10%) | GLOSS (45%) of its 1/6 share
+const pairWidth = 100 / 6;
+const textColWidth  = `${(pairWidth * 0.45).toFixed(4)}%`; // 7.5000%
+const dotColWidth   = `${(pairWidth * 0.10).toFixed(4)}%`; // 1.6667%
+const glossColWidth = `${(pairWidth * 0.45).toFixed(4)}%`; // 7.5000%
+
+// Alternating tint on even-indexed pairs (Vaticanus, Vulgate, Byzantine).
+// Requires <tr> to carry no background so <col> shows through.
+const PAIR_BG = [
+  'transparent',
+  'rgba(250,246,232,0.8)',
+  'transparent',
+  'rgba(250,246,232,0.8)',
+  'transparent',
+  'rgba(250,246,232,0.8)',
 ] as const;
 
 export function AlignmentTable({ data }: Props) {
-  const [showGlosses, setShowGlosses] = useState(false);
-
-  const totalCols = showGlosses ? 12 : 6;
-  const colWidth = `${(100 / totalCols).toFixed(4)}%`;
-
   return (
-    <div>
-      <div className="px-4 py-2 flex items-center justify-end border-b border-stone-200 bg-stone-50">
-        <GlossToggle showGlosses={showGlosses} onToggle={() => setShowGlosses((v) => !v)} />
-      </div>
+    <div className="overflow-x-auto">
+      <table className="w-full border-collapse text-left table-fixed min-w-[1440px]">
+        <colgroup>
+          {COLUMNS.flatMap((col, i) => [
+            <col key={`${col.key}-t`} style={{ width: textColWidth,  backgroundColor: PAIR_BG[i] }} />,
+            <col key={`${col.key}-d`} style={{ width: dotColWidth,   backgroundColor: PAIR_BG[i] }} />,
+            <col key={`${col.key}-g`} style={{ width: glossColWidth, backgroundColor: PAIR_BG[i] }} />,
+          ])}
+        </colgroup>
 
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse text-left table-fixed min-w-[1440px]">
-          <colgroup>
-            {COLUMNS.flatMap((col) =>
-              showGlosses
-                ? [
-                    <col key={`${col.key}-t`} style={{ width: colWidth }} />,
-                    <col key={`${col.key}-g`} style={{ width: colWidth }} />,
-                  ]
-                : [<col key={col.key} style={{ width: colWidth }} />]
-            )}
-          </colgroup>
-
-          <thead>
-            {/* Primary header — witness name, always 1 or 2 col wide */}
-            <tr className="bg-stone-800 text-white">
-              {COLUMNS.map((col) => (
-                <th
-                  key={col.key}
-                  colSpan={showGlosses ? 2 : 1}
-                  className="px-3 py-2 text-xs font-semibold uppercase tracking-wide border-r border-stone-600 last:border-r-0"
-                >
-                  <div className="font-semibold">{col.label}</div>
-                  <div className="font-normal text-stone-400 text-[10px] mt-0.5">
-                    {col.date} · {col.script}
+        <thead>
+          {/* Primary header spans all 3 cells of its witness */}
+          <tr className="bg-witness-band text-ink-on-band">
+            {COLUMNS.map((col) => (
+              <th
+                key={col.key}
+                colSpan={3}
+                className="py-2 text-sm font-semibold uppercase tracking-wide"
+              >
+                <div className="flex">
+                  {/* Cell-A portion: witness name + date, right-aligned above source text */}
+                  <div className="w-[45%] text-right pr-2">
+                    <div className="font-semibold">{col.label}</div>
+                    <div className="font-normal text-ink-on-band-muted text-xs mt-0.5">
+                      {col.date} · {col.script}
+                    </div>
                   </div>
-                </th>
-              ))}
-            </tr>
-
-            {/* Sub-header — TEXT / GLOSS labels with lexicon name */}
-            {showGlosses && (
-              <tr className="bg-stone-700 text-stone-300 text-[10px] uppercase tracking-wide">
-                {COLUMNS.flatMap((col) => [
-                  <th
-                    key={`${col.key}-text-sub`}
-                    className="px-3 py-1 font-normal border-r border-stone-600"
-                  >
-                    Text
-                  </th>,
-                  <th
-                    key={`${col.key}-gloss-sub`}
-                    className="px-3 py-1 font-normal border-r border-stone-600 last:border-r-0 italic"
-                  >
-                    Gloss · {col.glossSource}
-                  </th>,
-                ])}
-              </tr>
-            )}
-          </thead>
-
-          <tbody>
-            {data.rows.map((row, i) => (
-              <AlignmentRow key={row.id} row={row} index={i} showGlosses={showGlosses} />
+                  {/* Cell-B portion: dot area spacer */}
+                  <div className="w-[10%]" />
+                  {/* Cell-C portion: gloss source, left-aligned, level with the date */}
+                  <div className="w-[45%] pl-2 flex flex-col justify-end">
+                    <div className="font-normal text-ink-on-band-muted text-xs">{col.glossSource}</div>
+                  </div>
+                </div>
+              </th>
             ))}
-          </tbody>
-        </table>
-      </div>
+          </tr>
+
+        </thead>
+
+        <tbody>
+          {data.rows.map((row) => (
+            <AlignmentRow key={row.id} row={row} />
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

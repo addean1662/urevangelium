@@ -1,53 +1,78 @@
 @import "tailwindcss";
 
 /* ============================================================
-   Font-face declarations — all fonts served from /fonts/.
-   Font files must be placed in /public/fonts/ before deployment.
-   See /public/fonts/LICENSES.md for license details.
+   @font-face — files served from /public/fonts/
    ============================================================ */
 
+/* EB Garamond — UI, gloss, and Latin witness typeface */
 @font-face {
-  font-family: 'Cardo';
+  font-family: 'EB Garamond';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/Cardo-Regular.woff2') format('woff2');
+  src: url('/fonts/eb-garamond-latin-400-normal.woff2') format('woff2');
 }
-
 @font-face {
-  font-family: 'Cardo';
+  font-family: 'EB Garamond';
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/Cardo-Italic.woff2') format('woff2');
+  src: url('/fonts/eb-garamond-latin-400-italic.woff2') format('woff2');
 }
-
 @font-face {
-  font-family: 'Cardo';
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/eb-garamond-latin-600-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'EB Garamond';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/Cardo-Bold.woff2') format('woff2');
+  src: url('/fonts/eb-garamond-latin-700-normal.woff2') format('woff2');
 }
 
+/* Cardo — Greek and Latin manuscript witness text */
 @font-face {
-  font-family: 'EB Garamond';
+  font-family: 'Cardo';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/EBGaramond-Regular.woff2') format('woff2');
+  src: url('/fonts/cardo-greek-ext-400-normal.woff2') format('woff2');
 }
-
 @font-face {
-  font-family: 'EB Garamond';
+  font-family: 'Cardo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/cardo-greek-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cardo';
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/EBGaramond-Italic.woff2') format('woff2');
+  src: url('/fonts/cardo-greek-400-italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cardo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/cardo-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cardo';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/cardo-latin-400-italic.woff2') format('woff2');
 }
 
-/* Beth Mardutho OFL Estrangela Edessa — primary Syriac font.
-   NOT the Microsoft-bundled Estrangelo Edessa. See LICENSES.md. */
+/* Beth Mardutho Estrangela Edessa — Syriac witness text.
+   File requires separate download; falls back to system Syriac fonts. */
 @font-face {
   font-family: 'EstrangeloEdessa-BM';
   font-style: normal;
@@ -56,49 +81,60 @@
   src: url('/fonts/EstrangeloEdessa-BM.woff2') format('woff2');
 }
 
-@font-face {
-  font-family: 'Serto Jerusalem';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/SertoJerusalem.woff2') format('woff2');
-}
-
-/* v2 hook — SBL Greek (do not enable until license clarified):
-@font-face {
-  font-family: 'SBL Greek';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/SBLGreek.woff2') format('woff2');
-}
-*/
-
 /* ============================================================
-   Tailwind theme extensions (v4 CSS-first config)
+   Design tokens — Christian manuscript palette
    ============================================================ */
 
-@theme inline {
-  --font-greek: 'Cardo', serif;
-  --font-latin: 'EB Garamond', Cardo, serif;
-  --font-syriac: 'EstrangeloEdessa-BM', 'Serto Jerusalem', serif;
-  --font-ui: system-ui, sans-serif;
+@theme {
+  /* Page surfaces */
+  --color-bg-page:           #EFE8DA;   /* linen */
+  --color-bg-elevated:       #FAF6E8;   /* resurrection, dawn-light */
 
-  /* v2: swap --font-greek to 'SBL Greek' once license is cleared */
+  /* Header bands */
+  --color-band:              #3D2817;   /* wood — site header, spine of the codex */
+  --color-band-elevated:     #5C3A1F;   /* warmer wood — band hover state */
+  --color-witness-band:      #5C3A1F;   /* lighter walnut — witness column header rows */
+
+  /* Ink scale */
+  --color-ink-primary:       #1F1A14;   /* iron-darkened ink */
+  --color-ink-secondary:     #4D5560;   /* iron */
+  --color-ink-muted:         #796A4D;   /* thorns */
+  --color-ink-on-band:       #EFE8DA;   /* linen on wood */
+  --color-ink-on-band-muted: #C8B89A;   /* faded linen on wood — lifted for legibility */
+
+  /* Accents */
+  --color-accent-gold:       #B8893A;   /* gold — unchanged */
+  --color-accent-gold-soft:  #D4A85A;   /* lighter gold — unchanged */
+
+  /* Semantic state */
+  --color-semantic-extant:   #6B8C45;   /* lifted olive-leaf green — more present on linen */
+  --color-semantic-lacuna:   #6B1717;   /* blood, deepened */
+
+  /* Script language tints */
+  --color-lang-greek:        #B8893A;   /* gold — unchanged */
+  --color-lang-latin:        #8B4423;   /* terracotta-toward-wood */
+  --color-lang-syriac:       #4D5560;   /* iron */
+  --color-lang-context:      #796A4D;   /* thorns */
+
+  /* Borders and rules */
+  --color-rule-hairline:     #C4B89E;   /* linen-toned divider */
+  --color-rule-strong:       #3D2817;   /* wood */
+}
+
+@theme inline {
+  --font-ui:     'EB Garamond', Georgia, serif;
+  --font-greek:  'Cardo', 'EB Garamond', serif;
+  --font-latin:  'EB Garamond', 'Cardo', serif;
+  --font-syriac: 'EstrangeloEdessa-BM', 'Estrangelo Edessa', serif;
 }
 
 /* ============================================================
    Base styles
    ============================================================ */
 
-:root {
-  --background: #ffffff;
-  --foreground: #1c1917;
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background-color: var(--color-bg-page);
+  color: var(--color-ink-primary);
   font-family: var(--font-ui);
   min-width: 1440px; /* Desktop-only per architectural lock */
 }

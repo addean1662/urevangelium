@@ -4,37 +4,24 @@ import { PapyrusCell } from '@/components/AlignmentTable/PapyrusCell';
 import type { PapyrusCell as PapyrusCellType } from '@/lib/types';
 
 describe('PapyrusCell', () => {
-  it('shows fragment ID badge for extant cells', () => {
+  it('renders source text for extant cells', () => {
     const cell: PapyrusCellType = {
       type: 'extant',
       fragments: [{ id: 'P66', date: 'c. 175–225 CE' }],
       text: 'Ἐν',
     };
     render(<table><tbody><tr><PapyrusCell cell={cell} /></tr></tbody></table>);
-    expect(screen.getByText('P66')).toBeInTheDocument();
     expect(screen.getByText('Ἐν')).toBeInTheDocument();
+    // Fragment badge has moved to IndicatorCell — not rendered in PapyrusCell
+    expect(screen.queryByText('P66')).toBeNull();
   });
 
-  it('shows both fragment IDs joined by · for multi-papyrus cells', () => {
-    const cell: PapyrusCellType = {
-      type: 'extant',
-      fragments: [
-        { id: 'P66', date: 'c. 175–225 CE' },
-        { id: 'P75', date: 'c. 175–225 CE' },
-      ],
-      text: 'ἀρχῇ',
-    };
-    render(<table><tbody><tr><PapyrusCell cell={cell} /></tr></tbody></table>);
-    const badge = screen.getByText('P66 · P75');
-    expect(badge).toBeInTheDocument();
-  });
-
-  it('renders lost dots for lost cells', () => {
+  it('renders an empty cell for lost cells (dot indicator lives in IndicatorCell)', () => {
     const cell: PapyrusCellType = { type: 'lost' };
     const { container } = render(
       <table><tbody><tr><PapyrusCell cell={cell} /></tr></tbody></table>
     );
-    expect(container.querySelector('td')?.textContent).toContain('·');
+    expect(container.querySelector('td')?.textContent?.trim()).toBe('');
   });
 
   it('renders nomina sacra contraction, not expansion', () => {

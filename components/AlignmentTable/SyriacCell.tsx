@@ -8,9 +8,11 @@ interface Props {
 /**
  * Syriac column cell. dir="rtl" is scoped to this element only.
  * Page direction remains LTR; word flow inside reverses.
+ * text-right is explicit — RTL content naturally anchors to the right edge,
+ * matching the right-aligned gravitational center shared by all witness text cells.
  */
 export function SyriacCell({ cell }: Props) {
-  const base = 'px-3 py-1.5 text-sm border-b border-stone-200 align-top';
+  const base = 'px-2 py-1.5 text-lg border-b border-rule-hairline align-middle text-right text-ink-primary';
 
   if (cell.type === 'lost' || cell.type === 'lacuna') {
     return (
@@ -22,7 +24,7 @@ export function SyriacCell({ cell }: Props) {
 
   if (cell.type === 'empty') {
     return (
-      <td className={`${base} text-stone-300`} aria-label="alignment gap">
+      <td className={`${base} text-ink-muted`} aria-label="alignment gap">
         —
       </td>
     );

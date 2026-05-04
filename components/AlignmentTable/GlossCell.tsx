@@ -6,18 +6,18 @@ interface Props {
 }
 
 export function GlossCell({ gloss, className = '' }: Props) {
-  const base = `px-3 py-1.5 text-xs border-b border-stone-200 border-l border-l-stone-100 align-top ${className}`;
+  const base = `px-2 py-1.5 text-base border-b border-rule-hairline align-middle ${className}`;
 
   if (!gloss) {
-    return <td className={`${base} text-stone-200`} aria-label="no gloss">—</td>;
+    return <td className={`${base} text-ink-muted`} aria-label="no gloss">—</td>;
   }
 
   return (
-    <td className={`${base} text-stone-500 italic`}>
+    <td className={`${base} text-ink-secondary italic`}>
       {gloss.gloss}
       {gloss.deviation && (
         <span
-          className="not-italic ml-1.5 text-[9px] font-mono text-amber-700 bg-amber-50 border border-amber-200 px-1 py-0.5 rounded leading-none"
+          className="not-italic ml-1.5 text-[11px] font-mono text-accent-gold bg-bg-elevated border border-rule-hairline px-1 py-0.5 rounded leading-none"
           title={`Non-default source: ${gloss.source}`}
         >
           {gloss.source}

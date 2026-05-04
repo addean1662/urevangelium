@@ -5,6 +5,7 @@ import { loadVerse } from '@/lib/data';
 import { AlignmentTable } from '@/components/AlignmentTable/AlignmentTable';
 import { GospelSelector } from '@/components/GospelSelector';
 import { PassageNav } from '@/components/PassageNav';
+import { SiteHeader } from '@/components/SiteHeader';
 
 type Params = Promise<{ gospel: string; chapter: string; verse: string }>;
 
@@ -38,17 +39,12 @@ export default async function PassagePage({ params }: { params: Params }) {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="bg-stone-900 text-white px-4 py-3 flex items-center justify-between">
-        <h1 className="text-lg font-semibold tracking-tight">Urevangelium</h1>
-        <span className="text-stone-400 text-sm">
-          Six-witness Gospel alignment
-        </span>
-      </header>
+      <SiteHeader />
 
       <GospelSelector current={g} chapter={chapter} verse={verse} />
 
-      <div className="flex items-center gap-2 px-4 py-2 border-b border-stone-200 bg-white">
-        <h2 className="text-base font-semibold text-stone-800">{passageLabel}</h2>
+      <div className="flex items-center gap-2 px-4 py-2 border-b border-rule-hairline bg-bg-elevated">
+        <h2 className="text-lg font-semibold text-ink-primary">{passageLabel}</h2>
       </div>
 
       <PassageNav gospel={g} chapter={chapter} verse={verse} />
@@ -57,11 +53,11 @@ export default async function PassagePage({ params }: { params: Params }) {
         {data ? (
           <AlignmentTable data={data} />
         ) : (
-          <div className="flex flex-col items-center justify-center py-20 text-stone-400">
+          <div className="flex flex-col items-center justify-center py-20 text-ink-muted">
             <p className="text-lg font-medium">{passageLabel}</p>
             <p className="text-sm mt-2">
               Alignment data not yet populated. See{' '}
-              <code className="bg-stone-100 px-1 rounded text-stone-600">
+              <code className="bg-bg-elevated px-1 rounded text-ink-secondary">
                 data/{g}/{chapter}/{verse}.json
               </code>
             </p>

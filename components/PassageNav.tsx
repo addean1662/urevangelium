@@ -30,26 +30,26 @@ export function PassageNav({ gospel, chapter, verse }: Props) {
 
   return (
     <nav
-      className="flex items-center gap-4 px-4 py-2 bg-stone-100 border-b border-stone-200 text-sm"
+      className="flex items-center gap-4 px-4 py-2 bg-bg-elevated border-b border-rule-hairline text-base"
       aria-label="Passage navigation"
     >
       {prevPath ? (
         <Link
           href={prevPath}
-          className="px-2 py-1 rounded border border-stone-300 bg-white hover:bg-stone-50 text-stone-700"
+          className="px-2 py-1 rounded border border-band text-band hover:bg-band hover:text-ink-on-band"
           aria-label="Previous verse"
         >
           ← Prev
         </Link>
       ) : (
-        <span className="px-2 py-1 text-stone-300 border border-transparent">← Prev</span>
+        <span className="px-2 py-1 text-ink-muted border border-transparent">← Prev</span>
       )}
 
-      <span className="text-stone-500">Chapter</span>
+      <span className="text-ink-secondary">Chapter</span>
       <select
         value={chapter}
         onChange={handleChapterChange}
-        className="border border-stone-300 rounded px-2 py-1 bg-white text-stone-700"
+        className="border border-rule-hairline rounded px-2 py-1 bg-bg-page text-ink-primary"
         aria-label="Select chapter"
       >
         {counts.map((_, i) => (
@@ -59,11 +59,11 @@ export function PassageNav({ gospel, chapter, verse }: Props) {
         ))}
       </select>
 
-      <span className="text-stone-500">Verse</span>
+      <span className="text-ink-secondary">Verse</span>
       <select
         value={verse}
         onChange={handleVerseChange}
-        className="border border-stone-300 rounded px-2 py-1 bg-white text-stone-700"
+        className="border border-rule-hairline rounded px-2 py-1 bg-bg-page text-ink-primary"
         aria-label="Select verse"
       >
         {Array.from({ length: versesInChapter }, (_, i) => (
@@ -76,13 +76,13 @@ export function PassageNav({ gospel, chapter, verse }: Props) {
       {nextPath ? (
         <Link
           href={nextPath}
-          className="px-2 py-1 rounded border border-stone-300 bg-white hover:bg-stone-50 text-stone-700"
+          className="px-2 py-1 rounded border border-band text-band hover:bg-band hover:text-ink-on-band"
           aria-label="Next verse"
         >
           Next →
         </Link>
       ) : (
-        <span className="px-2 py-1 text-stone-300 border border-transparent">Next →</span>
+        <span className="px-2 py-1 text-ink-muted border border-transparent">Next →</span>
       )}
     </nav>
   );

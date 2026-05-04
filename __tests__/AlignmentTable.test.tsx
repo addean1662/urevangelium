@@ -9,9 +9,10 @@ import lukeData from '@/data/luke/1/1.json';
 import johnData from '@/data/john/1/1.json';
 
 describe('AlignmentTable — column headers', () => {
-  it('renders all six column headers in order', () => {
+  it('renders all six witness headers in order', () => {
     render(<AlignmentTable data={matthewData as VerseData} />);
     const headers = screen.getAllByRole('columnheader');
+    // 6 primary headers only — sub-header row removed
     expect(headers).toHaveLength(6);
     const labels = headers.map((h) => h.textContent ?? '');
     expect(labels[0]).toMatch(/Earliest Papyrus/i);
@@ -24,9 +25,9 @@ describe('AlignmentTable — column headers', () => {
 });
 
 describe('Matthew 1:1 proof row', () => {
-  it('renders P1 fragment badge', () => {
-    render(<AlignmentTable data={matthewData as VerseData} />);
-    expect(screen.getAllByText('P1').length).toBeGreaterThan(0);
+  it('renders P1 papyrus indicator for Matthew 1:1', () => {
+    const { container } = render(<AlignmentTable data={matthewData as VerseData} />);
+    expect(container.querySelectorAll('[title*="P1"]').length).toBeGreaterThan(0);
   });
 
   it('shows nomina sacra contractions ΙΥ and ΧΥ', () => {
@@ -51,9 +52,9 @@ describe('Matthew 1:1 proof row', () => {
 });
 
 describe('Mark 1:1 proof row', () => {
-  it('renders P45 fragment badge', () => {
-    render(<AlignmentTable data={markData as VerseData} />);
-    expect(screen.getAllByText('P45').length).toBeGreaterThan(0);
+  it('renders P45 papyrus indicator for Mark 1:1', () => {
+    const { container } = render(<AlignmentTable data={markData as VerseData} />);
+    expect(container.querySelectorAll('[title*="P45"]').length).toBeGreaterThan(0);
   });
 
   it('renders alignment-gap dashes for Greek article τοῦ row', () => {
@@ -70,9 +71,9 @@ describe('Mark 1:1 proof row', () => {
 });
 
 describe('Luke 1:1 proof row — lost-dots acceptance test', () => {
-  it('renders red lost-dots for every papyrus cell (no extant papyrus)', () => {
+  it('renders red papyrus indicator for every row (no extant papyrus in Luke 1:1)', () => {
     const { container } = render(<AlignmentTable data={lukeData as VerseData} />);
-    // Every row should have a lost-dots span in the first column cell
+    // PapyrusIndicator renders aria-label="papyrus not extant — …" for lost cells
     const lostSpans = container.querySelectorAll('span[aria-label*="not extant"]');
     expect(lostSpans.length).toBe(lukeData.rows.length);
   });
@@ -91,10 +92,10 @@ describe('Luke 1:1 proof row — lost-dots acceptance test', () => {
 });
 
 describe('John 1:1 proof row — multi-papyrus and nomina sacra', () => {
-  it('renders P66 · P75 badge (both papyri for John 1:1)', () => {
-    render(<AlignmentTable data={johnData as VerseData} />);
-    const badges = screen.getAllByText('P66 · P75');
-    expect(badges.length).toBeGreaterThan(0);
+  it('renders P66 · P75 papyrus indicator for John 1:1 (both fragments in tooltip)', () => {
+    const { container } = render(<AlignmentTable data={johnData as VerseData} />);
+    expect(container.querySelectorAll('[title*="P66"]').length).toBeGreaterThan(0);
+    expect(container.querySelectorAll('[title*="P75"]').length).toBeGreaterThan(0);
   });
 
   it('renders ΘΝ nomina sacra (accusative θεόν)', () => {

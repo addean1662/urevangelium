@@ -15,9 +15,9 @@ describe('LostDots', () => {
     expect(span?.getAttribute('aria-label')).toMatch(/not extant/i);
   });
 
-  it('applies red text color class', () => {
+  it('applies semantic-lacuna text color class', () => {
     const { container } = render(<LostDots />);
     const span = container.querySelector('span');
-    expect(span?.className).toContain('red');
+    expect(span?.className).toContain('semantic-lacuna');
   });
 });

@@ -1,13 +1,12 @@
 import type { AlignmentRow as AlignmentRowType, GlossCell as GlossCellType, PapyrusCell, WitnessCell } from '@/lib/types';
 import { PapyrusCell as PapyrusCellComponent } from './PapyrusCell';
+import { PapyrusIndicator, EmptyIndicator } from './IndicatorCell';
 import { SyriacCell } from './SyriacCell';
 import { WitnessCell as WitnessCellComponent } from './WitnessCell';
 import { GlossCell } from './GlossCell';
 
 interface Props {
   row: AlignmentRowType;
-  index: number;
-  showGlosses: boolean;
 }
 
 function cellGloss(cell: PapyrusCell | WitnessCell): GlossCellType | null {
@@ -15,28 +14,34 @@ function cellGloss(cell: PapyrusCell | WitnessCell): GlossCellType | null {
   return null;
 }
 
-export function AlignmentRow({ row, index, showGlosses }: Props) {
-  const stripe = index % 2 === 0 ? 'bg-white' : 'bg-stone-50';
-
+export function AlignmentRow({ row }: Props) {
   return (
-    <tr className={stripe}>
+    <tr>
+      {/* Each witness: [TEXT right-aligned] [indicator dot / empty] [GLOSS left-aligned] */}
+
       <PapyrusCellComponent cell={row.papyrus} />
-      {showGlosses && <GlossCell gloss={cellGloss(row.papyrus)} />}
+      <PapyrusIndicator cell={row.papyrus} />
+      <GlossCell gloss={cellGloss(row.papyrus)} />
 
       <WitnessCellComponent cell={row.vaticanus} className="font-greek" />
-      {showGlosses && <GlossCell gloss={cellGloss(row.vaticanus)} />}
+      <EmptyIndicator />
+      <GlossCell gloss={cellGloss(row.vaticanus)} />
 
       <WitnessCellComponent cell={row.sinaiticus} className="font-greek" />
-      {showGlosses && <GlossCell gloss={cellGloss(row.sinaiticus)} />}
+      <EmptyIndicator />
+      <GlossCell gloss={cellGloss(row.sinaiticus)} />
 
       <WitnessCellComponent cell={row.vulgate} className="font-latin" />
-      {showGlosses && <GlossCell gloss={cellGloss(row.vulgate)} />}
+      <EmptyIndicator />
+      <GlossCell gloss={cellGloss(row.vulgate)} />
 
       <SyriacCell cell={row.peshitta} />
-      {showGlosses && <GlossCell gloss={cellGloss(row.peshitta)} />}
+      <EmptyIndicator />
+      <GlossCell gloss={cellGloss(row.peshitta)} />
 
       <WitnessCellComponent cell={row.byzantine} className="font-greek" />
-      {showGlosses && <GlossCell gloss={cellGloss(row.byzantine)} />}
+      <EmptyIndicator />
+      <GlossCell gloss={cellGloss(row.byzantine)} />
     </tr>
   );
 }
