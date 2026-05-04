@@ -1,5 +1,7 @@
 import type { WitnessCell as WitnessCellType } from '@/lib/types';
+import { transliterateSyriac } from '@/lib/transliteration/syriac';
 import { LostDots } from './LostDots';
+import { HoverTooltip } from '@/components/HoverTooltip';
 
 interface Props {
   cell: WitnessCellType;
@@ -30,9 +32,14 @@ export function SyriacCell({ cell }: Props) {
     );
   }
 
+  const translit = transliterateSyriac(cell.text);
+  const tip = translit ? <em>{translit}</em> : null;
+
   return (
     <td className={base} dir="rtl" lang="syr">
-      <span className="font-syriac">{cell.text}</span>
+      <HoverTooltip content={tip}>
+        <span className="font-syriac">{cell.text}</span>
+      </HoverTooltip>
     </td>
   );
 }

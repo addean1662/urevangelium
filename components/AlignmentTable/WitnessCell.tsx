@@ -1,13 +1,16 @@
 import type { WitnessCell as WitnessCellType } from '@/lib/types';
+import { transliterateGreek } from '@/lib/transliteration/greek';
 import { LostDots } from './LostDots';
 import { NominaSacra } from './NominaSacra';
+import { HoverTooltip } from '@/components/HoverTooltip';
 
 interface Props {
   cell: WitnessCellType;
   className?: string;
+  showTranslit?: boolean;
 }
 
-export function WitnessCell({ cell, className = '' }: Props) {
+export function WitnessCell({ cell, className = '', showTranslit = false }: Props) {
   const base = `px-2 py-1.5 text-lg border-b border-rule-hairline align-middle text-right text-ink-primary ${className}`;
 
   if (cell.type === 'lost' || cell.type === 'lacuna') {
@@ -22,9 +25,18 @@ export function WitnessCell({ cell, className = '' }: Props) {
     );
   }
 
-  return (
-    <td className={base}>
-      {cell.nominaSacra ? <NominaSacra ns={cell.nominaSacra} /> : cell.text}
-    </td>
-  );
+  const textContent = cell.nominaSacra ? <NominaSacra ns={cell.nominaSacra} /> : cell.text;
+
+  if (showTranslit) {
+    const sourceText = cell.nominaSacra?.expansion ?? cell.text;
+    const translit = transliterateGreek(sourceText);
+    const tip = translit ? <em>{translit}</em> : null;
+    return (
+      <td className={base}>
+        <HoverTooltip content={tip}>{textContent}</HoverTooltip>
+      </td>
+    );
+  }
+
+  return <td className={base}>{textContent}</td>;
 }

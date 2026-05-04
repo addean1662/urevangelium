@@ -23,11 +23,11 @@ export function AlignmentRow({ row }: Props) {
       <PapyrusIndicator cell={row.papyrus} />
       <GlossCell gloss={cellGloss(row.papyrus)} />
 
-      <WitnessCellComponent cell={row.vaticanus} className="font-greek" />
+      <WitnessCellComponent cell={row.vaticanus} className="font-greek" showTranslit />
       <EmptyIndicator />
       <GlossCell gloss={cellGloss(row.vaticanus)} />
 
-      <WitnessCellComponent cell={row.sinaiticus} className="font-greek" />
+      <WitnessCellComponent cell={row.sinaiticus} className="font-greek" showTranslit />
       <EmptyIndicator />
       <GlossCell gloss={cellGloss(row.sinaiticus)} />
 
@@ -39,7 +39,7 @@ export function AlignmentRow({ row }: Props) {
       <EmptyIndicator />
       <GlossCell gloss={cellGloss(row.peshitta)} />
 
-      <WitnessCellComponent cell={row.byzantine} className="font-greek" />
+      <WitnessCellComponent cell={row.byzantine} className="font-greek" showTranslit />
       <EmptyIndicator />
       <GlossCell gloss={cellGloss(row.byzantine)} />
     </tr>
