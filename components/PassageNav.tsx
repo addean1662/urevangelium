@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { VERSE_COUNTS } from '@/lib/verseCounts';
-import { buildPassagePath, nextVerse, prevVerse } from '@/lib/data';
+import { buildPassagePath, nextVerse, prevVerse } from '@/lib/passageNav';
 import type { Gospel } from '@/lib/types';
 
 interface Props {

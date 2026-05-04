@@ -128,13 +128,13 @@ describe('John 1:1 proof row — multi-papyrus and nomina sacra', () => {
 
 describe('data module helpers', () => {
   it('buildPassagePath produces correct URLs', async () => {
-    const { buildPassagePath } = await import('@/lib/data');
+    const { buildPassagePath } = await import('@/lib/passageNav');
     expect(buildPassagePath('john', 1, 1)).toBe('/john/1/1');
     expect(buildPassagePath('matthew', 3, 16)).toBe('/matthew/3/16');
   });
 
   it('nextVerse increments within chapter', async () => {
-    const { nextVerse } = await import('@/lib/data');
+    const { nextVerse } = await import('@/lib/passageNav');
     const counts = [31, 25];
     expect(nextVerse('john', 1, 1, counts)).toBe('/john/1/2');
     expect(nextVerse('john', 1, 31, counts)).toBe('/john/2/1');
@@ -142,7 +142,7 @@ describe('data module helpers', () => {
   });
 
   it('prevVerse decrements within chapter', async () => {
-    const { prevVerse } = await import('@/lib/data');
+    const { prevVerse } = await import('@/lib/passageNav');
     const counts = [31, 25];
     expect(prevVerse('john', 1, 5, counts)).toBe('/john/1/4');
     expect(prevVerse('john', 2, 1, counts)).toBe('/john/1/31');
