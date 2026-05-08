@@ -40,7 +40,7 @@ export function HoverTooltip({ children, content }: Props) {
             overflowY: 'auto',
             width: 'max-content',
             color: 'rgba(200,180,150,.85)',
-            fontSize: 13,
+            fontSize: 18,
             lineHeight: 1.5,
             pointerEvents: 'none',
             whiteSpace: 'pre-wrap',
