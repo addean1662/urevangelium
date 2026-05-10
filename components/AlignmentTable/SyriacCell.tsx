@@ -35,8 +35,17 @@ export function SyriacCell({ cell }: Props) {
     );
   }
 
+  const gloss = 'gloss' in cell ? cell.gloss : undefined;
   const translit = transliterateSyriac(cell.text);
-  const tip = translit ? <em>{translit}</em> : null;
+
+  let tip: React.ReactNode = null;
+  if (gloss?.tooltip) {
+    tip = gloss.tooltip;
+  } else if (gloss?.gloss) {
+    tip = gloss.gloss;
+  } else if (translit) {
+    tip = <em>{translit}</em>;
+  }
 
   return (
     <td className={base} dir="rtl" lang="syr">
