@@ -51,7 +51,12 @@ export default async function PassagePage({ params }: { params: Params }) {
 
       <main className="flex-1 p-4">
         {data ? (
-          <AlignmentTable data={data} />
+          <>
+            <p className="text-center italic text-[11px] text-ink-muted mb-3 mt-1">
+              Hover any Greek or Syriac word for phonetic transliteration. Hover any English gloss for its full lexicon entry.
+            </p>
+            <AlignmentTable data={data} />
+          </>
         ) : (
           <div className="flex flex-col items-center justify-center py-20 text-ink-muted">
             <p className="text-lg font-medium">{passageLabel}</p>
