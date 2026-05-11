@@ -53,7 +53,7 @@ export default async function PassagePage({ params }: { params: Params }) {
         {data ? (
           <>
             <p className="text-center italic text-[13px] text-ink-muted mb-3 mt-1">
-              Hover any Greek or Syriac word for phonetic transliteration. Hover any English gloss for its full lexicon entry.
+              Hover any Greek or Syriac word for phonetic transliteration.
             </p>
             <AlignmentTable data={data} />
           </>
