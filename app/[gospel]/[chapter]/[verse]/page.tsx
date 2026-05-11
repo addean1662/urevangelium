@@ -3,6 +3,7 @@ import type { Gospel } from '@/lib/types';
 import { GOSPELS } from '@/lib/types';
 import { loadVerse } from '@/lib/data';
 import { AlignmentTable } from '@/components/AlignmentTable/AlignmentTable';
+import { LineageTimeline } from '@/components/LineageTimeline';
 import { GospelSelector } from '@/components/GospelSelector';
 import { PassageNav } from '@/components/PassageNav';
 import { SiteHeader } from '@/components/SiteHeader';
@@ -55,7 +56,16 @@ export default async function PassagePage({ params }: { params: Params }) {
             <p className="text-center italic text-[13px] text-ink-muted mb-3 mt-1">
               Hover any Greek or Syriac word for phonetic transliteration.
             </p>
+
+            <div className="mb-3">
+              <h3 className="text-lg font-semibold text-ink-primary">Translation Lineage</h3>
+              <p className="text-sm italic text-ink-muted">
+                Six manuscript witness columns span the table; their descent flows into the timeline below.
+              </p>
+            </div>
+
             <AlignmentTable data={data} />
+            <LineageTimeline />
           </>
         ) : (
           <div className="flex flex-col items-center justify-center py-20 text-ink-muted">
