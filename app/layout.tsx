@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import '@fontsource/noto-sans-syriac/400.css';
 import { SiteFooter } from '@/components/SiteFooter';
 
 export const metadata: Metadata = {
