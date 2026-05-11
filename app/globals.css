@@ -71,14 +71,49 @@
   src: url('/fonts/cardo-latin-400-italic.woff2') format('woff2');
 }
 
-/* Beth Mardutho Estrangela Edessa — Syriac witness text.
-   File requires separate download; falls back to system Syriac fonts. */
+/* Beth Mardutho Meltho — Estrangela Syriac fonts (OFL-compatible license).
+   All six variants are served; --font-syriac selects the active one. */
 @font-face {
-  font-family: 'EstrangeloEdessa-BM';
+  font-family: 'SyrCOMAntioch';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/EstrangeloEdessa-BM.woff2') format('woff2');
+  src: url('/fonts/meltho/SyrCOMAntioch.otf') format('opentype');
+}
+@font-face {
+  font-family: 'SyrCOMEdessa';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/meltho/SyrCOMEdessa.otf') format('opentype');
+}
+@font-face {
+  font-family: 'SyrCOMNisibin';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/meltho/SyrCOMNisibin.otf') format('opentype');
+}
+@font-face {
+  font-family: 'SyrCOMQenNeshrin';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/meltho/SyrCOMQenNeshrin.otf') format('opentype');
+}
+@font-face {
+  font-family: 'SyrCOMMidyat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/meltho/SyrCOMMidyat.otf') format('opentype');
+}
+@font-face {
+  font-family: 'SyrCOMTalada';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/meltho/SyrCOMTalada.otf') format('opentype');
 }
 
 /* ============================================================
@@ -125,7 +160,7 @@
   --font-ui:     'EB Garamond', Georgia, serif;
   --font-greek:  'Cardo', 'EB Garamond', serif;
   --font-latin:  'EB Garamond', 'Cardo', serif;
-  --font-syriac: 'Noto Sans Syriac', 'Estrangelo Edessa', serif;
+  --font-syriac: 'SyrCOMAntioch', 'Estrangelo Edessa', serif;
 }
 
 /* ============================================================
