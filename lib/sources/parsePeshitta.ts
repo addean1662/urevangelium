@@ -63,6 +63,8 @@ function tokeniseSyriac(text: string): string[] {
       // Strip Syriac punctuation: ܀ (sof pasuqa), ܁ (supralinear full stop), ܃ (comma)
       .replace(/[܀-܍܏]+$/, '')
       .replace(/^[܀-܍܏]+/, '')
+      // Normalize alternate samekh ܤ (U+0724) → ܣ (U+0723) to match SEDRA index keys
+      .replace(/ܤ/g, 'ܣ')
       .trim()
     )
     .filter(Boolean);
