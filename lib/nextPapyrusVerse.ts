@@ -22,9 +22,9 @@ export function formatNextFragment(
   next: NextFragment,
 ): string | null {
   if (next.kind === 'none') return null;
-  if (next.kind === 'next-verse') return 'Next verse available';
-  if (next.kind === 'same-gospel') return `Next: ${next.chapter}:${next.verse}`;
-  return `Next: ${GOSPEL_DISPLAY[next.gospel]} ${next.chapter}:${next.verse}`;
+  if (next.kind === 'next-verse') return 'Next Fragment available';
+  if (next.kind === 'same-gospel') return `Next Fragment: ${next.chapter}:${next.verse}`;
+  return `Next Fragment: ${GOSPEL_DISPLAY[next.gospel]} ${next.chapter}:${next.verse}`;
 }
 
 export function formatNextFragmentHref(

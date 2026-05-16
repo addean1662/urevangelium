@@ -86,9 +86,17 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
                   </div>
                   {/* Cell-B portion: dot area spacer */}
                   <div className="w-[10%]" />
-                  {/* Cell-C portion: gloss source */}
+                  {/* Cell-C portion: gloss source + map link for papyrus */}
                   <div className="w-[45%] pl-2 flex flex-col justify-end">
                     <div className="font-normal text-ink-on-band-muted text-xs">{col.glossSource}</div>
+                    {col.key === 'papyrus' && (
+                      <Link
+                        href="/papyrus-map"
+                        className="font-normal normal-case tracking-normal text-[11px] mt-1.5 text-amber-200/80 hover:text-amber-200 transition-colors underline underline-offset-2 decoration-amber-200/40"
+                      >
+                        ← Click here for 65 Papyri map
+                      </Link>
+                    )}
                   </div>
                 </div>
               </th>
