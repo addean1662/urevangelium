@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { VerseData } from '@/lib/types';
 import { AlignmentRow } from './AlignmentRow';
 
@@ -68,9 +69,17 @@ export function AlignmentTable({ data, nextFragment }: Props) {
                   </div>
                   {/* Cell-B portion: dot area spacer */}
                   <div className="w-[10%]" />
-                  {/* Cell-C portion: gloss source, left-aligned, level with the date */}
+                  {/* Cell-C portion: gloss source + map link for papyrus */}
                   <div className="w-[45%] pl-2 flex flex-col justify-end">
                     <div className="font-normal text-ink-on-band-muted text-xs">{col.glossSource}</div>
+                    {col.key === 'papyrus' && (
+                      <Link
+                        href="/papyrus-map"
+                        className="font-normal normal-case tracking-normal text-[9px] mt-1 text-amber-200/60 hover:text-amber-200/90 transition-colors underline underline-offset-2"
+                      >
+                        View witness map
+                      </Link>
+                    )}
                   </div>
                 </div>
               </th>
