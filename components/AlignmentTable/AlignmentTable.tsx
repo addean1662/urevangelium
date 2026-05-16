@@ -55,7 +55,7 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
                 colSpan={3}
                 className="py-2 text-sm font-semibold uppercase tracking-wide"
               >
-                <div className="flex">
+                <div className="flex h-full">
                   {/* Cell-A portion: witness name + date, right-aligned above source text */}
                   <div className="w-[45%] text-right pr-2">
                     {col.key === 'papyrus' ? (
@@ -86,12 +86,14 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
                   </div>
                   {/* Cell-B portion: dot area spacer */}
                   <div className="w-[10%]" />
-                  {/* Cell-C portion: map link (above) + gloss source (below) */}
-                  <div className="w-[45%] pl-2 flex flex-col justify-end">
+                  {/* Cell-C: map link floats to top, gloss source pins to bottom
+                      (justify-between with h-full keeps TAGNT aligned with
+                       every other column's gloss source at the same y-position) */}
+                  <div className={`w-[45%] pl-2 flex flex-col h-full ${col.key === 'papyrus' ? 'justify-between' : 'justify-end'}`}>
                     {col.key === 'papyrus' && (
                       <Link
                         href="/papyrus-map"
-                        className="font-normal normal-case tracking-normal text-[11px] mb-1 text-amber-200/80 hover:text-amber-200 transition-colors underline underline-offset-2 decoration-amber-200/40"
+                        className="font-normal normal-case tracking-normal text-[11px] text-amber-200/80 hover:text-amber-200 transition-colors underline underline-offset-2 decoration-amber-200/40"
                       >
                         ← Click here for 65 Papyri map
                       </Link>
