@@ -1,13 +1,27 @@
 import fs from 'fs';
 import path from 'path';
-import type { Gospel } from '@/lib/types';
-import type { PapyrusFragment } from '@/lib/types';
+import type { Gospel, PapyrusFragment, PapyrusSiglum } from '@/lib/types';
 
-export const PAPYRI: Array<{ id: string; file: string; date: string }> = [
-  { id: 'P1',  file: 'P1.txt',  date: 'c. 250 CE' },
-  { id: 'P45', file: 'P45.txt', date: 'c. 250 CE' },
-  { id: 'P66', file: 'P66.txt', date: 'c. 200 CE' },
-  { id: 'P75', file: 'P75.txt', date: 'c. 175-225 CE' },
+export const PAPYRI: Array<{ id: PapyrusSiglum; file: string; date: string }> = [
+  { id: 'P1',      file: 'P1.txt',   date: 'c. 250 CE' },
+  { id: 'P4',      file: 'P4.txt',   date: 'c. 150–200 CE' },
+  { id: 'P5',      file: 'P5.txt',   date: 'c. 250–300 CE' },
+  { id: 'P22',     file: 'P22.txt',  date: 'c. 250–300 CE' },
+  { id: 'P28',     file: 'P28.txt',  date: 'c. 250–300 CE' },
+  { id: 'P37',     file: 'P37.txt',  date: 'c. 250–300 CE' },
+  { id: 'P39',     file: 'P39.txt',  date: 'c. 200–250 CE' },
+  { id: 'P45',     file: 'P45.txt',  date: 'c. 200–250 CE' },
+  { id: 'P52',     file: 'P52.txt',  date: 'c. 125–175 CE' },
+  { id: 'P53',     file: 'P53.txt',  date: 'c. 250 CE' },
+  { id: 'P64+P67', file: 'P64.txt',  date: 'c. 200 CE' },
+  { id: 'P66',     file: 'P66.txt',  date: 'c. 175–225 CE' },
+  { id: 'P70',     file: 'P70.txt',  date: 'c. 175–225 CE' },
+  { id: 'P75',     file: 'P75.txt',  date: 'c. 175–225 CE' },
+  { id: 'P77',     file: 'P77.txt',  date: 'c. 150–250 CE' },
+  { id: 'P88',     file: 'P88.txt',  date: 'c. 4th c. CE' },
+  { id: 'P90',     file: 'P90.txt',  date: 'c. 150–200 CE' },
+  { id: 'P95',     file: 'P95.txt',  date: 'c. 250–300 CE' },
+  { id: 'P104',    file: 'P104.txt', date: 'c. 125–150 CE' },
 ];
 
 const GOSPEL_CODE: Record<Gospel, string> = {

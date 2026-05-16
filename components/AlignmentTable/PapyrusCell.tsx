@@ -20,9 +20,16 @@ export function PapyrusCell({ cell }: Props) {
   const translit = transliterateGreek(sourceText);
   const tip = translit ? <em>{translit}</em> : null;
 
+  const sourceLabel = cell.fragments.map(f => f.id).join(' · ');
+
   return (
     <td className={base}>
-      <HoverTooltip content={tip}>{textContent}</HoverTooltip>
+      <div className="flex flex-col items-end gap-0.5">
+        <HoverTooltip content={tip}>{textContent}</HoverTooltip>
+        <span className="text-[10px] leading-none font-sans text-ink-muted tracking-wide">
+          {sourceLabel}
+        </span>
+      </div>
     </td>
   );
 }

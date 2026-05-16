@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { GLOSS_SOURCES } from '@/lib/types';
+import { GLOSS_SOURCES, PAPYRUS_SIGLA } from '@/lib/types';
 
 const GlossSourceSchema = z.enum(GLOSS_SOURCES);
 
@@ -34,7 +34,7 @@ const WitnessCellSchema = z.discriminatedUnion('type', [
 ]);
 
 const PapyrusFragmentSchema = z.object({
-  id: z.string(),
+  id: z.enum(PAPYRUS_SIGLA),  // rejects any siglum not in PAPYRUS_SIGLA
   date: z.string(),
 });
 

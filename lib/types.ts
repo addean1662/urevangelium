@@ -42,9 +42,19 @@ export const GOSPEL_CHAPTER_COUNTS: Record<Gospel, number> = {
   john: 21,
 };
 
+// All known papyrus sigla sourced from CNTR class 1.
+// Add here when a new P*.txt is added to data/sources/earliest-papyrus/.
+export const PAPYRUS_SIGLA = [
+  'P1', 'P4', 'P5', 'P22', 'P28', 'P37', 'P39', 'P45',
+  'P52', 'P53', 'P64+P67', 'P66', 'P70', 'P75', 'P77',
+  'P88', 'P90', 'P95', 'P104',
+] as const;
+
+export type PapyrusSiglum = (typeof PAPYRUS_SIGLA)[number];
+
 export type PapyrusFragment = {
-  id: string;       // e.g. "P66", "P75", "P45", "P64+P67"
-  date: string;     // e.g. "c. 175–225 CE"
+  id: PapyrusSiglum;  // must be a known CNTR siglum — no free-text allowed
+  date: string;       // e.g. "c. 175–225 CE"
 };
 
 export type NominaSacraExpansion = {
