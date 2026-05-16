@@ -47,9 +47,10 @@ function CoverageBar({
   const hasCoverage = coveredChapters && coveredChapters.size > 0;
   return (
     <div className="flex items-center gap-3">
-      {/* Fixed width wider than 'MATTHEW' in any proportional font so all
-          bars start at the same x-position regardless of label length */}
-      <span className="text-[11px] uppercase tracking-widest shrink-0 overflow-hidden text-ink-secondary w-24">{gospel}</span>
+      {/* Right-aligned text inside a fixed-width box: regardless of word
+          length, the text always ends flush at the right edge so every
+          bar starts at the same x-position down the page */}
+      <span className="text-[11px] uppercase tracking-widest shrink-0 text-right text-ink-secondary w-24">{gospel}</span>
       <div className="flex gap-px h-3.5">
         {Array.from({ length: chaptersTotal }, (_, i) => i + 1).map(ch => (
           <div
