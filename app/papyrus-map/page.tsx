@@ -46,8 +46,8 @@ function CoverageBar({
 }) {
   const hasCoverage = coveredChapters && coveredChapters.size > 0;
   return (
-    <div className="flex items-center gap-1">
-      <span className="text-[11px] uppercase tracking-widest w-6 shrink-0 text-ink-secondary">{gospel}</span>
+    <div className="flex items-center gap-3">
+      <span className="text-[11px] uppercase tracking-widest shrink-0 text-ink-secondary w-16">{gospel}</span>
       <div className="flex gap-px h-3.5">
         {Array.from({ length: chaptersTotal }, (_, i) => i + 1).map(ch => (
           <div
