@@ -337,6 +337,9 @@ export default function PapyrusMapPage() {
                             {p.siglum}
                           </span>
                           <span className="text-sm text-ink-on-band-muted">{p.date}</span>
+                          <span className="text-[10px] text-ink-on-band-muted/70 italic">
+                            {p.discoveryYear ? `Disc. ${p.discoveryYear}` : 'Disc. unknown'} · {p.discoveryNote}
+                          </span>
                           {p.hasCNTR ? (
                             <span className="text-[10px] bg-semantic-extant/20 text-semantic-extant border border-semantic-extant/30 px-1.5 py-0.5 rounded">
                               CNTR transcription
@@ -420,7 +423,8 @@ export default function PapyrusMapPage() {
                 <tr className="bg-witness-band text-ink-on-band text-left">
                   <th className="px-3 py-2 font-semibold">#</th>
                   <th className="px-3 py-2 font-semibold">Siglum</th>
-                  <th className="px-3 py-2 font-semibold">Date</th>
+                  <th className="px-3 py-2 font-semibold">MS Date</th>
+                  <th className="px-3 py-2 font-semibold">Discovery / acquisition / recognition</th>
                   <th className="px-3 py-2 font-semibold text-center">Mt</th>
                   <th className="px-3 py-2 font-semibold text-center">Mk</th>
                   <th className="px-3 py-2 font-semibold text-center">Lk</th>
@@ -445,7 +449,17 @@ export default function PapyrusMapPage() {
                           {p.siglum}
                         </a>
                       </td>
-                      <td className="px-3 py-1.5 text-ink-secondary text-xs">{p.date}</td>
+                      <td className="px-3 py-1.5 text-ink-secondary text-xs whitespace-nowrap">{p.date}</td>
+                      <td className="px-3 py-1.5 text-xs">
+                        {p.discoveryYear ? (
+                          <span>
+                            <span className="font-medium text-ink-primary">{p.discoveryYear}</span>
+                            <span className="text-ink-muted ml-1">· {p.discoveryNote}</span>
+                          </span>
+                        ) : (
+                          <span className="text-ink-muted italic">{p.discoveryNote}</span>
+                        )}
+                      </td>
                       {(['matthew', 'mark', 'luke', 'john'] as Gospel[]).map(g => (
                         <td key={g} className="px-3 py-1.5 text-center">
                           {p.verseCountByGospel[g] ? (
