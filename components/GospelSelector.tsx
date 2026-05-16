@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import type { Gospel } from '@/lib/types';
 import { GOSPELS } from '@/lib/types';
+import { VERSE_COUNTS } from '@/lib/verseCounts';
 
 interface Props {
   current: Gospel;
@@ -25,10 +26,13 @@ export function GospelSelector({ current, chapter, verse }: Props) {
     >
       {GOSPELS.map((gospel) => {
         const isActive = gospel === current;
+        const counts = VERSE_COUNTS[gospel];
+        const safeChapter = Math.min(chapter, counts.length);
+        const safeVerse = Math.min(verse, counts[safeChapter - 1]);
         return (
           <Link
             key={gospel}
-            href={`/${gospel}/${chapter}/${verse}`}
+            href={`/${gospel}/${safeChapter}/${safeVerse}`}
             className={
               isActive
                 ? 'px-3 py-1 rounded bg-bg-page text-band font-semibold'
