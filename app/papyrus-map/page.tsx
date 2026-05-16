@@ -22,6 +22,14 @@ const GOSPEL_COLOR: Record<Gospel, string> = {
   john:    '#4D5560',
 };
 
+function papyrusLabel(siglum: string): string {
+  if (siglum.includes('+')) {
+    const nums = siglum.split('+').map(s => s.replace(/^P/, ''));
+    return `Papyri ${nums.join('+')}`;
+  }
+  return `Papyrus ${siglum.replace(/^P/, '')}`;
+}
+
 function dotColor(gospels: Gospel[]): string {
   if (gospels.length > 1) return '#B8893A'; // gold = multi-gospel
   if (gospels.length === 1) return GOSPEL_COLOR[gospels[0]];
@@ -333,8 +341,11 @@ export default function PapyrusMapPage() {
                       {/* Header */}
                       <div className="flex items-center justify-between px-4 py-3 border-b border-rule-hairline bg-witness-band text-ink-on-band">
                         <div className="flex items-center gap-3 flex-wrap">
-                          <span className="text-xl font-semibold tracking-tight" style={{ fontFamily: 'var(--font-greek)' }}>
-                            {p.siglum}
+                          <span className="text-xl font-semibold tracking-tight">
+                            {papyrusLabel(p.siglum)}
+                          </span>
+                          <span className="text-sm text-ink-on-band-muted" style={{ fontFamily: 'var(--font-greek)' }}>
+                            ({p.siglum})
                           </span>
                           <span className="text-sm text-ink-on-band-muted">{p.date}</span>
                           <span className="text-xs text-ink-on-band-muted">
@@ -422,7 +433,7 @@ export default function PapyrusMapPage() {
               <thead>
                 <tr className="bg-witness-band text-ink-on-band text-left">
                   <th className="px-3 py-2 font-semibold">#</th>
-                  <th className="px-3 py-2 font-semibold">Siglum</th>
+                  <th className="px-3 py-2 font-semibold">Papyrus (siglum)</th>
                   <th className="px-3 py-2 font-semibold">MS Date</th>
                   <th className="px-3 py-2 font-semibold">Discovery / acquisition / recognition</th>
                   <th className="px-3 py-2 font-semibold text-center">Mt</th>
@@ -440,14 +451,16 @@ export default function PapyrusMapPage() {
                   return (
                     <tr key={p.siglum} className={i % 2 === 0 ? 'bg-bg-page' : 'bg-bg-elevated'}>
                       <td className="px-3 py-1.5 text-ink-muted text-sm">{i + 1}</td>
-                      <td className="px-3 py-1.5">
+                      <td className="px-3 py-1.5 whitespace-nowrap">
                         <a
                           href={`#${p.siglum}`}
                           className="font-semibold text-ink-primary hover:text-accent-gold transition-colors"
-                          style={{ fontFamily: 'var(--font-greek)' }}
                         >
-                          {p.siglum}
+                          {papyrusLabel(p.siglum)}
                         </a>
+                        <span className="ml-1.5 text-ink-muted text-xs" style={{ fontFamily: 'var(--font-greek)' }}>
+                          ({p.siglum})
+                        </span>
                       </td>
                       <td className="px-3 py-1.5 text-ink-secondary text-sm whitespace-nowrap">{p.date}</td>
                       <td className="px-3 py-1.5 text-sm">
