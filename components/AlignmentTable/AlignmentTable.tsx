@@ -3,6 +3,7 @@ import { AlignmentRow } from './AlignmentRow';
 
 interface Props {
   data: VerseData;
+  nextFragment?: string | null;
 }
 
 const COLUMNS = [
@@ -31,7 +32,7 @@ const PAIR_BG = [
   'rgba(250,246,232,0.8)',
 ] as const;
 
-export function AlignmentTable({ data }: Props) {
+export function AlignmentTable({ data, nextFragment }: Props) {
   return (
     <div className="overflow-x-auto">
       <table className="w-full border-collapse text-left table-fixed min-w-[1440px]">
@@ -59,6 +60,11 @@ export function AlignmentTable({ data }: Props) {
                     <div className="font-normal text-ink-on-band-muted text-xs mt-0.5">
                       {col.date} · {col.script}
                     </div>
+                    {col.key === 'papyrus' && nextFragment && (
+                      <div className="font-normal normal-case tracking-normal text-[10px] mt-1 text-amber-200/80">
+                        {nextFragment}
+                      </div>
+                    )}
                   </div>
                   {/* Cell-B portion: dot area spacer */}
                   <div className="w-[10%]" />

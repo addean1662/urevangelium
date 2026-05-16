@@ -8,6 +8,7 @@ import { LineageTimeline } from '@/components/LineageTimeline';
 import { GospelSelector } from '@/components/GospelSelector';
 import { PassageNav } from '@/components/PassageNav';
 import { SiteHeader } from '@/components/SiteHeader';
+import { getNextPapyrusVerse, formatNextFragment } from '@/lib/nextPapyrusVerse';
 
 type Params = Promise<{ gospel: string; chapter: string; verse: string }>;
 
@@ -38,6 +39,10 @@ export default async function PassagePage({ params }: { params: Params }) {
   if (chapter > chapterVerses.length) notFound();
   if (verse > chapterVerses[chapter - 1]) notFound();
   const data = await loadVerse(g, chapter, verse);
+  const nextFragment = formatNextFragment(
+    { gospel: g, chapter, verse },
+    getNextPapyrusVerse(g, chapter, verse),
+  );
 
   const gospelLabel = GOSPEL_DISPLAY[g];
   const passageLabel = `${gospelLabel} ${chapter}:${verse}`;
@@ -68,7 +73,7 @@ export default async function PassagePage({ params }: { params: Params }) {
               </p>
             </div>
 
-            <AlignmentTable data={data} />
+            <AlignmentTable data={data} nextFragment={nextFragment} />
             <LineageTimeline />
           </>
         ) : (
