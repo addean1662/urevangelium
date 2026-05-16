@@ -27,6 +27,16 @@ export function formatNextFragment(
   return `Next: ${GOSPEL_DISPLAY[next.gospel]} ${next.chapter}:${next.verse}`;
 }
 
+export function formatNextFragmentHref(
+  current: { gospel: Gospel; chapter: number; verse: number },
+  next: NextFragment,
+): string | null {
+  if (next.kind === 'none') return null;
+  if (next.kind === 'next-verse') return `/${current.gospel}/${current.chapter}/${current.verse + 1}`;
+  if (next.kind === 'same-gospel') return `/${current.gospel}/${next.chapter}/${next.verse}`;
+  return `/${next.gospel}/${next.chapter}/${next.verse}`;
+}
+
 // Cached flat sorted list of all covered verses: [gospelIndex, chapter, verse]
 let _covered: Array<[number, number, number]> | null = null;
 

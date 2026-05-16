@@ -5,6 +5,7 @@ import { AlignmentRow } from './AlignmentRow';
 interface Props {
   data: VerseData;
   nextFragment?: string | null;
+  nextFragmentHref?: string | null;
 }
 
 const COLUMNS = [
@@ -33,7 +34,7 @@ const PAIR_BG = [
   'rgba(250,246,232,0.8)',
 ] as const;
 
-export function AlignmentTable({ data, nextFragment }: Props) {
+export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) {
   return (
     <div className="overflow-x-auto">
       <table className="w-full border-collapse text-left table-fixed min-w-[1440px]">
@@ -72,7 +73,14 @@ export function AlignmentTable({ data, nextFragment }: Props) {
                     </div>
                     {col.key === 'papyrus' && nextFragment && (
                       <div className="font-normal normal-case tracking-normal text-[10px] mt-1 text-amber-200/80">
-                        {nextFragment}
+                        {nextFragmentHref ? (
+                          <Link
+                            href={nextFragmentHref}
+                            className="underline underline-offset-2 decoration-amber-200/40 hover:text-amber-200 transition-colors"
+                          >
+                            {nextFragment}
+                          </Link>
+                        ) : nextFragment}
                       </div>
                     )}
                   </div>
