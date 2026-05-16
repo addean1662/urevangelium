@@ -168,7 +168,7 @@ export default function PapyrusMapPage() {
 
       {/* Breadcrumb */}
       <div className="px-4 py-2 border-b border-rule-hairline bg-bg-elevated flex items-center gap-2 text-sm text-ink-muted">
-        <Link href="/matthew/1/1" className="hover:text-ink-primary transition-colors">← Browse Verses</Link>
+        <Link href="/matthew/1/1" className="hover:text-ink-primary transition-colors">← Back to Urevangelium Main Table</Link>
         <span>/</span>
         <span className="text-ink-primary font-medium">Earliest Papyrus Witnesses</span>
       </div>
