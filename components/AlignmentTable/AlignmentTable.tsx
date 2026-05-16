@@ -75,9 +75,9 @@ export function AlignmentTable({ data, nextFragment }: Props) {
                     {col.key === 'papyrus' && (
                       <Link
                         href="/papyrus-map"
-                        className="font-normal normal-case tracking-normal text-[9px] mt-1 text-amber-200/60 hover:text-amber-200/90 transition-colors underline underline-offset-2"
+                        className="font-normal normal-case tracking-normal text-[11px] mt-1.5 text-amber-200/80 hover:text-amber-200 transition-colors underline underline-offset-2 decoration-amber-200/40"
                       >
-                        View witness map
+                        65 witnesses · view map →
                       </Link>
                     )}
                   </div>
