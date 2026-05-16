@@ -22,24 +22,26 @@ const GOSPEL_COLOR: Record<Gospel, string> = {
   john:    '#4D5560',
 };
 
+function dotColor(gospels: Gospel[]): string {
+  if (gospels.length > 1) return '#B8893A'; // gold = multi-gospel
+  if (gospels.length === 1) return GOSPEL_COLOR[gospels[0]];
+  return '#C4B89E';
+}
+
 function CoverageBar({
-  chaptersTotal,
-  coveredChapters,
-  color,
-  gospel,
+  chaptersTotal, coveredChapters, color, gospel,
 }: {
   chaptersTotal: number;
   coveredChapters: Set<number> | undefined;
   color: string;
   gospel: string;
 }) {
-  const cells = Array.from({ length: chaptersTotal }, (_, i) => i + 1);
   const hasCoverage = coveredChapters && coveredChapters.size > 0;
   return (
     <div className="flex items-center gap-1">
       <span className="text-[9px] uppercase tracking-widest w-5 shrink-0 text-ink-muted">{gospel}</span>
       <div className="flex gap-px h-3">
-        {cells.map(ch => (
+        {Array.from({ length: chaptersTotal }, (_, i) => i + 1).map(ch => (
           <div
             key={ch}
             className="h-full rounded-sm"
@@ -61,48 +63,80 @@ function CoverageBar({
 export default function PapyrusMapPage() {
   const { papyri, totalCitations, gospelTotals, chapterCount } = loadPapyrusMap();
 
-  const cntCount = papyri.filter(p => p.hasCNTR).length;
+  const cntCount  = papyri.filter(p => p.hasCNTR).length;
   const stubCount = papyri.length - cntCount;
 
-  // Earliest and latest dates
-  const allDates = papyri.map(p => p.date);
-  const earliest = allDates[0]; // already sorted
-  const latest   = allDates[allDates.length - 1];
-
-  // Group into centuries
-  function century(date: string): string {
+  // ── Century grouping (primary = chronological) ──────────────────────────
+  function centuryLabel(date: string): string {
     const m = date.match(/(\d{3,4})/);
     if (!m) return 'Unknown';
     const y = parseInt(m[1]);
-    if (y <= 175) return '2nd century CE (–175)';
-    if (y <= 300) return '3rd century CE (175–300)';
-    if (y <= 400) return '4th century CE (300–400)';
-    if (y <= 500) return '5th century CE (400–500)';
-    if (y <= 600) return '6th century CE (500–600)';
-    return '7th century CE (600+)';
+    if (y <= 175) return '2nd century CE';
+    if (y <= 300) return '3rd century CE';
+    if (y <= 400) return '4th century CE';
+    if (y <= 500) return '5th century CE';
+    if (y <= 600) return '6th century CE';
+    return '7th century CE';
   }
 
-  const grouped = new Map<string, typeof papyri>();
-  const ORDER = [
-    '2nd century CE (–175)',
-    '3rd century CE (175–300)',
-    '4th century CE (300–400)',
-    '5th century CE (400–500)',
-    '6th century CE (500–600)',
-    '7th century CE (600+)',
+  const ERA_ORDER = [
+    '2nd century CE',
+    '3rd century CE',
+    '4th century CE',
+    '5th century CE',
+    '6th century CE',
+    '7th century CE',
   ];
+
+  const grouped = new Map<string, typeof papyri>();
   for (const p of papyri) {
-    const c = century(p.date);
+    const c = centuryLabel(p.date);
     if (!grouped.has(c)) grouped.set(c, []);
     grouped.get(c)!.push(p);
   }
 
-  // Verse ranges compressed per gospel
+  // ── SVG Timeline layout ─────────────────────────────────────────────────
+  const TL_LEFT  = 50;
+  const TL_RIGHT = 860;
+  const TL_W     = TL_RIGHT - TL_LEFT;   // 810
+  const TL_BAR_Y = 62;
+  const TL_START = 100;
+  const TL_END   = 750;
+  const TL_RANGE = TL_END - TL_START;    // 650
+
+  function dateYear(date: string): number {
+    const m = date.match(/\d{3,4}/);
+    return m ? parseInt(m[0]) : 400;
+  }
+  function xForYear(y: number): number {
+    return TL_LEFT + ((y - TL_START) / TL_RANGE) * TL_W;
+  }
+
+  // Assign each papyrus to a stagger lane (0 = closest to bar)
+  const LANES      = 5;
+  const MIN_GAP    = 16;  // px minimum between dot centres in same lane
+  const laneLastX  = new Array(LANES).fill(-999);
+  const LANE_Y     = [50, 38, 26, 14, 5]; // y positions per lane (above bar)
+
+  const tlPoints = papyri.map(p => {
+    const year  = dateYear(p.date);
+    const x     = xForYear(year);
+    const r     = p.verseCount > 200 ? 6 : p.verseCount > 30 ? 5 : 4;
+    const color = dotColor(p.gospels);
+
+    let lane = LANES - 1;
+    for (let l = 0; l < LANES; l++) {
+      if (x - laneLastX[l] >= MIN_GAP) { lane = l; break; }
+    }
+    laneLastX[lane] = x;
+
+    return { siglum: p.siglum, x, y: LANE_Y[lane], r, color, year, date: p.date, verseCount: p.verseCount };
+  });
+
+  const CENTURY_TICKS = [200, 300, 400, 500, 600, 700];
+
+  // ── Chapter-range helper ────────────────────────────────────────────────
   function verseRangeStr(p: typeof papyri[0], gospel: Gospel): string {
-    // Get sorted list, compress to ranges
-    const vv = [] as Array<{ ch: number; v: number }>;
-    // We only have chaptersCovered — for full verse ranges we'd need raw verses
-    // Show chapter ranges instead
     const chs = p.chaptersCovered[gospel];
     if (!chs || chs.size === 0) return '';
     const sorted = [...chs].sort((a, b) => a - b);
@@ -131,20 +165,21 @@ export default function PapyrusMapPage() {
       <main className="flex-1 max-w-6xl mx-auto w-full px-4 py-8">
 
         {/* Title */}
-        <h2 className="text-3xl font-semibold text-ink-primary mb-1" style={{ fontFamily: 'var(--font-ui)' }}>
+        <h2 className="text-3xl font-semibold text-ink-primary mb-1">
           Earliest Papyrus Witnesses
         </h2>
         <p className="text-ink-muted italic text-sm mb-6">
-          All known papyrus manuscripts of the four Gospels, with verse-by-verse coverage across {GOSPELS.map(g => GOSPEL_DISPLAY[g]).join(', ')}.
+          All known papyrus manuscripts of the four Gospels — ordered by manuscript date, then by Gregory-Aland
+          registration number (which approximates discovery order within the same date).
         </p>
 
         {/* Summary stats */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
           {[
-            { label: 'Papyri registered', value: papyri.length.toString() },
-            { label: 'Verse citations', value: totalCitations.toLocaleString() },
-            { label: 'With CNTR transcription', value: cntCount.toString() },
-            { label: 'Coverage only (stubs)', value: stubCount.toString() },
+            { label: 'Papyri registered',       value: papyri.length.toString() },
+            { label: 'Verse citations',          value: totalCitations.toLocaleString() },
+            { label: 'With CNTR transcription',  value: cntCount.toString() },
+            { label: 'Coverage stubs',           value: stubCount.toString() },
           ].map(s => (
             <div key={s.label} className="bg-bg-elevated rounded-lg border border-rule-hairline px-4 py-3">
               <div className="text-2xl font-semibold text-accent-gold">{s.value}</div>
@@ -153,9 +188,116 @@ export default function PapyrusMapPage() {
           ))}
         </div>
 
+        {/* ── SVG Timeline ── */}
+        <section className="mb-10 bg-bg-elevated border border-rule-hairline rounded-lg overflow-hidden">
+          <div className="px-4 pt-4 pb-1">
+            <p className="text-xs font-semibold uppercase tracking-wider text-ink-secondary mb-1">
+              Manuscript Date Timeline
+            </p>
+            <p className="text-[11px] text-ink-muted mb-3">
+              Each dot is one papyrus. Size = relative verse coverage. Color = Gospel(s) covered.
+              Hover for details; click to jump to its entry below.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto px-2 pb-4">
+            <svg
+              viewBox="0 0 910 92"
+              style={{ width: '100%', minWidth: '560px', height: 'auto', display: 'block' }}
+              aria-label="Papyrus manuscript timeline from 100 CE to 750 CE"
+            >
+              {/* Century band fills */}
+              {CENTURY_TICKS.map((yr, i) => {
+                const x1 = xForYear(i === 0 ? TL_START : CENTURY_TICKS[i - 1]);
+                const x2 = xForYear(yr);
+                return (
+                  <rect
+                    key={yr}
+                    x={x1} y={0} width={x2 - x1} height={TL_BAR_Y - 2}
+                    fill={i % 2 === 0 ? 'rgba(0,0,0,0.015)' : 'rgba(0,0,0,0.03)'}
+                  />
+                );
+              })}
+
+              {/* Timeline bar */}
+              <line
+                x1={TL_LEFT} y1={TL_BAR_Y} x2={TL_RIGHT} y2={TL_BAR_Y}
+                stroke="#C4B89E" strokeWidth="1.5"
+              />
+
+              {/* Century tick marks + labels */}
+              {CENTURY_TICKS.map(yr => {
+                const x = xForYear(yr);
+                return (
+                  <g key={yr}>
+                    <line x1={x} y1={TL_BAR_Y - 4} x2={x} y2={TL_BAR_Y + 4} stroke="#C4B89E" strokeWidth="1" />
+                    <text x={x} y={TL_BAR_Y + 14} textAnchor="middle" fontSize="8" fill="#796A4D">{yr}</text>
+                  </g>
+                );
+              })}
+              {/* Start label */}
+              <text x={TL_LEFT} y={TL_BAR_Y + 14} textAnchor="middle" fontSize="8" fill="#796A4D">100</text>
+              {/* "CE" axis label */}
+              <text x={TL_RIGHT + 6} y={TL_BAR_Y + 3} fontSize="7" fill="#C4B89E">CE</text>
+
+              {/* Papyrus dots */}
+              {tlPoints.map(pt => (
+                <a key={pt.siglum} href={`#${pt.siglum}`}>
+                  <title>{pt.siglum} · {pt.date} · {pt.verseCount} verses</title>
+                  <circle
+                    cx={pt.x} cy={pt.y} r={pt.r}
+                    fill={pt.color}
+                    fillOpacity="0.85"
+                    stroke="white"
+                    strokeWidth="0.8"
+                  />
+                </a>
+              ))}
+
+              {/* Labels for high-coverage papyri (> 100 verses) */}
+              {tlPoints
+                .filter(pt => pt.verseCount > 100)
+                .map(pt => (
+                  <text
+                    key={pt.siglum + '-lbl'}
+                    x={pt.x}
+                    y={pt.y - pt.r - 2}
+                    textAnchor="middle"
+                    fontSize="7"
+                    fill="#1F1A14"
+                    fontFamily="serif"
+                  >
+                    {pt.siglum}
+                  </text>
+                ))}
+            </svg>
+          </div>
+
+          {/* Legend */}
+          <div className="flex flex-wrap gap-4 px-4 pb-4 text-[10px] text-ink-muted border-t border-rule-hairline pt-3">
+            {GOSPELS.map(g => (
+              <span key={g} className="flex items-center gap-1.5">
+                <span
+                  className="inline-block w-2.5 h-2.5 rounded-full"
+                  style={{ backgroundColor: GOSPEL_COLOR[g] }}
+                />
+                {GOSPEL_DISPLAY[g]}
+              </span>
+            ))}
+            <span className="flex items-center gap-1.5">
+              <span
+                className="inline-block w-2.5 h-2.5 rounded-full"
+                style={{ backgroundColor: '#B8893A' }}
+              />
+              Multiple Gospels
+            </span>
+            <span className="text-ink-muted ml-auto">Dot size ∝ verse coverage</span>
+          </div>
+        </section>
+
         {/* Gospel totals reference */}
         <div className="mb-6 bg-bg-elevated border border-rule-hairline rounded-lg px-4 py-3">
-          <p className="text-xs font-semibold text-ink-secondary mb-2 uppercase tracking-wider">Gospel verse totals (reference)</p>
+          <p className="text-xs font-semibold text-ink-secondary mb-2 uppercase tracking-wider">Gospel verse totals</p>
           <div className="flex flex-wrap gap-4">
             {GOSPELS.map(g => (
               <span key={g} className="text-sm">
@@ -165,18 +307,19 @@ export default function PapyrusMapPage() {
             ))}
           </div>
           <p className="text-[10px] text-ink-muted mt-2">
-            Coverage bars below show one cell per chapter. Filled = at least one verse covered by that papyrus.
+            Coverage bars show one cell per chapter; filled = at least one verse of that chapter survives in the papyrus.
           </p>
         </div>
 
         {/* Per-century groups */}
-        {ORDER.map(era => {
+        {ERA_ORDER.map(era => {
           const group = grouped.get(era);
           if (!group || group.length === 0) return null;
           return (
             <section key={era} className="mb-10">
               <h3 className="text-lg font-semibold text-ink-secondary border-b border-rule-hairline pb-1 mb-4">
                 {era}
+                <span className="ml-2 text-sm font-normal text-ink-muted">({group.length} papyri)</span>
               </h3>
               <div className="flex flex-col gap-4">
                 {group.map(p => {
@@ -187,9 +330,9 @@ export default function PapyrusMapPage() {
                       id={p.siglum}
                       className="bg-bg-elevated border border-rule-hairline rounded-lg overflow-hidden"
                     >
-                      {/* Header row */}
+                      {/* Header */}
                       <div className="flex items-center justify-between px-4 py-3 border-b border-rule-hairline bg-witness-band text-ink-on-band">
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-3 flex-wrap">
                           <span className="text-xl font-semibold tracking-tight" style={{ fontFamily: 'var(--font-greek)' }}>
                             {p.siglum}
                           </span>
@@ -221,8 +364,6 @@ export default function PapyrusMapPage() {
 
                       {/* Coverage body */}
                       <div className="px-4 py-3 grid grid-cols-1 md:grid-cols-2 gap-4">
-
-                        {/* Coverage bars */}
                         <div>
                           <p className="text-[10px] uppercase tracking-widest text-ink-muted mb-2">Chapter coverage</p>
                           <div className="flex flex-col gap-1.5">
@@ -237,30 +378,23 @@ export default function PapyrusMapPage() {
                             ))}
                           </div>
                         </div>
-
-                        {/* Verse range detail */}
                         <div>
                           <p className="text-[10px] uppercase tracking-widest text-ink-muted mb-2">Covered sections</p>
                           <div className="flex flex-col gap-1 text-xs">
                             {p.gospels.length === 0 && (
                               <span className="text-ink-muted italic">No verses indexed</span>
                             )}
-                            {p.gospels.map(g => {
-                              const rangeStr = verseRangeStr(p, g);
-                              const count = p.verseCountByGospel[g] ?? 0;
-                              return (
-                                <div key={g} className="flex gap-2 items-baseline">
-                                  <span
-                                    className="font-semibold w-8 shrink-0"
-                                    style={{ color: GOSPEL_COLOR[g] }}
-                                  >
-                                    {GOSPEL_DISPLAY[g]}
-                                  </span>
-                                  <span className="text-ink-secondary">{rangeStr}</span>
-                                  <span className="text-ink-muted ml-auto whitespace-nowrap">{count} vv</span>
-                                </div>
-                              );
-                            })}
+                            {p.gospels.map(g => (
+                              <div key={g} className="flex gap-2 items-baseline">
+                                <span className="font-semibold w-16 shrink-0" style={{ color: GOSPEL_COLOR[g] }}>
+                                  {GOSPEL_DISPLAY[g]}
+                                </span>
+                                <span className="text-ink-secondary">{verseRangeStr(p, g)}</span>
+                                <span className="text-ink-muted ml-auto whitespace-nowrap">
+                                  {p.verseCountByGospel[g]} vv
+                                </span>
+                              </div>
+                            ))}
                           </div>
                         </div>
                       </div>
@@ -276,11 +410,15 @@ export default function PapyrusMapPage() {
         <section className="mt-6">
           <h3 className="text-lg font-semibold text-ink-secondary border-b border-rule-hairline pb-1 mb-4">
             Full Index
+            <span className="ml-2 text-sm font-normal text-ink-muted">
+              — chronological order, discovery order as tie-breaker
+            </span>
           </h3>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-witness-band text-ink-on-band text-left">
+                  <th className="px-3 py-2 font-semibold">#</th>
                   <th className="px-3 py-2 font-semibold">Siglum</th>
                   <th className="px-3 py-2 font-semibold">Date</th>
                   <th className="px-3 py-2 font-semibold text-center">Mt</th>
@@ -296,10 +434,8 @@ export default function PapyrusMapPage() {
                 {papyri.map((p, i) => {
                   const fv = p.firstVerse;
                   return (
-                    <tr
-                      key={p.siglum}
-                      className={i % 2 === 0 ? 'bg-bg-page' : 'bg-bg-elevated'}
-                    >
+                    <tr key={p.siglum} className={i % 2 === 0 ? 'bg-bg-page' : 'bg-bg-elevated'}>
+                      <td className="px-3 py-1.5 text-ink-muted text-xs">{i + 1}</td>
                       <td className="px-3 py-1.5">
                         <a
                           href={`#${p.siglum}`}
@@ -310,7 +446,7 @@ export default function PapyrusMapPage() {
                         </a>
                       </td>
                       <td className="px-3 py-1.5 text-ink-secondary text-xs">{p.date}</td>
-                      {(['matthew','mark','luke','john'] as Gospel[]).map(g => (
+                      {(['matthew', 'mark', 'luke', 'john'] as Gospel[]).map(g => (
                         <td key={g} className="px-3 py-1.5 text-center">
                           {p.verseCountByGospel[g] ? (
                             <span style={{ color: GOSPEL_COLOR[g] }} className="font-medium text-xs">
@@ -323,11 +459,9 @@ export default function PapyrusMapPage() {
                       ))}
                       <td className="px-3 py-1.5 text-center font-semibold text-xs">{p.verseCount}</td>
                       <td className="px-3 py-1.5">
-                        {p.hasCNTR ? (
-                          <span className="text-[10px] text-semantic-extant font-medium">CNTR</span>
-                        ) : (
-                          <span className="text-[10px] text-ink-muted">stub</span>
-                        )}
+                        {p.hasCNTR
+                          ? <span className="text-[10px] text-semantic-extant font-medium">CNTR</span>
+                          : <span className="text-[10px] text-ink-muted">stub</span>}
                       </td>
                       <td className="px-3 py-1.5">
                         {fv && (
@@ -347,26 +481,28 @@ export default function PapyrusMapPage() {
           </div>
         </section>
 
-        {/* Methodology note */}
+        {/* Methodology */}
         <section className="mt-10 border-t border-rule-hairline pt-6 text-xs text-ink-muted leading-relaxed">
-          <p className="font-semibold text-ink-secondary mb-2">Methodology</p>
+          <p className="font-semibold text-ink-secondary mb-2">Methodology &amp; Sources</p>
           <p className="mb-2">
-            Papyrus transcriptions marked <span className="text-semantic-extant font-medium">CNTR</span> are
-            sourced from the Center for New Testament Restoration (CNTR) Class 1 transcriptions (CC BY-SA 4.0)
-            and contain the actual Greek text of the manuscript. Each word in the Earliest Papyrus column of the
-            alignment table is drawn directly from the CNTR transcription, stripped of editorial markup
-            (scribal corrections, per-letter uncertainty markers, nomina sacra prefixes).
+            Papyri are ordered primarily by manuscript date (earliest scholarly estimate), then by
+            Gregory-Aland siglum number — the international registration system maintained by the Institut
+            für Neutestamentliche Textforschung (INTF, Münster). Siglum numbers were assigned roughly in
+            discovery and registration order, so within papyri sharing the same date estimate this serves
+            as a proxy for discovery chronology.
           </p>
           <p className="mb-2">
-            Papyri marked <span className="font-medium">stub</span> are registered from known verse ranges
-            in the scholarly literature but do not yet have a CNTR transcription in this database. Their verse
-            cells in the alignment table are marked as extant (the papyrus is known to cover that verse) but
-            the displayed text falls back to the TAGNT form.
+            Transcriptions marked <span className="text-semantic-extant font-medium">CNTR</span> are
+            sourced from the Center for New Testament Restoration (CNTR) Class 1 transcriptions (CC BY-SA 4.0).
+            Each word in the Earliest Papyrus column is drawn directly from the CNTR text, stripped of
+            editorial markup (scribal corrections <code>x&#123;wrong&#125;&#123;right&#125;</code>,
+            per-letter uncertainty markers <code>^%</code>, nomina sacra prefixes <code>~=</code>).
           </p>
           <p>
-            Coverage bars show chapter-level coverage: a filled cell indicates at least one verse in that chapter
-            survives in the papyrus. Chapter cells are equal width regardless of verse count within the chapter.
-            Jump links navigate directly to the first verse covered by that papyrus in the alignment table.
+            Papyri marked <span className="font-medium">coverage stub</span> are registered from verse
+            ranges documented in the scholarly literature but have no CNTR transcription in this database.
+            Their alignment cells are marked extant (the papyrus is known to cover that verse) but the
+            displayed text falls back to the TAGNT Greek form.
           </p>
         </section>
 

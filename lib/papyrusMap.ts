@@ -40,13 +40,19 @@ export function loadPapyrusMap(): {
     papyri: Array<{ siglum: string; date: string; verses: Array<{ gospel: string; chapter: number; verse: number }> }>;
   };
 
-  function sortKey(date: string): number {
+  // Primary: earliest year in the date range (manuscript age)
+  function dateKey(date: string): number {
     const m = date.match(/\d{3,4}/);
+    return m ? parseInt(m[0]) : 9999;
+  }
+  // Secondary: siglum number (Gregory-Aland registration ≈ discovery order)
+  function siglaKey(siglum: string): number {
+    const m = siglum.match(/\d+/);
     return m ? parseInt(m[0]) : 9999;
   }
 
   const papyri: PapyrusInfo[] = raw.papyri
-    .sort((a, b) => sortKey(a.date) - sortKey(b.date))
+    .sort((a, b) => dateKey(a.date) - dateKey(b.date) || siglaKey(a.siglum) - siglaKey(b.siglum))
     .map(p => {
       const gospelSet = new Set<Gospel>();
       const countByGospel: Partial<Record<Gospel, number>> = {};
