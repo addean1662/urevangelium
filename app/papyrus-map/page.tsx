@@ -179,6 +179,8 @@ export default function PapyrusMapPage() {
         <p className="text-ink-secondary text-base mb-6">
           All known papyrus manuscripts of the four Gospels — ordered by manuscript date, then by Gregory-Aland
           registration number (which approximates discovery order within the same date).
+          Date ranges (e.g. 125–175 CE) are paleographic estimates: scholars date each manuscript by comparing
+          its handwriting style to other dated documents, yielding a range rather than a precise year.
         </p>
 
         {/* Summary stats */}
@@ -347,7 +349,9 @@ export default function PapyrusMapPage() {
                           <span className="text-sm text-ink-on-band-muted" style={{ fontFamily: 'var(--font-greek)' }}>
                             ({p.siglum})
                           </span>
-                          <span className="text-sm text-ink-on-band-muted">{p.date}</span>
+                          <span className="text-sm text-ink-on-band-muted">
+                            Written {p.date}
+                          </span>
                           <span className="text-xs text-ink-on-band-muted">
                             {p.discoveryYear ? `Disc. ${p.discoveryYear}` : 'Disc. unknown'} · {p.discoveryNote}
                           </span>
@@ -434,7 +438,7 @@ export default function PapyrusMapPage() {
                 <tr className="bg-witness-band text-ink-on-band text-left">
                   <th className="px-3 py-2 font-semibold">#</th>
                   <th className="px-3 py-2 font-semibold">Papyrus (siglum)</th>
-                  <th className="px-3 py-2 font-semibold">MS Date</th>
+                  <th className="px-3 py-2 font-semibold">Written (paleographic est.)</th>
                   <th className="px-3 py-2 font-semibold">Discovery / acquisition / recognition</th>
                   <th className="px-3 py-2 font-semibold text-center">Mt</th>
                   <th className="px-3 py-2 font-semibold text-center">Mk</th>
