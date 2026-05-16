@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Gospel } from '@/lib/types';
 import { GOSPELS } from '@/lib/types';
+import { VERSE_COUNTS } from '@/lib/verseCounts';
 import { loadVerse } from '@/lib/data';
 import { AlignmentTable } from '@/components/AlignmentTable/AlignmentTable';
 import { LineageTimeline } from '@/components/LineageTimeline';
@@ -33,6 +34,9 @@ export default async function PassagePage({ params }: { params: Params }) {
   if (!Number.isInteger(verse) || verse < 1) notFound();
 
   const g = gospel as Gospel;
+  const chapterVerses = VERSE_COUNTS[g];
+  if (chapter > chapterVerses.length) notFound();
+  if (verse > chapterVerses[chapter - 1]) notFound();
   const data = await loadVerse(g, chapter, verse);
 
   const gospelLabel = GOSPEL_DISPLAY[g];
