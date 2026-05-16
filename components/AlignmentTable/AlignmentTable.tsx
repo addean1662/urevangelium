@@ -57,7 +57,16 @@ export function AlignmentTable({ data, nextFragment }: Props) {
                 <div className="flex">
                   {/* Cell-A portion: witness name + date, right-aligned above source text */}
                   <div className="w-[45%] text-right pr-2">
-                    <div className="font-semibold">{col.label}</div>
+                    {col.key === 'papyrus' ? (
+                      <Link
+                        href="/papyrus-map"
+                        className="font-semibold hover:text-amber-200 transition-colors underline underline-offset-2 decoration-amber-200/40"
+                      >
+                        {col.label}
+                      </Link>
+                    ) : (
+                      <div className="font-semibold">{col.label}</div>
+                    )}
                     <div className="font-normal text-ink-on-band-muted text-xs mt-0.5">
                       {col.date} · {col.script}
                     </div>
@@ -69,17 +78,9 @@ export function AlignmentTable({ data, nextFragment }: Props) {
                   </div>
                   {/* Cell-B portion: dot area spacer */}
                   <div className="w-[10%]" />
-                  {/* Cell-C portion: gloss source + map link for papyrus */}
+                  {/* Cell-C portion: gloss source */}
                   <div className="w-[45%] pl-2 flex flex-col justify-end">
                     <div className="font-normal text-ink-on-band-muted text-xs">{col.glossSource}</div>
-                    {col.key === 'papyrus' && (
-                      <Link
-                        href="/papyrus-map"
-                        className="font-normal normal-case tracking-normal text-[11px] mt-1.5 text-amber-200/80 hover:text-amber-200 transition-colors underline underline-offset-2 decoration-amber-200/40"
-                      >
-                        65 witnesses · view map →
-                      </Link>
-                    )}
                   </div>
                 </div>
               </th>
