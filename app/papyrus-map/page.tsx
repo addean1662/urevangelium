@@ -36,6 +36,16 @@ function dotColor(gospels: Gospel[]): string {
   return '#C4B89E';
 }
 
+// Empty spacer bubbles prepended before chapter indicators so the label
+// text never visually collides with the first real bubble regardless of
+// how the browser renders proportional uppercase text.
+const LEADING_BUBBLES: Record<string, number> = {
+  matthew: 1,
+  mark:    4,
+  luke:    4,
+  john:    4,
+};
+
 function CoverageBar({
   chaptersTotal, coveredChapters, color, gospel,
 }: {
@@ -45,10 +55,14 @@ function CoverageBar({
   gospel: string;
 }) {
   const hasCoverage = coveredChapters && coveredChapters.size > 0;
+  const leading = LEADING_BUBBLES[gospel] ?? 2;
   return (
     <div className="flex items-center gap-3">
       <span className="text-[11px] uppercase tracking-widest shrink-0 text-ink-secondary w-16">{gospel}</span>
       <div className="flex gap-px h-3.5">
+        {Array.from({ length: leading }).map((_, i) => (
+          <div key={`sp-${i}`} className="h-full rounded-sm" style={{ width: '7px' }} />
+        ))}
         {Array.from({ length: chaptersTotal }, (_, i) => i + 1).map(ch => (
           <div
             key={ch}
