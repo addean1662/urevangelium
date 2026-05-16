@@ -254,15 +254,15 @@ export default function PapyrusMapPage() {
                 </a>
               ))}
 
-              {/* Labels for high-coverage papyri (> 100 verses) */}
+              {/* Labels for high-coverage papyri (> 100 verses) — placed to the right of dot */}
               {tlPoints
                 .filter(pt => pt.verseCount > 100)
                 .map(pt => (
                   <text
                     key={pt.siglum + '-lbl'}
-                    x={pt.x}
-                    y={pt.y - pt.r - 2}
-                    textAnchor="middle"
+                    x={pt.x + pt.r + 2}
+                    y={pt.y + 3}
+                    textAnchor="start"
                     fontSize="7"
                     fill="#1F1A14"
                     fontFamily="serif"
