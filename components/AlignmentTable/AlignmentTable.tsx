@@ -53,52 +53,56 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
               <th
                 key={col.key}
                 colSpan={3}
-                className="py-2 text-sm font-semibold uppercase tracking-wide"
+                className="py-2 text-sm font-semibold uppercase tracking-wide h-px"
               >
-                <div className="flex h-full">
-                  {/* Cell-A portion: witness name + date, right-aligned above source text */}
-                  <div className="w-[45%] text-right pr-2">
+                {/* Full-height flex column: label at top, date+glossSource row pinned to bottom */}
+                <div className="flex flex-col h-full">
+                  {/* Label row — spans full column width so long labels never wrap */}
+                  <div className="text-right pr-2">
                     {col.key === 'papyrus' ? (
                       <Link
                         href="/papyrus-map"
-                        className="font-semibold hover:text-amber-200 transition-colors underline underline-offset-2 decoration-amber-200/40"
+                        className="hover:text-amber-200 transition-colors underline underline-offset-2 decoration-amber-200/40"
                       >
                         {col.label}
                       </Link>
-                    ) : (
-                      <div className="font-semibold">{col.label}</div>
-                    )}
-                    <div className="font-normal text-ink-on-band-muted text-xs mt-0.5">
-                      {col.date} · {col.script}
-                    </div>
-                    {col.key === 'papyrus' && nextFragment && (
-                      <div className="font-normal normal-case tracking-normal text-[10px] mt-1 text-amber-200/80">
-                        {nextFragmentHref ? (
-                          <Link
-                            href={nextFragmentHref}
-                            className="underline underline-offset-2 decoration-amber-200/40 hover:text-amber-200 transition-colors"
-                          >
-                            {nextFragment}
-                          </Link>
-                        ) : nextFragment}
-                      </div>
-                    )}
+                    ) : col.label}
                   </div>
-                  {/* Cell-B portion: dot area spacer */}
-                  <div className="w-[10%]" />
-                  {/* Cell-C: map link floats to top, gloss source pins to bottom
-                      (justify-between with h-full keeps TAGNT aligned with
-                       every other column's gloss source at the same y-position) */}
-                  <div className={`w-[45%] pl-2 flex flex-col h-full ${col.key === 'papyrus' ? 'justify-between' : 'justify-end'}`}>
-                    {col.key === 'papyrus' && (
-                      <Link
-                        href="/papyrus-map"
-                        className="font-normal normal-case tracking-normal text-[11px] text-amber-200/80 hover:text-amber-200 transition-colors underline underline-offset-2 decoration-amber-200/40"
-                      >
-                        ← Click here for 65 Papyri map
-                      </Link>
-                    )}
-                    <div className="font-normal text-ink-on-band-muted text-xs">{col.glossSource}</div>
+
+                  {/* Spacer pushes the bottom row to the foot of the cell */}
+                  <div className="flex-1" />
+
+                  {/* Bottom row: date·script on left, glossSource on right — always at same Y */}
+                  <div className="flex">
+                    <div className="w-[45%] text-right pr-2 flex flex-col justify-end gap-0.5">
+                      <div className="font-normal text-ink-on-band-muted text-xs">
+                        {col.date} · {col.script}
+                      </div>
+                      {col.key === 'papyrus' && nextFragment && (
+                        <div className="font-normal normal-case tracking-normal text-[10px] text-amber-200/80">
+                          {nextFragmentHref ? (
+                            <Link
+                              href={nextFragmentHref}
+                              className="underline underline-offset-2 decoration-amber-200/40 hover:text-amber-200 transition-colors"
+                            >
+                              {nextFragment}
+                            </Link>
+                          ) : nextFragment}
+                        </div>
+                      )}
+                    </div>
+                    <div className="w-[10%]" />
+                    <div className="w-[45%] pl-2 flex flex-col justify-end gap-0.5">
+                      <div className="font-normal text-ink-on-band-muted text-xs">{col.glossSource}</div>
+                      {col.key === 'papyrus' && (
+                        <Link
+                          href="/papyrus-map"
+                          className="font-normal normal-case tracking-normal text-[10px] text-amber-200/80 hover:text-amber-200 transition-colors underline underline-offset-2 decoration-amber-200/40"
+                        >
+                          ← 65 Papyri map
+                        </Link>
+                      )}
+                    </div>
                   </div>
                 </div>
               </th>
