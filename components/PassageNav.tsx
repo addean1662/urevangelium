@@ -44,7 +44,7 @@ export function PassageNav({ gospel, chapter, verse }: Props) {
           ← Prev Chapter
         </Link>
       ) : (
-        <span className="px-2 py-1 text-ink-muted border border-transparent">← Prev Chapter</span>
+        <span className="px-2 py-1 rounded border border-rule-hairline text-ink-muted cursor-not-allowed">← Prev Chapter</span>
       )}
 
       {prevVersePath ? (
@@ -56,7 +56,7 @@ export function PassageNav({ gospel, chapter, verse }: Props) {
           ← Prev Verse
         </Link>
       ) : (
-        <span className="px-2 py-1 text-ink-muted border border-transparent">← Prev Verse</span>
+        <span className="px-2 py-1 rounded border border-rule-hairline text-ink-muted cursor-not-allowed">← Prev Verse</span>
       )}
 
       <span className="text-ink-secondary">Chapter</span>
@@ -96,7 +96,7 @@ export function PassageNav({ gospel, chapter, verse }: Props) {
           Next Verse →
         </Link>
       ) : (
-        <span className="px-2 py-1 text-ink-muted border border-transparent">Next Verse →</span>
+        <span className="px-2 py-1 rounded border border-rule-hairline text-ink-muted cursor-not-allowed">Next Verse →</span>
       )}
 
       {nextChapterPath ? (
@@ -108,7 +108,7 @@ export function PassageNav({ gospel, chapter, verse }: Props) {
           Next Chapter →
         </Link>
       ) : (
-        <span className="px-2 py-1 text-ink-muted border border-transparent">Next Chapter →</span>
+        <span className="px-2 py-1 rounded border border-rule-hairline text-ink-muted cursor-not-allowed">Next Chapter →</span>
       )}
     </nav>
   );
