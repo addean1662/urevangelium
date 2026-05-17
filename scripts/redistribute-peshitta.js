@@ -1,10 +1,11 @@
 // @ts-check
 // scripts/redistribute-peshitta.js
 //
-// Redistributes Peshitta words proportionally across all Greek rows instead
-// of top-loading them. Only touches verses where peshitta words form a
-// contiguous block at the top (the pattern left by patch-vulgate-peshitta.js).
-// Hand-curated or already-distributed verses are left untouched.
+// Redistributes Peshitta and Vulgate words proportionally across all Greek
+// rows instead of top-loading them. Only touches verses where the witness
+// words form a contiguous block at the top (the pattern left by
+// patch-vulgate-peshitta.js). Hand-curated or already-distributed verses
+// are left untouched.
 //
 // Usage:
 //   node scripts/redistribute-peshitta.js            # all four Gospels
@@ -33,42 +34,39 @@ function targetRows(W, R) {
 }
 
 /**
- * @param {object} data  - parsed verse JSON (mutated in place)
- * @returns {boolean} whether any change was made
+ * @param {object[]} rows
+ * @param {'peshitta'|'vulgate'} witness
+ * @param {string} glossSource
+ * @returns {boolean}
  */
-function redistribute(data) {
-  const { rows } = data;
+function redistributeWitness(rows, witness, glossSource) {
   const R = rows.length;
 
-  // Collect peshitta words
   const words = rows
-    .filter(r => r.peshitta?.type === 'text')
-    .map(r => r.peshitta.text);
+    .filter(r => r[witness]?.type === 'text')
+    .map(r => r[witness].text);
   const W = words.length;
 
-  if (W === 0 || W >= R) return false; // nothing to spread out
+  if (W === 0 || W >= R) return false;
 
-  // Only touch top-loaded blocks (what the patch script produces)
   const isTopLoaded =
-    rows.slice(0, W).every(r => r.peshitta?.type === 'text') &&
-    rows.slice(W).every(r => r.peshitta?.type === 'empty');
+    rows.slice(0, W).every(r => r[witness]?.type === 'text') &&
+    rows.slice(W).every(r => r[witness]?.type === 'empty');
 
   if (!isTopLoaded) return false;
 
-  // Clear all peshitta cells
   for (const row of rows) {
-    row.peshitta = { type: 'empty' };
+    row[witness] = { type: 'empty' };
   }
 
-  // Place words at proportional target rows
   const targets = targetRows(W, R);
   for (let i = 0; i < W; i++) {
     const ri = targets[i];
     const tagntGloss = rows[ri].vaticanus?.gloss?.gloss ?? '';
-    rows[ri].peshitta = {
+    rows[ri][witness] = {
       type: 'text',
       text: words[i],
-      gloss: { gloss: tagntGloss, source: 'PayneSmith' },
+      gloss: { gloss: tagntGloss, source: glossSource },
     };
   }
 
@@ -81,7 +79,7 @@ function main() {
   const targetVerse   = targetVerseStr   ? parseInt(targetVerseStr, 10)   : null;
 
   const gospels = ['matthew', 'mark', 'luke', 'john'];
-  let changed = 0, skipped = 0;
+  let pChanged = 0, vChanged = 0, skipped = 0;
 
   for (const gospel of gospels) {
     if (targetGospel && gospel !== targetGospel) continue;
@@ -107,9 +105,13 @@ function main() {
         const filepath = path.join(chDir, f);
         const data = JSON.parse(fs.readFileSync(filepath, 'utf8'));
 
-        if (redistribute(data)) {
+        const p = redistributeWitness(data.rows, 'peshitta', 'PayneSmith');
+        const v = redistributeWitness(data.rows, 'vulgate',  'Whitaker');
+
+        if (p || v) {
           fs.writeFileSync(filepath, JSON.stringify(data, null, 2), 'utf-8');
-          changed++;
+          if (p) pChanged++;
+          if (v) vChanged++;
         } else {
           skipped++;
         }
@@ -120,8 +122,9 @@ function main() {
   }
 
   console.log(`\n${'─'.repeat(50)}`);
-  console.log(`  Redistributed : ${changed}`);
-  console.log(`  Skipped       : ${skipped}  (already distributed, hand-curated, or W≥R)`);
+  console.log(`  Peshitta redistributed : ${pChanged}`);
+  console.log(`  Vulgate redistributed  : ${vChanged}`);
+  console.log(`  Skipped                : ${skipped}`);
   console.log(`${'─'.repeat(50)}`);
 }
 
