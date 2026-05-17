@@ -24,9 +24,15 @@ export function BezaeCells({ cell }: Props) {
   if (cell.type === 'lost') {
     return (
       <>
-        <td className={base} />
-        <td className={base} />
-        <td className={base} />
+        <td className={`${base} text-right`}>
+          <span className="text-xs italic text-semantic-lacuna">lost</span>
+        </td>
+        <td className={`${base} text-center`}>
+          <span className="inline-block w-2 h-2 rounded-full bg-semantic-lacuna" />
+        </td>
+        <td className={base}>
+          <span className="text-xs italic text-semantic-lacuna">lost</span>
+        </td>
       </>
     );
   }

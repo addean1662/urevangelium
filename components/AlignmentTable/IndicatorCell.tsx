@@ -42,16 +42,5 @@ interface WitnessIndicatorProps {
 }
 
 export function WitnessIndicator({ cell }: WitnessIndicatorProps) {
-  if (cell.type === 'lost') {
-    return (
-      <td className={cellBase}>
-        <span
-          className={`${dotBase} bg-semantic-lacuna`}
-          aria-label="word lost — manuscript damaged or fragmentary"
-          title="Manuscript damaged or fragmentary"
-        />
-      </td>
-    );
-  }
   return <td className={cellBase} />;
 }

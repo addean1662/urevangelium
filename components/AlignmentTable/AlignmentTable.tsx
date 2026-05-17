@@ -22,7 +22,7 @@ type ColumnDef = {
 const BASE_COLUMNS: ColumnDef[] = [
   { key: 'papyrus',   label: 'Earliest Papyri', date: 'c. 125–250 CE',    script: 'Greek',   glossSource: 'TAGNT'      },
   { key: 'vaticanus', label: 'Vaticanus',         date: 'c. 325 CE',        script: 'Greek',   glossSource: 'TAGNT'      },
-  { key: 'bezae',     label: 'Bezae D/05',        date: 'c. 400 CE',        script: 'Gk · Lat', glossSource: null        },
+  { key: 'bezae',     label: 'Bezae',              date: 'c. 400 CE',        script: 'Gk · Lat', glossSource: null        },
   { key: 'vulgate',   label: 'Vulgate',            date: 'c. 400 CE',        script: 'Latin',   glossSource: 'Whitaker'  },
   { key: 'peshitta',  label: 'Peshitta',           date: 'c. 400–450 CE',   script: 'Syriac',  glossSource: 'PayneSmith'},
   { key: 'byzantine', label: 'Byzantine',          date: 'c. 5th–9th c.',   script: 'Greek',   glossSource: 'TAGNT'     },

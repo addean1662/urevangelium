@@ -14,7 +14,14 @@ export function WitnessCell({ cell, className = '', showTranslit = false }: Prop
   const base = `px-2 py-1.5 text-lg border-b border-rule-hairline align-middle text-right text-ink-primary ${className}`;
 
   if (cell.type === 'lost') {
-    return <td className={base} />;
+    return (
+      <td className={base}>
+        <span className="flex items-center justify-end gap-1.5">
+          <span className="text-xs italic text-semantic-lacuna">lost</span>
+          <span className="inline-block w-2 h-2 rounded-full bg-semantic-lacuna flex-shrink-0" />
+        </span>
+      </td>
+    );
   }
   if (cell.type === 'lacuna') {
     return <td className={base}><LostDots /></td>;
