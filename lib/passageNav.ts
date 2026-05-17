@@ -18,6 +18,15 @@ export function nextVerse(
   return null;
 }
 
+export function prevChapter(
+  gospel: Gospel,
+  chapter: number,
+  chapterVerseCounts: number[],
+): string | null {
+  if (chapter > 1) return buildPassagePath(gospel, chapter - 1, 1);
+  return null;
+}
+
 export function nextChapter(
   gospel: Gospel,
   chapter: number,
