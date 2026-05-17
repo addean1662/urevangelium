@@ -1,4 +1,5 @@
 import type { Gospel } from '@/lib/types';
+import { GOSPELS } from '@/lib/types';
 
 export function buildPassagePath(gospel: Gospel, chapter: number, verse: number): string {
   return `/${gospel}/${chapter}/${verse}`;
@@ -34,6 +35,18 @@ export function nextChapter(
 ): string | null {
   if (chapter < chapterVerseCounts.length) return buildPassagePath(gospel, chapter + 1, 1);
   return null;
+}
+
+export function prevBook(gospel: Gospel): string | null {
+  const i = GOSPELS.indexOf(gospel);
+  if (i <= 0) return null;
+  return buildPassagePath(GOSPELS[i - 1], 1, 1);
+}
+
+export function nextBook(gospel: Gospel): string | null {
+  const i = GOSPELS.indexOf(gospel);
+  if (i < 0 || i >= GOSPELS.length - 1) return null;
+  return buildPassagePath(GOSPELS[i + 1], 1, 1);
 }
 
 export function prevVerse(

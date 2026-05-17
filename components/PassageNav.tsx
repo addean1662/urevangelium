@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { VERSE_COUNTS } from '@/lib/verseCounts';
-import { buildPassagePath, nextVerse, prevVerse, nextChapter, prevChapter } from '@/lib/passageNav';
+import { buildPassagePath, nextVerse, prevVerse, nextChapter, prevChapter, prevBook, nextBook } from '@/lib/passageNav';
 import type { Gospel } from '@/lib/types';
 
 interface Props {
@@ -17,10 +17,12 @@ export function PassageNav({ gospel, chapter, verse }: Props) {
   const counts = VERSE_COUNTS[gospel];
   const versesInChapter = counts[chapter - 1] ?? 0;
 
+  const prevBookPath    = prevBook(gospel);
   const prevChapterPath = prevChapter(gospel, chapter, counts);
   const prevVersePath   = prevVerse(gospel, chapter, verse, counts);
   const nextVersePath   = nextVerse(gospel, chapter, verse, counts);
   const nextChapterPath = nextChapter(gospel, chapter, counts);
+  const nextBookPath    = nextBook(gospel);
 
   function handleChapterChange(e: React.ChangeEvent<HTMLSelectElement>) {
     router.push(buildPassagePath(gospel, Number(e.target.value), 1));
@@ -35,6 +37,18 @@ export function PassageNav({ gospel, chapter, verse }: Props) {
       className="flex items-center gap-4 px-4 py-2 bg-bg-elevated border-b border-rule-hairline text-base"
       aria-label="Passage navigation"
     >
+      {prevBookPath ? (
+        <Link
+          href={prevBookPath}
+          className="px-2 py-1 rounded border border-band text-band hover:bg-band hover:text-ink-on-band"
+          aria-label="Previous book"
+        >
+          ← Prev Book
+        </Link>
+      ) : (
+        <span className="px-2 py-1 rounded border border-rule-hairline text-ink-muted cursor-not-allowed">← Prev Book</span>
+      )}
+
       {prevChapterPath ? (
         <Link
           href={prevChapterPath}
@@ -109,6 +123,18 @@ export function PassageNav({ gospel, chapter, verse }: Props) {
         </Link>
       ) : (
         <span className="px-2 py-1 rounded border border-rule-hairline text-ink-muted cursor-not-allowed">Next Chapter →</span>
+      )}
+
+      {nextBookPath ? (
+        <Link
+          href={nextBookPath}
+          className="px-2 py-1 rounded border border-band text-band hover:bg-band hover:text-ink-on-band"
+          aria-label="Next book"
+        >
+          Next Book →
+        </Link>
+      ) : (
+        <span className="px-2 py-1 rounded border border-rule-hairline text-ink-muted cursor-not-allowed">Next Book →</span>
       )}
     </nav>
   );
