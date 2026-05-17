@@ -68,7 +68,7 @@ export default async function PassagePage({ params }: { params: Params }) {
             <div className="mb-3 relative text-center py-1">
               <a
                 href="/papyrus-map"
-                className="absolute left-0 top-1/2 -translate-y-1/2 text-xs border border-accent-gold/50 text-accent-gold hover:bg-accent-gold/10 transition-colors px-3 py-1.5 rounded"
+                className="absolute left-0 top-1/2 -translate-y-1/2 text-xs border border-band text-band bg-bg-elevated hover:bg-band hover:text-ink-on-band transition-colors px-3 py-1.5 rounded"
               >
                 Earliest Papyrus witnesses
               </a>
