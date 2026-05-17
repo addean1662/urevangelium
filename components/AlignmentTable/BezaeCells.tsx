@@ -63,19 +63,20 @@ export function BezaeCells({ cell }: Props) {
   const translit = greek ? transliterateGreek(greek) : null;
   const tip = translit ? <em>{translit}</em> : null;
 
+  const greekContent = cell.greekLost ? (
+    <span className="flex items-center justify-end gap-1.5">
+      <span className="text-xs italic text-semantic-lacuna">lost</span>
+      <span className="inline-block w-2 h-2 rounded-full bg-semantic-lacuna flex-shrink-0" />
+    </span>
+  ) : greek ? (
+    translit ? <HoverTooltip content={tip}>{greek}</HoverTooltip> : greek
+  ) : (
+    <span className="text-ink-muted">—</span>
+  );
+
   return (
     <>
-      <td className={`${base} font-greek text-right text-ink-primary`}>
-        {greek ? (
-          translit ? (
-            <HoverTooltip content={tip}>{greek}</HoverTooltip>
-          ) : (
-            greek
-          )
-        ) : (
-          <span className="text-ink-muted">—</span>
-        )}
-      </td>
+      <td className={`${base} font-greek text-right text-ink-primary`}>{greekContent}</td>
       <td className={`${base} text-center text-ink-muted/50 text-sm select-none`}>|</td>
       <td className={`${base} font-latin text-ink-primary`}>
         {latin ?? <span className="text-ink-muted">—</span>}

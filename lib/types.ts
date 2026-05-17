@@ -145,7 +145,7 @@ export type PapyrusCell = PapyrusExtantCell | LostCell | LacunaCell;
 // Bezae Cantabrigiensis (D/05) — bilingual Greek/Latin codex
 // greek and latin are stored separately; no English gloss is shown
 export type BezaeCell =
-  | { type: 'text'; greek?: string; latin?: string }
+  | { type: 'text'; greek?: string; latin?: string; greekLost?: true }
   | { type: 'empty' }
   | { type: 'lost' }
   | { type: 'lacuna' };
