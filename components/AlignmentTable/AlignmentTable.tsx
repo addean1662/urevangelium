@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import type { VerseData } from '@/lib/types';
 import { AlignmentRow } from './AlignmentRow';
@@ -8,55 +11,105 @@ interface Props {
   nextFragmentHref?: string | null;
 }
 
-const COLUMNS = [
-  { key: 'papyrus',    label: 'Earliest Papyrus', date: 'c. 125–250 CE', script: 'Greek',  glossSource: 'TAGNT'      },
-  { key: 'vaticanus',  label: 'Vaticanus',         date: 'c. 325 CE',     script: 'Greek',  glossSource: 'TAGNT'      },
-  { key: 'sinaiticus', label: 'Sinaiticus',         date: 'c. 350 CE',     script: 'Greek',  glossSource: 'TAGNT'      },
-  { key: 'vulgate',    label: 'Vulgate',            date: 'c. 400 CE',     script: 'Latin',  glossSource: 'Whitaker'   },
-  { key: 'peshitta',   label: 'Peshitta',           date: 'c. 400–450 CE', script: 'Syriac', glossSource: 'PayneSmith' },
-  { key: 'byzantine',  label: 'Byzantine',          date: 'c. 5th–9th c.', script: 'Greek',  glossSource: 'TAGNT'      },
-] as const;
+type ColumnDef = {
+  key: string;
+  label: string;
+  date: string;
+  script: string;
+  glossSource: string | null;
+};
 
-// Each witness: TEXT (45%) | DOT (10%) | GLOSS (45%) of its 1/6 share
-const pairWidth = 100 / 6;
-const textColWidth  = `${(pairWidth * 0.45).toFixed(4)}%`; // 7.5000%
-const dotColWidth   = `${(pairWidth * 0.10).toFixed(4)}%`; // 1.6667%
-const glossColWidth = `${(pairWidth * 0.45).toFixed(4)}%`; // 7.5000%
+const BASE_COLUMNS: ColumnDef[] = [
+  { key: 'papyrus',   label: 'Earliest Papyri', date: 'c. 125–250 CE',    script: 'Greek',   glossSource: 'TAGNT'      },
+  { key: 'vaticanus', label: 'Vaticanus',         date: 'c. 325 CE',        script: 'Greek',   glossSource: 'TAGNT'      },
+  { key: 'bezae',     label: 'Bezae D/05',        date: 'c. 400 CE',        script: 'Gk · Lat', glossSource: null        },
+  { key: 'vulgate',   label: 'Vulgate',            date: 'c. 400 CE',        script: 'Latin',   glossSource: 'Whitaker'  },
+  { key: 'peshitta',  label: 'Peshitta',           date: 'c. 400–450 CE',   script: 'Syriac',  glossSource: 'PayneSmith'},
+  { key: 'byzantine', label: 'Byzantine',          date: 'c. 5th–9th c.',   script: 'Greek',   glossSource: 'TAGNT'     },
+];
 
-// Alternating tint on even-indexed pairs (Vaticanus, Vulgate, Byzantine).
-// Requires <tr> to carry no background so <col> shows through.
-const PAIR_BG = [
-  'transparent',
-  'rgba(250,246,232,0.8)',
-  'transparent',
-  'rgba(250,246,232,0.8)',
-  'transparent',
-  'rgba(250,246,232,0.8)',
-] as const;
+const SINAITICUS_COL: ColumnDef = {
+  key: 'sinaiticus', label: 'Sinaiticus', date: 'c. 350 CE', script: 'Greek', glossSource: 'TAGNT',
+};
+
+type TraditionDef = {
+  label: string;
+  getSpan: (showSinaiticus: boolean) => number;
+  hasToggle?: true;
+};
+
+const TRADITIONS: TraditionDef[] = [
+  { label: 'Greek Papyri', getSpan: () => 3 },
+  { label: 'Alexandrian',  getSpan: (s) => (s ? 6 : 3), hasToggle: true },
+  { label: 'Western',      getSpan: () => 3 },
+  { label: 'Latin',        getSpan: () => 3 },
+  { label: 'Syriac',       getSpan: () => 3 },
+  { label: 'Byzantine',    getSpan: () => 3 },
+];
 
 export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) {
+  const [showSinaiticus, setShowSinaiticus] = useState(false);
+
+  const columns: ColumnDef[] = showSinaiticus
+    ? [BASE_COLUMNS[0], BASE_COLUMNS[1], SINAITICUS_COL, ...BASE_COLUMNS.slice(2)]
+    : [...BASE_COLUMNS];
+
+  const witnessCount = columns.length;
+  const pairWidth = 100 / witnessCount;
+  const textW  = `${(pairWidth * 0.45).toFixed(4)}%`;
+  const dotW   = `${(pairWidth * 0.10).toFixed(4)}%`;
+  const glossW = `${(pairWidth * 0.45).toFixed(4)}%`;
+
+  function pairBg(i: number) {
+    return i % 2 === 1 ? 'rgba(250,246,232,0.8)' : 'transparent';
+  }
+
   return (
     <div className="overflow-x-auto">
-      <table className="w-full border-collapse text-left table-fixed min-w-[1440px]">
+      <table
+        className="w-full border-collapse text-left table-fixed"
+        style={{ minWidth: showSinaiticus ? '1680px' : '1440px' }}
+      >
         <colgroup>
-          {COLUMNS.flatMap((col, i) => [
-            <col key={`${col.key}-t`} style={{ width: textColWidth,  backgroundColor: PAIR_BG[i] }} />,
-            <col key={`${col.key}-d`} style={{ width: dotColWidth,   backgroundColor: PAIR_BG[i] }} />,
-            <col key={`${col.key}-g`} style={{ width: glossColWidth, backgroundColor: PAIR_BG[i] }} />,
+          {columns.map((col, i) => [
+            <col key={`${col.key}-t`} style={{ width: textW,  backgroundColor: pairBg(i) }} />,
+            <col key={`${col.key}-d`} style={{ width: dotW,   backgroundColor: pairBg(i) }} />,
+            <col key={`${col.key}-g`} style={{ width: glossW, backgroundColor: pairBg(i) }} />,
           ])}
         </colgroup>
 
         <thead>
-          {/* Primary header spans all 3 cells of its witness */}
+          {/* Row 1 — Tradition labels with Sinaiticus toggle */}
+          <tr className="bg-band text-ink-on-band-muted">
+            {TRADITIONS.map((t) => (
+              <th
+                key={t.label}
+                colSpan={t.getSpan(showSinaiticus)}
+                className="py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-center border-b border-witness-band/50"
+              >
+                {t.label}
+                {t.hasToggle && (
+                  <button
+                    onClick={() => setShowSinaiticus(!showSinaiticus)}
+                    className="ml-2 px-1.5 py-0.5 rounded border border-ink-on-band-muted/30 text-ink-on-band-muted hover:border-ink-on-band hover:text-ink-on-band transition-colors normal-case tracking-normal font-normal text-[10px]"
+                    aria-label={showSinaiticus ? 'Hide Sinaiticus' : 'Show Sinaiticus'}
+                  >
+                    {showSinaiticus ? '− Sinaiticus' : '+ Sinaiticus'}
+                  </button>
+                )}
+              </th>
+            ))}
+          </tr>
+
+          {/* Row 2 — Witness names and dates */}
           <tr className="bg-witness-band text-ink-on-band">
-            {COLUMNS.map((col) => (
+            {columns.map((col) => (
               <th
                 key={col.key}
                 colSpan={3}
                 className="py-2 text-sm font-semibold uppercase tracking-wide h-px"
               >
                 <div className="flex h-full">
-                  {/* Cell-A portion: witness name + date, right-aligned above source text */}
                   <div className="w-[45%] text-right pr-2">
                     {col.key === 'papyrus' ? (
                       <Link
@@ -80,14 +133,18 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
                           >
                             {nextFragment}
                           </Link>
-                        ) : nextFragment}
+                        ) : (
+                          nextFragment
+                        )}
                       </div>
                     )}
                   </div>
-                  {/* Cell-B portion: dot area spacer */}
+
                   <div className="w-[10%]" />
-                  {/* Cell-C: gloss source pinned to bottom */}
-                  <div className={`w-[45%] pl-2 flex flex-col h-full ${col.key === 'papyrus' ? 'justify-between' : 'justify-end'}`}>
+
+                  <div
+                    className={`w-[45%] pl-2 flex flex-col h-full ${col.key === 'papyrus' ? 'justify-between' : 'justify-end'}`}
+                  >
                     {col.key === 'papyrus' && (
                       <Link
                         href="/papyrus-map"
@@ -96,18 +153,21 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
                         ← Click here for 65 Papyri map
                       </Link>
                     )}
-                    <div className="font-normal text-ink-on-band-muted text-xs">{col.glossSource}</div>
+                    {col.key === 'bezae' ? (
+                      <div className="font-normal text-ink-on-band-muted text-xs">Greek · Latin</div>
+                    ) : col.glossSource ? (
+                      <div className="font-normal text-ink-on-band-muted text-xs">{col.glossSource}</div>
+                    ) : null}
                   </div>
                 </div>
               </th>
             ))}
           </tr>
-
         </thead>
 
         <tbody>
           {data.rows.map((row) => (
-            <AlignmentRow key={row.id} row={row} />
+            <AlignmentRow key={row.id} row={row} showSinaiticus={showSinaiticus} />
           ))}
         </tbody>
       </table>
