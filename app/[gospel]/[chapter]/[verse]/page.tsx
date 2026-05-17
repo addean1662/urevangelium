@@ -65,19 +65,17 @@ export default async function PassagePage({ params }: { params: Params }) {
               Hover any Greek or Syriac word for phonetic transliteration.
             </p>
 
-            <div className="mb-3 flex items-start justify-between gap-4">
-              <div>
-                <h3 className="text-lg font-semibold text-ink-primary">Translation Lineage</h3>
-                <p className="text-sm italic text-ink-muted">
-                  Six manuscript witness columns span the table; their descent flows into the timeline below.
-                </p>
-              </div>
+            <div className="mb-3 relative text-center py-1">
               <a
                 href="/papyrus-map"
-                className="shrink-0 text-xs border border-accent-gold/50 text-accent-gold hover:bg-accent-gold/10 transition-colors px-3 py-1.5 rounded mt-0.5"
+                className="absolute left-0 top-1/2 -translate-y-1/2 text-xs border border-accent-gold/50 text-accent-gold hover:bg-accent-gold/10 transition-colors px-3 py-1.5 rounded"
               >
-                Earliest Papyrus witnesses →
+                Earliest Papyrus witnesses
               </a>
+              <h3 className="text-lg font-semibold text-ink-primary">Translation Lineage</h3>
+              <p className="text-sm italic text-ink-muted">
+                Six manuscript witness columns span the table; their descent flows into the timeline below.
+              </p>
             </div>
 
             <AlignmentTable data={data} nextFragment={nextFragment} nextFragmentHref={nextFragmentHref} />
