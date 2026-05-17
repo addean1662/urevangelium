@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { VERSE_COUNTS } from '@/lib/verseCounts';
-import { buildPassagePath, nextVerse, prevVerse } from '@/lib/passageNav';
+import { buildPassagePath, nextVerse, prevVerse, nextChapter } from '@/lib/passageNav';
 import type { Gospel } from '@/lib/types';
 
 interface Props {
@@ -17,8 +17,9 @@ export function PassageNav({ gospel, chapter, verse }: Props) {
   const counts = VERSE_COUNTS[gospel];
   const versesInChapter = counts[chapter - 1] ?? 0;
 
-  const prevPath = prevVerse(gospel, chapter, verse, counts);
-  const nextPath = nextVerse(gospel, chapter, verse, counts);
+  const prevPath       = prevVerse(gospel, chapter, verse, counts);
+  const nextVersePath  = nextVerse(gospel, chapter, verse, counts);
+  const nextChapterPath = nextChapter(gospel, chapter, counts);
 
   function handleChapterChange(e: React.ChangeEvent<HTMLSelectElement>) {
     router.push(buildPassagePath(gospel, Number(e.target.value), 1));
@@ -73,16 +74,28 @@ export function PassageNav({ gospel, chapter, verse }: Props) {
         ))}
       </select>
 
-      {nextPath ? (
+      {nextVersePath ? (
         <Link
-          href={nextPath}
+          href={nextVersePath}
           className="px-2 py-1 rounded border border-band text-band hover:bg-band hover:text-ink-on-band"
           aria-label="Next verse"
         >
-          Next →
+          Next Verse →
         </Link>
       ) : (
-        <span className="px-2 py-1 text-ink-muted border border-transparent">Next →</span>
+        <span className="px-2 py-1 text-ink-muted border border-transparent">Next Verse →</span>
+      )}
+
+      {nextChapterPath ? (
+        <Link
+          href={nextChapterPath}
+          className="px-2 py-1 rounded border border-band text-band hover:bg-band hover:text-ink-on-band"
+          aria-label="Next chapter"
+        >
+          Next Chapter →
+        </Link>
+      ) : (
+        <span className="px-2 py-1 text-ink-muted border border-transparent">Next Chapter →</span>
       )}
     </nav>
   );
