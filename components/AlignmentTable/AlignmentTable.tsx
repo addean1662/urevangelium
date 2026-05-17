@@ -20,12 +20,12 @@ type ColumnDef = {
 };
 
 const BASE_COLUMNS: ColumnDef[] = [
-  { key: 'papyrus',   label: 'Earliest Papyri', date: 'c. 125–250 CE',    script: 'Greek',   glossSource: 'TAGNT'      },
-  { key: 'vaticanus', label: 'Vaticanus',         date: 'c. 325 CE',        script: 'Greek',   glossSource: 'TAGNT'      },
-  { key: 'bezae',     label: 'Bezae',              date: 'c. 400 CE',        script: 'Gk · Lat', glossSource: null        },
-  { key: 'vulgate',   label: 'Vulgate',            date: 'c. 400 CE',        script: 'Latin',   glossSource: 'Whitaker'  },
-  { key: 'peshitta',  label: 'Peshitta',           date: 'c. 400–450 CE',   script: 'Syriac',  glossSource: 'PayneSmith'},
-  { key: 'byzantine', label: 'Byzantine',          date: 'c. 5th–9th c.',   script: 'Greek',   glossSource: 'TAGNT'     },
+  { key: 'papyrus',   label: '65 Earliest Papyri Witnesses', date: 'c. 125–250 CE',  script: 'Greek',  glossSource: 'TAGNT'      },
+  { key: 'vaticanus', label: 'Vaticanus',                     date: 'c. 325 CE',       script: 'Greek',  glossSource: 'TAGNT'      },
+  { key: 'bezae',     label: 'Bezae',                         date: 'c. 400 CE',       script: 'Greek',  glossSource: null         },
+  { key: 'vulgate',   label: 'Vulgate',                       date: 'c. 400 CE',       script: 'Latin',  glossSource: 'Whitaker'   },
+  { key: 'peshitta',  label: 'Peshitta',                      date: 'c. 400–450 CE',  script: 'Syriac', glossSource: 'PayneSmith' },
+  { key: 'byzantine', label: 'Byzantine',                     date: 'c. 5th–9th c.',  script: 'Greek',  glossSource: 'TAGNT'      },
 ];
 
 const SINAITICUS_COL: ColumnDef = {
@@ -101,10 +101,10 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
             ))}
           </tr>
 
-          {/* Row 2 — Witness names, dates, scripts, sources (collapsed to one info line) */}
+          {/* Row 2 — Witness names, dates, scripts, sources */}
           <tr className="bg-witness-band text-ink-on-band">
             {columns.map((col) => {
-              const source = col.key === 'bezae' ? 'Greek · Latin' : col.glossSource;
+              const rightLabel = col.key === 'bezae' ? 'Latin' : col.glossSource;
               return (
                 <th
                   key={col.key}
@@ -112,49 +112,21 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
                   className="py-2 text-sm font-semibold uppercase tracking-wide"
                 >
                   <div className="flex items-start">
-                    {/* Left: name + single collapsed info line */}
+                    {/* Left: name + date · script */}
                     <div className="w-[45%] text-right pr-2">
-                      {col.key === 'papyrus' ? (
-                        <Link
-                          href="/papyrus-map"
-                          className="font-semibold hover:text-amber-200 transition-colors underline underline-offset-2 decoration-amber-200/40"
-                        >
-                          {col.label}
-                        </Link>
-                      ) : (
-                        <div className="font-semibold">{col.label}</div>
-                      )}
+                      <div className="font-semibold">{col.label}</div>
                       <div className="font-normal text-ink-on-band-muted text-xs mt-0.5">
-                        {col.key === 'bezae'
-                          ? `${col.date} · Greek · Latin`
-                          : `${col.date} · ${col.script}${source ? ` · ${source}` : ''}`}
+                        {`${col.date} · ${col.script}`}
                       </div>
                     </div>
 
                     <div className="w-[10%]" />
 
-                    {/* Right: papyrus map link + next fragment */}
+                    {/* Right: gloss source (left-aligned) */}
                     <div className="w-[45%] pl-2 flex flex-col gap-0.5">
-                      {col.key === 'papyrus' && (
-                        <Link
-                          href="/papyrus-map"
-                          className="font-normal normal-case tracking-normal text-[10px] text-amber-200/80 hover:text-amber-200 transition-colors underline underline-offset-2 decoration-amber-200/40"
-                        >
-                          ← 65 Papyri map
-                        </Link>
-                      )}
-                      {col.key === 'papyrus' && nextFragment && (
-                        <div className="font-normal normal-case tracking-normal text-[10px] text-amber-200/80">
-                          {nextFragmentHref ? (
-                            <Link
-                              href={nextFragmentHref}
-                              className="underline underline-offset-2 decoration-amber-200/40 hover:text-amber-200 transition-colors"
-                            >
-                              {nextFragment}
-                            </Link>
-                          ) : (
-                            nextFragment
-                          )}
+                      {rightLabel && (
+                        <div className="font-normal normal-case tracking-normal text-xs text-ink-on-band-muted">
+                          {rightLabel}
                         </div>
                       )}
                     </div>
@@ -170,6 +142,31 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
             <AlignmentRow key={row.id} row={row} showSinaiticus={showSinaiticus} />
           ))}
         </tbody>
+
+        {nextFragment && (
+          <tfoot>
+            <tr>
+              <td
+                colSpan={3}
+                className="pt-2 pb-1 pl-2 text-[10px] text-amber-200/80 font-normal normal-case tracking-normal"
+              >
+                {nextFragmentHref ? (
+                  <Link
+                    href={nextFragmentHref}
+                    className="underline underline-offset-2 decoration-amber-200/40 hover:text-amber-200 transition-colors"
+                  >
+                    {nextFragment}
+                  </Link>
+                ) : (
+                  nextFragment
+                )}
+              </td>
+              {columns.slice(1).map((col) => (
+                <td key={col.key} colSpan={3} />
+              ))}
+            </tr>
+          </tfoot>
+        )}
       </table>
     </div>
   );
