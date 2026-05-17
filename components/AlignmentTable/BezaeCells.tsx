@@ -10,12 +10,12 @@ interface Props {
 }
 
 export function BezaeCells({ cell }: Props) {
-  // Data not yet populated — show blank cells (distinct from alignment gap)
+  // Data not yet populated — blank cells, consistent with lost/undocumented witnesses
   if (!cell) {
     return (
       <>
         <td className={base} />
-        <td className={`${base} text-center text-ink-muted/30 text-sm select-none`}>|</td>
+        <td className={base} />
         <td className={base} />
       </>
     );
