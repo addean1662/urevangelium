@@ -24,17 +24,18 @@ export function AlignmentRow({ row, showSinaiticus }: Props) {
       <PapyrusIndicator cell={row.papyrus} />
       <GlossCell gloss={cellGloss(row.papyrus)} />
 
-      {/* Vaticanus */}
-      <WitnessCellComponent cell={row.vaticanus} className="font-greek" showTranslit />
-      <WitnessIndicator cell={row.vaticanus} />
-      <GlossCell gloss={cellGloss(row.vaticanus)} />
-
-      {/* Sinaiticus — only when expanded */}
-      {showSinaiticus && (
+      {/* Vaticanus / Sinaiticus — mutually exclusive */}
+      {showSinaiticus ? (
         <>
           <WitnessCellComponent cell={row.sinaiticus} className="font-greek" showTranslit />
           <WitnessIndicator cell={row.sinaiticus} />
           <GlossCell gloss={cellGloss(row.sinaiticus)} />
+        </>
+      ) : (
+        <>
+          <WitnessCellComponent cell={row.vaticanus} className="font-greek" showTranslit />
+          <WitnessIndicator cell={row.vaticanus} />
+          <GlossCell gloss={cellGloss(row.vaticanus)} />
         </>
       )}
 

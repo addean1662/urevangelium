@@ -62,7 +62,7 @@ type TraditionDef = {
 
 const TRADITIONS: TraditionDef[] = [
   { label: '65 Earliest Papyrus Witnesses', getSpan: () => 3 },
-  { label: 'Alexandrian',  getSpan: (s) => (s ? 6 : 3), hasToggle: true },
+  { label: 'Alexandrian',  getSpan: () => 3, hasToggle: true },
   { label: 'Western',      getSpan: () => 3 },
   { label: 'Latin',        getSpan: () => 3 },
   { label: 'Syriac',       getSpan: () => 3 },
@@ -75,7 +75,7 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
   const bezaeLacuna = getBezaeLacuna(data.gospel, data.chapter, data.verse);
 
   const columns: ColumnDef[] = showSinaiticus
-    ? [BASE_COLUMNS[0], BASE_COLUMNS[1], SINAITICUS_COL, ...BASE_COLUMNS.slice(2)]
+    ? [BASE_COLUMNS[0], SINAITICUS_COL, ...BASE_COLUMNS.slice(2)]
     : [...BASE_COLUMNS];
 
   const witnessCount = columns.length;
@@ -92,7 +92,7 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
     <div className="overflow-x-auto">
       <table
         className="w-full border-collapse text-left table-fixed"
-        style={{ minWidth: showSinaiticus ? '1680px' : '1440px' }}
+        style={{ minWidth: '1440px' }}
       >
         <colgroup>
           {columns.map((col, i) => [
@@ -116,9 +116,9 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
                   <button
                     onClick={() => setShowSinaiticus(!showSinaiticus)}
                     className="ml-2 px-1.5 py-0.5 rounded border border-ink-on-band-muted/30 text-ink-on-band-muted hover:border-ink-on-band hover:text-ink-on-band transition-colors normal-case tracking-normal font-normal text-[10px]"
-                    aria-label={showSinaiticus ? 'Hide Sinaiticus' : 'Show Sinaiticus'}
+                    aria-label={showSinaiticus ? 'Show Vaticanus' : 'Show Sinaiticus'}
                   >
-                    {showSinaiticus ? '− Sinaiticus' : '+ Sinaiticus'}
+                    {showSinaiticus ? '+ Vaticanus' : '+ Sinaiticus'}
                   </button>
                 )}
               </th>

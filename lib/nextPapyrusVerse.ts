@@ -5,7 +5,7 @@ import type { Gospel } from '@/lib/types';
 const GOSPEL_ORDER: Gospel[] = ['matthew', 'mark', 'luke', 'john'];
 
 const GOSPEL_DISPLAY: Record<Gospel, string> = {
-  matthew: 'Matthew',
+  matthew: 'Matt',
   mark:    'Mark',
   luke:    'Luke',
   john:    'John',
@@ -24,8 +24,8 @@ export function formatNextFragment(
   if (next.kind === 'none') return null;
   if (next.kind === 'next-verse') return 'Next Verse Available';
   if (next.kind === 'same-gospel')
-    return `Next Fragment (${GOSPEL_DISPLAY[current.gospel]} ${next.chapter}:${next.verse})`;
-  return `Next Fragment (${GOSPEL_DISPLAY[next.gospel]} ${next.chapter}:${next.verse})`;
+    return `Next Fragment: ${GOSPEL_DISPLAY[current.gospel]} ${next.chapter}:${next.verse}`;
+  return `Next Fragment: ${GOSPEL_DISPLAY[next.gospel]} ${next.chapter}:${next.verse}`;
 }
 
 export function formatNextFragmentHref(
