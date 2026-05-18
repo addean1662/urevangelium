@@ -20,7 +20,7 @@ type ColumnDef = {
 };
 
 const BASE_COLUMNS: ColumnDef[] = [
-  { key: 'papyrus',   label: '65 Earliest Papyri Witnesses', date: 'c. 125–250 CE',  script: 'Greek',  glossSource: 'TAGNT'      },
+  { key: 'papyrus',   label: 'Earliest Papyri',              date: 'c. 125–250 CE',  script: 'Greek',  glossSource: 'TAGNT'      },
   { key: 'vaticanus', label: 'Vaticanus',                     date: 'c. 325 CE',       script: 'Greek',  glossSource: 'TAGNT'      },
   { key: 'bezae',     label: 'Bezae',                         date: 'c. 400 CE',       script: 'Greek',  glossSource: null         },
   { key: 'vulgate',   label: 'Vulgate',                       date: 'c. 400 CE',       script: 'Latin',  glossSource: 'Whitaker'   },
@@ -31,6 +31,24 @@ const BASE_COLUMNS: ColumnDef[] = [
 const SINAITICUS_COL: ColumnDef = {
   key: 'sinaiticus', label: 'Sinaiticus', date: 'c. 350 CE', script: 'Greek', glossSource: 'TAGNT',
 };
+
+// Major Bezae lacunae (physical damage) — single-verse scribal omissions are not noted.
+const BEZAE_LACUNAE: Array<{ gospel: string; sc: number; sv: number; ec: number; ev: number; note: string }> = [
+  { gospel: 'matthew', sc: 1,  sv: 1,  ec: 1,  ev: 19, note: 'Begins at 1:20'    },
+  { gospel: 'matthew', sc: 6,  sv: 21, ec: 9,  ev: 1,  note: 'Resumes at 9:2'    },
+  { gospel: 'matthew', sc: 27, sv: 3,  ec: 27, ev: 11, note: 'Resumes at 27:12'  },
+  { gospel: 'luke',    sc: 3,  sv: 24, ec: 3,  ev: 31, note: 'Resumes at 3:32'   },
+  { gospel: 'john',    sc: 1,  sv: 17, ec: 3,  ev: 25, note: 'Resumes at 3:26'   },
+];
+
+function getBezaeNote(gospel: string, ch: number, v: number): string | null {
+  const cur = ch * 1000 + v;
+  for (const r of BEZAE_LACUNAE) {
+    if (gospel !== r.gospel) continue;
+    if (cur >= r.sc * 1000 + r.sv && cur <= r.ec * 1000 + r.ev) return r.note;
+  }
+  return null;
+}
 
 type TraditionDef = {
   label: string;
@@ -50,6 +68,8 @@ const TRADITIONS: TraditionDef[] = [
 export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) {
   const [showSinaiticus, setShowSinaiticus] = useState(false);
 
+  const bezaeNote = getBezaeNote(data.gospel, data.chapter, data.verse);
+
   const columns: ColumnDef[] = showSinaiticus
     ? [BASE_COLUMNS[0], BASE_COLUMNS[1], SINAITICUS_COL, ...BASE_COLUMNS.slice(2)]
     : [...BASE_COLUMNS];
@@ -65,7 +85,6 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
   }
 
   return (
-    <div>
     <div className="overflow-x-auto">
       <table
         className="w-full border-collapse text-left table-fixed"
@@ -110,32 +129,38 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
                 <th
                   key={col.key}
                   colSpan={3}
-                  className="py-2 text-sm font-semibold uppercase tracking-wide"
+                  className="py-2 text-sm font-semibold uppercase tracking-wide align-bottom"
                 >
-                  <div className="flex items-start">
-                    {/* Left: name + date · script */}
-                    <div className="w-[45%] text-right pr-2">
-                      <div className="font-semibold">{col.label}</div>
-                      <div className="font-normal text-ink-on-band-muted text-xs mt-0.5">
-                        {`${col.date} · ${col.script}`}
-                      </div>
-                    </div>
-
+                  {/* Name line */}
+                  <div className="flex">
+                    <div className="w-[45%] text-right pr-2">{col.label}</div>
                     <div className="w-[10%]" />
-
-                    {/* Right: gloss source (left-aligned) */}
-                    <div className="w-[45%] pl-2 flex flex-col gap-0.5">
-                      {rightLabel && (
-                        <div className="font-normal normal-case tracking-normal text-xs text-ink-on-band-muted">
-                          {rightLabel}
-                        </div>
-                      )}
-                    </div>
+                    <div className="w-[45%] pl-2" />
+                  </div>
+                  {/* Date · Script | Gloss — pinned to same baseline across all columns */}
+                  <div className="flex mt-0.5 font-normal normal-case tracking-normal text-xs text-ink-on-band-muted">
+                    <div className="w-[45%] text-right pr-2">{`${col.date} · ${col.script}`}</div>
+                    <div className="w-[10%]" />
+                    <div className="w-[45%] pl-2">{rightLabel ?? ''}</div>
                   </div>
                 </th>
               );
             })}
           </tr>
+          {/* Row 3 — Bezae lacuna note (only during major physical gaps) */}
+          {bezaeNote && (
+            <tr className="bg-witness-band text-ink-on-band">
+              {columns.map((col) => (
+                <th
+                  key={col.key}
+                  colSpan={3}
+                  className="pb-1.5 pt-0 text-[10px] font-normal normal-case tracking-normal text-center text-ink-on-band-muted italic"
+                >
+                  {col.key === 'bezae' ? bezaeNote : null}
+                </th>
+              ))}
+            </tr>
+          )}
         </thead>
 
         <tbody>
@@ -144,25 +169,30 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
           ))}
         </tbody>
 
-      </table>
-    </div>
-
-    {nextFragment && (
-      <div className="mt-3 pl-1">
-        {nextFragmentHref ? (
-          <Link
-            href={nextFragmentHref}
-            className="inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded hover:bg-ink-primary hover:text-ink-on-band transition-colors"
-          >
-            {nextFragment}
-          </Link>
-        ) : (
-          <span className="inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded">
-            {nextFragment}
-          </span>
+        {nextFragment && (
+          <tfoot>
+            <tr>
+              <td />
+              <td colSpan={2} className="pt-2 pb-1">
+                {nextFragmentHref ? (
+                  <Link
+                    href={nextFragmentHref}
+                    className="inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded hover:bg-ink-primary hover:text-ink-on-band transition-colors"
+                  >
+                    {nextFragment}
+                  </Link>
+                ) : (
+                  <span className="inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded">
+                    {nextFragment}
+                  </span>
+                )}
+              </td>
+              <td colSpan={(columns.length * 3) - 3} />
+            </tr>
+          </tfoot>
         )}
-      </div>
-    )}
+
+      </table>
     </div>
   );
 }
