@@ -78,7 +78,7 @@ const NODE_X: Record<string, number> = {
   // Latin tradition
   'wycliffe-1382':              840,
   'clementine-vulgate':         780,
-  'douay-rheims-1582-1610':     870,
+  'douay-rheims-1582-1610':     808,
   'stuttgart-vulgate':          880,
   // Syriac tradition — aligned with peshitta source-text anchor (1014)
   'bfbs-peshitta':             1014,
@@ -320,7 +320,7 @@ export function LineageTimeline() {
                 strokeWidth={
                   isWitness
                     ? (isPrimary ? 2.5 : 1.5)
-                    : (isPrimary ? 1.5 : 0.75)
+                    : (isPrimary ? 2.0 : 0.75)
                 }
                 strokeDasharray={isPrimary ? undefined : '5 4'}
                 fill="none"
