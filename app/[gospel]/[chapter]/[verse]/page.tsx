@@ -70,7 +70,7 @@ export default async function PassagePage({ params }: { params: Params }) {
                 href="/papyrus-map"
                 className="absolute left-0 top-1/2 -translate-y-1/2 text-xs border border-band text-band bg-bg-elevated hover:bg-band hover:text-ink-on-band transition-colors px-3 py-1.5 rounded"
               >
-                Earliest Papyrus witnesses
+                See 65 Earliest Papyri
               </a>
               <h3 className="text-lg font-semibold text-ink-primary">Translation Lineage</h3>
               <p className="text-sm italic text-ink-muted">

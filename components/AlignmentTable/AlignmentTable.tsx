@@ -193,7 +193,7 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
                 <td />
                 <td colSpan={2} className="pt-1 pb-2">
                   <Link href="/papyrus-map" className={btnClass}>
-                    See 65 Earliest Greek Papyri
+                    See 65 Earliest Papyri
                   </Link>
                 </td>
                 <td colSpan={totalTrailCols} />
