@@ -78,7 +78,7 @@ const NODE_X: Record<string, number> = {
   // Latin tradition
   'wycliffe-1382':              840,
   'clementine-vulgate':         780,
-  'douay-rheims-1582-1610':     960,
+  'douay-rheims-1582-1610':     870,
   'stuttgart-vulgate':          880,
   // Syriac tradition — aligned with peshitta source-text anchor (1014)
   'bfbs-peshitta':             1014,
@@ -251,6 +251,42 @@ export function LineageTimeline() {
           );
         })}
 
+        {/* ── Textus Receptus tradition band (behind everything) ─────────── */}
+        {(() => {
+          const yTop  = yearToY(1516) - NODE_H / 2 - 6;
+          const yBot  = yearToY(1633) + NODE_H / 2 + 6;
+          const midY  = (yTop + yBot) / 2;
+          const bandX = 1404;
+          const bandW = 46;
+          return (
+            <g>
+              <rect
+                x={bandX} y={yTop} width={bandW} height={yBot - yTop}
+                fill="rgba(92,58,31,0.055)" rx={4}
+              />
+              <line
+                x1={bandX} y1={yTop} x2={bandX} y2={yBot}
+                stroke="rgba(92,58,31,0.20)" strokeWidth={0.75} strokeDasharray="4 3"
+              />
+              <text
+                x={bandX + bandW / 2} y={midY}
+                textAnchor="middle" dominantBaseline="middle"
+                transform={`rotate(-90,${bandX + bandW / 2},${midY})`}
+                style={{
+                  fontSize: 11,
+                  fill: 'var(--color-ink-muted)',
+                  fontFamily: 'EB Garamond, Georgia, serif',
+                  letterSpacing: '0.07em',
+                  pointerEvents: 'none',
+                  userSelect: 'none',
+                }}
+              >
+                Textus Receptus Tradition
+              </text>
+            </g>
+          );
+        })()}
+
         {/* ── Connector lines (rendered beneath nodes) ───────────────────── */}
         {RENDERED_NODES.flatMap(node => {
           const cx      = NODE_X[node.id] ?? SVG_W / 2;
@@ -373,6 +409,58 @@ export function LineageTimeline() {
             </g>
           );
         })}
+
+        {/* ── Legend ─────────────────────────────────────────────────────── */}
+        {(() => {
+          const lx = 55;  // left of legend box
+          const ly = 28;
+          const lw = 210;
+          const lh = 128;
+          const font = {
+            fontSize: 10,
+            fill: 'var(--color-ink-muted)',
+            fontFamily: 'EB Garamond, Georgia, serif',
+            pointerEvents: 'none',
+            userSelect: 'none',
+          };
+          const rows: Array<{ y: number; label: string; dash?: boolean; witness?: boolean; band?: boolean }> = [
+            { y: 62,  label: 'Manuscript tradition',   witness: true },
+            { y: 84,  label: 'Translation / revision' },
+            { y: 106, label: 'Textual influence',      dash: true },
+            { y: 122, label: 'Edition tradition',      band: true },
+          ];
+          return (
+            <g>
+              <rect
+                x={lx} y={ly} width={lw} height={lh}
+                fill="var(--color-bg-elevated)"
+                stroke="var(--color-rule-hairline)"
+                strokeWidth={0.75}
+                rx={3}
+              />
+              <text x={lx + 10} y={ly + 20}
+                style={{ ...font, fontSize: 11, fontWeight: 700, fill: 'var(--color-ink-primary)' }}>
+                Line key
+              </text>
+              {rows.map(({ y, label, dash, witness, band }) => (
+                <g key={label}>
+                  {band ? (
+                    <rect x={lx + 10} y={y - 6} width={40} height={12}
+                      fill="rgba(92,58,31,0.08)" rx={2} />
+                  ) : (
+                    <line
+                      x1={lx + 10} y1={y} x2={lx + 50} y2={y}
+                      stroke={witness ? 'rgba(92,58,31,0.50)' : 'var(--color-rule-hairline)'}
+                      strokeWidth={witness ? 2.5 : dash ? 0.75 : 1.5}
+                      strokeDasharray={dash ? '5 4' : undefined}
+                    />
+                  )}
+                  <text x={lx + 58} y={y + 4} style={font}>{label}</text>
+                </g>
+              ))}
+            </g>
+          );
+        })()}
       </svg>
     </div>
   );

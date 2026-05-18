@@ -17,7 +17,7 @@ export function WitnessCell({ cell, className = '', showTranslit = false }: Prop
     return (
       <td className={base}>
         <span className="flex items-center justify-end gap-1.5">
-          <span className="text-xs italic text-semantic-lacuna">lost</span>
+          <span className="text-xs italic text-semantic-lacuna">MS lacuna</span>
           <span className="inline-block w-2 h-2 rounded-full bg-semantic-lacuna flex-shrink-0" />
         </span>
       </td>

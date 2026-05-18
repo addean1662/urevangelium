@@ -25,13 +25,13 @@ export function BezaeCells({ cell }: Props) {
     return (
       <>
         <td className={`${base} text-right`}>
-          <span className="text-xs italic text-semantic-lacuna">lost</span>
+          <span className="text-xs italic text-semantic-lacuna">MS lacuna</span>
         </td>
         <td className={`${base} text-center`}>
           <span className="inline-block w-2 h-2 rounded-full bg-semantic-lacuna" />
         </td>
         <td className={base}>
-          <span className="text-xs italic text-semantic-lacuna">lost</span>
+          <span className="text-xs italic text-semantic-lacuna">MS lacuna</span>
         </td>
       </>
     );
@@ -65,7 +65,7 @@ export function BezaeCells({ cell }: Props) {
 
   const greekContent = cell.greekLost ? (
     <span className="flex items-center justify-end gap-1.5">
-      <span className="text-xs italic text-semantic-lacuna">lost</span>
+      <span className="text-xs italic text-semantic-lacuna">MS lacuna</span>
       <span className="inline-block w-2 h-2 rounded-full bg-semantic-lacuna flex-shrink-0" />
     </span>
   ) : greek ? (
