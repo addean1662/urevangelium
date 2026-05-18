@@ -166,7 +166,7 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
           const totalTrailCols = columns.length * 3 - 3;
           const btnClass = 'inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded hover:bg-ink-primary hover:text-ink-on-band transition-colors';
           return (
-            <tfoot>
+            <tfoot className="bg-bg-page">
               {/* Navigation row — Next Verse / Next Fragment aligned with Bezae lacuna button */}
               {(nextFragment || bezaeLacuna) && (
                 <tr>
