@@ -33,19 +33,23 @@ const SINAITICUS_COL: ColumnDef = {
 };
 
 // Major Bezae lacunae (physical damage) — single-verse scribal omissions are not noted.
-const BEZAE_LACUNAE: Array<{ gospel: string; sc: number; sv: number; ec: number; ev: number; note: string }> = [
-  { gospel: 'matthew', sc: 1,  sv: 1,  ec: 1,  ev: 19, note: 'Begins at 1:20'    },
-  { gospel: 'matthew', sc: 6,  sv: 21, ec: 9,  ev: 1,  note: 'Resumes at 9:2'    },
-  { gospel: 'matthew', sc: 27, sv: 3,  ec: 27, ev: 11, note: 'Resumes at 27:12'  },
-  { gospel: 'luke',    sc: 3,  sv: 24, ec: 3,  ev: 31, note: 'Resumes at 3:32'   },
-  { gospel: 'john',    sc: 1,  sv: 17, ec: 3,  ev: 25, note: 'Resumes at 3:26'   },
+const BEZAE_LACUNAE: Array<{
+  gospel: string; sc: number; sv: number; ec: number; ev: number;
+  note: string; href: string;
+}> = [
+  { gospel: 'matthew', sc: 1,  sv: 1,  ec: 1,  ev: 19, note: 'Begins at 1:20',   href: '/matthew/1/20'  },
+  { gospel: 'matthew', sc: 6,  sv: 21, ec: 9,  ev: 1,  note: 'Resumes at 9:2',   href: '/matthew/9/2'   },
+  { gospel: 'matthew', sc: 27, sv: 3,  ec: 27, ev: 11, note: 'Resumes at 27:12', href: '/matthew/27/12' },
+  { gospel: 'luke',    sc: 3,  sv: 24, ec: 3,  ev: 31, note: 'Resumes at 3:32',  href: '/luke/3/32'     },
+  { gospel: 'john',    sc: 1,  sv: 17, ec: 3,  ev: 25, note: 'Resumes at 3:26',  href: '/john/3/26'     },
 ];
 
-function getBezaeNote(gospel: string, ch: number, v: number): string | null {
+function getBezaeLacuna(gospel: string, ch: number, v: number): { note: string; href: string } | null {
   const cur = ch * 1000 + v;
   for (const r of BEZAE_LACUNAE) {
     if (gospel !== r.gospel) continue;
-    if (cur >= r.sc * 1000 + r.sv && cur <= r.ec * 1000 + r.ev) return r.note;
+    if (cur >= r.sc * 1000 + r.sv && cur <= r.ec * 1000 + r.ev)
+      return { note: r.note, href: r.href };
   }
   return null;
 }
@@ -68,7 +72,7 @@ const TRADITIONS: TraditionDef[] = [
 export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) {
   const [showSinaiticus, setShowSinaiticus] = useState(false);
 
-  const bezaeNote = getBezaeNote(data.gospel, data.chapter, data.verse);
+  const bezaeLacuna = getBezaeLacuna(data.gospel, data.chapter, data.verse);
 
   const columns: ColumnDef[] = showSinaiticus
     ? [BASE_COLUMNS[0], BASE_COLUMNS[1], SINAITICUS_COL, ...BASE_COLUMNS.slice(2)]
@@ -147,20 +151,6 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
               );
             })}
           </tr>
-          {/* Row 3 — Bezae lacuna note (only during major physical gaps) */}
-          {bezaeNote && (
-            <tr className="bg-witness-band text-ink-on-band">
-              {columns.map((col) => (
-                <th
-                  key={col.key}
-                  colSpan={3}
-                  className="pb-1.5 pt-0 text-[10px] font-normal normal-case tracking-normal text-center text-ink-on-band-muted italic"
-                >
-                  {col.key === 'bezae' ? bezaeNote : null}
-                </th>
-              ))}
-            </tr>
-          )}
         </thead>
 
         <tbody>
@@ -169,28 +159,61 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
           ))}
         </tbody>
 
-        {nextFragment && (
-          <tfoot>
-            <tr>
-              <td />
-              <td colSpan={2} className="pt-2 pb-1">
-                {nextFragmentHref ? (
-                  <Link
-                    href={nextFragmentHref}
-                    className="inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded hover:bg-ink-primary hover:text-ink-on-band transition-colors"
-                  >
-                    {nextFragment}
-                  </Link>
-                ) : (
+        {(() => {
+          const bezaeIdx = columns.findIndex(c => c.key === 'bezae');
+          const bezaeLeadCols = bezaeIdx * 3 + 1;
+          const bezaeTrailCols = columns.length * 3 - bezaeIdx * 3 - 3;
+          return (
+            <tfoot>
+              {/* Papyrus column identifier — always visible */}
+              <tr>
+                <td />
+                <td colSpan={2} className="pt-2 pb-1">
                   <span className="inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded">
-                    {nextFragment}
+                    65 Earliest Papyrus Witnesses
                   </span>
-                )}
-              </td>
-              <td colSpan={(columns.length * 3) - 3} />
-            </tr>
-          </tfoot>
-        )}
+                </td>
+                <td colSpan={(columns.length * 3) - 3} />
+              </tr>
+              {/* Papyrus navigation button — only when a next covered verse exists */}
+              {nextFragment && (
+                <tr>
+                  <td />
+                  <td colSpan={2} className="pb-1">
+                    {nextFragmentHref ? (
+                      <Link
+                        href={nextFragmentHref}
+                        className="inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded hover:bg-ink-primary hover:text-ink-on-band transition-colors"
+                      >
+                        {nextFragment}
+                      </Link>
+                    ) : (
+                      <span className="inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded">
+                        {nextFragment}
+                      </span>
+                    )}
+                  </td>
+                  <td colSpan={(columns.length * 3) - 3} />
+                </tr>
+              )}
+              {/* Bezae navigation button — only during major physical lacunae */}
+              {bezaeLacuna && (
+                <tr>
+                  <td colSpan={bezaeLeadCols} />
+                  <td colSpan={2} className="pt-2 pb-1">
+                    <Link
+                      href={bezaeLacuna.href}
+                      className="inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded hover:bg-ink-primary hover:text-ink-on-band transition-colors"
+                    >
+                      {bezaeLacuna.note}
+                    </Link>
+                  </td>
+                  <td colSpan={bezaeTrailCols} />
+                </tr>
+              )}
+            </tfoot>
+          );
+        })()}
 
       </table>
     </div>
