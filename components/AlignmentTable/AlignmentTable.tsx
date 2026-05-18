@@ -118,7 +118,7 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
                     className="ml-2 px-1.5 py-0.5 rounded border border-ink-on-band-muted/30 text-ink-on-band-muted hover:border-ink-on-band hover:text-ink-on-band transition-colors normal-case tracking-normal font-normal text-[10px]"
                     aria-label={showSinaiticus ? 'Show Vaticanus' : 'Show Sinaiticus'}
                   >
-                    {showSinaiticus ? '+ Vaticanus' : '+ Sinaiticus'}
+                    {showSinaiticus ? 'See Vaticanus' : 'See Sinaiticus'}
                   </button>
                 )}
               </th>
