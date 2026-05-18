@@ -61,7 +61,7 @@ type TraditionDef = {
 };
 
 const TRADITIONS: TraditionDef[] = [
-  { label: '65 Earliest Papyrus Witnesses', getSpan: () => 3 },
+  { label: 'Greek Papyri', getSpan: () => 3 },
   { label: 'Alexandrian',  getSpan: () => 3, hasToggle: true },
   { label: 'Western',      getSpan: () => 3 },
   { label: 'Latin',        getSpan: () => 3 },
@@ -159,34 +159,44 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
           ))}
         </tbody>
 
-        {(nextFragment || bezaeLacuna) && (() => {
+        {(() => {
           const bezaeIdx = columns.findIndex(c => c.key === 'bezae');
-          // gap between papyrus dot+gloss and bezae text col = vaticanus [+ sinaiticus]
           const midCols = bezaeIdx * 3 - 3;
           const bezaeTrailCols = columns.length * 3 - bezaeIdx * 3 - 3;
+          const totalTrailCols = columns.length * 3 - 3;
           const btnClass = 'inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded hover:bg-ink-primary hover:text-ink-on-band transition-colors';
           return (
             <tfoot>
+              {/* Navigation row — Next Verse / Next Fragment aligned with Bezae lacuna button */}
+              {(nextFragment || bezaeLacuna) && (
+                <tr>
+                  <td />
+                  <td colSpan={2} className="pt-2 pb-1">
+                    {nextFragment && (
+                      nextFragmentHref
+                        ? <Link href={nextFragmentHref} className={btnClass}>{nextFragment}</Link>
+                        : <span className={btnClass}>{nextFragment}</span>
+                    )}
+                  </td>
+                  <td colSpan={midCols} />
+                  <td />
+                  <td colSpan={2} className="pt-2 pb-1">
+                    {bezaeLacuna && (
+                      <Link href={bezaeLacuna.href} className={btnClass}>{bezaeLacuna.note}</Link>
+                    )}
+                  </td>
+                  <td colSpan={bezaeTrailCols} />
+                </tr>
+              )}
+              {/* Persistent papyrus info link — always visible */}
               <tr>
-                {/* Papyrus dot column */}
                 <td />
-                <td colSpan={2} className="pt-2 pb-1">
-                  {nextFragment && (
-                    nextFragmentHref
-                      ? <Link href={nextFragmentHref} className={btnClass}>{nextFragment}</Link>
-                      : <span className={btnClass}>{nextFragment}</span>
-                  )}
+                <td colSpan={2} className="pt-1 pb-2">
+                  <Link href="/papyrus-map" className={btnClass}>
+                    See 65 Earliest Greek Papyri
+                  </Link>
                 </td>
-                {/* Vaticanus [+ Sinaiticus] gap */}
-                <td colSpan={midCols} />
-                {/* Bezae dot column */}
-                <td />
-                <td colSpan={2} className="pt-2 pb-1">
-                  {bezaeLacuna && (
-                    <Link href={bezaeLacuna.href} className={btnClass}>{bezaeLacuna.note}</Link>
-                  )}
-                </td>
-                <td colSpan={bezaeTrailCols} />
+                <td colSpan={totalTrailCols} />
               </tr>
             </tfoot>
           );
