@@ -65,6 +65,7 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
   }
 
   return (
+    <div>
     <div className="overflow-x-auto">
       <table
         className="w-full border-collapse text-left table-fixed"
@@ -143,31 +144,25 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
           ))}
         </tbody>
 
-        {nextFragment && (
-          <tfoot>
-            <tr>
-              <td
-                colSpan={3}
-                className="pt-2 pb-1 pl-2 text-[10px] text-amber-200/80 font-normal normal-case tracking-normal"
-              >
-                {nextFragmentHref ? (
-                  <Link
-                    href={nextFragmentHref}
-                    className="underline underline-offset-2 decoration-amber-200/40 hover:text-amber-200 transition-colors"
-                  >
-                    {nextFragment}
-                  </Link>
-                ) : (
-                  nextFragment
-                )}
-              </td>
-              {columns.slice(1).map((col) => (
-                <td key={col.key} colSpan={3} />
-              ))}
-            </tr>
-          </tfoot>
-        )}
       </table>
+    </div>
+
+    {nextFragment && (
+      <div className="mt-3 pl-1">
+        {nextFragmentHref ? (
+          <Link
+            href={nextFragmentHref}
+            className="inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded hover:bg-ink-primary hover:text-ink-on-band transition-colors"
+          >
+            {nextFragment}
+          </Link>
+        ) : (
+          <span className="inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded">
+            {nextFragment}
+          </span>
+        )}
+      </div>
+    )}
     </div>
   );
 }
