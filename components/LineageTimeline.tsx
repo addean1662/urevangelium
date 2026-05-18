@@ -92,7 +92,7 @@ const NODE_X: Record<string, number> = {
   'challoner-1749':             730,
   'jerusalem-bible-1966':       820,
   'nabre-2011':                 860,
-  'stuttgart-vulgate':          880,
+  'stuttgart-vulgate':         1000,
   // Syriac tradition — aligned with peshitta source-text anchor (1014)
   'bfbs-peshitta':             1014,
   // TR / Byzantine English
@@ -190,6 +190,33 @@ export function LineageTimeline() {
   return (
     <div className="overflow-x-auto" style={{ position: 'relative' }}>
 
+      {/* ── Chart title ────────────────────────────────────────────────────── */}
+      <div style={{
+        textAlign: 'center',
+        padding: '14px 24px 10px',
+        minWidth: SVG_W,
+      }}>
+        <div style={{
+          fontFamily: 'EB Garamond, Georgia, serif',
+          fontSize: 22,
+          fontWeight: 700,
+          color: 'var(--color-ink-primary)',
+          letterSpacing: '0.01em',
+          lineHeight: 1.25,
+        }}>
+          Trace Your New Testament Back to the Gospel Sources
+        </div>
+        <div style={{
+          fontFamily: 'EB Garamond, Georgia, serif',
+          fontSize: 13,
+          fontStyle: 'italic',
+          color: 'var(--color-ink-muted)',
+          marginTop: 5,
+        }}>
+          See how the Four Gospels in the Bible you read today connect to the Greek, Latin, Syriac, and Byzantine witnesses shown above.
+        </div>
+      </div>
+
       {/* ── Tooltip ────────────────────────────────────────────────────────── */}
       {tooltip && (
         <div
@@ -266,37 +293,6 @@ export function LineageTimeline() {
             </g>
           );
         })}
-
-        {/* ── Chart title and subtitle ───────────────────────────────────── */}
-        <text
-          x={SVG_W / 2} y={46}
-          textAnchor="middle" dominantBaseline="middle"
-          style={{
-            fontSize: 22,
-            fontWeight: 700,
-            fontFamily: 'EB Garamond, Georgia, serif',
-            fill: 'var(--color-ink-primary)',
-            letterSpacing: '0.01em',
-            pointerEvents: 'none',
-            userSelect: 'none',
-          }}
-        >
-          Trace Your New Testament Back to the Gospel Sources
-        </text>
-        <text
-          x={SVG_W / 2} y={78}
-          textAnchor="middle" dominantBaseline="middle"
-          style={{
-            fontSize: 13,
-            fontFamily: 'EB Garamond, Georgia, serif',
-            fill: 'var(--color-ink-muted)',
-            fontStyle: 'italic',
-            pointerEvents: 'none',
-            userSelect: 'none',
-          }}
-        >
-          See how the Four Gospels in the Bible you read today connect to the Greek, Latin, Syriac, and Byzantine witnesses shown above.
-        </text>
 
         {/* ── Textus Receptus tradition band (behind everything) ─────────── */}
         {(() => {
