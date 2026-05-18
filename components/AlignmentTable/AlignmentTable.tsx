@@ -61,7 +61,7 @@ type TraditionDef = {
 };
 
 const TRADITIONS: TraditionDef[] = [
-  { label: 'Greek Papyri', getSpan: () => 3 },
+  { label: '65 Earliest Papyrus Witnesses', getSpan: () => 3 },
   { label: 'Alexandrian',  getSpan: (s) => (s ? 6 : 3), hasToggle: true },
   { label: 'Western',      getSpan: () => 3 },
   { label: 'Latin',        getSpan: () => 3 },
@@ -159,58 +159,35 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
           ))}
         </tbody>
 
-        {(() => {
+        {(nextFragment || bezaeLacuna) && (() => {
           const bezaeIdx = columns.findIndex(c => c.key === 'bezae');
-          const bezaeLeadCols = bezaeIdx * 3 + 1;
+          // gap between papyrus dot+gloss and bezae text col = vaticanus [+ sinaiticus]
+          const midCols = bezaeIdx * 3 - 3;
           const bezaeTrailCols = columns.length * 3 - bezaeIdx * 3 - 3;
+          const btnClass = 'inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded hover:bg-ink-primary hover:text-ink-on-band transition-colors';
           return (
             <tfoot>
-              {/* Papyrus column identifier — always visible */}
               <tr>
+                {/* Papyrus dot column */}
                 <td />
                 <td colSpan={2} className="pt-2 pb-1">
-                  <span className="inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded">
-                    65 Earliest Papyrus Witnesses
-                  </span>
+                  {nextFragment && (
+                    nextFragmentHref
+                      ? <Link href={nextFragmentHref} className={btnClass}>{nextFragment}</Link>
+                      : <span className={btnClass}>{nextFragment}</span>
+                  )}
                 </td>
-                <td colSpan={(columns.length * 3) - 3} />
+                {/* Vaticanus [+ Sinaiticus] gap */}
+                <td colSpan={midCols} />
+                {/* Bezae dot column */}
+                <td />
+                <td colSpan={2} className="pt-2 pb-1">
+                  {bezaeLacuna && (
+                    <Link href={bezaeLacuna.href} className={btnClass}>{bezaeLacuna.note}</Link>
+                  )}
+                </td>
+                <td colSpan={bezaeTrailCols} />
               </tr>
-              {/* Papyrus navigation button — only when a next covered verse exists */}
-              {nextFragment && (
-                <tr>
-                  <td />
-                  <td colSpan={2} className="pb-1">
-                    {nextFragmentHref ? (
-                      <Link
-                        href={nextFragmentHref}
-                        className="inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded hover:bg-ink-primary hover:text-ink-on-band transition-colors"
-                      >
-                        {nextFragment}
-                      </Link>
-                    ) : (
-                      <span className="inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded">
-                        {nextFragment}
-                      </span>
-                    )}
-                  </td>
-                  <td colSpan={(columns.length * 3) - 3} />
-                </tr>
-              )}
-              {/* Bezae navigation button — only during major physical lacunae */}
-              {bezaeLacuna && (
-                <tr>
-                  <td colSpan={bezaeLeadCols} />
-                  <td colSpan={2} className="pt-2 pb-1">
-                    <Link
-                      href={bezaeLacuna.href}
-                      className="inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded hover:bg-ink-primary hover:text-ink-on-band transition-colors"
-                    >
-                      {bezaeLacuna.note}
-                    </Link>
-                  </td>
-                  <td colSpan={bezaeTrailCols} />
-                </tr>
-              )}
             </tfoot>
           );
         })()}
