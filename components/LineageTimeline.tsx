@@ -78,7 +78,7 @@ const NODE_X: Record<string, number> = {
   // Latin tradition
   'wycliffe-1382':              840,
   'clementine-vulgate':         780,
-  'douay-rheims-1582-1610':     808,
+  'douay-rheims-1582-1610':     785,
   'stuttgart-vulgate':          880,
   // Syriac tradition — aligned with peshitta source-text anchor (1014)
   'bfbs-peshitta':             1014,
