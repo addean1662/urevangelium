@@ -57,7 +57,7 @@
     "tradition": "Manuscript witness",
     "parents": [],
     "primarySource": "Standard Syriac Bible of the Eastern churches; NT text associated with Antiochene Syriac Christianity",
-    "description": "The ancient Syriac translation that became the authoritative Bible of Syriac Christianity; the NT Peshitta (distinct from the earlier Diatessaron) reflects a text close to the Byzantine tradition and was first critically edited by Gwilliam in 1905."
+    "description": "The ancient Syriac translation that became the authoritative Bible of Syriac Christianity; the NT Peshitta reflects a text close to the Byzantine tradition and was first critically edited by Gwilliam in 1905."
   },
   {
     "id": "byzantine-textform",
@@ -96,18 +96,6 @@
     "description": "The first printed Greek NT, produced by Erasmus using a small set of Byzantine manuscripts; hastily compiled but enormously influential, it established the printed Greek text for the Reformation and was the direct source for Tyndale's English NT."
   },
   {
-    "id": "beza-1598",
-    "name": "Beza Greek New Testament",
-    "shortName": "Beza 1565",
-    "date": 1565,
-    "dateRange": "1565–1611",
-    "language": "Greek",
-    "tradition": "Critical/Academic",
-    "parents": ["stephanus-1550"],
-    "primarySource": "Theodore Beza; ten editions 1565–1611; primary Greek text relied upon by the KJV translators (especially the 1598 edition)",
-    "description": "The most immediate predecessor to the KJV, Beza's Greek NT was essentially a revised Stephanus. The KJV committee relied primarily on his 1598 edition. Together with Stephanus and Erasmus, Beza's work constitutes the Textus Receptus stream before Elzevir gave it that name in 1633."
-  },
-  {
     "id": "tyndale-nt-1526",
     "name": "Tyndale New Testament",
     "shortName": "Tyndale 1526",
@@ -141,7 +129,31 @@
     "tradition": "Protestant",
     "parents": ["tyndale-nt-1526", "stephanus-1550"],
     "primarySource": "Marian exiles in Geneva, led by William Whittingham; revised Tyndale using Beza's Latin NT and Stephanus's Greek text; first English Bible with verse numbers",
-    "description": "The most widely read English Bible before the KJV, used by the Pilgrims and Shakespeare; its Calvinist annotations and typographical innovations (verse numbers, roman type, italics for supplied words) made it the preferred Protestant Bible and a major source for the KJV translators."
+    "description": "The most widely read English Bible before the KJV, used by the Pilgrims and Shakespeare; its Calvinist annotations and typographical innovations (verse numbers, roman type, italics for supplied words) made it the preferred Protestant Bible and a major reference for the KJV translators."
+  },
+  {
+    "id": "beza-1598",
+    "name": "Beza Greek New Testament",
+    "shortName": "Beza 1565",
+    "date": 1565,
+    "dateRange": "1565–1611",
+    "language": "Greek",
+    "tradition": "Critical/Academic",
+    "parents": ["stephanus-1550"],
+    "primarySource": "Theodore Beza; ten editions 1565–1611; primary Greek text relied upon by the KJV translators (especially the 1598 edition)",
+    "description": "The most immediate predecessor to the KJV, Beza's Greek NT was essentially a revised Stephanus. The KJV committee relied primarily on his 1598 edition. Together with Stephanus and Erasmus, Beza's work constitutes the Textus Receptus stream before Elzevir gave it that name in 1633."
+  },
+  {
+    "id": "bishops-bible-1568",
+    "name": "Bishops' Bible",
+    "shortName": "Bishops' 1568",
+    "date": 1568,
+    "dateRange": "1568–1602",
+    "language": "English",
+    "tradition": "Protestant",
+    "parents": ["tyndale-nt-1526"],
+    "primarySource": "Produced by a committee of Church of England bishops under Archbishop Matthew Parker; a revision of the Great Bible (1539) and Tyndale's English tradition; the KJV translators were instructed to follow it as their base text",
+    "description": "The official Church of England Bible before the KJV, and the formal English base the KJV translators were required to start from. The KJV was primarily a revision of the Bishops' Bible against Beza's Greek text; it represents the culmination of the Tyndale–Coverdale–Great Bible English revision chain."
   },
   {
     "id": "douay-rheims-1582-1610",
@@ -153,7 +165,7 @@
     "tradition": "Catholic",
     "parents": ["vulgate-jerome"],
     "primarySource": "English College at Douai and Rheims; NT published Rheims 1582, OT published Douai 1609–1610; translated from the Latin Vulgate",
-    "description": "The first complete Catholic English Bible, translated from the Latin Vulgate rather than the original Greek and Hebrew. Note: the NT (1582) predates the Clementine Vulgate (1592) and was based on available pre-Clementine manuscripts; the OT (1609–1610) postdates and reflects the Clementine tradition. The line here represents the Catholic Vulgate lineage as a whole."
+    "description": "The first complete Catholic English Bible, translated from the Latin Vulgate rather than the original Greek and Hebrew. Note: the NT (1582) predates the Clementine Vulgate (1592) and was based on available pre-Clementine manuscripts; the OT (1609–1610) postdates and reflects the Clementine tradition."
   },
   {
     "id": "clementine-vulgate",
@@ -175,9 +187,9 @@
     "dateRange": "1611–1769",
     "language": "English",
     "tradition": "Protestant",
-    "parents": ["beza-1598", "geneva-1560", "stephanus-1550"],
-    "primarySource": "47 scholars in six companies; primary Greek base: Beza 1598 and Stephanus 1550–1559; primary English base: Bishops' Bible, heavily revised against Tyndale and Geneva; standard text established 1769",
-    "description": "The most influential English translation in history; the KJV synthesized all prior English translations into a literary standard that shaped English prose for four centuries. Note: the Elzevir Textus Receptus (1633) postdates the KJV — the KJV's Greek base was Beza (1598) and Stephanus (1550), not the 1633 edition that first coined the term 'Textus Receptus.'"
+    "parents": ["bishops-bible-1568", "beza-1598"],
+    "primarySource": "47 scholars in six companies; English base: Bishops' Bible, heavily revised against Tyndale and Geneva; Greek base: Beza 1598 and Stephanus 1550; standard text established 1769",
+    "description": "The most influential English translation in history; the KJV synthesized two streams — the Bishops' Bible English revision tradition and Beza's printed Greek text — into a literary standard that shaped English prose for four centuries. Note: the Elzevir Textus Receptus (1633) postdates the KJV; the KJV's Greek base was Beza (1598) and Stephanus (1550)."
   },
   {
     "id": "textus-receptus-elzevir",
@@ -192,6 +204,18 @@
     "description": "The Elzevir brothers' 1633 edition coined the phrase 'Textus Receptus' (received text); it gave a formal name to the Byzantine-based printed Greek text that Protestant translations had used for a century, and became the explicit textual standard for three more centuries of translation, including the NKJV (1982)."
   },
   {
+    "id": "challoner-1749",
+    "name": "Challoner Revision",
+    "shortName": "Challoner 1749",
+    "date": 1749,
+    "dateRange": "1749–1763",
+    "language": "English",
+    "tradition": "Catholic",
+    "parents": ["douay-rheims-1582-1610"],
+    "primarySource": "Bishop Richard Challoner; extensively revised the Douay-Rheims Bible in multiple editions (1749–1763); modernized archaic language and corrected Latinisms; the Challoner revision became the standard Catholic English Bible in England and America until the 20th century",
+    "description": "The Challoner revision so extensively reworked the Douay-Rheims that it is sometimes treated as a separate translation. By modernizing vocabulary and syntax while retaining the Vulgate-based approach, Challoner made the Catholic English Bible practically accessible for the first time, and it remained in standard use until Vatican II inspired new translations."
+  },
+  {
     "id": "westcott-hort",
     "name": "Westcott-Hort Greek New Testament",
     "shortName": "Westcott-Hort 1881",
@@ -202,6 +226,18 @@
     "parents": ["vaticanus", "sinaiticus"],
     "primarySource": "B.F. Westcott and F.J.A. Hort; 28 years of work; privileged Vaticanus and Sinaiticus as the most reliable witnesses to the original text",
     "description": "The critical Greek text that overturned three centuries of Textus Receptus dominance; Westcott and Hort's systematic eclectic method — privileging the Alexandrian text — became the foundation of all modern critical editions and most contemporary English translations."
+  },
+  {
+    "id": "revised-version-1881",
+    "name": "Revised Version",
+    "shortName": "Revised Version 1881",
+    "date": 1881,
+    "dateRange": "1881–1885",
+    "language": "English",
+    "tradition": "Protestant",
+    "parents": ["kjv-1611"],
+    "primarySource": "British revision committee of 65 scholars; NT 1881, OT 1885; Greek base was the Westcott-Hort critical text, consulted in committee by Westcott and Hort themselves; a formal revision of the KJV",
+    "description": "The first major English revision of the KJV, produced by a large British committee using the new Westcott-Hort Greek text. Its American counterpart became the ASV (1901). The RV–ASV line is the direct ancestor of the RSV (1952), NASB (1971), NRSV (1989), and ESV (2001) revision chains."
   },
   {
     "id": "nestle-aland-28",
@@ -216,6 +252,18 @@
     "description": "The standard scholarly Greek NT, now in its 28th edition; the primary source text for most modern translations. Nestle's original method combined Westcott-Hort, Tischendorf, and Weiss; subsequent editions incorporated papyri discoveries. The date 1898 represents the start of the tradition; NA28 was published 2012."
   },
   {
+    "id": "asv-1901",
+    "name": "American Standard Version",
+    "shortName": "ASV 1901",
+    "date": 1901,
+    "dateRange": "1901",
+    "language": "English",
+    "tradition": "Protestant",
+    "parents": ["revised-version-1881"],
+    "primarySource": "American revision of the British Revised Version (1881/1885); the RV/ASV committee used the Westcott-Hort text as their Greek base",
+    "description": "The American counterpart to the British Revised Version; its aim was a more literal revision of the KJV using the new critical Greek text. The ASV became the direct parent of the RSV (1952), NASB (1971), and ESV (2001) revision chains, making it a key bridge between the KJV tradition and modern critical-text translations."
+  },
+  {
     "id": "bfbs-peshitta",
     "name": "BFBS Critical Peshitta",
     "shortName": "BFBS Peshitta 1905",
@@ -228,18 +276,6 @@
     "description": "The first critical edition of the Peshitta NT, establishing a scholarly text by collating the best available manuscripts; it remains the standard academic Peshitta text and the foundation of all subsequent Peshitta scholarship and translation."
   },
   {
-    "id": "asv-1901",
-    "name": "American Standard Version",
-    "shortName": "ASV 1901",
-    "date": 1901,
-    "dateRange": "1901",
-    "language": "English",
-    "tradition": "Protestant",
-    "parents": ["kjv-1611"],
-    "primarySource": "American revision of the British Revised Version (1881/1885); the RV/ASV committee used the Westcott-Hort text as their Greek base",
-    "description": "The American counterpart to the British Revised Version; its aim was a more literal revision of the KJV using the new critical Greek text. The ASV became the direct parent of the RSV (1952), NASB (1971), and ESV (2001) revision chains, making it a key bridge between the KJV tradition and modern critical-text translations."
-  },
-  {
     "id": "revised-standard-1952",
     "name": "Revised Standard Version",
     "shortName": "RSV 1952",
@@ -250,6 +286,42 @@
     "parents": ["asv-1901", "nestle-aland-28"],
     "primarySource": "National Council of Churches; formal revision of the American Standard Version (1901), itself a KJV revision; NT used the eclectic critical Greek text",
     "description": "A revision of the American Standard Version (1901) — itself a KJV descendant — the RSV aimed for literary quality while incorporating critical textual scholarship. Its 1952 NT became the dominant scholarly English Bible, directly spawning the NRSV (1989) and ESV (2001)."
+  },
+  {
+    "id": "good-news-bible-1966",
+    "name": "Good News Bible (Today's English Version)",
+    "shortName": "Good News 1966",
+    "date": 1966,
+    "dateRange": "1966–1976",
+    "language": "English",
+    "tradition": "Protestant",
+    "parents": ["nestle-aland-28"],
+    "primarySource": "American Bible Society; Robert Bratcher principal translator of the NT (1966); dynamic equivalence approach aimed at readers without a church background; OT completed 1976",
+    "description": "The first widely distributed dynamic equivalence English translation, produced by the American Bible Society for readers unfamiliar with religious vocabulary. Its NT (1966) pioneered the 'common language' approach that influenced the CEV, NLT, and The Message. Translated from the NA/UBS critical Greek text throughout."
+  },
+  {
+    "id": "jerusalem-bible-1966",
+    "name": "Jerusalem Bible",
+    "shortName": "Jerusalem 1966",
+    "date": 1966,
+    "dateRange": "1966",
+    "language": "English",
+    "tradition": "Catholic",
+    "parents": ["nestle-aland-28", "vulgate-jerome"],
+    "primarySource": "English Dominican scholars under Alexander Jones; translated from the French Bible de Jérusalem (1956) with direct reference to Hebrew and Greek originals; first Catholic English Bible from originals rather than the Vulgate",
+    "description": "A landmark Catholic translation produced by English Dominicans working from the French Jerusalem Bible (1956) and the original Hebrew and Greek texts. The first major Catholic English Bible to translate directly from the originals rather than the Vulgate. Noted for its literary quality; J.R.R. Tolkien contributed to the translation of Jonah."
+  },
+  {
+    "id": "nasb-1971",
+    "name": "New American Standard Bible",
+    "shortName": "NASB 1971",
+    "date": 1971,
+    "dateRange": "1971–1995 (NASB95)",
+    "language": "English",
+    "tradition": "Protestant",
+    "parents": ["asv-1901"],
+    "primarySource": "Lockman Foundation; 58 scholars; NT published 1963, complete Bible 1971; rigidly literal revision of the ASV using the NA critical text; updated NASB95 published 1995",
+    "description": "A conservative evangelical revision of the ASV pursuing word-for-word accuracy; the most literally exact of the major modern translations. The NASB95 update clarified archaic pronouns while retaining the ASV's formal equivalence philosophy. It is the direct parent of the Legacy Standard Bible (LSB 2021)."
   },
   {
     "id": "stuttgart-vulgate",
@@ -300,6 +372,30 @@
     "description": "A revision of the RSV that introduced gender-inclusive language for human beings while retaining the RSV's literary register; adopted as the standard ecumenical and academic English Bible by Catholic, Protestant, and Orthodox scholars for study and liturgy."
   },
   {
+    "id": "nlt-1996",
+    "name": "New Living Translation",
+    "shortName": "NLT 1996",
+    "date": 1996,
+    "dateRange": "1996–2015",
+    "language": "English",
+    "tradition": "Protestant",
+    "parents": ["nestle-aland-28"],
+    "primarySource": "Tyndale House Publishers; 90 scholars; a complete re-translation of the Living Bible (Ken Taylor, 1971) from the original languages using a thought-for-thought approach; NT from NA/UBS critical text",
+    "description": "A dynamic equivalence translation produced by retranslating the paraphrase Living Bible directly from the Hebrew and Greek. By grounding Taylor's popular idiomatic rendering in the original texts, the NLT achieved both accessibility and scholarly credibility. Revised substantially in 2004 and 2015."
+  },
+  {
+    "id": "web-2000",
+    "name": "World English Bible",
+    "shortName": "WEB 2000",
+    "date": 2000,
+    "dateRange": "1997–2023",
+    "language": "English",
+    "tradition": "Protestant",
+    "parents": ["asv-1901", "byzantine-textform"],
+    "primarySource": "Michael Paul Johnson; public domain revision of the ASV (1901) with NT updated to the Byzantine Majority Text (Robinson-Pierpont); completed 2000, ongoing updates",
+    "description": "A public-domain update of the ASV (1901) designed to remove copyright restrictions while updating archaic language. The NT was retranslated against the Byzantine Majority Text rather than the NA critical text, making the WEB a readable modern representative of the Byzantine priority tradition. One of the few royalty-free complete English Bibles."
+  },
+  {
     "id": "english-standard-2001",
     "name": "English Standard Version",
     "shortName": "ESV 2001",
@@ -312,6 +408,30 @@
     "description": "A conservative evangelical revision of the RSV that reversed gender-inclusive language changes; its essentially literal translation philosophy and literary quality made it the preferred study Bible for Reformed and conservative evangelical communities; revised to a 'permanent' text in 2016."
   },
   {
+    "id": "the-message-2002",
+    "name": "The Message",
+    "shortName": "The Message 2002",
+    "date": 2002,
+    "dateRange": "1993–2002",
+    "language": "English",
+    "tradition": "Protestant",
+    "parents": ["nestle-aland-28"],
+    "primarySource": "Eugene H. Peterson; translated from Greek and Hebrew by a single scholar; NT published 1993, complete Bible 2002; intended as a reading Bible in the idiom of contemporary American English",
+    "description": "A single-scholar paraphrase that renders Scripture in contemporary American street idiom rather than traditional Bible English. Peterson worked from the Greek and Hebrew texts throughout; while frequently criticized by those who prefer formal equivalence, The Message has introduced millions of non-readers to the Bible as literature."
+  },
+  {
+    "id": "net-2005",
+    "name": "NET Bible (New English Translation)",
+    "shortName": "NET 2005",
+    "date": 2005,
+    "dateRange": "1996–2019",
+    "language": "English",
+    "tradition": "Protestant",
+    "parents": ["nestle-aland-28"],
+    "primarySource": "Biblical Studies Press; team of 25+ evangelical scholars; Greek base NA27/NA28; the NET Bible contains over 60,000 translators' notes — more than any other Bible in history — explaining every significant textual and translation decision",
+    "description": "A fresh translation distinguished by its extraordinary scholarly apparatus: over 60,000 translators' notes that expose every significant textual variant, translation choice, and exegetical decision. The first Bible drafted entirely on the internet, released free online. Its transparency makes it uniquely valuable for comparative textual study."
+  },
+  {
     "id": "robinson-pierpont",
     "name": "Robinson-Pierpont Byzantine Priority",
     "shortName": "Robinson-Pierpont",
@@ -322,5 +442,41 @@
     "parents": ["byzantine-textform"],
     "primarySource": "Maurice A. Robinson and William G. Pierpont; Byzantine priority methodology arguing the majority text best preserves the original; 2005 and 2018 editions",
     "description": "A critical edition constructed on the principle that the Byzantine majority text best preserves the original NT; the leading academic case for Byzantine priority, and the Greek text base for some Orthodox translations and NKJV-tradition scholarship."
+  },
+  {
+    "id": "nabre-2011",
+    "name": "New American Bible Revised Edition",
+    "shortName": "NABRE 2011",
+    "date": 2011,
+    "dateRange": "1970–2011",
+    "language": "English",
+    "tradition": "Catholic",
+    "parents": ["nestle-aland-28"],
+    "primarySource": "Catholic Biblical Association of America; OT revised 2011, NT 1986; translated from the original Hebrew and Greek with reference to the Vulgate; approved for Catholic liturgical use in the United States",
+    "description": "The standard Catholic Bible in American liturgical use, translated directly from the Hebrew and Greek rather than the Vulgate. The Revised Edition (2011) updated the OT translation begun in the original NAB (1970). Its NT (revised 1986) is the translation used in the Lectionary for Mass in the United States."
+  },
+  {
+    "id": "csb-2017",
+    "name": "Christian Standard Bible",
+    "shortName": "CSB 2017",
+    "date": 2017,
+    "dateRange": "2017",
+    "language": "English",
+    "tradition": "Protestant",
+    "parents": ["nestle-aland-28"],
+    "primarySource": "Holman Bible Publishers; 100 scholars; Greek base NA28/UBS5; revision of the Holman Christian Standard Bible (HCSB 2004) with improved readability; 'Optimal Equivalence' translation philosophy",
+    "description": "A complete revision of the HCSB (2004), pursuing what its translators call 'Optimal Equivalence' — formal where possible, dynamic where necessary for natural English. Adopted by the Southern Baptist Convention as its preferred Bible, the CSB has gained wide evangelical acceptance as a readable yet accurate alternative to the ESV and NIV."
+  },
+  {
+    "id": "lsb-2021",
+    "name": "Legacy Standard Bible",
+    "shortName": "LSB 2021",
+    "date": 2021,
+    "dateRange": "2021",
+    "language": "English",
+    "tradition": "Protestant",
+    "parents": ["nasb-1971"],
+    "primarySource": "Three16 Publishing; revision of the NASB95; produced under the oversight of John MacArthur and The Master's Seminary; maximally literal word-for-word rendering; restores 'LORD' as 'Yahweh' throughout",
+    "description": "A maximally literal revision of the NASB95, designed for serious word-for-word study. Its most distinctive feature is rendering the divine name as 'Yahweh' throughout the OT rather than 'LORD', restoring the proper name where the MT has the Tetragrammaton. Represents the terminus of the ASV → NASB literal-translation chain."
   }
 ]

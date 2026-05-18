@@ -41,10 +41,10 @@ const WITNESS_IDS = new Set([
 // space between adjacent Reformation-era nodes (e.g. Erasmus 1516 / Tyndale
 // 1526, only 10 years apart with 42 px-tall boxes: 59 px gap − 42 px = 17 px).
 const SVG_W    = 1440;
-const SVG_H    = 4000;
+const SVG_H    = 4400;
 const AXIS_X   = 38;
 const EARLIEST = 1350;
-const LATEST   = 2025;
+const LATEST   = 2030;
 
 // Each witness column is 240px (1440 ÷ 6). Sub-columns: source text 45% (108px)
 // | dot 10% | English gloss 45%. Anchor = centre of source text = col_left + 54.
@@ -69,28 +69,44 @@ const NODE_X: Record<string, number> = {
   // Alexandrian critical text
   'westcott-hort':              540,
   'nestle-aland-28':            440,
-  // English from critical text
-  'new-international-1978':     300,
-  'asv-1901':                   760,
+  // English from critical text — literal/formal chain
+  'revised-version-1881':       760,
+  'asv-1901':                   780,
   'revised-standard-1952':      620,
+  'nasb-1971':                  700,
   'new-revised-standard-1989':  540,
   'english-standard-2001':      380,
+  'lsb-2021':                   700,
+  // English from critical text — eclectic/study
+  'new-international-1978':     300,
+  'net-2005':                   480,
+  'csb-2017':                   240,
+  // Dynamic / meaning-based lane (far left)
+  'good-news-bible-1966':       200,
+  'nlt-1996':                   170,
+  'the-message-2002':           130,
   // Latin tradition
   'wycliffe-1382':              840,
   'clementine-vulgate':         780,
   'douay-rheims-1582-1610':     785,
+  'challoner-1749':             730,
+  'jerusalem-bible-1966':       820,
+  'nabre-2011':                 860,
   'stuttgart-vulgate':          880,
   // Syriac tradition — aligned with peshitta source-text anchor (1014)
   'bfbs-peshitta':             1014,
-  // TR stream: Erasmus → Stephanus → Beza → KJV / Elzevir label
+  // TR / Byzantine English
+  'web-2000':                  1090,
+  'new-king-james-1982':       1160,
+  // TR stream: Erasmus → Stephanus → Beza → KJV / Elzevir
   'erasmus-greek-nt':          1310,
   'stephanus-1550':            1290,
   'beza-1598':                 1265,
   'tyndale-nt-1526':           1120,
+  'bishops-bible-1568':        1060,
   'geneva-1560':                980,
   'kjv-1611':                   920,
   'textus-receptus-elzevir':   1220,
-  'new-king-james-1982':       1160,
   'robinson-pierpont':         1360,
 };
 
@@ -133,8 +149,8 @@ function splitLabel(shortName: string, date: number): { name: string; year: stri
 const RENDERED_NODES = NODES.filter(n => !WITNESS_IDS.has(n.id));
 
 const TICK_YEARS: number[] = [];
-for (let y = 1400; y <= 2000; y += 50) TICK_YEARS.push(y);
-const LABEL_YEARS = new Set([1400, 1500, 1600, 1700, 1800, 1900, 2000]);
+for (let y = 1400; y <= 2025; y += 50) TICK_YEARS.push(y);
+const LABEL_YEARS = new Set([1400, 1500, 1600, 1700, 1800, 1900, 2000, 2025]);
 
 export function LineageTimeline() {
   const [tooltip, setTooltip] = useState<{
@@ -250,6 +266,37 @@ export function LineageTimeline() {
             </g>
           );
         })}
+
+        {/* ── Chart title and subtitle ───────────────────────────────────── */}
+        <text
+          x={SVG_W / 2} y={46}
+          textAnchor="middle" dominantBaseline="middle"
+          style={{
+            fontSize: 22,
+            fontWeight: 700,
+            fontFamily: 'EB Garamond, Georgia, serif',
+            fill: 'var(--color-ink-primary)',
+            letterSpacing: '0.01em',
+            pointerEvents: 'none',
+            userSelect: 'none',
+          }}
+        >
+          Trace Your New Testament Back to the Gospel Sources
+        </text>
+        <text
+          x={SVG_W / 2} y={78}
+          textAnchor="middle" dominantBaseline="middle"
+          style={{
+            fontSize: 13,
+            fontFamily: 'EB Garamond, Georgia, serif',
+            fill: 'var(--color-ink-muted)',
+            fontStyle: 'italic',
+            pointerEvents: 'none',
+            userSelect: 'none',
+          }}
+        >
+          See how the Four Gospels in the Bible you read today connect to the Greek, Latin, Syriac, and Byzantine witnesses shown above.
+        </text>
 
         {/* ── Textus Receptus tradition band (behind everything) ─────────── */}
         {(() => {
@@ -420,8 +467,8 @@ export function LineageTimeline() {
             fontSize: 10,
             fill: 'var(--color-ink-muted)',
             fontFamily: 'EB Garamond, Georgia, serif',
-            pointerEvents: 'none',
-            userSelect: 'none',
+            pointerEvents: 'none' as const,
+            userSelect: 'none' as const,
           };
           const rows: Array<{ y: number; label: string; dash?: boolean; witness?: boolean; band?: boolean }> = [
             { y: 62,  label: 'Manuscript tradition',   witness: true },
