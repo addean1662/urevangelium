@@ -69,8 +69,9 @@ const NODE_X: Record<string, number> = {
   // Alexandrian critical text
   'westcott-hort':              540,
   'nestle-aland-28':            440,
-  // English from eclectic Greek
+  // English from critical text
   'new-international-1978':     300,
+  'asv-1901':                   760,
   'revised-standard-1952':      620,
   'new-revised-standard-1989':  540,
   'english-standard-2001':      380,
@@ -81,25 +82,20 @@ const NODE_X: Record<string, number> = {
   'stuttgart-vulgate':          880,
   // Syriac tradition — aligned with peshitta source-text anchor (1014)
   'bfbs-peshitta':             1014,
-  // Byzantine → KJV tradition
-  'erasmus-greek-nt':          1300,
+  // TR stream: Erasmus → Stephanus → Beza → KJV / Elzevir label
+  'erasmus-greek-nt':          1310,
+  'stephanus-1550':            1290,
+  'beza-1598':                 1265,
   'tyndale-nt-1526':           1120,
-  'stephanus-1550':            1240,
   'geneva-1560':                980,
   'kjv-1611':                   920,
-  'textus-receptus-elzevir':   1200,
+  'textus-receptus-elzevir':   1220,
   'new-king-james-1982':       1160,
   'robinson-pierpont':         1360,
 };
 
-// Override anachronistic parent: Douay NT (1582) predates Clementine (1592).
-// A literal linear-scale arc would go backward in time; connect to Jerome's
-// Vulgate directly instead (documented as the fallback in LINEAGE_TIMELINE.md).
-const DISPLAY_PARENTS: Partial<Record<string, string[]>> = {
-  'douay-rheims-1582-1610': ['vulgate-jerome'],
-};
 function getDisplayParents(n: TranslationNode): string[] {
-  return DISPLAY_PARENTS[n.id] ?? n.parents;
+  return n.parents;
 }
 
 function yearToY(year: number): number {

@@ -96,6 +96,18 @@
     "description": "The first printed Greek NT, produced by Erasmus using a small set of Byzantine manuscripts; hastily compiled but enormously influential, it established the printed Greek text for the Reformation and was the direct source for Tyndale's English NT."
   },
   {
+    "id": "beza-1598",
+    "name": "Beza Greek New Testament",
+    "shortName": "Beza 1565",
+    "date": 1565,
+    "dateRange": "1565–1611",
+    "language": "Greek",
+    "tradition": "Critical/Academic",
+    "parents": ["stephanus-1550"],
+    "primarySource": "Theodore Beza; ten editions 1565–1611; primary Greek text relied upon by the KJV translators (especially the 1598 edition)",
+    "description": "The most immediate predecessor to the KJV, Beza's Greek NT was essentially a revised Stephanus. The KJV committee relied primarily on his 1598 edition. Together with Stephanus and Erasmus, Beza's work constitutes the Textus Receptus stream before Elzevir gave it that name in 1633."
+  },
+  {
     "id": "tyndale-nt-1526",
     "name": "Tyndale New Testament",
     "shortName": "Tyndale 1526",
@@ -139,7 +151,7 @@
     "dateRange": "1582–1610",
     "language": "English",
     "tradition": "Catholic",
-    "parents": ["clementine-vulgate"],
+    "parents": ["vulgate-jerome"],
     "primarySource": "English College at Douai and Rheims; NT published Rheims 1582, OT published Douai 1609–1610; translated from the Latin Vulgate",
     "description": "The first complete Catholic English Bible, translated from the Latin Vulgate rather than the original Greek and Hebrew. Note: the NT (1582) predates the Clementine Vulgate (1592) and was based on available pre-Clementine manuscripts; the OT (1609–1610) postdates and reflects the Clementine tradition. The line here represents the Catholic Vulgate lineage as a whole."
   },
@@ -163,7 +175,7 @@
     "dateRange": "1611–1769",
     "language": "English",
     "tradition": "Protestant",
-    "parents": ["stephanus-1550", "geneva-1560"],
+    "parents": ["beza-1598", "geneva-1560", "stephanus-1550"],
     "primarySource": "47 scholars in six companies; primary Greek base: Beza 1598 and Stephanus 1550–1559; primary English base: Bishops' Bible, heavily revised against Tyndale and Geneva; standard text established 1769",
     "description": "The most influential English translation in history; the KJV synthesized all prior English translations into a literary standard that shaped English prose for four centuries. Note: the Elzevir Textus Receptus (1633) postdates the KJV — the KJV's Greek base was Beza (1598) and Stephanus (1550), not the 1633 edition that first coined the term 'Textus Receptus.'"
   },
@@ -175,7 +187,7 @@
     "dateRange": "1624–1633",
     "language": "Greek",
     "tradition": "Critical/Academic",
-    "parents": ["stephanus-1550"],
+    "parents": ["beza-1598", "kjv-1611"],
     "primarySource": "Bonaventure and Abraham Elzevir, Leiden; essentially a reprint of Beza (1565/1589) and Stephanus; preface coined 'textum ergo habes, nunc ab omnibus receptum'",
     "description": "The Elzevir brothers' 1633 edition coined the phrase 'Textus Receptus' (received text); it gave a formal name to the Byzantine-based printed Greek text that Protestant translations had used for a century, and became the explicit textual standard for three more centuries of translation, including the NKJV (1982)."
   },
@@ -216,6 +228,18 @@
     "description": "The first critical edition of the Peshitta NT, establishing a scholarly text by collating the best available manuscripts; it remains the standard academic Peshitta text and the foundation of all subsequent Peshitta scholarship and translation."
   },
   {
+    "id": "asv-1901",
+    "name": "American Standard Version",
+    "shortName": "ASV 1901",
+    "date": 1901,
+    "dateRange": "1901",
+    "language": "English",
+    "tradition": "Protestant",
+    "parents": ["kjv-1611"],
+    "primarySource": "American revision of the British Revised Version (1881/1885); the RV/ASV committee used the Westcott-Hort text as their Greek base",
+    "description": "The American counterpart to the British Revised Version; its aim was a more literal revision of the KJV using the new critical Greek text. The ASV became the direct parent of the RSV (1952), NASB (1971), and ESV (2001) revision chains, making it a key bridge between the KJV tradition and modern critical-text translations."
+  },
+  {
     "id": "revised-standard-1952",
     "name": "Revised Standard Version",
     "shortName": "RSV 1952",
@@ -223,7 +247,7 @@
     "dateRange": "1952",
     "language": "English",
     "tradition": "Protestant",
-    "parents": ["kjv-1611", "nestle-aland-28"],
+    "parents": ["asv-1901", "nestle-aland-28"],
     "primarySource": "National Council of Churches; formal revision of the American Standard Version (1901), itself a KJV revision; NT used the eclectic critical Greek text",
     "description": "A revision of the American Standard Version (1901) — itself a KJV descendant — the RSV aimed for literary quality while incorporating critical textual scholarship. Its 1952 NT became the dominant scholarly English Bible, directly spawning the NRSV (1989) and ESV (2001)."
   },
