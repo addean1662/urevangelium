@@ -9,22 +9,30 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P66",
             "date": "c. 175–225 CE"
           },
           {
-            "id": "P75",
-            "date": "c. 175–225 CE"
+            "id": "P45",
+            "date": "c. 200–250 CE"
           }
         ],
         "text": "λεγει",
         "gloss": {
           "gloss": "Says",
           "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P66",
+          "sourceToken": 1,
+          "diplomatic": "λεγει",
+          "agreeingSigla": [
+            "P66",
+            "P45"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {
@@ -71,7 +79,12 @@
         "type": "text",
         "greek": "λεγει",
         "latin": "dicit"
-      }
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲡⲉϫⲉⲙⲁⲣⲑⲁ"
+      },
+      "_copticDraft": true
     },
     {
       "id": "r2",
@@ -79,22 +92,25 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P66",
-            "date": "c. 175–225 CE"
-          },
-          {
-            "id": "P75",
             "date": "c. 175–225 CE"
           }
         ],
-        "text": "αυτωι",
+        "text": "αυτω",
         "gloss": {
           "gloss": "to him",
           "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P66",
+          "sourceToken": 2,
+          "diplomatic": "αυτω",
+          "agreeingSigla": [
+            "P66"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {
@@ -141,7 +157,16 @@
         "type": "text",
         "greek": "αυτω",
         "latin": "illi"
-      }
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲛⲁϥ",
+        "gloss": {
+          "gloss": "my",
+          "source": "Crum"
+        }
+      },
+      "_copticDraft": true
     },
     {
       "id": "r3",
@@ -149,22 +174,25 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P66",
-            "date": "c. 175–225 CE"
-          },
-          {
-            "id": "P75",
             "date": "c. 175–225 CE"
           }
         ],
-        "text": "μαρθα",
+        "text": "η",
         "gloss": {
           "gloss": "<the>",
           "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P66",
+          "sourceToken": 3,
+          "diplomatic": "η",
+          "agreeingSigla": [
+            "P66"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {
@@ -200,6 +228,9 @@
       "bezae": {
         "type": "text",
         "greek": "η"
+      },
+      "coptic": {
+        "type": "empty"
       }
     },
     {
@@ -208,22 +239,35 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P66",
             "date": "c. 175–225 CE"
           },
           {
             "id": "P75",
             "date": "c. 175–225 CE"
+          },
+          {
+            "id": "P45",
+            "date": "c. 200–250 CE"
           }
         ],
-        "text": "οιδα",
+        "text": "μαρθα",
         "gloss": {
           "gloss": "Martha;",
           "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P66",
+          "sourceToken": 4,
+          "diplomatic": "μαρθα",
+          "agreeingSigla": [
+            "P66",
+            "P75",
+            "P45"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {
@@ -265,7 +309,16 @@
         "type": "text",
         "greek": "μαρθα",
         "latin": "martha"
-      }
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ϫⲉϯⲥⲟⲟⲩⲛ",
+        "gloss": {
+          "gloss": "know",
+          "source": "Crum"
+        }
+      },
+      "_copticDraft": true
     },
     {
       "id": "r5",
@@ -273,22 +326,42 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P66",
             "date": "c. 175–225 CE"
           },
           {
             "id": "P75",
             "date": "c. 175–225 CE"
+          },
+          {
+            "id": "P45",
+            "date": "c. 200–250 CE"
           }
         ],
-        "text": "οτι",
+        "text": "οιδα",
+        "condition": {
+          "damaged": true,
+          "damagedAfter": [
+            3,
+            4
+          ]
+        },
         "gloss": {
           "gloss": "I know",
           "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P66",
+          "sourceToken": 5,
+          "diplomatic": "οιδα",
+          "agreeingSigla": [
+            "P66",
+            "P75",
+            "P45"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {
@@ -335,17 +408,22 @@
         "type": "text",
         "greek": "οιδα",
         "latin": "scio"
-      }
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ϫⲉϥⲛⲁⲧⲱⲟⲩⲛ",
+        "gloss": {
+          "gloss": "arise",
+          "source": "Crum"
+        }
+      },
+      "_copticDraft": true
     },
     {
       "id": "r6",
       "papyrus": {
         "type": "extant",
         "fragments": [
-          {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
           {
             "id": "P66",
             "date": "c. 175–225 CE"
@@ -355,10 +433,28 @@
             "date": "c. 175–225 CE"
           }
         ],
-        "text": "αναστησεται",
+        "text": "οτι",
+        "condition": {
+          "damaged": true,
+          "damagedAfter": [
+            1
+          ]
+        },
         "gloss": {
           "gloss": "that",
           "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P66",
+          "sourceToken": 6,
+          "diplomatic": "οτι",
+          "agreeingSigla": [
+            "P66",
+            "P75"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {
@@ -405,7 +501,16 @@
         "type": "text",
         "greek": "οτι",
         "latin": "quia"
-      }
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ϩⲙⲡϩⲁⲉ",
+        "gloss": {
+          "gloss": "last thing, end",
+          "source": "Crum"
+        }
+      },
+      "_copticDraft": true
     },
     {
       "id": "r7",
@@ -413,22 +518,25 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P66",
-            "date": "c. 175–225 CE"
-          },
-          {
-            "id": "P75",
             "date": "c. 175–225 CE"
           }
         ],
-        "text": "εν",
+        "text": "αναστησεται",
         "gloss": {
           "gloss": "he will rise again",
           "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P66",
+          "sourceToken": 7,
+          "diplomatic": "αναστησεται",
+          "agreeingSigla": [
+            "P66"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {
@@ -470,7 +578,16 @@
         "type": "text",
         "greek": "αναστησεται",
         "latin": "resurget"
-      }
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲛϩⲟⲟⲩ",
+        "gloss": {
+          "gloss": "day",
+          "source": "Crum"
+        }
+      },
+      "_copticDraft": true
     },
     {
       "id": "r8",
@@ -478,22 +595,30 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P66",
             "date": "c. 175–225 CE"
           },
           {
-            "id": "P75",
-            "date": "c. 175–225 CE"
+            "id": "P45",
+            "date": "c. 200–250 CE"
           }
         ],
-        "text": "τηι",
+        "text": "εν",
         "gloss": {
           "gloss": "in",
           "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P66",
+          "sourceToken": 8,
+          "diplomatic": "εν",
+          "agreeingSigla": [
+            "P66",
+            "P45"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {
@@ -540,6 +665,14 @@
         "type": "text",
         "greek": "εν",
         "latin": "in"
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲛϩⲟⲟⲩ",
+        "gloss": {
+          "gloss": "day",
+          "source": "Crum"
+        }
       }
     },
     {
@@ -547,10 +680,6 @@
       "papyrus": {
         "type": "extant",
         "fragments": [
-          {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
           {
             "id": "P66",
             "date": "c. 175–225 CE"
@@ -560,10 +689,22 @@
             "date": "c. 175–225 CE"
           }
         ],
-        "text": "αναστασει",
+        "text": "τη",
         "gloss": {
           "gloss": "the",
           "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P66",
+          "sourceToken": 9,
+          "diplomatic": "τη",
+          "agreeingSigla": [
+            "P66",
+            "P75"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {
@@ -599,6 +740,9 @@
       "bezae": {
         "type": "text",
         "greek": "τη"
+      },
+      "coptic": {
+        "type": "empty"
       }
     },
     {
@@ -606,10 +750,6 @@
       "papyrus": {
         "type": "extant",
         "fragments": [
-          {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
           {
             "id": "P66",
             "date": "c. 175–225 CE"
@@ -619,10 +759,22 @@
             "date": "c. 175–225 CE"
           }
         ],
-        "text": "εν",
+        "text": "αναστασει",
         "gloss": {
           "gloss": "resurrection",
           "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P66",
+          "sourceToken": 10,
+          "diplomatic": "αναστασει",
+          "agreeingSigla": [
+            "P66",
+            "P75"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {
@@ -669,6 +821,14 @@
         "type": "text",
         "greek": "αναστασει",
         "latin": "resurrectione"
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ϩⲛⲧⲁⲛⲁⲥⲧⲁⲥⲓⲥ",
+        "gloss": {
+          "gloss": "resurrection",
+          "source": "TAGNT"
+        }
       }
     },
     {
@@ -677,22 +837,30 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
-            "id": "P66",
-            "date": "c. 175–225 CE"
-          },
-          {
             "id": "P75",
             "date": "c. 175–225 CE"
+          },
+          {
+            "id": "P45",
+            "date": "c. 200–250 CE"
           }
         ],
-        "text": "τηι",
+        "text": "εν",
         "gloss": {
           "gloss": "in",
           "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P75",
+          "sourceToken": 10,
+          "diplomatic": "εν",
+          "agreeingSigla": [
+            "P75",
+            "P45"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {
@@ -742,10 +910,6 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P66",
             "date": "c. 175–225 CE"
           },
@@ -754,10 +918,22 @@
             "date": "c. 175–225 CE"
           }
         ],
-        "text": "εσχατηι",
+        "text": "τη",
         "gloss": {
           "gloss": "the",
           "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P66",
+          "sourceToken": 12,
+          "diplomatic": "τη",
+          "agreeingSigla": [
+            "P66",
+            "P75"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {
@@ -793,6 +969,9 @@
       "bezae": {
         "type": "text",
         "greek": "τη"
+      },
+      "coptic": {
+        "type": "empty"
       }
     },
     {
@@ -801,22 +980,21 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P66",
-            "date": "c. 175–225 CE"
-          },
-          {
-            "id": "P75",
             "date": "c. 175–225 CE"
           }
         ],
-        "text": "ημερα",
-        "gloss": {
-          "gloss": "last",
-          "source": "TAGNT"
+        "text": "εσχατη",
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P66",
+          "sourceToken": 13,
+          "diplomatic": "εσχατη",
+          "agreeingSigla": [
+            "P66"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {
@@ -871,22 +1049,30 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P66",
             "date": "c. 175–225 CE"
           },
           {
-            "id": "P75",
-            "date": "c. 175–225 CE"
+            "id": "P45",
+            "date": "c. 200–250 CE"
           }
         ],
-        "text": "ημερα.¶",
+        "text": "ημερα",
         "gloss": {
           "gloss": "day.",
           "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P66",
+          "sourceToken": 14,
+          "diplomatic": "ημερα",
+          "agreeingSigla": [
+            "P66",
+            "P45"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {

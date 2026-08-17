@@ -8,7 +8,21 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "validate:sources": "node scripts/validate-source-policy.js",
+    "audit:vaticanus": "node scripts/vaticanus-pilot.mjs",
+    "shadow:vaticanus": "node scripts/build-vaticanus-shadow.mjs",
+    "review:vaticanus:matthew1": "node scripts/review-vaticanus-matthew1.mjs",
+    "shadow:vaticanus:gospels": "node scripts/build-vaticanus-gospels.mjs",
+    "adjudicate:vaticanus:gospels": "node scripts/adjudicate-vaticanus-exceptions.mjs",
+    "audit:source-concordance": "node scripts/audit-column-concordance.mjs",
+    "adjudicate:high-concordance": "node scripts/adjudicate-high-concordance-columns.mjs",
+    "audit:papyrus-selection": "node scripts/audit-papyrus-selection.mjs",
+    "shadow:papyrus": "node scripts/build-papyrus-shadow.mjs",
+    "audit:papyrus-completeness": "node scripts/audit-papyrus-completeness.mjs",
+    "shadow:papyrus-completeness": "node scripts/build-papyrus-completeness-shadow.mjs",
+    "align:papyrus-rows": "node scripts/align-papyrus-rows-architecturally.mjs",
+    "shadow:papyrus-rows": "node scripts/build-papyrus-row-shadow.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.95.1",
@@ -22,6 +36,7 @@
   "devDependencies": {
     "@fontsource/cardo": "^5.2.8",
     "@fontsource/eb-garamond": "^5.2.7",
+    "@fontsource/noto-sans-coptic": "^5.2.7",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",

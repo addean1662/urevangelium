@@ -67,7 +67,16 @@
         "type": "text",
         "greek": "απεστειλεν",
         "latin": "et"
-      }
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲁϥϫⲟⲟⲩϥ",
+        "gloss": {
+          "gloss": "send",
+          "source": "Crum"
+        }
+      },
+      "_copticDraft": true
     },
     {
       "id": "r2",
@@ -132,6 +141,9 @@
       "bezae": {
         "type": "text",
         "latin": "misit"
+      },
+      "coptic": {
+        "type": "empty"
       }
     },
     {
@@ -198,7 +210,16 @@
         "type": "text",
         "greek": "αυτον",
         "latin": "eum"
-      }
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲇⲉ",
+        "gloss": {
+          "gloss": "and, so, then, for (marking shift in narrative, or change in subject; introducing new content)",
+          "source": "Crum"
+        }
+      },
+      "_copticDraft": true
     },
     {
       "id": "r4",
@@ -251,6 +272,9 @@
         }
       },
       "bezae": {
+        "type": "empty"
+      },
+      "coptic": {
         "type": "empty"
       }
     },
@@ -318,6 +342,14 @@
         "type": "text",
         "greek": "αννας",
         "latin": "annas"
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲛϭⲓⲁⲛⲛⲁⲥ",
+        "gloss": {
+          "gloss": "Annas",
+          "source": "TAGNT"
+        }
       }
     },
     {
@@ -384,7 +416,16 @@
         "type": "text",
         "greek": "δεδεμενον",
         "latin": "ligatum"
-      }
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲉϥⲙⲏⲣ",
+        "gloss": {
+          "gloss": "bind, gird, tie",
+          "source": "Crum"
+        }
+      },
+      "_copticDraft": true
     },
     {
       "id": "r7",
@@ -450,7 +491,12 @@
         "type": "text",
         "greek": "προς",
         "latin": "ad"
-      }
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ϣⲁⲕⲁⲓⲫⲁⲥ"
+      },
+      "_copticDraft": true
     },
     {
       "id": "r8",
@@ -516,6 +562,14 @@
         "type": "text",
         "greek": "καιαφαν",
         "latin": "caiphan"
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲡⲁⲣⲭⲓⲉⲣⲉⲩⲥ",
+        "gloss": {
+          "gloss": "high priest",
+          "source": "Crum"
+        }
       }
     },
     {
@@ -524,18 +578,32 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P60",
-            "date": "c. 7th c. CE"
-          },
-          {
             "id": "P66",
             "date": "c. 175–225 CE"
           }
         ],
         "text": "τον",
+        "condition": {
+          "damaged": true,
+          "damagedAfter": [
+            2,
+            3
+          ]
+        },
         "gloss": {
           "gloss": "the",
           "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P66",
+          "sourceToken": 9,
+          "diplomatic": "τον",
+          "agreeingSigla": [
+            "P66"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {
@@ -571,6 +639,9 @@
       "bezae": {
         "type": "text",
         "greek": "τον"
+      },
+      "coptic": {
+        "type": "empty"
       }
     },
     {
@@ -578,10 +649,6 @@
       "papyrus": {
         "type": "extant",
         "fragments": [
-          {
-            "id": "P60",
-            "date": "c. 7th c. CE"
-          },
           {
             "id": "P66",
             "date": "c. 175–225 CE"
@@ -591,6 +658,17 @@
         "gloss": {
           "gloss": "high priest.",
           "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P66",
+          "sourceToken": 10,
+          "diplomatic": "αρχιερεα",
+          "agreeingSigla": [
+            "P66"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {
@@ -637,6 +715,14 @@
         "type": "text",
         "greek": "αρχιερεα",
         "latin": "pontificem"
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲡⲁⲣⲭⲓⲉⲣⲉⲩⲥ",
+        "gloss": {
+          "gloss": "high priest.",
+          "source": "TAGNT"
+        }
       }
     }
   ]

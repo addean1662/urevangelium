@@ -61,23 +61,6 @@ export default async function PassagePage({ params }: { params: Params }) {
       <main className="flex-1 p-4">
         {data ? (
           <>
-            <p className="text-center italic text-[13px] text-ink-muted mb-3 mt-1">
-              Hover any Greek or Syriac word for phonetic transliteration.
-            </p>
-
-            <div className="mb-3 relative text-center py-1">
-              <a
-                href="/papyrus-map"
-                className="absolute left-0 top-1/2 -translate-y-1/2 text-xs border border-band text-band bg-bg-elevated hover:bg-band hover:text-ink-on-band transition-colors px-3 py-1.5 rounded"
-              >
-                See 65 Earliest Papyri
-              </a>
-              <h3 className="text-lg font-semibold text-ink-primary">Translation Lineage</h3>
-              <p className="text-sm italic text-ink-muted">
-                Six manuscript witness columns span the table; their descent flows into the timeline below.
-              </p>
-            </div>
-
             <AlignmentTable data={data} nextFragment={nextFragment} nextFragmentHref={nextFragmentHref} />
             <LineageTimeline />
           </>

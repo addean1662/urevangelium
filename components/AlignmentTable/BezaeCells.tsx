@@ -1,7 +1,6 @@
 import type { BezaeCell } from '@/lib/types';
 import { transliterateGreek } from '@/lib/transliteration/greek';
 import { HoverTooltip } from '@/components/HoverTooltip';
-import { LostDots } from './LostDots';
 
 const base = 'px-2 py-1.5 text-lg border-b border-rule-hairline align-middle';
 
@@ -25,24 +24,12 @@ export function BezaeCells({ cell }: Props) {
     return (
       <>
         <td className={`${base} text-right`}>
-          <span className="text-xs italic text-semantic-lacuna">MS lacuna</span>
+          <span className="text-xs italic text-semantic-lacuna">lost</span>
         </td>
-        <td className={`${base} text-center`}>
-          <span className="inline-block w-2 h-2 rounded-full bg-semantic-lacuna" />
-        </td>
+        <td className={`${base} text-center text-ink-muted/50 text-sm select-none`}>|</td>
         <td className={base}>
-          <span className="text-xs italic text-semantic-lacuna">MS lacuna</span>
+          <span className="text-xs italic text-semantic-lacuna">lost</span>
         </td>
-      </>
-    );
-  }
-
-  if (cell.type === 'lacuna') {
-    return (
-      <>
-        <td className={`${base} text-right text-ink-muted`}><LostDots /></td>
-        <td className={`${base} text-center text-ink-muted/40 text-sm select-none`}>|</td>
-        <td className={`${base} text-ink-muted`}><LostDots /></td>
       </>
     );
   }
@@ -65,7 +52,7 @@ export function BezaeCells({ cell }: Props) {
 
   const greekContent = cell.greekLost ? (
     <span className="flex items-center justify-end gap-1.5">
-      <span className="text-xs italic text-semantic-lacuna">MS lacuna</span>
+      <span className="text-xs italic text-semantic-lacuna">lost</span>
       <span className="inline-block w-2 h-2 rounded-full bg-semantic-lacuna flex-shrink-0" />
     </span>
   ) : greek ? (
@@ -74,13 +61,20 @@ export function BezaeCells({ cell }: Props) {
     <span className="text-ink-muted">—</span>
   );
 
+  const latinContent = cell.latinLost ? (
+    <span className="flex items-center gap-1.5">
+      <span className="inline-block w-2 h-2 rounded-full bg-semantic-lacuna flex-shrink-0" />
+      <span className="text-xs italic text-semantic-lacuna">lost</span>
+    </span>
+  ) : latin ? latin : (
+    <span className="text-ink-muted">—</span>
+  );
+
   return (
     <>
       <td className={`${base} font-greek text-right text-ink-primary`}>{greekContent}</td>
       <td className={`${base} text-center text-ink-muted/50 text-sm select-none`}>|</td>
-      <td className={`${base} font-latin text-ink-primary`}>
-        {latin ?? <span className="text-ink-muted">—</span>}
-      </td>
+      <td className={`${base} font-latin text-ink-primary`}>{latinContent}</td>
     </>
   );
 }

@@ -7,6 +7,9 @@ export const GLOSS_SOURCES = [
   'TAGNT',        // STEPBible Translators Amalgamated Greek NT (CC BY 4.0)
   'CNTR',         // Center for NT Restoration
   'Swanson',      // Swanson Greek NT
+  // Coptic witnesses
+  'Horner',       // G. W. Horner, The Coptic Version of the NT in the Southern Dialect (public domain)
+  'Crum',         // W. E. Crum, A Coptic Dictionary (Oxford, 1939) via KELLIA Comprehensive Coptic Lexicon (CC BY-SA 4.0)
   // Latin witnesses
   'Whitaker',     // Whitaker's Words DICTLINE (public domain)
   'DouayRheims',  // Douay-Rheims Bible (public domain)
@@ -106,12 +109,24 @@ export type NominaSacraExpansion = {
   expansion: string;     // e.g. "θεός"
 };
 
+export type CellSourceProvenance = {
+  witness: string;          // e.g. "GA 03"
+  source: string;           // stable source name
+  sourceReference: string;  // e.g. "40001001"
+  revision: string;         // upstream commit/release or immutable file hash
+  readingLayer: 'base' | 'original-uncorrected' | 'corrector-a' | 'corrector-b' | 'corrector-c' | 'edition';
+  diplomatic: string;       // exact MES word before display normalization
+  normalization: string[];  // reversible operations applied for display/comparison
+  verification: 'unreviewed' | 'machine-compared' | 'human-reviewed' | 'image-verified';
+};
+
 // A cell that contains actual text (optionally with nomina sacra markup and/or a gloss)
 export type TextCell = {
   type: 'text';
   text: string;
   nominaSacra?: NominaSacraExpansion;
   gloss?: GlossCell;
+  provenance?: CellSourceProvenance;
 };
 
 // A cell that is empty due to an alignment gap (language has no word for this unit)
@@ -136,24 +151,36 @@ export type PapyrusExtantCell = {
   type: 'extant';
   fragments: PapyrusFragment[];  // all fragments covering this word
   text: string;
+  condition?: {
+    damaged?: boolean;
+    damagedAfter?: number[];
+    /** Verified, freely accessible image/scan containing this displayed reading. */
+    sourceImageUrl?: string;
+    missingAfter?: number[];
+    supplied?: 'editor' | 'vid';
+  };
   nominaSacra?: NominaSacraExpansion;
   gloss?: GlossCell;
 };
 
-export type PapyrusCell = PapyrusExtantCell | LostCell | LacunaCell;
+export type PapyrusCell = PapyrusExtantCell | EmptyCell | LostCell | LacunaCell;
 
 // Bezae Cantabrigiensis (D/05) — bilingual Greek/Latin codex
 // greek and latin are stored separately; no English gloss is shown
+// 'lost' = folio physically damaged/missing (shows red "lost" on each side)
+// 'empty' = alignment gap row where neither Greek nor Latin has a word
+// No 'lacuna' type: Bezae covers all four Gospels; use 'lost' for physical damage,
+// 'empty' for alignment gaps, and greekLost/latinLost for per-side losses in a text row.
 export type BezaeCell =
-  | { type: 'text'; greek?: string; latin?: string; greekLost?: true }
+  | { type: 'text'; greek?: string; latin?: string; greekLost?: true; latinLost?: true }
   | { type: 'empty' }
-  | { type: 'lost' }
-  | { type: 'lacuna' };
+  | { type: 'lost' };
 
 // One row in the alignment table = one word (or alignment slot)
 export type AlignmentRow = {
   id: string;           // unique within a verse, e.g. "r1", "r2"
   papyrus: PapyrusCell;
+  coptic?: WitnessCell; // optional — Sahidic Coptic (Horner); data not yet populated for most verses
   vaticanus: WitnessCell;
   sinaiticus: WitnessCell;
   bezae?: BezaeCell;    // optional — data not yet populated for most verses

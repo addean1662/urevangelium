@@ -42,12 +42,20 @@ const PapyrusExtantCellSchema = z.object({
   type: z.literal('extant'),
   fragments: z.array(PapyrusFragmentSchema).min(1),
   text: z.string(),
+  condition: z.object({
+    damaged: z.boolean().optional(),
+    damagedAfter: z.array(z.number().int().nonnegative()).optional(),
+    sourceImageUrl: z.string().url().startsWith('https://').optional(),
+    missingAfter: z.array(z.number().int().nonnegative()).optional(),
+    supplied: z.enum(['editor', 'vid']).optional(),
+  }).optional(),
   nominaSacra: NominaSacraSchema.optional(),
   gloss: GlossCellSchema.optional(),
 });
 
 const PapyrusCellSchema = z.discriminatedUnion('type', [
   PapyrusExtantCellSchema,
+  EmptyCellSchema,
   LostCellSchema,
   LacunaCellSchema,
 ]);
@@ -55,6 +63,7 @@ const PapyrusCellSchema = z.discriminatedUnion('type', [
 const AlignmentRowSchema = z.object({
   id: z.string(),
   papyrus: PapyrusCellSchema,
+  coptic: WitnessCellSchema.optional(),
   vaticanus: WitnessCellSchema,
   sinaiticus: WitnessCellSchema,
   vulgate: WitnessCellSchema,

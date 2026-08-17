@@ -1,0 +1,4798 @@
+{
+  "status": "read-only-orthographic-candidate-adjudication",
+  "generatedAt": "2026-08-17T18:17:56.589Z",
+  "rule": "Certification requires an unconditioned CNTR token, complete-order agreement with cached INTF, one unique unused high-similarity guide row, and a target between the nearest mapped source neighbors.",
+  "totals": {
+    "candidates": 98,
+    "certified": 52,
+    "conditionedHeld": 36,
+    "noIntfCorroboration": 6,
+    "outsideMappedContext": 4,
+    "missingSequenceOrRow": 0,
+    "coverageErrors": 0,
+    "damagedReadableCertified": 1
+  },
+  "decisions": [
+    {
+      "sequenceKey": "john:17:11:P107",
+      "siglum": "P107",
+      "gospel": "john",
+      "reference": "17:11",
+      "sourceToken": 22,
+      "diplomatic": "εδωκασ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r26",
+          "column": "vaticanus",
+          "guideText": "δέδωκάς",
+          "similarity": 0.8571428571428572
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r26",
+      "source": {
+        "diplomatic": "εδωκασ",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 22
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 21,
+          "rowId": "r25"
+        },
+        "next": {
+          "sourceToken": 23,
+          "rowId": "r27"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:1:64:P4",
+      "siglum": "P4",
+      "gospel": "luke",
+      "reference": "1:64",
+      "sourceToken": 1,
+      "diplomatic": "ηνεωχθη",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r1",
+          "column": "vaticanus",
+          "guideText": "Ἀνεῴχθη",
+          "similarity": 0.8571428571428572
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r1",
+      "source": {
+        "diplomatic": "ηνεωχθη",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 2
+          },
+          {
+            "kind": "missing",
+            "after": 3
+          },
+          {
+            "kind": "missing",
+            "after": 4
+          },
+          {
+            "kind": "missing",
+            "after": 5
+          },
+          {
+            "kind": "missing",
+            "after": 6
+          },
+          {
+            "kind": "missing",
+            "after": 7
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 1
+      },
+      "context": {
+        "previous": null,
+        "next": {
+          "sourceToken": 2,
+          "rowId": "r2"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "matthew:26:7:P45",
+      "siglum": "P45",
+      "gospel": "matthew",
+      "reference": "26:7",
+      "sourceToken": 2,
+      "diplomatic": "αυτωι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r2",
+          "column": "vaticanus",
+          "guideText": "αὐτῷ",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r2",
+      "source": {
+        "diplomatic": "αυτωι",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "damaged",
+            "after": 2
+          },
+          {
+            "kind": "missing",
+            "after": 3
+          },
+          {
+            "kind": "missing",
+            "after": 4
+          },
+          {
+            "kind": "missing",
+            "after": 5
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 2
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 1,
+          "rowId": "r1"
+        },
+        "next": {
+          "sourceToken": 3,
+          "rowId": "r3"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "matthew:26:7:P45",
+      "siglum": "P45",
+      "gospel": "matthew",
+      "reference": "26:7",
+      "sourceToken": 12,
+      "diplomatic": "κεφαλην",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r12",
+          "column": "vaticanus",
+          "guideText": "κεφαλῆς",
+          "similarity": 0.8571428571428572
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r12",
+      "source": {
+        "diplomatic": "κεφαλην",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 1
+          },
+          {
+            "kind": "missing",
+            "after": 2
+          },
+          {
+            "kind": "missing",
+            "after": 3
+          },
+          {
+            "kind": "missing",
+            "after": 4
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 12
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 10,
+          "rowId": "r10"
+        },
+        "next": {
+          "sourceToken": 13,
+          "rowId": "r13"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "matthew:26:23:P45",
+      "siglum": "P45",
+      "gospel": "matthew",
+      "reference": "26:23",
+      "sourceToken": 13,
+      "diplomatic": "τρυβλιωι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r13",
+          "column": "vaticanus",
+          "guideText": "τρυβλίῳ,",
+          "similarity": 0.875
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r13",
+      "source": {
+        "diplomatic": "τρυβλιωι",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 13
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 11,
+          "rowId": "r11"
+        },
+        "next": {
+          "sourceToken": 14,
+          "rowId": "r14"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "mark:6:2:P45",
+      "siglum": "P45",
+      "gospel": "mark",
+      "reference": "6:2",
+      "sourceToken": 7,
+      "diplomatic": "συναγωγηι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r8",
+          "column": "vaticanus",
+          "guideText": "συναγωγῇ·",
+          "similarity": 0.8888888888888888
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r8",
+      "source": {
+        "diplomatic": "συναγωγηι",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "damaged",
+            "after": 1
+          },
+          {
+            "kind": "damaged",
+            "after": 2
+          },
+          {
+            "kind": "damaged",
+            "after": 3
+          },
+          {
+            "kind": "missing",
+            "after": 4
+          },
+          {
+            "kind": "missing",
+            "after": 5
+          },
+          {
+            "kind": "missing",
+            "after": 6
+          },
+          {
+            "kind": "missing",
+            "after": 7
+          },
+          {
+            "kind": "missing",
+            "after": 8
+          },
+          {
+            "kind": "missing",
+            "after": 9
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 7
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 5,
+          "rowId": "r6"
+        },
+        "next": {
+          "sourceToken": 8,
+          "rowId": "r5"
+        },
+        "coherent": false
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "mark:6:17:P45",
+      "siglum": "P45",
+      "gospel": "mark",
+      "reference": "6:17",
+      "sourceToken": 13,
+      "diplomatic": "φυλακηι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r14",
+          "column": "vaticanus",
+          "guideText": "φυλακῇ",
+          "similarity": 0.8571428571428572
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r14",
+      "source": {
+        "diplomatic": "φυλακηι",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 13
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 12,
+          "rowId": "r12"
+        },
+        "next": {
+          "sourceToken": 14,
+          "rowId": "r15"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "mark:6:19:P45",
+      "siglum": "P45",
+      "gospel": "mark",
+      "reference": "6:19",
+      "sourceToken": 5,
+      "diplomatic": "αυτωι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r5",
+          "column": "vaticanus",
+          "guideText": "αὐτῷ",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r5",
+      "source": {
+        "diplomatic": "αυτωι",
+        "conditioned": true,
+        "conditions": [],
+        "supplied": "editor",
+        "sourceToken": 5
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 4,
+          "rowId": "r4"
+        },
+        "next": {
+          "sourceToken": 6,
+          "rowId": "r6"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "mark:7:5:P45",
+      "siglum": "P45",
+      "gospel": "mark",
+      "reference": "7:5",
+      "sourceToken": 5,
+      "diplomatic": "φαρεισαιοι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r5",
+          "column": "vaticanus",
+          "guideText": "Φαρισαῖοι",
+          "similarity": 0.9
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r5",
+      "source": {
+        "diplomatic": "φαρεισαιοι",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 5
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 4,
+          "rowId": "r4"
+        },
+        "next": {
+          "sourceToken": 6,
+          "rowId": "r6"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "mark:7:6:P45",
+      "siglum": "P45",
+      "gospel": "mark",
+      "reference": "7:6",
+      "sourceToken": 22,
+      "diplomatic": "τειμα",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r23",
+          "column": "vaticanus",
+          "guideText": "τιμᾷ,",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r23",
+      "source": {
+        "diplomatic": "τειμα",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 22
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 21,
+          "rowId": "r22"
+        },
+        "next": {
+          "sourceToken": 23,
+          "rowId": "r24"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "mark:7:29:P45",
+      "siglum": "P45",
+      "gospel": "mark",
+      "reference": "7:29",
+      "sourceToken": 3,
+      "diplomatic": "αυτηι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r3",
+          "column": "vaticanus",
+          "guideText": "αὐτῇ·",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r3",
+      "source": {
+        "diplomatic": "αυτηι",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 3
+          },
+          {
+            "kind": "missing",
+            "after": 4
+          },
+          {
+            "kind": "missing",
+            "after": 5
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 3
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 2,
+          "rowId": "r2"
+        },
+        "next": {
+          "sourceToken": 4,
+          "rowId": "r4"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "mark:7:30:P45",
+      "siglum": "P45",
+      "gospel": "mark",
+      "reference": "7:30",
+      "sourceToken": 13,
+      "diplomatic": "βεβλημενην",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r10",
+          "column": "vaticanus",
+          "guideText": "βεβλημένον",
+          "similarity": 0.9
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "outside-mapped-context-review",
+      "targetRowId": "r10",
+      "source": {
+        "diplomatic": "βεβλημενην",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 13
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 11,
+          "rowId": "r12"
+        },
+        "next": {
+          "sourceToken": 14,
+          "rowId": "r11"
+        },
+        "coherent": false
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "mark:8:11:P45",
+      "siglum": "P45",
+      "gospel": "mark",
+      "reference": "8:11",
+      "sourceToken": 4,
+      "diplomatic": "φαρεισαιοι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r4",
+          "column": "vaticanus",
+          "guideText": "Φαρισαῖοι",
+          "similarity": 0.9
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r4",
+      "source": {
+        "diplomatic": "φαρεισαιοι",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 9
+          },
+          {
+            "kind": "missing",
+            "after": 10
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 4
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 3,
+          "rowId": "r3"
+        },
+        "next": {
+          "sourceToken": 5,
+          "rowId": "r5"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "mark:8:11:P45",
+      "siglum": "P45",
+      "gospel": "mark",
+      "reference": "8:11",
+      "sourceToken": 8,
+      "diplomatic": "αυτωι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r8",
+          "column": "vaticanus",
+          "guideText": "αὐτῷ",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r8",
+      "source": {
+        "diplomatic": "αυτωι",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 8
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 7,
+          "rowId": "r7"
+        },
+        "next": {
+          "sourceToken": 9,
+          "rowId": "r12"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "mark:8:19:P45",
+      "siglum": "P45",
+      "gospel": "mark",
+      "reference": "8:19",
+      "sourceToken": 7,
+      "diplomatic": "πεντακισχειλιουσ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r8",
+          "column": "vaticanus",
+          "guideText": "πεντακισχιλίους",
+          "similarity": 0.9375
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "second-transcription-not-corroborated",
+      "targetRowId": "r8",
+      "source": {
+        "diplomatic": "πεντακισχειλιουσ",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 7
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 6,
+          "rowId": "r6"
+        },
+        "next": {
+          "sourceToken": 8,
+          "rowId": "r9"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "mark:8:19:P45",
+      "siglum": "P45",
+      "gospel": "mark",
+      "reference": "8:19",
+      "sourceToken": 14,
+      "diplomatic": "αυτωι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r15",
+          "column": "vaticanus",
+          "guideText": "αὐτῷ·",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "second-transcription-not-corroborated",
+      "targetRowId": "r15",
+      "source": {
+        "diplomatic": "αυτωι",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 14
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 13,
+          "rowId": "r14"
+        },
+        "next": null,
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "mark:8:20:P45",
+      "siglum": "P45",
+      "gospel": "mark",
+      "reference": "8:20",
+      "sourceToken": 6,
+      "diplomatic": "τετρακισχειλιουσ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r7",
+          "column": "vaticanus",
+          "guideText": "τετρακισχιλίους",
+          "similarity": 0.9375
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r7",
+      "source": {
+        "diplomatic": "τετρακισχειλιουσ",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 6
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 5,
+          "rowId": "r5"
+        },
+        "next": {
+          "sourceToken": 7,
+          "rowId": "r8"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "mark:8:21:P45",
+      "siglum": "P45",
+      "gospel": "mark",
+      "reference": "8:21",
+      "sourceToken": 6,
+      "diplomatic": "συνειετε",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r6",
+          "column": "vaticanus",
+          "guideText": "συνίετε;¶",
+          "similarity": 0.875
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r6",
+      "source": {
+        "diplomatic": "συνειετε",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 1
+          },
+          {
+            "kind": "missing",
+            "after": 2
+          },
+          {
+            "kind": "missing",
+            "after": 3
+          },
+          {
+            "kind": "missing",
+            "after": 4
+          },
+          {
+            "kind": "missing",
+            "after": 5
+          }
+        ],
+        "supplied": "editor",
+        "sourceToken": 6
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 5,
+          "rowId": "r4"
+        },
+        "next": null,
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "mark:9:7:P45",
+      "siglum": "P45",
+      "gospel": "mark",
+      "reference": "9:7",
+      "sourceToken": 5,
+      "diplomatic": "αυτουσ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r5",
+          "column": "vaticanus",
+          "guideText": "αὐτοῖς,",
+          "similarity": 0.8333333333333334
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r5",
+      "source": {
+        "diplomatic": "αυτουσ",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 1
+          },
+          {
+            "kind": "missing",
+            "after": 4
+          },
+          {
+            "kind": "missing",
+            "after": 6
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 5
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 4,
+          "rowId": "r4"
+        },
+        "next": {
+          "sourceToken": 6,
+          "rowId": "r6"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:7:6:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "7:6",
+      "sourceToken": 18,
+      "diplomatic": "εκατονταρχοσ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r21",
+          "column": "vaticanus",
+          "guideText": "ἑκατοντάρχης",
+          "similarity": 0.9166666666666666
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r21",
+      "source": {
+        "diplomatic": "εκατονταρχοσ",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 1
+          },
+          {
+            "kind": "missing",
+            "after": 2
+          },
+          {
+            "kind": "missing",
+            "after": 3
+          },
+          {
+            "kind": "missing",
+            "after": 4
+          },
+          {
+            "kind": "missing",
+            "after": 5
+          },
+          {
+            "kind": "missing",
+            "after": 6
+          },
+          {
+            "kind": "missing",
+            "after": 7
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 18
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 17,
+          "rowId": "r20"
+        },
+        "next": {
+          "sourceToken": 19,
+          "rowId": "r19"
+        },
+        "coherent": false
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:7:6:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "7:6",
+      "sourceToken": 21,
+      "diplomatic": "αυτωι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r23",
+          "column": "vaticanus",
+          "guideText": "αὐτῷ·",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r23",
+      "source": {
+        "diplomatic": "αυτωι",
+        "conditioned": true,
+        "conditions": [],
+        "supplied": "editor",
+        "sourceToken": 21
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 20,
+          "rowId": "r22"
+        },
+        "next": {
+          "sourceToken": 22,
+          "rowId": "r24"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:9:53:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "9:53",
+      "sourceToken": 10,
+      "diplomatic": "πορευομενου",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r10",
+          "column": "vaticanus",
+          "guideText": "πορευόμενον",
+          "similarity": 0.9090909090909091
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r10",
+      "source": {
+        "diplomatic": "πορευομενου",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 10
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 9,
+          "rowId": "r8"
+        },
+        "next": {
+          "sourceToken": 11,
+          "rowId": "r11"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:10:40:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "10:40",
+      "sourceToken": 25,
+      "diplomatic": "αυτηι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r25",
+          "column": "vaticanus",
+          "guideText": "αὐτῇ",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r25",
+      "source": {
+        "diplomatic": "αυτηι",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 25
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 24,
+          "rowId": "r24"
+        },
+        "next": {
+          "sourceToken": 26,
+          "rowId": "r26"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:10:41:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "10:41",
+      "sourceToken": 6,
+      "diplomatic": "αυτηι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r4",
+          "column": "vaticanus",
+          "guideText": "αὐτῇ",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r4",
+      "source": {
+        "diplomatic": "αυτηι",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 6
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 5,
+          "rowId": "r3"
+        },
+        "next": {
+          "sourceToken": 7,
+          "rowId": "r7"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:11:29:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "11:29",
+      "sourceToken": 20,
+      "diplomatic": "αυτηι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r19",
+          "column": "vaticanus",
+          "guideText": "αὐτῇ",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r19",
+      "source": {
+        "diplomatic": "αυτηι",
+        "conditioned": true,
+        "conditions": [],
+        "supplied": "editor",
+        "sourceToken": 20
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 19,
+          "rowId": "r18"
+        },
+        "next": {
+          "sourceToken": 21,
+          "rowId": "r20"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "luke:11:30:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "11:30",
+      "sourceToken": 7,
+      "diplomatic": "νινευειταισ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r7",
+          "column": "vaticanus",
+          "guideText": "Νινευίταις",
+          "similarity": 0.9090909090909091
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r7",
+      "source": {
+        "diplomatic": "νινευειταισ",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 7
+          },
+          {
+            "kind": "missing",
+            "after": 8
+          },
+          {
+            "kind": "missing",
+            "after": 9
+          },
+          {
+            "kind": "missing",
+            "after": 10
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 7
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 6,
+          "rowId": "r6"
+        },
+        "next": {
+          "sourceToken": 8,
+          "rowId": "r9"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:11:30:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "11:30",
+      "sourceToken": 16,
+      "diplomatic": "ταυτηι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r18",
+          "column": "vaticanus",
+          "guideText": "ταύτῃ.",
+          "similarity": 0.8333333333333334
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r18",
+      "source": {
+        "diplomatic": "ταυτηι",
+        "conditioned": true,
+        "conditions": [],
+        "supplied": "editor",
+        "sourceToken": 16
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 15,
+          "rowId": "r17"
+        },
+        "next": null,
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:12:28:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "12:28",
+      "sourceToken": 4,
+      "diplomatic": "αγρωι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r5",
+          "column": "vaticanus",
+          "guideText": "ἀγρῷ",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r5",
+      "source": {
+        "diplomatic": "αγρωι",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 4
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 3,
+          "rowId": "r3"
+        },
+        "next": {
+          "sourceToken": 5,
+          "rowId": "r9"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:12:28:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "12:28",
+      "sourceToken": 12,
+      "diplomatic": "κλειβανον",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r13",
+          "column": "vaticanus",
+          "guideText": "κλίβανον",
+          "similarity": 0.8888888888888888
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r13",
+      "source": {
+        "diplomatic": "κλειβανον",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 12
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 11,
+          "rowId": "r12"
+        },
+        "next": {
+          "sourceToken": 13,
+          "rowId": "r14"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:12:36:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "12:36",
+      "sourceToken": 20,
+      "diplomatic": "αυτωι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r20",
+          "column": "vaticanus",
+          "guideText": "αὐτῷ.",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r20",
+      "source": {
+        "diplomatic": "αυτωι",
+        "conditioned": true,
+        "conditions": [],
+        "supplied": "editor",
+        "sourceToken": 20
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 19,
+          "rowId": "r19"
+        },
+        "next": null,
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:12:52:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "12:52",
+      "sourceToken": 6,
+      "diplomatic": "οικωι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r9",
+          "column": "vaticanus",
+          "guideText": "οἴκῳ",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "outside-mapped-context-review",
+      "targetRowId": "r9",
+      "source": {
+        "diplomatic": "οικωι",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 6
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 5,
+          "rowId": "r7"
+        },
+        "next": {
+          "sourceToken": 7,
+          "rowId": "r8"
+        },
+        "coherent": false
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:12:52:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "12:52",
+      "sourceToken": 9,
+      "diplomatic": "τρισ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r11",
+          "column": "vaticanus",
+          "guideText": "τρεῖς",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "outside-mapped-context-review",
+      "targetRowId": "r11",
+      "source": {
+        "diplomatic": "τρισ",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 9
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 8,
+          "rowId": "r6"
+        },
+        "next": {
+          "sourceToken": 10,
+          "rowId": "r10"
+        },
+        "coherent": false
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:12:56:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "12:56",
+      "sourceToken": 17,
+      "diplomatic": "δοκιμαζετε",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r18",
+          "column": "vaticanus",
+          "guideText": "δοκιμάζειν;",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r18",
+      "source": {
+        "diplomatic": "δοκιμαζετε",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 17
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 15,
+          "rowId": "r15"
+        },
+        "next": null,
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:13:15:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "13:15",
+      "sourceToken": 3,
+      "diplomatic": "αυτωι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r3",
+          "column": "vaticanus",
+          "guideText": "αὐτῷ",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r3",
+      "source": {
+        "diplomatic": "αυτωι",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 3
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 2,
+          "rowId": "r2"
+        },
+        "next": {
+          "sourceToken": 4,
+          "rowId": "r4"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:13:15:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "13:15",
+      "sourceToken": 7,
+      "diplomatic": "υποκριτα",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r8",
+          "column": "vaticanus",
+          "guideText": "ὑποκριταί,",
+          "similarity": 0.8888888888888888
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r8",
+      "source": {
+        "diplomatic": "υποκριτα",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 7
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 6,
+          "rowId": "r7"
+        },
+        "next": {
+          "sourceToken": 8,
+          "rowId": "r9"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:13:15:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "13:15",
+      "sourceToken": 11,
+      "diplomatic": "σαββατωι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r12",
+          "column": "vaticanus",
+          "guideText": "σαββάτῳ",
+          "similarity": 0.875
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r12",
+      "source": {
+        "diplomatic": "σαββατωι",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 11
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 9,
+          "rowId": "r10"
+        },
+        "next": {
+          "sourceToken": 12,
+          "rowId": "r13"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:13:31:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "13:31",
+      "sourceToken": 2,
+      "diplomatic": "αυτηι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r2",
+          "column": "vaticanus",
+          "guideText": "αὐτῇ",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r2",
+      "source": {
+        "diplomatic": "αυτηι",
+        "conditioned": true,
+        "conditions": [],
+        "supplied": "editor",
+        "sourceToken": 2
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 1,
+          "rowId": "r1"
+        },
+        "next": {
+          "sourceToken": 4,
+          "rowId": "r4"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:13:31:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "13:31",
+      "sourceToken": 5,
+      "diplomatic": "προσηλθον",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r5",
+          "column": "vaticanus",
+          "guideText": "προσῆλθάν",
+          "similarity": 0.8888888888888888
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r5",
+      "source": {
+        "diplomatic": "προσηλθον",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 1
+          },
+          {
+            "kind": "missing",
+            "after": 2
+          },
+          {
+            "kind": "missing",
+            "after": 3
+          },
+          {
+            "kind": "missing",
+            "after": 4
+          },
+          {
+            "kind": "damaged",
+            "after": 5
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 5
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 4,
+          "rowId": "r4"
+        },
+        "next": {
+          "sourceToken": 6,
+          "rowId": "r6"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:13:31:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "13:31",
+      "sourceToken": 7,
+      "diplomatic": "φαρεισαιοι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r7",
+          "column": "vaticanus",
+          "guideText": "Φαρισαῖοι",
+          "similarity": 0.9
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r7",
+      "source": {
+        "diplomatic": "φαρεισαιοι",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 9
+          },
+          {
+            "kind": "missing",
+            "after": 10
+          }
+        ],
+        "supplied": "editor",
+        "sourceToken": 7
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 6,
+          "rowId": "r6"
+        },
+        "next": {
+          "sourceToken": 8,
+          "rowId": "r8"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:13:31:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "13:31",
+      "sourceToken": 9,
+      "diplomatic": "αυτωι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r9",
+          "column": "vaticanus",
+          "guideText": "αὐτῷ·",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r9",
+      "source": {
+        "diplomatic": "αυτωι",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 9
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 8,
+          "rowId": "r8"
+        },
+        "next": {
+          "sourceToken": 10,
+          "rowId": "r10"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:14:26:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "14:26",
+      "sourceToken": 8,
+      "diplomatic": "μεισει",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r8",
+          "column": "vaticanus",
+          "guideText": "μισεῖ",
+          "similarity": 0.8333333333333334
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r8",
+      "source": {
+        "diplomatic": "μεισει",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "damaged",
+            "after": 2
+          },
+          {
+            "kind": "missing",
+            "after": 3
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 8
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 7,
+          "rowId": "r7"
+        },
+        "next": {
+          "sourceToken": 9,
+          "rowId": "r9"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:14:26:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "14:26",
+      "sourceToken": 11,
+      "diplomatic": "αυτου",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r11",
+          "column": "vaticanus",
+          "guideText": "ἑαυτοῦ",
+          "similarity": 0.8333333333333334
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r11",
+      "source": {
+        "diplomatic": "αυτου",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 11
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 9,
+          "rowId": "r9"
+        },
+        "next": {
+          "sourceToken": 12,
+          "rowId": "r12"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:14:27:P45",
+      "siglum": "P45",
+      "gospel": "luke",
+      "reference": "14:27",
+      "sourceToken": 6,
+      "diplomatic": "αυτου",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r7",
+          "column": "vaticanus",
+          "guideText": "ἑαυτοῦ",
+          "similarity": 0.8333333333333334
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "second-transcription-not-corroborated",
+      "targetRowId": "r7",
+      "source": {
+        "diplomatic": "αυτου",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 6
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 4,
+          "rowId": "r5"
+        },
+        "next": {
+          "sourceToken": 7,
+          "rowId": "r8"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "john:10:12:P45",
+      "siglum": "P45",
+      "gospel": "john",
+      "reference": "10:12",
+      "sourceToken": 18,
+      "diplomatic": "αφειησιν",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r19",
+          "column": "vaticanus",
+          "guideText": "ἀφίησιν",
+          "similarity": 0.875
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r19",
+      "source": {
+        "diplomatic": "αφειησιν",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 18
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 17,
+          "rowId": "r18"
+        },
+        "next": {
+          "sourceToken": 19,
+          "rowId": "r20"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:10:41:P45",
+      "siglum": "P45",
+      "gospel": "john",
+      "reference": "10:41",
+      "sourceToken": 13,
+      "diplomatic": "ουδε",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r13",
+          "column": "vaticanus",
+          "guideText": "οὐδέν,",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r13",
+      "source": {
+        "diplomatic": "ουδε",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 13
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 12,
+          "rowId": "r12"
+        },
+        "next": {
+          "sourceToken": 15,
+          "rowId": "r14"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:11:31:P45",
+      "siglum": "P45",
+      "gospel": "john",
+      "reference": "11:31",
+      "sourceToken": 16,
+      "diplomatic": "μαριαν",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r16",
+          "column": "vaticanus",
+          "guideText": "Μαριὰμ",
+          "similarity": 0.8333333333333334
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r16",
+      "source": {
+        "diplomatic": "μαριαν",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 2
+          },
+          {
+            "kind": "missing",
+            "after": 3
+          },
+          {
+            "kind": "missing",
+            "after": 4
+          },
+          {
+            "kind": "missing",
+            "after": 5
+          },
+          {
+            "kind": "missing",
+            "after": 6
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 16
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 15,
+          "rowId": "r15"
+        },
+        "next": {
+          "sourceToken": 17,
+          "rowId": "r17"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "john:11:31:P45",
+      "siglum": "P45",
+      "gospel": "john",
+      "reference": "11:31",
+      "sourceToken": 23,
+      "diplomatic": "αυτηι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r23",
+          "column": "vaticanus",
+          "guideText": "αὐτῇ,",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r23",
+      "source": {
+        "diplomatic": "αυτηι",
+        "conditioned": true,
+        "conditions": [],
+        "supplied": "editor",
+        "sourceToken": 23
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 22,
+          "rowId": "r22"
+        },
+        "next": {
+          "sourceToken": 24,
+          "rowId": "r24"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "john:11:32:P45",
+      "siglum": "P45",
+      "gospel": "john",
+      "reference": "11:32",
+      "sourceToken": 3,
+      "diplomatic": "μαρια",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r3",
+          "column": "vaticanus",
+          "guideText": "Μαριὰμ",
+          "similarity": 0.8333333333333334
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r3",
+      "source": {
+        "diplomatic": "μαρια",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 1
+          },
+          {
+            "kind": "missing",
+            "after": 2
+          },
+          {
+            "kind": "missing",
+            "after": 3
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 3
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 2,
+          "rowId": "r2"
+        },
+        "next": {
+          "sourceToken": 4,
+          "rowId": "r4"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:11:32:P45",
+      "siglum": "P45",
+      "gospel": "john",
+      "reference": "11:32",
+      "sourceToken": 19,
+      "diplomatic": "αυτωι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r18",
+          "column": "vaticanus",
+          "guideText": "αὐτῷ·",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r18",
+      "source": {
+        "diplomatic": "αυτωι",
+        "conditioned": true,
+        "conditions": [],
+        "supplied": "editor",
+        "sourceToken": 19
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 18,
+          "rowId": "r17"
+        },
+        "next": {
+          "sourceToken": 20,
+          "rowId": "r19"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:10:5:P6",
+      "siglum": "P6",
+      "gospel": "john",
+      "reference": "10:5",
+      "sourceToken": 5,
+      "diplomatic": "ακολουθησωσιν",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r5",
+          "column": "vaticanus",
+          "guideText": "ἀκολουθήσουσιν",
+          "similarity": 0.8571428571428572
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r5",
+      "source": {
+        "diplomatic": "ακολουθησωσιν",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 1
+          },
+          {
+            "kind": "missing",
+            "after": 2
+          },
+          {
+            "kind": "missing",
+            "after": 3
+          },
+          {
+            "kind": "missing",
+            "after": 4
+          },
+          {
+            "kind": "missing",
+            "after": 5
+          },
+          {
+            "kind": "missing",
+            "after": 6
+          },
+          {
+            "kind": "missing",
+            "after": 7
+          },
+          {
+            "kind": "missing",
+            "after": 8
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 5
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 4,
+          "rowId": "r4"
+        },
+        "next": {
+          "sourceToken": 6,
+          "rowId": "r6"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:10:5:P6",
+      "siglum": "P6",
+      "gospel": "john",
+      "reference": "10:5",
+      "sourceToken": 12,
+      "diplomatic": "οιδασι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r12",
+          "column": "vaticanus",
+          "guideText": "οἴδασιν",
+          "similarity": 0.8571428571428572
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r12",
+      "source": {
+        "diplomatic": "οιδασι",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 3
+          },
+          {
+            "kind": "missing",
+            "after": 4
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 12
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 11,
+          "rowId": "r11"
+        },
+        "next": {
+          "sourceToken": 13,
+          "rowId": "r15"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:1:49:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "1:49",
+      "sourceToken": 4,
+      "diplomatic": "ραββει",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r6",
+          "column": "vaticanus",
+          "guideText": "Ῥαββί",
+          "similarity": 0.8333333333333334
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r6",
+      "source": {
+        "diplomatic": "ραββει",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 4
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 3,
+          "rowId": "r2"
+        },
+        "next": {
+          "sourceToken": 5,
+          "rowId": "r7"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:3:4:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "3:4",
+      "sourceToken": 20,
+      "diplomatic": "εισελθιν",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r21",
+          "column": "vaticanus",
+          "guideText": "εἰσελθεῖν",
+          "similarity": 0.8888888888888888
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r21",
+      "source": {
+        "diplomatic": "εισελθιν",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 20
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 19,
+          "rowId": "r20"
+        },
+        "next": {
+          "sourceToken": 21,
+          "rowId": "r22"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:3:17:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "3:17",
+      "sourceToken": 3,
+      "diplomatic": "απεστιλεν",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r3",
+          "column": "vaticanus",
+          "guideText": "ἀπέστειλεν",
+          "similarity": 0.9
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "second-transcription-not-corroborated",
+      "targetRowId": "r3",
+      "source": {
+        "diplomatic": "απεστιλεν",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 3
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 2,
+          "rowId": "r2"
+        },
+        "next": {
+          "sourceToken": 4,
+          "rowId": "r4"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "john:5:6:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "5:6",
+      "sourceToken": 2,
+      "diplomatic": "ειδων",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r2",
+          "column": "vaticanus",
+          "guideText": "ἰδὼν",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r2",
+      "source": {
+        "diplomatic": "ειδων",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 2
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 1,
+          "rowId": "r1"
+        },
+        "next": {
+          "sourceToken": 3,
+          "rowId": "r3"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:5:18:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "5:18",
+      "sourceToken": 9,
+      "diplomatic": "αποκτιναι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r9",
+          "column": "vaticanus",
+          "guideText": "ἀποκτεῖναι,",
+          "similarity": 0.9
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r9",
+      "source": {
+        "diplomatic": "αποκτιναι",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 9
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 8,
+          "rowId": "r6"
+        },
+        "next": {
+          "sourceToken": 10,
+          "rowId": "r10"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:5:18:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "5:18",
+      "sourceToken": 13,
+      "diplomatic": "ελυε",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r13",
+          "column": "vaticanus",
+          "guideText": "ἔλυεν",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r13",
+      "source": {
+        "diplomatic": "ελυε",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 13
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 12,
+          "rowId": "r12"
+        },
+        "next": {
+          "sourceToken": 14,
+          "rowId": "r14"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:6:52:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "6:52",
+      "sourceToken": 14,
+      "diplomatic": "σαρκα¯",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r14",
+          "column": "vaticanus",
+          "guideText": "σάρκα",
+          "similarity": 0.8333333333333334
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r14",
+      "source": {
+        "diplomatic": "σαρκα¯",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 14
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 13,
+          "rowId": "r13"
+        },
+        "next": {
+          "sourceToken": 15,
+          "rowId": "r15"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:6:53:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "6:53",
+      "sourceToken": 13,
+      "diplomatic": "σαρκαν",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r14",
+          "column": "vaticanus",
+          "guideText": "σάρκα",
+          "similarity": 0.8333333333333334
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r14",
+      "source": {
+        "diplomatic": "σαρκαν",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 13
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 12,
+          "rowId": "r13"
+        },
+        "next": {
+          "sourceToken": 14,
+          "rowId": "r15"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:6:71:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "6:71",
+      "sourceToken": 9,
+      "diplomatic": "ημελλεν",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r9",
+          "column": "vaticanus",
+          "guideText": "ἔμελλεν",
+          "similarity": 0.8571428571428572
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r9",
+      "source": {
+        "diplomatic": "ημελλεν",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 9
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 8,
+          "rowId": "r8"
+        },
+        "next": {
+          "sourceToken": 10,
+          "rowId": "r11"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:7:3:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "7:3",
+      "sourceToken": 1,
+      "diplomatic": "ειπαν",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r1",
+          "column": "vaticanus",
+          "guideText": "εἶπον",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r1",
+      "source": {
+        "diplomatic": "ειπαν",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 1
+      },
+      "context": {
+        "previous": null,
+        "next": {
+          "sourceToken": 2,
+          "rowId": "r2"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:7:32:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "7:32",
+      "sourceToken": 12,
+      "diplomatic": "απεστιλαν",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r11",
+          "column": "vaticanus",
+          "guideText": "ἀπέστειλαν",
+          "similarity": 0.9
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r11",
+      "source": {
+        "diplomatic": "απεστιλαν",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 12
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 11,
+          "rowId": "r10"
+        },
+        "next": {
+          "sourceToken": 13,
+          "rowId": "r17"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:7:35:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "7:35",
+      "sourceToken": 1,
+      "diplomatic": "ειπαν",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r1",
+          "column": "vaticanus",
+          "guideText": "εἶπον",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r1",
+      "source": {
+        "diplomatic": "ειπαν",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 1
+      },
+      "context": {
+        "previous": null,
+        "next": {
+          "sourceToken": 2,
+          "rowId": "r2"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:7:52:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "7:52",
+      "sourceToken": 12,
+      "diplomatic": "ερευνησον",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r12",
+          "column": "vaticanus",
+          "guideText": "ἐραύνησον",
+          "similarity": 0.8888888888888888
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r12",
+      "source": {
+        "diplomatic": "ερευνησον",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 12
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 11,
+          "rowId": "r11"
+        },
+        "next": {
+          "sourceToken": 13,
+          "rowId": "r13"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:7:52:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "7:52",
+      "sourceToken": 21,
+      "diplomatic": "εγιρεται",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r21",
+          "column": "vaticanus",
+          "guideText": "ἐγείρεται.¶ ",
+          "similarity": 0.8888888888888888
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r21",
+      "source": {
+        "diplomatic": "εγιρεται",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 21
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 20,
+          "rowId": "r20"
+        },
+        "next": null,
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:8:48:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "8:48",
+      "sourceToken": 5,
+      "diplomatic": "ειπον",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r6",
+          "column": "vaticanus",
+          "guideText": "εἶπαν",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r6",
+      "source": {
+        "diplomatic": "ειπον",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 5
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 4,
+          "rowId": "r5"
+        },
+        "next": {
+          "sourceToken": 6,
+          "rowId": "r7"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:9:19:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "9:19",
+      "sourceToken": 2,
+      "diplomatic": "επηρωτησαν",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r2",
+          "column": "vaticanus",
+          "guideText": "ἠρώτησαν",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r2",
+      "source": {
+        "diplomatic": "επηρωτησαν",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 2
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 1,
+          "rowId": "r1"
+        },
+        "next": {
+          "sourceToken": 3,
+          "rowId": "r3"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:9:22:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "9:22",
+      "sourceToken": 4,
+      "diplomatic": "γονισ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r4",
+          "column": "vaticanus",
+          "guideText": "γονεῖς",
+          "similarity": 0.8333333333333334
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r4",
+      "source": {
+        "diplomatic": "γονισ",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 4
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 3,
+          "rowId": "r3"
+        },
+        "next": {
+          "sourceToken": 5,
+          "rowId": "r5"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:9:28:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "9:28",
+      "sourceToken": 4,
+      "diplomatic": "ειπαν",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r8",
+          "column": "vaticanus",
+          "guideText": "εἶπον·",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r8",
+      "source": {
+        "diplomatic": "ειπαν",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 4
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 3,
+          "rowId": "r7"
+        },
+        "next": {
+          "sourceToken": 5,
+          "rowId": "r9"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:10:4:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "10:4",
+      "sourceToken": 15,
+      "diplomatic": "οιδασι",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r16",
+          "column": "vaticanus",
+          "guideText": "οἴδασιν",
+          "similarity": 0.8571428571428572
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r16",
+      "source": {
+        "diplomatic": "οιδασι",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 15
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 14,
+          "rowId": "r15"
+        },
+        "next": {
+          "sourceToken": 16,
+          "rowId": "r19"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:10:32:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "10:32",
+      "sourceToken": 8,
+      "diplomatic": "εδιξα",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r8",
+          "column": "vaticanus",
+          "guideText": "ἔδειξα",
+          "similarity": 0.8333333333333334
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r8",
+      "source": {
+        "diplomatic": "εδιξα",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 8
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 7,
+          "rowId": "r6"
+        },
+        "next": {
+          "sourceToken": 9,
+          "rowId": "r9"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:11:17:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "11:17",
+      "sourceToken": 8,
+      "diplomatic": "τεσσαρεσ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r7",
+          "column": "vaticanus",
+          "guideText": "τέσσαρας",
+          "similarity": 0.875
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r7",
+      "source": {
+        "diplomatic": "τεσσαρεσ",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "damaged",
+            "after": 7
+          },
+          {
+            "kind": "missing",
+            "after": 8
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 8
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 7,
+          "rowId": "r8"
+        },
+        "next": {
+          "sourceToken": 9,
+          "rowId": "r9"
+        },
+        "coherent": false
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:11:31:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "11:31",
+      "sourceToken": 16,
+      "diplomatic": "μαριαν",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r16",
+          "column": "vaticanus",
+          "guideText": "Μαριὰμ",
+          "similarity": 0.8333333333333334
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r16",
+      "source": {
+        "diplomatic": "μαριαν",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 16
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 15,
+          "rowId": "r15"
+        },
+        "next": {
+          "sourceToken": 17,
+          "rowId": "r17"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:12:26:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "12:26",
+      "sourceToken": 7,
+      "diplomatic": "ακολουθιτω",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r6",
+          "column": "vaticanus",
+          "guideText": "ἀκολουθείτω·",
+          "similarity": 0.9090909090909091
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r6",
+      "source": {
+        "diplomatic": "ακολουθιτω",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 7
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 6,
+          "rowId": "r5"
+        },
+        "next": {
+          "sourceToken": 8,
+          "rowId": "r7"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:12:34:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "12:34",
+      "sourceToken": 6,
+      "diplomatic": "ημισ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r6",
+          "column": "vaticanus",
+          "guideText": "ἡμεῖς",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r6",
+      "source": {
+        "diplomatic": "ημισ",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 6
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 5,
+          "rowId": "r5"
+        },
+        "next": {
+          "sourceToken": 7,
+          "rowId": "r7"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:13:26:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "13:26",
+      "sourceToken": 18,
+      "diplomatic": "ισκαριωτη",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r25",
+          "column": "vaticanus",
+          "guideText": "Ἰσκαριώτου.",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r25",
+      "source": {
+        "diplomatic": "ισκαριωτη",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 18
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 17,
+          "rowId": "r24"
+        },
+        "next": null,
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:13:37:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "13:37",
+      "sourceToken": 11,
+      "diplomatic": "ακολουθησε",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r11",
+          "column": "vaticanus",
+          "guideText": "ἀκολουθῆσαι",
+          "similarity": 0.8181818181818181
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r11",
+      "source": {
+        "diplomatic": "ακολουθησε",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 11
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 10,
+          "rowId": "r10"
+        },
+        "next": {
+          "sourceToken": 12,
+          "rowId": "r12"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:18:29:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "18:29",
+      "sourceToken": 4,
+      "diplomatic": "πειλατοσ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r4",
+          "column": "vaticanus",
+          "guideText": "Πιλᾶτος",
+          "similarity": 0.875
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r4",
+      "source": {
+        "diplomatic": "πειλατοσ",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 1
+          },
+          {
+            "kind": "missing",
+            "after": 2
+          },
+          {
+            "kind": "missing",
+            "after": 3
+          },
+          {
+            "kind": "damaged",
+            "after": 6
+          },
+          {
+            "kind": "missing",
+            "after": 7
+          },
+          {
+            "kind": "missing",
+            "after": 8
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 4
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 3,
+          "rowId": "r3"
+        },
+        "next": {
+          "sourceToken": 5,
+          "rowId": "r6"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "john:18:38:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "18:38",
+      "sourceToken": 4,
+      "diplomatic": "πειλατοσ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r4",
+          "column": "vaticanus",
+          "guideText": "Πιλᾶτος·",
+          "similarity": 0.875
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r4",
+      "source": {
+        "diplomatic": "πειλατοσ",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 4
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 3,
+          "rowId": "r2"
+        },
+        "next": {
+          "sourceToken": 5,
+          "rowId": "r5"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:18:38:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "18:38",
+      "sourceToken": 7,
+      "diplomatic": "αληθια",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r7",
+          "column": "vaticanus",
+          "guideText": "ἀλήθεια;",
+          "similarity": 0.8571428571428572
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r7",
+      "source": {
+        "diplomatic": "αληθια",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 6
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 7
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 6,
+          "rowId": "r6"
+        },
+        "next": {
+          "sourceToken": 8,
+          "rowId": "r8"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:19:1:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "19:1",
+      "sourceToken": 4,
+      "diplomatic": "πειλατοσ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r5",
+          "column": "vaticanus",
+          "guideText": "Πιλᾶτος",
+          "similarity": 0.875
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "outside-mapped-context-review",
+      "targetRowId": "r5",
+      "source": {
+        "diplomatic": "πειλατοσ",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 4
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 3,
+          "rowId": "r4"
+        },
+        "next": {
+          "sourceToken": 5,
+          "rowId": "r3"
+        },
+        "coherent": false
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:19:4:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "19:4",
+      "sourceToken": 6,
+      "diplomatic": "πειλατοσ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r7",
+          "column": "vaticanus",
+          "guideText": "Πιλᾶτος",
+          "similarity": 0.875
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r7",
+      "source": {
+        "diplomatic": "πειλατοσ",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 1
+          },
+          {
+            "kind": "damaged",
+            "after": 5
+          },
+          {
+            "kind": "missing",
+            "after": 6
+          },
+          {
+            "kind": "missing",
+            "after": 7
+          },
+          {
+            "kind": "missing",
+            "after": 8
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 6
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 5,
+          "rowId": "r6"
+        },
+        "next": {
+          "sourceToken": 7,
+          "rowId": "r8"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "john:19:4:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "19:4",
+      "sourceToken": 12,
+      "diplomatic": "υμειν",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r13",
+          "column": "vaticanus",
+          "guideText": "ὑμῖν",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r13",
+      "source": {
+        "diplomatic": "υμειν",
+        "conditioned": true,
+        "conditions": [],
+        "supplied": "editor",
+        "sourceToken": 12
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 11,
+          "rowId": "r12"
+        },
+        "next": {
+          "sourceToken": 13,
+          "rowId": "r14"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "john:19:10:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "19:10",
+      "sourceToken": 5,
+      "diplomatic": "πειλατοσ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r5",
+          "column": "vaticanus",
+          "guideText": "Πιλᾶτος·",
+          "similarity": 0.875
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r5",
+      "source": {
+        "diplomatic": "πειλατοσ",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 5
+          },
+          {
+            "kind": "missing",
+            "after": 6
+          },
+          {
+            "kind": "missing",
+            "after": 7
+          },
+          {
+            "kind": "missing",
+            "after": 8
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 5
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 4,
+          "rowId": "r4"
+        },
+        "next": {
+          "sourceToken": 6,
+          "rowId": "r6"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:19:12:P66",
+      "siglum": "P66",
+      "gospel": "john",
+      "reference": "19:12",
+      "sourceToken": 4,
+      "diplomatic": "πειλατοσ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r4",
+          "column": "vaticanus",
+          "guideText": "Πιλᾶτος",
+          "similarity": 0.875
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r4",
+      "source": {
+        "diplomatic": "πειλατοσ",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 1
+          },
+          {
+            "kind": "missing",
+            "after": 2
+          },
+          {
+            "kind": "missing",
+            "after": 3
+          },
+          {
+            "kind": "missing",
+            "after": 4
+          },
+          {
+            "kind": "damaged",
+            "after": 6
+          },
+          {
+            "kind": "missing",
+            "after": 7
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 4
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 3,
+          "rowId": "r3"
+        },
+        "next": {
+          "sourceToken": 5,
+          "rowId": "r5"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "matthew:24:14:P70",
+      "siglum": "P70",
+      "gospel": "matthew",
+      "reference": "24:14",
+      "sourceToken": 11,
+      "diplomatic": "οικουμενην",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r11",
+          "column": "vaticanus",
+          "guideText": "οἰκουμένῃ",
+          "similarity": 0.9
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r11",
+      "source": {
+        "diplomatic": "οικουμενην",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "damaged",
+            "after": 5
+          },
+          {
+            "kind": "missing",
+            "after": 6
+          },
+          {
+            "kind": "missing",
+            "after": 7
+          },
+          {
+            "kind": "missing",
+            "after": 8
+          },
+          {
+            "kind": "missing",
+            "after": 9
+          },
+          {
+            "kind": "missing",
+            "after": 10
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 11
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 7,
+          "rowId": "r7"
+        },
+        "next": {
+          "sourceToken": 12,
+          "rowId": "r12"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:9:12:P75",
+      "siglum": "P75",
+      "gospel": "luke",
+      "reference": "9:12",
+      "sourceToken": 5,
+      "diplomatic": "κλεινειν",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r5",
+          "column": "vaticanus",
+          "guideText": "κλίνειν.",
+          "similarity": 0.875
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r5",
+      "source": {
+        "diplomatic": "κλεινειν",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 5
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 4,
+          "rowId": "r4"
+        },
+        "next": {
+          "sourceToken": 6,
+          "rowId": "r6"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:9:12:P75",
+      "siglum": "P75",
+      "gospel": "luke",
+      "reference": "9:12",
+      "sourceToken": 10,
+      "diplomatic": "ειπον",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r10",
+          "column": "vaticanus",
+          "guideText": "εἶπαν",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r10",
+      "source": {
+        "diplomatic": "ειπον",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 10
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 8,
+          "rowId": "r8"
+        },
+        "next": {
+          "sourceToken": 11,
+          "rowId": "r11"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:9:28:P75",
+      "siglum": "P75",
+      "gospel": "luke",
+      "reference": "9:28",
+      "sourceToken": 15,
+      "diplomatic": "ιωανην",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r15",
+          "column": "vaticanus",
+          "guideText": "Ἰωάννην",
+          "similarity": 0.8571428571428572
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r15",
+      "source": {
+        "diplomatic": "ιωανην",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 1
+          },
+          {
+            "kind": "missing",
+            "after": 2
+          },
+          {
+            "kind": "damaged",
+            "after": 3
+          },
+          {
+            "kind": "missing",
+            "after": 4
+          },
+          {
+            "kind": "missing",
+            "after": 5
+          },
+          {
+            "kind": "missing",
+            "after": 6
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 15
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 14,
+          "rowId": "r14"
+        },
+        "next": {
+          "sourceToken": 16,
+          "rowId": "r16"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "luke:9:48:P75",
+      "siglum": "P75",
+      "gospel": "luke",
+      "reference": "9:48",
+      "sourceToken": 15,
+      "diplomatic": "δεχηται",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r15",
+          "column": "vaticanus",
+          "guideText": "δέχεται·",
+          "similarity": 0.8571428571428572
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "second-transcription-not-corroborated",
+      "targetRowId": "r15",
+      "source": {
+        "diplomatic": "δεχηται",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 15
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 14,
+          "rowId": "r14"
+        },
+        "next": {
+          "sourceToken": 16,
+          "rowId": "r16"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "luke:9:48:P75",
+      "siglum": "P75",
+      "gospel": "luke",
+      "reference": "9:48",
+      "sourceToken": 28,
+      "diplomatic": "μεικροτεροσ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r27",
+          "column": "vaticanus",
+          "guideText": "μικρότερος",
+          "similarity": 0.9090909090909091
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "second-transcription-not-corroborated",
+      "targetRowId": "r27",
+      "source": {
+        "diplomatic": "μεικροτεροσ",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 28
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 27,
+          "rowId": "r26"
+        },
+        "next": {
+          "sourceToken": 29,
+          "rowId": "r28"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "john:1:49:P75",
+      "siglum": "P75",
+      "gospel": "john",
+      "reference": "1:49",
+      "sourceToken": 4,
+      "diplomatic": "ραββει",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r6",
+          "column": "vaticanus",
+          "guideText": "Ῥαββί",
+          "similarity": 0.8333333333333334
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r6",
+      "source": {
+        "diplomatic": "ραββει",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 4
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 3,
+          "rowId": "r2"
+        },
+        "next": {
+          "sourceToken": 5,
+          "rowId": "r7"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:6:60:P75",
+      "siglum": "P75",
+      "gospel": "john",
+      "reference": "6:60",
+      "sourceToken": 8,
+      "diplomatic": "ειπον",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r8",
+          "column": "vaticanus",
+          "guideText": "εἶπαν·",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r8",
+      "source": {
+        "diplomatic": "ειπον",
+        "conditioned": true,
+        "conditions": [],
+        "supplied": "editor",
+        "sourceToken": 8
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 7,
+          "rowId": "r7"
+        },
+        "next": {
+          "sourceToken": 9,
+          "rowId": "r9"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "john:9:22:P75",
+      "siglum": "P75",
+      "gospel": "john",
+      "reference": "9:22",
+      "sourceToken": 2,
+      "diplomatic": "ειπον",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r2",
+          "column": "vaticanus",
+          "guideText": "εἶπαν",
+          "similarity": 0.8
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r2",
+      "source": {
+        "diplomatic": "ειπον",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 2
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 1,
+          "rowId": "r1"
+        },
+        "next": {
+          "sourceToken": 3,
+          "rowId": "r3"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:14:19:P75",
+      "siglum": "P75",
+      "gospel": "john",
+      "reference": "14:19",
+      "sourceToken": 2,
+      "diplomatic": "μεικρον",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r2",
+          "column": "vaticanus",
+          "guideText": "μικρὸν",
+          "similarity": 0.8571428571428572
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-damaged-orthographic-existing-row",
+      "targetRowId": "r2",
+      "source": {
+        "diplomatic": "μεικρον",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "damaged",
+            "after": 7
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 2
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 1,
+          "rowId": "r1"
+        },
+        "next": {
+          "sourceToken": 3,
+          "rowId": "r3"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "mark:2:11:P88",
+      "siglum": "P88",
+      "gospel": "mark",
+      "reference": "2:11",
+      "sourceToken": 6,
+      "diplomatic": "κραβακτον",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r7",
+          "column": "vaticanus",
+          "guideText": "κράβαττόν",
+          "similarity": 0.8888888888888888
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r7",
+      "source": {
+        "diplomatic": "κραβακτον",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 6
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 5,
+          "rowId": "r6"
+        },
+        "next": {
+          "sourceToken": 7,
+          "rowId": "r8"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    },
+    {
+      "sequenceKey": "john:18:37:P90",
+      "siglum": "P90",
+      "gospel": "john",
+      "reference": "18:37",
+      "sourceToken": 5,
+      "diplomatic": "πειλατοσ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r5",
+          "column": "vaticanus",
+          "guideText": "Πιλᾶτος·",
+          "similarity": 0.875
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": false,
+      "adjudication": "conditioned-source-held",
+      "targetRowId": "r5",
+      "source": {
+        "diplomatic": "πειλατοσ",
+        "conditioned": true,
+        "conditions": [
+          {
+            "kind": "missing",
+            "after": 1
+          },
+          {
+            "kind": "missing",
+            "after": 3
+          },
+          {
+            "kind": "missing",
+            "after": 4
+          },
+          {
+            "kind": "missing",
+            "after": 5
+          },
+          {
+            "kind": "missing",
+            "after": 6
+          },
+          {
+            "kind": "missing",
+            "after": 7
+          },
+          {
+            "kind": "missing",
+            "after": 8
+          }
+        ],
+        "supplied": null,
+        "sourceToken": 5
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 4,
+          "rowId": "r4"
+        },
+        "next": {
+          "sourceToken": 6,
+          "rowId": "r6"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": false
+      }
+    },
+    {
+      "sequenceKey": "john:19:4:P90",
+      "siglum": "P90",
+      "gospel": "john",
+      "reference": "19:4",
+      "sourceToken": 4,
+      "diplomatic": "πειλατοσ",
+      "priorClassification": "semantic-review-required",
+      "classification": "unique-high-orthographic-candidate",
+      "candidates": [
+        {
+          "rowId": "r7",
+          "column": "vaticanus",
+          "guideText": "Πιλᾶτος",
+          "similarity": 0.875
+        }
+      ],
+      "decision": "Review this existing-row candidate as an orthographic or inflectional variant; do not create a new row.",
+      "certified": true,
+      "adjudication": "certified-orthographic-existing-row",
+      "targetRowId": "r7",
+      "source": {
+        "diplomatic": "πειλατοσ",
+        "conditioned": false,
+        "conditions": [],
+        "supplied": null,
+        "sourceToken": 4
+      },
+      "context": {
+        "previous": {
+          "sourceToken": 3,
+          "rowId": "r6"
+        },
+        "next": {
+          "sourceToken": 5,
+          "rowId": "r8"
+        },
+        "coherent": true
+      },
+      "corroboration": {
+        "source": "cached INTF transcription",
+        "completeOrderAgreement": true
+      }
+    }
+  ]
+}

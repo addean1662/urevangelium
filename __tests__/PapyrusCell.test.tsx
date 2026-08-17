@@ -12,16 +12,13 @@ describe('PapyrusCell', () => {
     };
     render(<table><tbody><tr><PapyrusCell cell={cell} /></tr></tbody></table>);
     expect(screen.getByText('Ἐν')).toBeInTheDocument();
-    // Fragment badge has moved to IndicatorCell — not rendered in PapyrusCell
-    expect(screen.queryByText('P66')).toBeNull();
+    expect(screen.getByText('P66')).toBeInTheDocument();
   });
 
-  it('renders an empty cell for lost cells (dot indicator lives in IndicatorCell)', () => {
+  it('renders "lost" label for lost cells', () => {
     const cell: PapyrusCellType = { type: 'lost' };
-    const { container } = render(
-      <table><tbody><tr><PapyrusCell cell={cell} /></tr></tbody></table>
-    );
-    expect(container.querySelector('td')?.textContent?.trim()).toBe('');
+    render(<table><tbody><tr><PapyrusCell cell={cell} /></tr></tbody></table>);
+    expect(screen.getByText('lost')).toBeInTheDocument();
   });
 
   it('renders nomina sacra contraction, not expansion', () => {
@@ -35,5 +32,35 @@ describe('PapyrusCell', () => {
     expect(screen.getByText('ΙΥ')).toBeInTheDocument();
     expect(screen.queryByText('Ἰησοῦ')).not.toBeInTheDocument();
     expect(screen.getByTitle('Ἰησοῦ')).toBeInTheDocument();
+  });
+
+  it('renders a compact damaged label inside the papyrus text cell', () => {
+    const cell: PapyrusCellType = {
+      type: 'extant',
+      fragments: [{ id: 'P66', date: 'c. 175–225 CE' }],
+      text: 'αληθια',
+      condition: { damaged: true, damagedAfter: [3] },
+    };
+    const { container } = render(<table><tbody><tr><PapyrusCell cell={cell} /></tr></tbody></table>);
+    const label = screen.getByText('damaged');
+    expect(label).toHaveClass('text-semantic-damaged', 'whitespace-nowrap');
+    expect(label.closest('td')).toBe(container.querySelector('td'));
+  });
+
+  it('links damaged only when an exact free image has been verified', () => {
+    const cell: PapyrusCellType = {
+      type: 'extant',
+      fragments: [{ id: 'P66', date: 'c. 175–225 CE' }],
+      text: 'αληθια',
+      condition: {
+        damaged: true,
+        sourceImageUrl: 'https://example.org/free-scan/p66-folio.jpg',
+      },
+    };
+    render(<table><tbody><tr><PapyrusCell cell={cell} /></tr></tbody></table>);
+    expect(screen.getByRole('link', { name: /open a free image/i })).toHaveAttribute(
+      'href',
+      cell.condition?.sourceImageUrl,
+    );
   });
 });

@@ -38,6 +38,21 @@ The Syriac word is placed on row 2 (the semantic head, "beginning"). Row 1 has a
 
 ---
 
+## Structural Guide and Transposition Rule
+
+The table requires one shared visual row sequence. **Vaticanus (GA 03) is the primary structural guide** because it is an early, Greek, nearly complete Gospel witness. This is an alignment function only: Vaticanus never supplies, reconstructs, corrects, or selects the displayed wording of another witness.
+
+1. Align each source token to the row carrying the same propositional contribution, even when its spelling, inflection, syntax, or manuscript position differs from Vaticanus.
+2. Preserve each witness's source-token order in provenance. A transposed word is aligned to its semantic row and explicitly recorded as a transposition; it is not silently reordered as though the witness followed Vaticanus.
+3. When Vaticanus lacks the relevant contribution or is itself uncertain, use Sinaiticus and Byzantine as corroborating or fallback Greek guides. TAGNT may assist lexical identification and glossing but is not a manuscript witness and cannot supply displayed text.
+4. Create a new row only for a source token that makes a genuine additional propositional contribution for which no existing row is available. Surface-form mismatch, a displaced word, or a wider alignment interval is not sufficient evidence for a new row.
+5. Every source token must be represented exactly once. Missing tokens, duplicate use, and out-of-order source-token mappings are validation failures unless the last is explicitly recorded as an attested transposition.
+6. For the Earliest Papyrus composite, only papyrus transcriptions determine the displayed reading. The established earliest-dated/tie-breaker rule governs disagreements among papyri; no guide column may break a papyrus-reading disagreement.
+
+The guide hierarchy controls row location, not textual authority. Each column remains governed by its own declared source and editorial rules.
+
+---
+
 ## Lacuna vs. Empty Cell Distinction
 
 | Symbol | Meaning |
@@ -46,6 +61,8 @@ The Syriac word is placed on row 2 (the semantic head, "beginning"). Row 1 has a
 | Red dots (·····) | The manuscript is physically damaged or not extant for this passage |
 
 These must not be confused. An empty dash is an editorial decision; red dots are a physical fact about the manuscript.
+
+CNTR character damage (`%`) is not equivalent to loss: traces of the character remain, and a readable word may be displayed with a `damaged` label. CNTR missing (`^`) and supplied (`~` or supplied `+`) characters remain explicitly distinguished from physically extant characters.
 
 ---
 

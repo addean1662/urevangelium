@@ -48,8 +48,13 @@ Ordered chronologically by scholarly consensus date. All transcriptions sourced 
 ### Lacuna handling
 
 - **Word extant in a papyrus:** Display Greek word + fragment identifier(s) in a badge.
+- **Readable word containing damaged characters (`%` in CNTR MES):** Display the papyrus reading as extant with an orange `damaged` label. Damage means traces remain; it does not by itself mean the character is illegible.
+- **Image link policy:** Link `damaged` only to a verified, freely accessible photograph or scan that contains the exact displayed passage. A catalogue record, search result, login wall, or paywalled edition is not an acceptable target. If no image-level target has been verified, leave the label unlinked.
+- **Word containing missing characters (`^`) or supplied text (`~` / supplied `+`):** Preserve the transcription and its character-level provenance, but do not silently classify the supplied characters as physically extant.
 - **Word not covered by any extant papyrus:** Display red lost-dots. This is the default for most words in most passages; early papyrus coverage is sparse.
 - **Multiple papyri cover the same word:** Display all fragment IDs separated by ` · ` (centered dot with spaces).
+- **Multiple papyri agree:** Display the governing reading with every agreeing siglum.
+- **Multiple papyri disagree:** Select the reading of the earliest-ranked papyrus. Ranking follows the public coverage page: earliest starting year in the paleographic date range, then the lower Gregory-Aland papyrus number as a deterministic display tie-breaker. Preserve later or tied dissenting readings in provenance; do not attach their sigla to text they do not attest.
 
 ### Source data
 

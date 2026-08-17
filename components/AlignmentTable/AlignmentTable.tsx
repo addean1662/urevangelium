@@ -20,16 +20,17 @@ type ColumnDef = {
 };
 
 const BASE_COLUMNS: ColumnDef[] = [
-  { key: 'papyrus',   label: 'Earliest Papyri',              date: 'c. 125–250 CE',  script: 'Greek',  glossSource: 'TAGNT'      },
-  { key: 'vaticanus', label: 'Vaticanus',                     date: 'c. 325 CE',       script: 'Greek',  glossSource: 'TAGNT'      },
-  { key: 'bezae',     label: 'Bezae',                         date: 'c. 400 CE',       script: 'Greek',  glossSource: null         },
-  { key: 'vulgate',   label: 'Vulgate',                       date: 'c. 400 CE',       script: 'Latin',  glossSource: 'Whitaker'   },
-  { key: 'peshitta',  label: 'Peshitta',                      date: 'c. 400–450 CE',  script: 'Syriac', glossSource: 'PayneSmith' },
-  { key: 'byzantine', label: 'Byzantine',                     date: 'c. 5th–9th c.',  script: 'Greek',  glossSource: 'TAGNT'      },
+  { key: 'papyrus',   label: 'Earliest Papyri', date: 'c. 125–250 AD',  script: 'Greek',       glossSource: 'TAGNT'      },
+  { key: 'coptic',    label: 'Sahidic',          date: 'c. 250–300 AD',  script: 'Coptic',      glossSource: 'Horner'     },
+  { key: 'vaticanus', label: 'Vaticanus',        date: 'c. 175–325 AD',  script: 'Greek',       glossSource: 'TAGNT'      },
+  { key: 'vulgate',   label: 'Vulgate',          date: 'c. 150–383 AD',  script: 'Latin',       glossSource: 'Whitaker'   },
+  { key: 'bezae',     label: 'Bezae',            date: 'c. 150–400 AD',  script: 'Greek/Latin', glossSource: null         },
+  { key: 'peshitta',  label: 'Peshitta',         date: 'c. 170–400 AD',  script: 'Syriac',      glossSource: 'PayneSmith' },
+  { key: 'byzantine', label: 'Byzantine',        date: 'c. 300–500 AD',  script: 'Greek',       glossSource: 'TAGNT'      },
 ];
 
 const SINAITICUS_COL: ColumnDef = {
-  key: 'sinaiticus', label: 'Sinaiticus', date: 'c. 350 CE', script: 'Greek', glossSource: 'TAGNT',
+  key: 'sinaiticus', label: 'Sinaiticus', date: 'c. 175–350 AD', script: 'Greek', glossSource: 'TAGNT',
 };
 
 // Major Bezae lacunae (physical damage) — single-verse scribal omissions are not noted.
@@ -62,9 +63,10 @@ type TraditionDef = {
 
 const TRADITIONS: TraditionDef[] = [
   { label: 'Greek Papyri', getSpan: () => 3 },
+  { label: 'Coptic',       getSpan: () => 3 },
   { label: 'Alexandrian',  getSpan: () => 3, hasToggle: true },
-  { label: 'Western',      getSpan: () => 3 },
   { label: 'Latin',        getSpan: () => 3 },
+  { label: 'Western',      getSpan: () => 3 },
   { label: 'Syriac',       getSpan: () => 3 },
   { label: 'Byzantine',    getSpan: () => 3 },
 ];
@@ -75,7 +77,7 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
   const bezaeLacuna = getBezaeLacuna(data.gospel, data.chapter, data.verse);
 
   const columns: ColumnDef[] = showSinaiticus
-    ? [BASE_COLUMNS[0], SINAITICUS_COL, ...BASE_COLUMNS.slice(2)]
+    ? [BASE_COLUMNS[0], BASE_COLUMNS[1], SINAITICUS_COL, ...BASE_COLUMNS.slice(3)]
     : [...BASE_COLUMNS];
 
   const witnessCount = columns.length;
@@ -94,6 +96,12 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
         className="w-full border-collapse text-left table-fixed"
         style={{ minWidth: '1440px' }}
       >
+        <caption className="caption-top px-2 pb-2 text-left font-sans text-[11px] leading-relaxed text-ink-muted">
+          <span className="font-semibold text-semantic-damaged">damaged</span>
+          {' '}means the displayed reading remains readable although the papyrus is physically damaged.
+          An underlined label opens a verified free image or scan of that exact passage. Unlinked labels have no verified image-level link yet.
+          Transcription symbols are retained in the source record, not inserted into the reading.
+        </caption>
         <colgroup>
           {columns.map((col, i) => [
             <col key={`${col.key}-t`} style={{ width: textW,  backgroundColor: pairBg(i) }} />,
@@ -167,36 +175,26 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
           const btnClass = 'inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded hover:bg-ink-primary hover:text-ink-on-band transition-colors';
           return (
             <tfoot className="bg-bg-page">
-              {/* Navigation row — Next Verse / Next Fragment aligned with Bezae lacuna button */}
-              {(nextFragment || bezaeLacuna) && (
-                <tr>
-                  <td />
-                  <td colSpan={2} className="pt-2 pb-1">
-                    {nextFragment && (
-                      nextFragmentHref
-                        ? <Link href={nextFragmentHref} className={btnClass}>{nextFragment}</Link>
-                        : <span className={btnClass}>{nextFragment}</span>
-                    )}
-                  </td>
-                  <td colSpan={midCols} />
-                  <td />
-                  <td colSpan={2} className="pt-2 pb-1">
-                    {bezaeLacuna && (
-                      <Link href={bezaeLacuna.href} className={btnClass}>{bezaeLacuna.note}</Link>
-                    )}
-                  </td>
-                  <td colSpan={bezaeTrailCols} />
-                </tr>
-              )}
-              {/* Persistent papyrus info link — always visible */}
               <tr>
-                <td />
-                <td colSpan={2} className="pt-1 pb-2">
-                  <Link href="/papyrus-map" className={btnClass}>
-                    See 65 Earliest Papyri
-                  </Link>
+                <td className="py-2 pr-2 text-right">
+                  <Link href="/papyrus-map" className={btnClass}>See 65 Earliest Papyri</Link>
                 </td>
-                <td colSpan={totalTrailCols} />
+                <td />
+                <td className="py-2">
+                  {nextFragment && (
+                    nextFragmentHref
+                      ? <Link href={nextFragmentHref} className={btnClass}>{nextFragment}</Link>
+                      : <span className={btnClass}>{nextFragment}</span>
+                  )}
+                </td>
+                <td colSpan={midCols} />
+                <td />
+                <td colSpan={2} className="py-2">
+                  {bezaeLacuna && (
+                    <Link href={bezaeLacuna.href} className={btnClass}>{bezaeLacuna.note}</Link>
+                  )}
+                </td>
+                <td colSpan={bezaeTrailCols} />
               </tr>
             </tfoot>
           );

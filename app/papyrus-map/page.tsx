@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { SiteHeader } from '@/components/SiteHeader';
+import { PapyrusCoverageGaps } from '@/components/PapyrusCoverageGaps';
 import { loadPapyrusMap } from '@/lib/papyrusMap';
 import type { Gospel } from '@/lib/types';
 import { GOSPELS } from '@/lib/types';
@@ -200,6 +201,8 @@ export default function PapyrusMapPage() {
             </div>
           ))}
         </div>
+
+        <PapyrusCoverageGaps />
 
         {/* ── SVG Timeline ── */}
         <section className="mb-10 bg-bg-elevated border border-rule-hairline rounded-lg overflow-hidden">
@@ -524,6 +527,13 @@ export default function PapyrusMapPage() {
             für Neutestamentliche Textforschung (INTF, Münster). Siglum numbers were assigned roughly in
             discovery and registration order, so within papyri sharing the same date estimate this serves
             as a proxy for discovery chronology.
+          </p>
+          <p className="mb-2">
+            The same ordering governs the compact Earliest Papyrus column when manuscripts disagree:
+            the reading of the papyrus with the earliest starting year is displayed; equal starting years
+            are resolved by the lower Gregory-Aland papyrus number. This is a deterministic display rule,
+            not a claim that the selected manuscript is intrinsically superior. Dissenting readings remain
+            part of the underlying evidence and their sigla are not attached to a reading they do not attest.
           </p>
           <p className="mb-2">
             Transcriptions marked <span className="text-semantic-extant font-medium">CNTR</span> are

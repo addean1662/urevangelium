@@ -1,5 +1,4 @@
 import type { WitnessCell as WitnessCellType } from '@/lib/types';
-import { transliterateGreek } from '@/lib/transliteration/greek';
 import { LostDots } from './LostDots';
 import { NominaSacra } from './NominaSacra';
 import { HoverTooltip } from '@/components/HoverTooltip';
@@ -7,17 +6,17 @@ import { HoverTooltip } from '@/components/HoverTooltip';
 interface Props {
   cell: WitnessCellType;
   className?: string;
-  showTranslit?: boolean;
+  translitFn?: (text: string) => string;
 }
 
-export function WitnessCell({ cell, className = '', showTranslit = false }: Props) {
+export function WitnessCell({ cell, className = '', translitFn }: Props) {
   const base = `px-2 py-1.5 text-lg border-b border-rule-hairline align-middle text-right text-ink-primary ${className}`;
 
   if (cell.type === 'lost') {
     return (
       <td className={base}>
         <span className="flex items-center justify-end gap-1.5">
-          <span className="text-xs italic text-semantic-lacuna">MS lacuna</span>
+          <span className="text-xs italic text-semantic-lacuna">lost</span>
           <span className="inline-block w-2 h-2 rounded-full bg-semantic-lacuna flex-shrink-0" />
         </span>
       </td>
@@ -37,9 +36,9 @@ export function WitnessCell({ cell, className = '', showTranslit = false }: Prop
 
   const textContent = cell.nominaSacra ? <NominaSacra ns={cell.nominaSacra} /> : cell.text;
 
-  if (showTranslit) {
+  if (translitFn) {
     const sourceText = cell.nominaSacra?.expansion ?? cell.text;
-    const translit = transliterateGreek(sourceText);
+    const translit = translitFn(sourceText);
     const tip = translit ? <em>{translit}</em> : null;
     return (
       <td className={base}>

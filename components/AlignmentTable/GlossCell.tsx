@@ -1,8 +1,18 @@
+'use client';
+
 import type { GlossCell as GlossCellType } from '@/lib/types';
+import { HoverTooltip } from '@/components/HoverTooltip';
 
 interface Props {
   gloss?: GlossCellType | null;
   className?: string;
+}
+
+// Crum entries are often multi-term ("gospel, good news (Christian; ...)").
+// Extract the first keyword for the cell; put the full string in the tooltip.
+function splitCrum(text: string): { display: string; tooltip: string | null } {
+  const display = text.split(/[,;(]/)[0].trim();
+  return { display, tooltip: display !== text ? text : null };
 }
 
 export function GlossCell({ gloss, className = '' }: Props) {
@@ -19,6 +29,17 @@ export function GlossCell({ gloss, className = '' }: Props) {
       {gloss.source}
     </span>
   ) : null;
+
+  if (gloss.source === 'Crum') {
+    const { display, tooltip } = splitCrum(gloss.tooltip ?? gloss.gloss);
+    const tip = tooltip ? <span style={{ fontSize: 14 }}>{tooltip}</span> : null;
+    return (
+      <td className={`${base} text-ink-secondary italic`}>
+        <HoverTooltip content={tip}>{display}</HoverTooltip>
+        {badge}
+      </td>
+    );
+  }
 
   return (
     <td className={`${base} text-ink-secondary italic`}>

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import Link from 'next/link';
 
 function FooterLink({ href, children }: { href: string; children: ReactNode }) {
   return (
@@ -53,6 +54,11 @@ export function SiteFooter() {
         </div>
       </div>
       <p className="mt-6">© 2026 Urevangelium</p>
+      <p className="mt-2">
+        <Link href="/sources" className="text-ink-muted underline underline-offset-2 hover:text-accent-gold">
+          Sources, editions, coverage, and editorial status
+        </Link>
+      </p>
     </footer>
   );
 }
