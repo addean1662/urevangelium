@@ -1,6 +1,6 @@
 # Vaticanus Four-Gospel Decision Ledger
 
-Generated: 2026-08-17T05:14:37.491Z
+Generated: 2026-08-17T18:46:56.166Z
 
 **Status: transcription-derived; no live data modified.**
 

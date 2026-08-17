@@ -138,7 +138,9 @@ function buildVerse(gospel, chapter, verse, tagntWords, byzWords, byVerse, papyr
     return {
       id: `r${i + 1}`,
       papyrus,
-      vaticanus:  { type: 'text', text: w.greek,    gloss: { gloss: w.gloss, source: 'TAGNT' } },
+      // Vaticanus is populated only by the INTF-governed certification pipeline.
+      // A generic regeneration must never substitute TAGNT for GA 03.
+      vaticanus:  { type: 'empty' },
       sinaiticus: { type: 'text', text: sinaText,   gloss: { gloss: w.gloss, source: 'TAGNT' } },
       vulgate:    { type: 'empty' },
       peshitta:   { type: 'empty' },

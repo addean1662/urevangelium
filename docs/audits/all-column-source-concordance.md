@@ -1,21 +1,21 @@
 # All-Column Source Concordance
 
-Generated: 2026-08-17T07:30:36.407Z
+Generated: 2026-08-17T19:48:47.999Z
 
 **Read-only audit. No displayed data was changed.**
 
-| Column | Displayed | Exact | Declared normalization | Present but unordered | Unsupported | Indeterminate | Source tokens not displayed | Lacuna cells | Empty cells |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| papyrus | 35510 | 33568 | 424 | 0 | 1518 | 0 | 0 | 30734 | 603 |
-| coptic | 45231 | 41648 | 0 | 3583 | 0 | 0 | 5958 | 0 | 14964 |
-| vaticanus | 66360 | 1173 | 60758 | 790 | 3639 | 0 | 487 | 546 | 19 |
-| sinaiticus | 66373 | 1137 | 57152 | 1224 | 6860 | 0 | 2194 | 538 | 15 |
-| bezaeGreek | 48913 | 48912 | 1 | 0 | 0 | 0 | 13009 | 3419 | 3529 |
-| bezaeLatin | 52743 | 44316 | 3 | 8424 | 0 | 0 | 10573 | 3419 | 3529 |
-| vulgate | 55996 | 44584 | 52 | 454 | 10820 | 86 | 19725 | 15 | 11329 |
-| peshitta | 49080 | 38137 | 8 | 863 | 10055 | 17 | 16306 | 0 | 17915 |
-| byzantine | 66919 | 65958 | 34 | 759 | 159 | 9 | 121 | 0 | 15 |
+| Column | Displayed | Exact | Declared normalization | Present but unordered | Unsupported | Indeterminate | Source tokens not displayed | Lacuna cells | Omitted cells | Empty cells |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| papyrus | 36269 | 34723 | 270 | 0 | 1276 | 0 | 0 | 30251 | 0 | 597 |
+| coptic | 45231 | 41648 | 0 | 3583 | 0 | 0 | 5971 | 9 | 0 | 15222 |
+| vaticanus | 63511 | 63511 | 0 | 0 | 0 | 0 | 0 | 574 | 3088 | 19 |
+| sinaiticus | 66373 | 1137 | 57152 | 1224 | 6860 | 0 | 2194 | 538 | 9 | 273 |
+| bezaeGreek | 48920 | 48919 | 1 | 0 | 0 | 0 | 13009 | 3419 | 0 | 3789 |
+| bezaeLatin | 52749 | 44322 | 3 | 8424 | 0 | 0 | 10573 | 3419 | 0 | 3789 |
+| vulgate | 56003 | 44585 | 52 | 455 | 10825 | 86 | 19733 | 15 | 0 | 11589 |
+| peshitta | 49084 | 38137 | 8 | 863 | 10059 | 17 | 16314 | 0 | 0 | 18178 |
+| byzantine | 66926 | 65965 | 34 | 759 | 159 | 9 | 121 | 0 | 0 | 275 |
 
-Exception records: 49260.
+Exception records: 44599.
 
 “Unsupported” means the displayed token did not receive an exact normalized, ordered match in the declared source. It is an audit finding, not automatically a claim that the source lacks the reading; word division and parser limitations must be adjudicated.

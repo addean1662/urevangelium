@@ -134,6 +134,11 @@ export type EmptyCell = {
   type: 'empty';
 };
 
+// A source-attested textual omission: the witness has no word at this shared row.
+export type OmittedCell = {
+  type: 'omitted';
+};
+
 // A cell where the manuscript is physically damaged or not extant
 export type LostCell = {
   type: 'lost';
@@ -144,7 +149,7 @@ export type LacunaCell = {
   type: 'lacuna';
 };
 
-export type WitnessCell = TextCell | EmptyCell | LostCell | LacunaCell;
+export type WitnessCell = TextCell | EmptyCell | OmittedCell | LostCell | LacunaCell;
 
 // The Earliest Papyrus column has its own cell type
 export type PapyrusExtantCell = {

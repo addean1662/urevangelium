@@ -42,6 +42,15 @@ export function SyriacCell({ cell }: Props) {
     );
   }
 
+
+  if (cell.type === 'omitted') {
+    return (
+      <td className={`${base} text-ink-muted`} aria-label="omitted by this witness">
+        <span className="text-xs italic">omitted</span>
+      </td>
+    );
+  }
+
   const translit = transliterateSyriac(cell.text);
   const tip = translit ? <em>{translit}</em> : null;
 

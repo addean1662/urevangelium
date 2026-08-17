@@ -23,12 +23,14 @@ const TextCellSchema = z.object({
 });
 
 const EmptyCellSchema = z.object({ type: z.literal('empty') });
+const OmittedCellSchema = z.object({ type: z.literal('omitted') });
 const LostCellSchema = z.object({ type: z.literal('lost') });
 const LacunaCellSchema = z.object({ type: z.literal('lacuna') });
 
 const WitnessCellSchema = z.discriminatedUnion('type', [
   TextCellSchema,
   EmptyCellSchema,
+  OmittedCellSchema,
   LostCellSchema,
   LacunaCellSchema,
 ]);

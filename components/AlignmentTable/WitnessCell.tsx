@@ -34,6 +34,15 @@ export function WitnessCell({ cell, className = '', translitFn }: Props) {
     );
   }
 
+
+  if (cell.type === 'omitted') {
+    return (
+      <td className={`${base} text-ink-muted`} aria-label="omitted by this witness">
+        <span className="text-xs italic">omitted</span>
+      </td>
+    );
+  }
+
   const textContent = cell.nominaSacra ? <NominaSacra ns={cell.nominaSacra} /> : cell.text;
 
   if (translitFn) {

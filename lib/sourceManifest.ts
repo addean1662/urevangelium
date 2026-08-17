@@ -29,7 +29,7 @@ export type ColumnSourceRecord = {
   nextAction: string;
 };
 
-export const SOURCE_MANIFEST_VERSION = '2026-08-17.1';
+export const SOURCE_MANIFEST_VERSION = '2026-08-17.2';
 
 export const COLUMN_SOURCES: ColumnSourceRecord[] = [
   {
@@ -80,13 +80,14 @@ export const COLUMN_SOURCES: ColumnSourceRecord[] = [
   {
     id: 'vaticanus', position: '3a', label: 'Vaticanus', tradition: 'Alexandrian Greek manuscript witness',
     displayedObject: 'Codex Vaticanus, GA 03.', traditionDate: 'The broader Alexandrian stream predates the codex.', witnessOrEditionDate: 'Codex: approximately 325 CE.',
-    status: 'requires-rebuild', statusNote: 'GA 03 is present locally, but the initial generator used TAGNT/NA28-oriented Greek as the displayed text.', coverage: 'The local CNTR file covers the canonical Gospels.',
+    status: 'source-verified', statusNote: 'The four-Gospel column is generated from the pinned INTF original-hand transcription and automatically collated against pinned CNTR GA 03. The project certification is reproducible and source-level; it is not a claim of external peer review.', coverage: 'All 3,779 canonical Gospel verses are classified: 63,511 extant INTF words, explicit textual omissions, and physical lacunae.',
     sources: [
-      { name: 'CNTR Class 1 transcription of GA 03', role: 'text', localFiles: 'data/sources/vaticanus/03.txt', version: 'CNTR commit 4c0e9f94117ec3dc4ae40094aec044bb7a416a53; SHA-256 cea945958d065699d3ab42f05d2afa3be54af4551a68e2e0a32090cd9fa0bb7f', license: 'CC BY-SA 4.0', url: 'https://github.com/Center-for-New-Testament-Restoration/transcriptions' },
+      { name: 'INTF NTVMR transcription of GA 03', role: 'text', localFiles: 'data/sources/vaticanus/intf/*.xml', version: 'NTVMR document 20003, PUBLISHED original-hand TEI; per-Gospel SHA-256 hashes recorded in the certification artifact', license: 'CC BY 4.0', url: 'https://ntvmr.uni-muenster.de/community/vmr/api/transcript/get/' },
+      { name: 'CNTR Class 1 transcription of GA 03', role: 'verification', localFiles: 'data/sources/vaticanus/03.txt', version: 'CNTR commit 4c0e9f94117ec3dc4ae40094aec044bb7a416a53; SHA-256 cea945958d065699d3ab42f05d2afa3be54af4551a68e2e0a32090cd9fa0bb7f', license: 'CC BY-SA 4.0', url: 'https://github.com/Center-for-New-Testament-Restoration/transcriptions' },
       { name: 'STEPBible TAGNT', role: 'alignment', localFiles: 'data/sources/greek-shared/TAGNT-Mat-Jhn-CC-BY.txt', version: 'Local acquisition is not yet pinned', license: 'CC BY 4.0' },
     ],
     rules: ['Display GA 03, not a critical edition proxy.', 'Normalize case and accents only under the declared display policy.', 'Preserve lacunae, supplied text, uncertainty, corrections, and selected scribal hand.', 'Use TAGNT only for alignment, morphology, and glossing.'],
-    prohibited: ['NA28 text presented as Vaticanus', 'Silent resolution of corrections or uncertain letters'], nextAction: 'Regenerate from 03.txt and independently collate disputed readings against images or a second transcription.',
+    prohibited: ['NA28 text presented as Vaticanus', 'Silent resolution of corrections or uncertain letters', 'Filling a Vaticanus omission from another tradition'], nextAction: 'Invite external textual scholars to review the declared policy, the 198 documented INTF–CNTR disagreements, and a stratified sample against manuscript images.',
   },
   {
     id: 'sinaiticus', position: '3b (toggle)', label: 'Sinaiticus', tradition: 'Alexandrian Greek manuscript witness',

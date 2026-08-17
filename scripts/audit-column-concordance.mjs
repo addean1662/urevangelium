@@ -97,7 +97,7 @@ const papyri = {};
 for (const file of fs.readdirSync(path.join(ROOT, 'data/sources/earliest-papyrus')).filter((name) => /^P\d+\.txt$/.test(name))) papyri[file.slice(0, -4)] = parseMesFile(path.join(ROOT, 'data/sources/earliest-papyrus', file));
 
 const normalize = { coptic, vaticanus: greek, sinaiticus: greek, bezaeGreek: greek, bezaeLatin: latin, vulgate: latin, peshitta: syriac, byzantine: greek };
-const report = { status: 'read-only-source-concordance', generatedAt: new Date().toISOString(), scope: 'All displayed cells in Matthew, Mark, Luke, and John', totals: Object.fromEntries(COLUMNS.map((column) => [column, { displayed: 0, exact: 0, normalized: 0, sourcePresentUnordered: 0, unsupported: 0, indeterminate: 0, sourceNotDisplayed: 0, lacunaCells: 0, emptyCells: 0 }])), exceptions: [] };
+const report = { status: 'read-only-source-concordance', generatedAt: new Date().toISOString(), scope: 'All displayed cells in Matthew, Mark, Luke, and John', totals: Object.fromEntries(COLUMNS.map((column) => [column, { displayed: 0, exact: 0, normalized: 0, sourcePresentUnordered: 0, unsupported: 0, indeterminate: 0, sourceNotDisplayed: 0, lacunaCells: 0, omittedCells: 0, emptyCells: 0 }])), exceptions: [] };
 
 function appendDisplayed(target, rowId, text) {
   for (const token of text.split(/\s+/).filter(Boolean)) target.push({ rowId, text: token });
@@ -129,8 +129,15 @@ for (const gospel of GOSPELS) {
     const verse = Number(file.slice(0, -5)), reference = `${chapter}:${verse}`, data = JSON.parse(fs.readFileSync(path.join(dir, chapter, file), 'utf8'));
     for (const column of ['coptic', 'vaticanus', 'sinaiticus', 'vulgate', 'peshitta', 'byzantine']) {
       const displayed = [];
-      for (const row of data.rows) { const cell = row[column]; if (cell?.type === 'text') appendDisplayed(displayed, row.id, cell.text); else if (cell?.type === 'lacuna' || cell?.type === 'lost') report.totals[column].lacunaCells++; else if (cell?.type === 'empty') report.totals[column].emptyCells++; }
-      auditSequence(column, gospel, reference, displayed, sources[column][gospel].get(reference));
+      for (const row of data.rows) { const cell = row[column]; if (cell?.type === 'text') appendDisplayed(displayed, row.id, cell.text); else if (cell?.type === 'lacuna' || cell?.type === 'lost') report.totals[column].lacunaCells++; else if (cell?.type === 'omitted') report.totals[column].omittedCells++; else if (cell?.type === 'empty') report.totals[column].emptyCells++; }
+      if (column === 'vaticanus') {
+        report.totals.vaticanus.displayed += displayed.length;
+        for (const item of displayed) {
+          const cell = data.rows.find((row) => row.id === item.rowId)?.vaticanus;
+          if (cell?.provenance?.source === 'INTF NTVMR transcription' && cell.provenance.diplomatic === item.text) report.totals.vaticanus.exact++;
+          else { report.totals.vaticanus.unsupported++; report.exceptions.push({ column, gospel, reference, rowId: item.rowId, displayed: item.text, classification: 'unsupported', reason: 'Missing exact INTF diplomatic provenance; run certify:vaticanus:live' }); }
+        }
+      } else auditSequence(column, gospel, reference, displayed, sources[column][gospel].get(reference));
     }
     for (const side of ['Greek', 'Latin']) {
       const column = `bezae${side}`, displayed = [];
@@ -151,8 +158,8 @@ for (const gospel of GOSPELS) {
 
 const outDir = path.join(ROOT, 'docs/audits'); fs.mkdirSync(outDir, { recursive: true });
 fs.writeFileSync(path.join(outDir, 'all-column-source-concordance.json'), JSON.stringify(report, null, 2) + '\n');
-const lines = ['# All-Column Source Concordance', '', `Generated: ${report.generatedAt}`, '', '**Read-only audit. No displayed data was changed.**', '', '| Column | Displayed | Exact | Declared normalization | Present but unordered | Unsupported | Indeterminate | Source tokens not displayed | Lacuna cells | Empty cells |', '|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|'];
-for (const column of COLUMNS) { const t = report.totals[column]; lines.push(`| ${column} | ${t.displayed} | ${t.exact} | ${t.normalized} | ${t.sourcePresentUnordered} | ${t.unsupported} | ${t.indeterminate} | ${t.sourceNotDisplayed} | ${t.lacunaCells} | ${t.emptyCells} |`); }
+const lines = ['# All-Column Source Concordance', '', `Generated: ${report.generatedAt}`, '', '**Read-only audit. No displayed data was changed.**', '', '| Column | Displayed | Exact | Declared normalization | Present but unordered | Unsupported | Indeterminate | Source tokens not displayed | Lacuna cells | Omitted cells | Empty cells |', '|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|'];
+for (const column of COLUMNS) { const t = report.totals[column]; lines.push(`| ${column} | ${t.displayed} | ${t.exact} | ${t.normalized} | ${t.sourcePresentUnordered} | ${t.unsupported} | ${t.indeterminate} | ${t.sourceNotDisplayed} | ${t.lacunaCells} | ${t.omittedCells} | ${t.emptyCells} |`); }
 lines.push('', `Exception records: ${report.exceptions.length}.`, '', '“Unsupported” means the displayed token did not receive an exact normalized, ordered match in the declared source. It is an audit finding, not automatically a claim that the source lacks the reading; word division and parser limitations must be adjudicated.', '');
 fs.writeFileSync(path.join(outDir, 'all-column-source-concordance.md'), lines.join('\n'));
 console.log(JSON.stringify(report.totals, null, 2));

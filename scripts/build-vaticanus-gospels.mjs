@@ -74,7 +74,7 @@ const master = {
 };
 
 for (const gospel of Object.values(GOSPELS)) {
-  const totals = { liveVerses: 0, sourceVerses: parsedByGospel[gospel].size, sourceOnlyVerseRecords: 0, explicitAbsenceVerses: 0, alignedVerses: 0, coverageGaps: 0, sourceWords: 0, currentWords: 0, exact: 0, nominaSacra: 0, orthographic: 0, ambiguous: 0, sourceOnly: 0, displayOnly: 0 };
+  const totals = { liveVerses: 0, sourceVerses: parsedByGospel[gospel].size, sourceOnlyVerseRecords: 0, explicitAbsenceVerses: 0, alignedVerses: 0, coverageGaps: 0, sourceWords: 0, currentWords: 0, exact: 0, nominaSacra: 0, orthographic: 0, ambiguous: 0, sourceOnly: 0, sourceOnlyReusedRows: 0, sourceOnlyNewRows: 0, displayOnly: 0 };
   const invariantErrors = [];
   const exceptions = [];
   const verses = [];
@@ -98,6 +98,26 @@ for (const gospel of Object.values(GOSPELS)) {
     const proposedRows = structuredClone(live.rows);
     const changes = [];
     let insertionOffset = 0;
+    const reusableRows = new Map();
+
+    // A source-only run is first offered the already shared rows between its
+    // mapped neighbours.  This preserves the corpus architecture and avoids
+    // inventing a witness-only row when Vaticanus merely had an empty cell.
+    for (let start = 0; start < operations.length;) {
+      if (operations[start].sourceIndex === null || operations[start].displayIndex !== null) { start++; continue; }
+      let end = start;
+      while (end + 1 < operations.length && operations[end + 1].sourceIndex !== null && operations[end + 1].displayIndex === null) end++;
+      const prior = operations.slice(0, start).reverse().find((item) => item.displayIndex !== null);
+      const next = operations.slice(end + 1).find((item) => item.displayIndex !== null);
+      const lower = prior ? displayed[prior.displayIndex].rowIndex + 1 : 0;
+      const upper = next ? displayed[next.displayIndex].rowIndex : live.rows.length;
+      const candidates = [];
+      for (let rowIndex = lower; rowIndex < upper; rowIndex++) {
+        if (live.rows[rowIndex].vaticanus?.type !== 'text') candidates.push(rowIndex);
+      }
+      for (let offset = 0; offset <= end - start && offset < candidates.length; offset++) reusableRows.set(start + offset, candidates[offset]);
+      start = end + 1;
+    }
 
     for (let operationIndex = 0; operationIndex < operations.length; operationIndex++) {
       const operation = operations[operationIndex];
@@ -111,12 +131,22 @@ for (const gospel of Object.values(GOSPELS)) {
         if (classification === 'ambiguous') changes.push({ classification, sourceWord: operation.sourceIndex + 1, sourceDiplomatic: word.diplomatic, currentRowId: display.rowId, currentText: display.text, proposedText, similarity: operation.similarity });
       } else if (operation.sourceIndex !== null) {
         const word = sourceWords[operation.sourceIndex];
+        const reusableRowIndex = reusableRows.get(operationIndex);
+        const proposedText = displayProjection(word.diplomatic);
+        if (reusableRowIndex !== undefined) {
+          const target = proposedRows[reusableRowIndex + insertionOffset];
+          target.vaticanus = { type: 'text', text: proposedText, provenance: { ...SOURCE, sourceReference: parsed.reference.code, diplomatic: word.diplomatic, normalization: proposedText === word.diplomatic ? [] : ['expand-special-glyphs', 'modern-final-sigma'], verification: 'source-transcription-verified' } };
+          totals.sourceOnly++;
+          totals.sourceOnlyReusedRows++;
+          changes.push({ classification: 'source-only-reused-shared-row', sourceWord: operation.sourceIndex + 1, sourceDiplomatic: word.diplomatic, targetRowId: target.id, proposedText });
+          continue;
+        }
         const prior = operations.slice(0, operationIndex).reverse().find((item) => item.displayIndex !== null);
         const insertAt = prior ? displayed[prior.displayIndex].rowIndex + 1 + insertionOffset : insertionOffset;
-        const proposedText = displayProjection(word.diplomatic);
         proposedRows.splice(insertAt, 0, { id: `v03-${parsed.reference.code}-${operation.sourceIndex + 1}`, papyrus: { type: 'empty' }, coptic: { type: 'empty' }, vaticanus: { type: 'text', text: proposedText, provenance: { ...SOURCE, sourceReference: parsed.reference.code, diplomatic: word.diplomatic, normalization: proposedText === word.diplomatic ? [] : ['expand-special-glyphs', 'modern-final-sigma'], verification: 'source-transcription-verified' } }, sinaiticus: { type: 'empty' }, bezae: { type: 'empty' }, vulgate: { type: 'empty' }, peshitta: { type: 'empty' }, byzantine: { type: 'empty' } });
         insertionOffset++;
         totals.sourceOnly++;
+        totals.sourceOnlyNewRows++;
         changes.push({ classification: 'source-only', sourceWord: operation.sourceIndex + 1, sourceDiplomatic: word.diplomatic, insertAfterRowId: prior ? displayed[prior.displayIndex].rowId : null, proposedText });
       } else {
         const display = displayed[operation.displayIndex];
@@ -159,7 +189,7 @@ fs.writeFileSync(path.join(outputDir, 'summary.json'), JSON.stringify(master, nu
 const markdown = ['# Complete Vaticanus Gospel Shadow Build', '', `Generated: ${master.generatedAt}`, '', '**Status: shadow only. No live Gospel data was modified.**', '', `Source: GA 03 at CNTR commit \`${SOURCE.revision}\`.`, '', '| Gospel | Live verses | GA 03 records | Aligned | Coverage gaps | Source-only records | Explicit absence | GA 03 words | Exact | Nomina sacra | Orthographic | Ambiguous | Source-only | Display-only | Invariants |', '|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|'];
 for (const [gospel, entry] of Object.entries(master.gospels)) {
   const t = entry.totals;
-  markdown.push(`| ${gospel} | ${t.liveVerses} | ${t.sourceVerses} | ${t.alignedVerses} | ${t.coverageGaps} | ${t.sourceOnlyVerseRecords} | ${t.explicitAbsenceVerses} | ${t.sourceWords} | ${t.exact} | ${t.nominaSacra} | ${t.orthographic} | ${t.ambiguous} | ${t.sourceOnly} | ${t.displayOnly} | ${entry.invariantErrors.length ? 'FAIL' : 'PASS'} |`);
+  markdown.push(`| ${gospel} | ${t.liveVerses} | ${t.sourceVerses} | ${t.alignedVerses} | ${t.coverageGaps} | ${t.sourceOnlyVerseRecords} | ${t.explicitAbsenceVerses} | ${t.sourceWords} | ${t.exact} | ${t.nominaSacra} | ${t.orthographic} | ${t.ambiguous} | ${t.sourceOnly} (${t.sourceOnlyReusedRows} reused / ${t.sourceOnlyNewRows} new) | ${t.displayOnly} | ${entry.invariantErrors.length ? 'FAIL' : 'PASS'} |`);
 }
 markdown.push('', `MES parse errors: ${parseErrors.length}.`, '', 'Coverage gaps mean no GA 03 source line was present; the shadow retains the existing rows but does not certify their Vaticanus content.', '');
 fs.writeFileSync(path.join(outputDir, 'summary.md'), markdown.join('\n'));

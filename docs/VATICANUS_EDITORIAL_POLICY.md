@@ -4,10 +4,11 @@ Status: pilot policy, adopted 2026-08-16. It governs the GA 03 rebuild and does 
 
 ## Textual identity
 
-The Vaticanus column represents Codex Vaticanus, Gregory-Aland 03. CNTR Class 1 `03.txt` is the immediate machine-readable transcription. TAGNT and modern critical editions may assist alignment, morphology, accentuation, and glossing, but may not supply Vaticanus text.
+The Vaticanus column represents Codex Vaticanus, Gregory-Aland 03. The INTF NTVMR original-hand TEI transcription governs the displayed text. CNTR Class 1 `03.txt` is the automated corroborating transcription. TAGNT and modern critical editions may assist alignment, morphology, accentuation, and glossing, but may not supply Vaticanus text.
 
-Pinned source:
+Pinned sources:
 
+- INTF NTVMR document: `20003`, original-hand reading layer; per-Gospel TEI checksums are recorded in the generated shadow artifact.
 - CNTR commit: `4c0e9f94117ec3dc4ae40094aec044bb7a416a53`
 - Local and upstream `03.txt` SHA-256: `cea945958d065699d3ab42f05d2afa3be54af4551a68e2e0a32090cd9fa0bb7f`
 - License: CC BY-SA 4.0
@@ -36,11 +37,11 @@ Nomina sacra remain visibly contracted. Hover or secondary display may provide a
 
 ## Loss and uncertainty
 
-Physical loss, damaged characters, missing characters, supplied words, uncertain readings, scribal omission, and alignment emptiness are different states. None may be converted into another without an explicit editorial record.
+Physical loss, damaged characters, missing characters, supplied words, uncertain readings, textual omission, and alignment emptiness are different states. None may be converted into another without an explicit editorial record. A shared row for which Vaticanus has no source word is labeled `omitted`; it is not displayed as a physical lacuna or a generic alignment gap.
 
 ## Alignment
 
-GA 03 word order is inviolable. Alignment proceeds forward through the verse. A source word absent from the existing alignment requires a new row or a reviewed realignment; it may not be dropped. A current row absent from GA 03 receives an empty or absence state in Vaticanus and may not be filled from TAGNT.
+GA 03 word order is inviolable. Alignment proceeds forward through the verse. A source word absent from the existing alignment requires a new row or a reviewed realignment; it may not be dropped. A shared current row absent from GA 03 receives the explicit `omitted` state in Vaticanus and may not be filled from another tradition.
 
 ## Release gate
 
