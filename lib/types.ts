@@ -8,6 +8,7 @@ export const GLOSS_SOURCES = [
   'CNTR',         // Center for NT Restoration
   'Swanson',      // Swanson Greek NT
   'Lexical',      // Certified Vaticanus lexical-source chain
+  'System',       // Site-generated residual annotation with explicit provenance
   // Coptic witnesses
   'Horner',       // G. W. Horner, The Coptic Version of the NT in the Southern Dialect (public domain)
   'Crum',         // W. E. Crum, A Coptic Dictionary (Oxford, 1939) via KELLIA Comprehensive Coptic Lexicon (CC BY-SA 4.0)
@@ -34,6 +35,7 @@ export type GlossCell = {
   gloss: string;
   source: GlossSource;
   deviation?: boolean; // true when source differs from the default for this witness
+  generated?: boolean; // site-generated annotation; displayed in orange
   tooltip?: string;    // full lexicon entry for hover display
 };
 

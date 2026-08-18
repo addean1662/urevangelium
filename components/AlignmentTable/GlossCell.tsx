@@ -22,6 +22,8 @@ export function GlossCell({ gloss, className = '' }: Props) {
     return <td className={`${base} text-ink-muted`} aria-label="no gloss">—</td>;
   }
 
+  const textColor = gloss.generated ? 'text-accent-gold' : 'text-ink-secondary';
+
   const badge = gloss.deviation ? (
     <span
       className="not-italic ml-1.5 text-[11px] font-mono text-accent-gold bg-bg-elevated border border-rule-hairline px-1 py-0.5 rounded leading-none"
@@ -34,7 +36,7 @@ export function GlossCell({ gloss, className = '' }: Props) {
     const { display, tooltip } = splitCrum(gloss.tooltip ?? gloss.gloss);
     const tip = tooltip ? <span style={{ fontSize: 14 }}>{tooltip}</span> : null;
     return (
-      <td className={`${base} text-ink-secondary italic`}>
+      <td className={`${base} ${textColor} italic`}>
         <HoverTooltip content={tip}>{display}</HoverTooltip>
         {badge}
       </td>
@@ -42,7 +44,7 @@ export function GlossCell({ gloss, className = '' }: Props) {
   }
 
   return (
-    <td className={`${base} text-ink-secondary italic`}>
+    <td className={`${base} ${textColor} italic`}>
       {gloss.gloss}
       {badge}
     </td>
