@@ -18,6 +18,7 @@ const NominaSacraSchema = z.object({
 const TextCellSchema = z.object({
   type: z.literal('text'),
   text: z.string(),
+  manuscriptStatus: z.enum(['damaged', 'scribal-error-question']).optional(),
   nominaSacra: NominaSacraSchema.optional(),
   gloss: GlossCellSchema.optional(),
 });

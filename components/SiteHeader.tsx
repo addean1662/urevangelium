@@ -26,6 +26,9 @@ export function SiteHeader() {
         <Link href="/sources" className="text-ink-on-band-muted hover:text-ink-on-band transition-colors">
           Sources
         </Link>
+        <Link href="/certification-systems" className="text-ink-on-band-muted hover:text-ink-on-band transition-colors">
+          Methods
+        </Link>
         <Link href="/vaticanus-english-exceptions" className="text-ink-on-band-muted hover:text-ink-on-band transition-colors">
           Exceptions
         </Link>

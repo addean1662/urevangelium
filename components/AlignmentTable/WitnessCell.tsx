@@ -44,6 +44,13 @@ export function WitnessCell({ cell, className = '', translitFn }: Props) {
   }
 
   const textContent = cell.nominaSacra ? <NominaSacra ns={cell.nominaSacra} /> : cell.text;
+  const manuscriptFlag = cell.manuscriptStatus === 'scribal-error-question' ? 'scribal error?' : cell.manuscriptStatus;
+  const displayedText = manuscriptFlag ? (
+    <span className="inline-flex items-baseline justify-end gap-1.5 text-semantic-lacuna">
+      <span className="whitespace-nowrap font-sans text-[10px] font-semibold leading-none">{manuscriptFlag}</span>
+      <span>{textContent}</span>
+    </span>
+  ) : textContent;
 
   if (translitFn) {
     const sourceText = cell.nominaSacra?.expansion ?? cell.text;
@@ -51,10 +58,10 @@ export function WitnessCell({ cell, className = '', translitFn }: Props) {
     const tip = translit ? <em>{translit}</em> : null;
     return (
       <td className={base}>
-        <HoverTooltip content={tip}>{textContent}</HoverTooltip>
+        <HoverTooltip content={tip}>{displayedText}</HoverTooltip>
       </td>
     );
   }
 
-  return <td className={base}>{textContent}</td>;
+  return <td className={base}>{displayedText}</td>;
 }

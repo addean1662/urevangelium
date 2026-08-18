@@ -127,6 +127,7 @@ export type CellSourceProvenance = {
 export type TextCell = {
   type: 'text';
   text: string;
+  manuscriptStatus?: 'damaged' | 'scribal-error-question';
   nominaSacra?: NominaSacraExpansion;
   gloss?: GlossCell;
   provenance?: CellSourceProvenance;
