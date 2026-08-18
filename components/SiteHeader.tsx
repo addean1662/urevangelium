@@ -20,7 +20,7 @@ export function SiteHeader() {
         <Link href="/matthew/1/1" className="text-ink-on-band-muted hover:text-ink-on-band transition-colors">
           Gospels
         </Link>
-        <Link href="/papyrus-map" className="text-ink-on-band-muted hover:text-ink-on-band transition-colors">
+        <Link href="/earliest-papyri" className="text-ink-on-band-muted hover:text-ink-on-band transition-colors">
           Papyri
         </Link>
         <Link href="/sources" className="text-ink-on-band-muted hover:text-ink-on-band transition-colors">
