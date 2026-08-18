@@ -29,7 +29,7 @@ export type ColumnSourceRecord = {
   nextAction: string;
 };
 
-export const SOURCE_MANIFEST_VERSION = '2026-08-17.2';
+export const SOURCE_MANIFEST_VERSION = '2026-08-17.4';
 
 export const COLUMN_SOURCES: ColumnSourceRecord[] = [
   {
@@ -80,14 +80,19 @@ export const COLUMN_SOURCES: ColumnSourceRecord[] = [
   {
     id: 'vaticanus', position: '3a', label: 'Vaticanus', tradition: 'Alexandrian Greek manuscript witness',
     displayedObject: 'Codex Vaticanus, GA 03.', traditionDate: 'The broader Alexandrian stream predates the codex.', witnessOrEditionDate: 'Codex: approximately 325 CE.',
-    status: 'source-verified', statusNote: 'The four-Gospel column is generated from the pinned INTF original-hand transcription and automatically collated against pinned CNTR GA 03. The project certification is reproducible and source-level; it is not a claim of external peer review.', coverage: 'All 3,779 canonical Gospel verses are classified: 63,511 extant INTF words, explicit textual omissions, and physical lacunae.',
+    status: 'source-verified', statusNote: 'The four-Gospel column is generated from the pinned INTF original-hand transcription and automatically collated against pinned CNTR GA 03. English is published only from the reproducible decision ledger; this is internal source certification, not a claim of external peer review.', coverage: 'All 3,779 canonical Gospel verses are classified: 63,511 INTF source tokens displayed as 63,546 lexical words, explicit textual omissions, and physical lacunae. English is certified for 63,409 words (99.784%); 137 remain blank and are listed publicly.',
     sources: [
       { name: 'INTF NTVMR transcription of GA 03', role: 'text', localFiles: 'data/sources/vaticanus/intf/*.xml', version: 'NTVMR document 20003, PUBLISHED original-hand TEI; per-Gospel SHA-256 hashes recorded in the certification artifact', license: 'CC BY 4.0', url: 'https://ntvmr.uni-muenster.de/community/vmr/api/transcript/get/' },
       { name: 'CNTR Class 1 transcription of GA 03', role: 'verification', localFiles: 'data/sources/vaticanus/03.txt', version: 'CNTR commit 4c0e9f94117ec3dc4ae40094aec044bb7a416a53; SHA-256 cea945958d065699d3ab42f05d2afa3be54af4551a68e2e0a32090cd9fa0bb7f', license: 'CC BY-SA 4.0', url: 'https://github.com/Center-for-New-Testament-Restoration/transcriptions' },
       { name: 'STEPBible TAGNT', role: 'alignment', localFiles: 'data/sources/greek-shared/TAGNT-Mat-Jhn-CC-BY.txt', version: 'Local acquisition is not yet pinned', license: 'CC BY 4.0' },
+      { name: 'MorphGNT SBLGNT morphology', role: 'verification', localFiles: 'data/sources/greek-shared/morphgnt/*-morphgnt.txt', version: 'Commit aaed91e57c8e4a8dc9a2383e129ca5e75fe6393d; per-file SHA-256 hashes recorded in the secondary-source ledger', license: 'Morphological parsing and lemmatization CC BY-SA', url: 'https://github.com/morphgnt/sblgnt' },
+      { name: 'PROIEL Greek New Testament Treebank', role: 'verification', localFiles: 'data/sources/greek-shared/proiel/greek-nt.xml', version: 'Commit 8e388967a1335ed12335ddc655fe46993ee7d57a; SHA-256 recorded in the secondary-source ledger', license: 'CC BY-NC-SA 3.0', url: 'https://github.com/proiel/proiel-treebank' },
+      { name: 'MorphGNT Morphological Lexicon', role: 'verification', localFiles: 'data/sources/greek-shared/morphgnt-lexicon/lexemes.yaml', version: 'Commit 0dca2af89f413cbb24f617ddbdc347e9d798ddf3; SHA-256 recorded in the secondary-source ledger', license: 'Content CC BY-SA 3.0', url: 'https://github.com/morphgnt/morphological-lexicon' },
+      { name: 'MorphGNT Tischendorf 8 morphology', role: 'verification', localFiles: 'data/sources/greek-shared/tischendorf-morphgnt/*.txt', version: 'Dataset 2.8 at commit 795f2f4f9fe7cb98bf8736b0c5cb59c43aa9c32e; per-file SHA-256 hashes recorded in the secondary-source ledger', license: 'Public domain', url: 'https://github.com/morphgnt/tischendorf-data' },
+      { name: 'TBESG / Abbott-Smith', role: 'gloss', localFiles: 'data/sources/greek-shared/TBESG-CC-BY.txt', version: 'SHA-256 312f723d7b8ef263bbdfb0451c9b8057125804dfff390b6f8544cff2a84b57f4', license: 'CC BY 4.0' },
     ],
-    rules: ['Display GA 03, not a critical edition proxy.', 'Normalize case and accents only under the declared display policy.', 'Preserve lacunae, supplied text, uncertainty, corrections, and selected scribal hand.', 'Use TAGNT only for alignment, morphology, and glossing.'],
-    prohibited: ['NA28 text presented as Vaticanus', 'Silent resolution of corrections or uncertain letters', 'Filling a Vaticanus omission from another tradition'], nextAction: 'Invite external textual scholars to review the declared policy, the 198 documented INTF–CNTR disagreements, and a stratified sample against manuscript images.',
+    rules: ['Display GA 03, not a critical edition proxy.', 'Normalize case and accents only under the declared display policy.', 'Preserve lacunae, supplied text, uncertainty, corrections, and selected scribal hand.', 'Use TAGNT contextual English only after deterministic alignment to the INTF-controlled GA 03 word; verify its lexical identity against TBESG/Abbott-Smith.', 'For unmatched forms, require exact surface-form lemma agreement between MorphGNT and PROIEL, or a registered contextual/source-native rule with corroborating morphology.', 'Use pinned Tischendorf morphology only as an additional annotation witness; record its shared textual ancestry with PROIEL.', 'Withhold English whenever word alignment or lexical identification is ambiguous.', 'Exclude OCR and AI image transcription from certification.'],
+    prohibited: ['NA28 text presented as Vaticanus', 'Silent resolution of corrections or uncertain letters', 'Filling a Vaticanus omission from another tradition', 'Using OCR or AI image transcription to certify English', 'Treating Parker/Heinfetter as a diplomatic representation of GA 03'], nextAction: 'Develop a separately sourced orthographic authority layer for the 137 publicly listed English exceptions, while leaving every unresolved gloss blank.',
   },
   {
     id: 'sinaiticus', position: '3b (toggle)', label: 'Sinaiticus', tradition: 'Alexandrian Greek manuscript witness',

@@ -16,6 +16,12 @@ export default function RootLayout({
   return (
     <html lang="en" dir="ltr">
       <body className="min-h-screen bg-bg-page text-ink-primary">
+        <aside
+          role="status"
+          className="border-b border-accent-gold bg-accent-gold-soft px-4 py-2 text-center font-semibold tracking-wide text-band"
+        >
+          Site Under Constructon - Scholarly Certification In Work
+        </aside>
         {children}
         <SiteFooter />
       </body>

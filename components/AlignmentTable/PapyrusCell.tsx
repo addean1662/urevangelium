@@ -36,7 +36,6 @@ export function PapyrusCell({ cell }: Props) {
     <td className={base}>
       <div className="flex flex-col items-end gap-0.5">
         <div className="flex max-w-full flex-wrap items-baseline justify-end gap-x-1.5 gap-y-0.5">
-          <HoverTooltip content={tip}>{textContent}</HoverTooltip>
           {cell.condition?.damaged ? (
             cell.condition.sourceImageUrl ? (
               <a
@@ -54,6 +53,7 @@ export function PapyrusCell({ cell }: Props) {
               </span>
             )
           ) : null}
+          <HoverTooltip content={tip}>{textContent}</HoverTooltip>
         </div>
         <span className="text-[10px] leading-none font-sans text-ink-muted tracking-wide">
           {sourceLabel}

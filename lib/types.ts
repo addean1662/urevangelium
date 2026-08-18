@@ -7,6 +7,7 @@ export const GLOSS_SOURCES = [
   'TAGNT',        // STEPBible Translators Amalgamated Greek NT (CC BY 4.0)
   'CNTR',         // Center for NT Restoration
   'Swanson',      // Swanson Greek NT
+  'Lexical',      // Certified Vaticanus lexical-source chain
   // Coptic witnesses
   'Horner',       // G. W. Horner, The Coptic Version of the NT in the Southern Dialect (public domain)
   'Crum',         // W. E. Crum, A Coptic Dictionary (Oxford, 1939) via KELLIA Comprehensive Coptic Lexicon (CC BY-SA 4.0)
