@@ -145,7 +145,9 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
                 >
                   {/* Name line */}
                   <div className="flex">
-                    <div className="w-[45%] text-right pr-2">{col.label}</div>
+                    <div className="w-[45%] text-right pr-2">
+                      {col.key === 'vaticanus' ? <Link href="/vaticanus" className="underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{col.label}</Link> : col.label}
+                    </div>
                     <div className="w-[10%]" />
                     <div className="w-[45%] pl-2" />
                   </div>
