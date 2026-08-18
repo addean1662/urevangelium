@@ -91,18 +91,7 @@
     {
       "id": "r2",
       "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P35",
-            "date": "c. 4th c. CE"
-          }
-        ],
-        "text": "αμην",
-        "gloss": {
-          "gloss": "And",
-          "source": "TAGNT"
-        }
+        "type": "lost"
       },
       "vaticanus": {
         "type": "text",
@@ -190,18 +179,7 @@
     {
       "id": "r3",
       "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P35",
-            "date": "c. 4th c. CE"
-          }
-        ],
-        "text": "λεγω",
-        "gloss": {
-          "gloss": "answering",
-          "source": "TAGNT"
-        }
+        "type": "lost"
       },
       "vaticanus": {
         "type": "text",
@@ -298,10 +276,23 @@
             "date": "c. 4th c. CE"
           }
         ],
-        "text": "υμιν",
-        "gloss": {
-          "gloss": "he said;",
-          "source": "TAGNT"
+        "text": "ειπεν",
+        "condition": {
+          "missingAfter": [
+            1,
+            2
+          ]
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P35",
+          "sourceToken": 1,
+          "diplomatic": "ειπεν",
+          "agreeingSigla": [
+            "P35"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {
@@ -623,10 +614,20 @@
             "date": "c. 4th c. CE"
           }
         ],
-        "text": "υμασ",
-        "gloss": {
-          "gloss": "to you;",
-          "source": "TAGNT"
+        "text": "υμιν",
+        "condition": {
+          "supplied": "editor"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P35",
+          "sourceToken": 4,
+          "diplomatic": "υμιν",
+          "agreeingSigla": [
+            "P35"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {
@@ -717,7 +718,34 @@
     {
       "id": "r8",
       "papyrus": {
-        "type": "lost"
+        "type": "extant",
+        "fragments": [
+          {
+            "id": "P35",
+            "date": "c. 4th c. CE"
+          }
+        ],
+        "text": "ουκ",
+        "condition": {
+          "damaged": true,
+          "damagedAfter": [
+            2
+          ],
+          "missingAfter": [
+            1
+          ]
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P35",
+          "sourceToken": 5,
+          "diplomatic": "ουκ",
+          "agreeingSigla": [
+            "P35"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
+        }
       },
       "vaticanus": {
         "type": "text",

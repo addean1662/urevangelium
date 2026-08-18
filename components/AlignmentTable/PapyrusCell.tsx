@@ -36,6 +36,11 @@ export function PapyrusCell({ cell }: Props) {
     <td className={base}>
       <div className="flex flex-col items-end gap-0.5">
         <div className="flex max-w-full flex-wrap items-baseline justify-end gap-x-1.5 gap-y-0.5">
+          {cell.condition?.supplied || cell.condition?.missingAfter?.length ? (
+            <span className="whitespace-nowrap font-sans text-[10px] font-semibold leading-none text-semantic-lacuna" aria-label={cell.condition?.missingAfter?.length ? 'Missing characters identified by the source editor' : `${cell.condition?.supplied === 'vid' ? 'Probably extant' : 'Editorially supplied'} by the source edition`}>
+              {cell.condition?.missingAfter?.length ? 'missing/supplied' : 'supplied'}
+            </span>
+          ) : null}
           {cell.condition?.damaged ? (
             cell.condition.sourceImageUrl ? (
               <a

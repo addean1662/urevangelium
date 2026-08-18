@@ -246,6 +246,10 @@
           {
             "id": "P75",
             "date": "c. 175–225 CE"
+          },
+          {
+            "id": "P45",
+            "date": "c. 200–250 CE"
           }
         ],
         "text": "εδεξαντο",
@@ -259,7 +263,8 @@
           "sourceToken": 3,
           "diplomatic": "εδεξαντο",
           "agreeingSigla": [
-            "P75"
+            "P75",
+            "P45"
           ],
           "dissentingReadings": [],
           "verification": "machine-compared-rule-qualified"
@@ -351,21 +356,37 @@
         "type": "extant",
         "fragments": [
           {
+            "id": "P75",
+            "date": "c. 175–225 CE"
+          },
+          {
             "id": "P45",
             "date": "c. 200–250 CE"
           }
         ],
         "text": "αυτον",
+        "condition": {
+          "damaged": true,
+          "damagedAfter": [
+            5
+          ],
+          "missingAfter": [
+            2,
+            3,
+            4
+          ]
+        },
         "gloss": {
           "gloss": "Him",
           "source": "TAGNT"
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P75",
           "sourceToken": 4,
           "diplomatic": "αυτον",
           "agreeingSigla": [
+            "P75",
             "P45"
           ],
           "dissentingReadings": [],
@@ -924,21 +945,35 @@
         "type": "extant",
         "fragments": [
           {
+            "id": "P75",
+            "date": "c. 175–225 CE"
+          },
+          {
             "id": "P45",
             "date": "c. 200–250 CE"
           }
         ],
         "text": "ην",
+        "condition": {
+          "damaged": true,
+          "damagedAfter": [
+            1
+          ],
+          "missingAfter": [
+            2
+          ]
+        },
         "gloss": {
           "gloss": "was as",
           "source": "TAGNT"
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
-          "sourceToken": 8,
+          "governingSiglum": "P75",
+          "sourceToken": 9,
           "diplomatic": "ην",
           "agreeingSigla": [
+            "P75",
             "P45"
           ],
           "dissentingReadings": [],
@@ -1032,24 +1067,40 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
+            "id": "P75",
+            "date": "c. 175–225 CE"
           }
         ],
-        "text": "πορευομενου",
+        "text": "πορευομενον",
+        "condition": {
+          "damaged": true,
+          "damagedAfter": [
+            2
+          ],
+          "missingAfter": [
+            1,
+            8
+          ]
+        },
         "gloss": {
           "gloss": "going",
           "source": "TAGNT"
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P75",
           "sourceToken": 10,
-          "diplomatic": "πορευομενου",
+          "diplomatic": "πορευομενον",
           "agreeingSigla": [
-            "P45"
+            "P75"
           ],
-          "dissentingReadings": [],
+          "dissentingReadings": [
+            {
+              "siglum": "P45",
+              "sourceToken": 10,
+              "diplomatic": "πορευομενου"
+            }
+          ],
           "verification": "machine-compared-rule-qualified"
         }
       },
@@ -1240,16 +1291,29 @@
           {
             "id": "P45",
             "date": "c. 200–250 CE"
-          },
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
           }
         ],
         "text": "ιερουσαλημ",
+        "condition": {
+          "missingAfter": [
+            6,
+            7
+          ]
+        },
         "gloss": {
           "gloss": "Jerusalem.",
           "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P45",
+          "sourceToken": 12,
+          "diplomatic": "ιερουσαλημ",
+          "agreeingSigla": [
+            "P45"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {

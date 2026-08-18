@@ -35,27 +35,46 @@ function stable(value) {
 function damageOnly(token) {
   return !token.supplied && token.conditions?.length > 0 && token.conditions.every((condition) => condition.kind === 'damaged');
 }
+function sourceIdentifiedMissing(token) {
+  return token.conditions?.some((condition) => condition.kind === 'missing');
+}
+function sourceSupplied(token) {
+  return token.supplied === 'editor' || token.supplied === 'vid';
+}
 function otherColumns(rows) {
   return rows.map((row) => Object.fromEntries(NON_PAPYRUS.map((column) => [column, row[column] ?? null])));
 }
 
 const byVerse = new Map();
+const acceptedTokenKeys = new Set();
 let acceptedTokenCount = 0;
 let damageOnlyTokenCount = 0;
+let sourceSuppliedTokenCount = 0;
+let sourceIdentifiedMissingTokenCount = 0;
+let conditionedAdmittedTokenCount = 0;
 for (const sequence of audit.sequences) {
-  const tokens = sequence.tokens.filter((token) => token.targetRowId && (accepted.has(token.classification) || (conditionedMapped.has(token.classification) && damageOnly(token))));
+  const tokens = sequence.tokens.filter((token) => token.targetRowId && (accepted.has(token.classification) || (conditionedMapped.has(token.classification) && (damageOnly(token) || sourceSupplied(token) || sourceIdentifiedMissing(token)))));
   if (!tokens.length) continue;
   const key = `${sequence.gospel}:${sequence.reference}`;
   const record = byVerse.get(key) ?? { gospel: sequence.gospel, reference: sequence.reference, attestations: [] };
   for (const token of tokens) {
+    const tokenKey = `${sequence.gospel}:${sequence.reference}:${sequence.siglum}:${token.sourceIndex}`;
+    if (acceptedTokenKeys.has(tokenKey)) continue;
+    acceptedTokenKeys.add(tokenKey);
     acceptedTokenCount++;
     if (damageOnly(token)) damageOnlyTokenCount++;
+    if (sourceSupplied(token)) sourceSuppliedTokenCount++;
+    if (sourceIdentifiedMissing(token)) sourceIdentifiedMissingTokenCount++;
+    if (conditionedMapped.has(token.classification)) conditionedAdmittedTokenCount++;
     record.attestations.push({ siglum: sequence.siglum, sourceIndex: token.sourceIndex, rowId: token.targetRowId, diplomatic: token.diplomatic, form: token.form, classification: token.classification, conditions: token.conditions ?? [], supplied: token.supplied ?? null });
   }
   byVerse.set(key, record);
 }
 for (const decision of orthographicAudit.decisions.filter((item) => item.certified)) {
   const key = `${decision.gospel}:${decision.reference}`;
+  const tokenKey = `${decision.gospel}:${decision.reference}:${decision.siglum}:${decision.sourceToken - 1}`;
+  if (acceptedTokenKeys.has(tokenKey)) continue;
+  acceptedTokenKeys.add(tokenKey);
   const record = byVerse.get(key) ?? { gospel: decision.gospel, reference: decision.reference, attestations: [] };
   acceptedTokenCount++;
   record.attestations.push({ siglum: decision.siglum, sourceIndex: decision.sourceToken - 1, rowId: decision.targetRowId, diplomatic: decision.diplomatic, form: normalized(decision.diplomatic), classification: 'certified-orthographic-existing-row', adjudication: decision.adjudication, conditions: decision.source.conditions ?? [], supplied: decision.source.supplied ?? null });
@@ -80,7 +99,9 @@ const summary = {
     damagedReadableTokensAdmitted: damageOnlyTokenCount,
     sourceTokenCollisions: 0,
     missingTargetRows: 0,
-    conditionedTokensHeld: audit.totals.conditionedMappedTokens - damageOnlyTokenCount,
+    sourceEditorSuppliedTokensAdmitted: sourceSuppliedTokenCount,
+    sourceIdentifiedMissingTokensAdmitted: sourceIdentifiedMissingTokenCount,
+    conditionedTokensHeld: audit.totals.conditionedMappedTokens - conditionedAdmittedTokenCount,
     unresolvedTokensHeld: audit.totals.ambiguousRepeatedTokens + audit.totals.semanticReviewTokens,
     nonPapyrusMutationErrors: 0,
     zeroCoverageChapterErrors: 0,
@@ -150,7 +171,11 @@ for (const record of byVerse.values()) {
       type: 'extant',
       fragments,
       text: displayText(selected.diplomatic),
-      ...(selected.conditions?.some((condition) => condition.kind === 'damaged') ? { condition: { damaged: true, damagedAfter: [...new Set(selected.conditions.filter((condition) => condition.kind === 'damaged').map((condition) => condition.after))].sort((a, b) => a - b) } } : {}),
+      ...((selected.conditions?.length || selected.supplied) ? { condition: {
+        ...(selected.conditions?.some((condition) => condition.kind === 'damaged') ? { damaged: true, damagedAfter: [...new Set(selected.conditions.filter((condition) => condition.kind === 'damaged').map((condition) => condition.after))].sort((a, b) => a - b) } : {}),
+        ...(selected.conditions?.some((condition) => condition.kind === 'missing') ? { missingAfter: [...new Set(selected.conditions.filter((condition) => condition.kind === 'missing').map((condition) => condition.after))].sort((a, b) => a - b) } : {}),
+        ...(selected.supplied ? { supplied: selected.supplied } : {}),
+      } } : {}),
       ...(previous?.gloss ? { gloss: previous.gloss } : {}),
       provenance: {
         authority: 'CNTR papyrus transcription',
@@ -212,6 +237,8 @@ fs.writeFileSync(path.join(outDir, 'summary.md'), [
   `- Row attestations carrying certified transposition provenance: ${t.transpositionAttestations}`,
   `- Certified orthographic mappings admitted: ${t.certifiedOrthographicMappings}`,
   `- Damaged-but-readable source tokens admitted: ${t.damagedReadableTokensAdmitted}`,
+  `- Source-identified missing-character tokens admitted: ${t.sourceIdentifiedMissingTokensAdmitted}`,
+  `- Source-editor supplied tokens admitted: ${t.sourceEditorSuppliedTokensAdmitted}`,
   `- Conditioned/supplied tokens held: ${t.conditionedTokensHeld}`,
   `- Ambiguous or semantic-review tokens held: ${t.unresolvedTokensHeld}`,
   `- Same-witness row collisions: ${t.sourceTokenCollisions}`,
@@ -220,6 +247,6 @@ fs.writeFileSync(path.join(outDir, 'summary.md'), [
   `- Zero-coverage chapter errors: ${t.zeroCoverageChapterErrors}`,
   `- Application coverage errors: ${t.applicationCoverageErrors}`,
   `- Total invariant errors: ${summary.invariantErrors.length}`, '',
-  'Only unconditioned tokens with unique or contextually resolved exact guide-row matches are proposed. Conditioned, supplied, ambiguous, and unmatched tokens remain held for review.', '',
+  'Tokens with unique or contextually resolved guide-row matches are proposed when CNTR records them as extant, damaged-but-readable, editor-supplied, or as identified letters bearing the MES missing-character condition. Ambiguous and unmatched tokens remain held for review.', '',
 ].join('\n'));
 console.log(JSON.stringify(summary.totals, null, 2));

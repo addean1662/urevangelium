@@ -351,22 +351,7 @@
     {
       "id": "r4",
       "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
-          }
-        ],
-        "text": "πνα",
-        "gloss": {
-          "gloss": "was",
-          "source": "TAGNT"
-        }
+        "type": "lost"
       },
       "vaticanus": {
         "type": "omitted"
@@ -851,22 +836,7 @@
     {
       "id": "r9",
       "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
-          }
-        ],
-        "text": "ην",
-        "gloss": {
-          "gloss": "eighteen",
-          "source": "TAGNT"
-        }
+        "type": "lost"
       },
       "vaticanus": {
         "type": "text",
@@ -1066,6 +1036,10 @@
           {
             "id": "P75",
             "date": "c. 175–225 CE"
+          },
+          {
+            "id": "P45",
+            "date": "c. 200–250 CE"
           }
         ],
         "text": "ην",
@@ -1079,7 +1053,8 @@
           "sourceToken": 10,
           "diplomatic": "ην",
           "agreeingSigla": [
-            "P75"
+            "P75",
+            "P45"
           ],
           "dissentingReadings": [],
           "verification": "machine-compared-rule-qualified"
@@ -1178,16 +1153,26 @@
           {
             "id": "P45",
             "date": "c. 200–250 CE"
-          },
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
           }
         ],
-        "text": "μη",
-        "gloss": {
-          "gloss": "bent over",
-          "source": "TAGNT"
+        "text": "συγκυπτουσα",
+        "condition": {
+          "missingAfter": [
+            1,
+            2,
+            3
+          ]
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P45",
+          "sourceToken": 11,
+          "diplomatic": "συγκυπτουσα",
+          "agreeingSigla": [
+            "P45"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
         }
       },
       "vaticanus": {

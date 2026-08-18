@@ -10,12 +10,14 @@ interface PapyrusIndicatorProps {
 export function PapyrusIndicator({ cell }: PapyrusIndicatorProps) {
   if (cell.type === 'extant') {
     const label = cell.fragments.map((f) => `${f.id} (${f.date})`).join(', ');
+    const sourceQualified = Boolean(cell.condition?.supplied || cell.condition?.missingAfter?.length);
+    const sourceState = cell.condition?.missingAfter?.length ? `missing characters identified by source editor — ${label}` : cell.condition?.supplied ? `source-editor supplied — ${label}` : `papyrus extant — ${label}`;
     return (
       <td className={cellBase}>
         <span
-          className={`${dotBase} bg-semantic-extant`}
-          aria-label={`papyrus extant — ${label}`}
-          title={label}
+          className={`${dotBase} ${sourceQualified ? 'bg-semantic-lacuna' : 'bg-semantic-extant'}`}
+          aria-label={sourceState}
+          title={sourceState}
         />
       </td>
     );
