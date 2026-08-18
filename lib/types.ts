@@ -167,6 +167,7 @@ export type PapyrusExtantCell = {
     sourceImageUrl?: string;
     missingAfter?: number[];
     supplied?: 'editor' | 'vid';
+    manuscriptStatus?: 'scribal-error-question';
   };
   nominaSacra?: NominaSacraExpansion;
   gloss?: GlossCell;

@@ -26,6 +26,14 @@
           "governingSiglum": "P45",
           "sourceToken": 1,
           "diplomatic": "και",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 1,
+              "diplomatic": "και",
+              "classification": "conditioned-contextual-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P45"
           ],
@@ -135,6 +143,14 @@
           "governingSiglum": "P45",
           "sourceToken": 2,
           "diplomatic": "απ",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 2,
+              "diplomatic": "απ",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P45"
           ],
@@ -250,6 +266,14 @@
           "governingSiglum": "P45",
           "sourceToken": 3,
           "diplomatic": "αγορασ",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 3,
+              "diplomatic": "αγορασ",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P45"
           ],
@@ -339,18 +363,7 @@
     {
       "id": "r4",
       "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          }
-        ],
-        "text": "εαν",
-        "gloss": {
-          "gloss": "now",
-          "source": "TAGNT"
-        }
+        "type": "lost"
       },
       "vaticanus": {
         "type": "omitted"
@@ -398,18 +411,7 @@
     {
       "id": "r5",
       "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          }
-        ],
-        "text": "μη",
-        "gloss": {
-          "gloss": "when",
-          "source": "TAGNT"
-        }
+        "type": "lost"
       },
       "vaticanus": {
         "type": "omitted"
@@ -464,18 +466,7 @@
     {
       "id": "r6",
       "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          }
-        ],
-        "text": "βαπτισωνται",
-        "gloss": {
-          "gloss": "may come",
-          "source": "TAGNT"
-        }
+        "type": "lost"
       },
       "vaticanus": {
         "type": "omitted"
@@ -541,6 +532,14 @@
           "governingSiglum": "P45",
           "sourceToken": 4,
           "diplomatic": "εαν",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 4,
+              "diplomatic": "εαν",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P45"
           ],
@@ -651,6 +650,14 @@
           "governingSiglum": "P45",
           "sourceToken": 5,
           "diplomatic": "μη",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 5,
+              "diplomatic": "μη",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P45"
           ],
@@ -746,7 +753,41 @@
     {
       "id": "r9",
       "papyrus": {
-        "type": "lost"
+        "type": "extant",
+        "fragments": [
+          {
+            "id": "P45",
+            "date": "c. 200–250 CE"
+          }
+        ],
+        "text": "βαπτισωνται",
+        "condition": {
+          "missingAfter": [
+            1,
+            3,
+            5
+          ]
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P45",
+          "sourceToken": 6,
+          "diplomatic": "βαπτισωνται",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 6,
+              "diplomatic": "βαπτισωνται",
+              "classification": "certified-held-existing-or-addition-row",
+              "adjudication": "unique-exact-unused-guide-row-within-certified-source-interval"
+            }
+          ],
+          "agreeingSigla": [
+            "P45"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
+        }
       },
       "vaticanus": {
         "type": "text",
@@ -848,6 +889,14 @@
           "governingSiglum": "P45",
           "sourceToken": 7,
           "diplomatic": "ουκ",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 7,
+              "diplomatic": "ουκ",
+              "classification": "unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P45"
           ],
@@ -939,7 +988,34 @@
     {
       "id": "r11",
       "papyrus": {
-        "type": "lost"
+        "type": "extant",
+        "fragments": [
+          {
+            "id": "P45",
+            "date": "c. 200–250 CE"
+          }
+        ],
+        "text": "εσθειουσιν",
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P45",
+          "sourceToken": 8,
+          "diplomatic": "εσθειουσιν",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 8,
+              "diplomatic": "εσθειουσιν",
+              "classification": "certified-held-existing-or-addition-row",
+              "adjudication": "unique-high-orthographic-row-with-two-greek-guide-consensus"
+            }
+          ],
+          "agreeingSigla": [
+            "P45"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
+        }
       },
       "vaticanus": {
         "type": "text",
@@ -1046,6 +1122,14 @@
           "governingSiglum": "P45",
           "sourceToken": 9,
           "diplomatic": "και",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 9,
+              "diplomatic": "και",
+              "classification": "contextual-repeated-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P45"
           ],
@@ -1147,6 +1231,14 @@
           "governingSiglum": "P45",
           "sourceToken": 10,
           "diplomatic": "αλλα",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 10,
+              "diplomatic": "αλλα",
+              "classification": "unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P45"
           ],
@@ -1261,6 +1353,14 @@
           "governingSiglum": "P45",
           "sourceToken": 11,
           "diplomatic": "πολλα",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 11,
+              "diplomatic": "πολλα",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P45"
           ],
@@ -1372,6 +1472,14 @@
           "governingSiglum": "P45",
           "sourceToken": 12,
           "diplomatic": "εστιν",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 12,
+              "diplomatic": "εστιν",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P45"
           ],
@@ -1462,7 +1570,37 @@
     {
       "id": "r16",
       "papyrus": {
-        "type": "lost"
+        "type": "extant",
+        "fragments": [
+          {
+            "id": "P45",
+            "date": "c. 200–250 CE"
+          }
+        ],
+        "text": "α",
+        "condition": {
+          "supplied": "editor"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P45",
+          "sourceToken": 13,
+          "diplomatic": "α",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 13,
+              "diplomatic": "α",
+              "classification": "certified-held-existing-or-addition-row",
+              "adjudication": "unique-exact-unused-guide-row-within-certified-source-interval"
+            }
+          ],
+          "agreeingSigla": [
+            "P45"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
+        }
       },
       "vaticanus": {
         "type": "text",
@@ -1543,7 +1681,45 @@
     {
       "id": "r17",
       "papyrus": {
-        "type": "lost"
+        "type": "extant",
+        "fragments": [
+          {
+            "id": "P45",
+            "date": "c. 200–250 CE"
+          }
+        ],
+        "text": "παρελαβον",
+        "condition": {
+          "missingAfter": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "supplied": "editor"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P45",
+          "sourceToken": 14,
+          "diplomatic": "παρελαβον",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 14,
+              "diplomatic": "παρελαβον",
+              "classification": "certified-held-existing-or-addition-row",
+              "adjudication": "unique-exact-unused-guide-row-within-certified-source-interval"
+            }
+          ],
+          "agreeingSigla": [
+            "P45"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
+        }
       },
       "vaticanus": {
         "type": "text",
@@ -1726,6 +1902,14 @@
           "governingSiglum": "P45",
           "sourceToken": 15,
           "diplomatic": "κρατειν",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 15,
+              "diplomatic": "κρατειν",
+              "classification": "unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P45"
           ],
@@ -1832,6 +2016,14 @@
           "governingSiglum": "P45",
           "sourceToken": 16,
           "diplomatic": "βαπτισμουσ",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 16,
+              "diplomatic": "βαπτισμουσ",
+              "classification": "unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P45"
           ],
@@ -1944,6 +2136,14 @@
           "governingSiglum": "P45",
           "sourceToken": 17,
           "diplomatic": "ποτηριων",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 17,
+              "diplomatic": "ποτηριων",
+              "classification": "unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P45"
           ],
@@ -2044,6 +2244,14 @@
           "governingSiglum": "P45",
           "sourceToken": 18,
           "diplomatic": "και",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 18,
+              "diplomatic": "και",
+              "classification": "conditioned-contextual-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P45"
           ],
@@ -2144,6 +2352,14 @@
           "governingSiglum": "P45",
           "sourceToken": 19,
           "diplomatic": "ξεστων",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 19,
+              "diplomatic": "ξεστων",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P45"
           ],
@@ -2246,6 +2462,14 @@
           "governingSiglum": "P45",
           "sourceToken": 20,
           "diplomatic": "και",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 20,
+              "diplomatic": "και",
+              "classification": "conditioned-contextual-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P45"
           ],
@@ -2351,6 +2575,14 @@
           "governingSiglum": "P45",
           "sourceToken": 21,
           "diplomatic": "χαλκιων",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 21,
+              "diplomatic": "χαλκιων",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P45"
           ],

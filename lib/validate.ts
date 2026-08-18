@@ -50,6 +50,7 @@ const PapyrusExtantCellSchema = z.object({
     damagedAfter: z.array(z.number().int().nonnegative()).optional(),
     sourceImageUrl: z.string().url().startsWith('https://').optional(),
     missingAfter: z.array(z.number().int().nonnegative()).optional(),
+    manuscriptStatus: z.enum(['scribal-error-question']).optional(),
     supplied: z.enum(['editor', 'vid']).optional(),
   }).optional(),
   nominaSacra: NominaSacraSchema.optional(),

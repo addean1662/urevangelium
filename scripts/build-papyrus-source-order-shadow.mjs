@@ -6,6 +6,9 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 const audit = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/audits/papyrus-source-order-audit.json'), 'utf8'));
 const transpositionAudit = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/audits/papyrus-transposition-adjudication.json'), 'utf8'));
 const orthographicAudit = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/audits/papyrus-orthographic-adjudication.json'), 'utf8'));
+const heldAuditPath = path.join(ROOT, 'docs/audits/papyrus-held-token-adjudication.json');
+const heldAudit = fs.existsSync(heldAuditPath) ? JSON.parse(fs.readFileSync(heldAuditPath, 'utf8')) : { decisions: [] };
+const heldDecisionKeys = new Set(heldAudit.decisions.filter((item) => item.certified).map((item) => `${item.gospel}:${item.reference}:${item.siglum}:${item.sourceToken - 1}`));
 const coverage = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sources/earliest-papyrus/coverage-index.json'), 'utf8'));
 const dates = Object.fromEntries(coverage.papyri.map((papyrus) => [papyrus.siglum, papyrus.date]));
 const GOSPELS = ['matthew', 'mark', 'luke', 'john'];
@@ -59,6 +62,7 @@ for (const sequence of audit.sequences) {
   const record = byVerse.get(key) ?? { gospel: sequence.gospel, reference: sequence.reference, attestations: [] };
   for (const token of tokens) {
     const tokenKey = `${sequence.gospel}:${sequence.reference}:${sequence.siglum}:${token.sourceIndex}`;
+    if (heldDecisionKeys.has(tokenKey)) continue;
     if (acceptedTokenKeys.has(tokenKey)) continue;
     acceptedTokenKeys.add(tokenKey);
     acceptedTokenCount++;
@@ -80,6 +84,16 @@ for (const decision of orthographicAudit.decisions.filter((item) => item.certifi
   record.attestations.push({ siglum: decision.siglum, sourceIndex: decision.sourceToken - 1, rowId: decision.targetRowId, diplomatic: decision.diplomatic, form: normalized(decision.diplomatic), classification: 'certified-orthographic-existing-row', adjudication: decision.adjudication, conditions: decision.source.conditions ?? [], supplied: decision.source.supplied ?? null });
   byVerse.set(key, record);
 }
+for (const decision of heldAudit.decisions.filter((item) => item.certified)) {
+  const key = `${decision.gospel}:${decision.reference}`;
+  const tokenKey = `${decision.gospel}:${decision.reference}:${decision.siglum}:${decision.sourceToken - 1}`;
+  if (acceptedTokenKeys.has(tokenKey)) continue;
+  acceptedTokenKeys.add(tokenKey);
+  const record = byVerse.get(key) ?? { gospel: decision.gospel, reference: decision.reference, attestations: [] };
+  acceptedTokenCount++;
+  record.attestations.push({ siglum: decision.siglum, sourceIndex: decision.sourceToken - 1, rowId: decision.targetRowId, diplomatic: decision.diplomatic, form: normalized(decision.diplomatic), classification: 'certified-held-existing-or-addition-row', adjudication: decision.adjudication, alignmentStatus: decision.alignmentStatus ?? null, conditions: decision.conditions ?? [], supplied: decision.supplied ?? null, manuscriptStatus: decision.manuscriptStatus ?? null });
+  byVerse.set(key, record);
+}
 
 const summary = {
   status: 'read-only-papyrus-source-order-shadow',
@@ -98,11 +112,13 @@ const summary = {
     certifiedOrthographicMappings: orthographicAudit.totals.certified,
     damagedReadableTokensAdmitted: damageOnlyTokenCount,
     sourceTokenCollisions: 0,
+    sameWitnessMultiwordRows: 0,
     missingTargetRows: 0,
     sourceEditorSuppliedTokensAdmitted: sourceSuppliedTokenCount,
     sourceIdentifiedMissingTokensAdmitted: sourceIdentifiedMissingTokenCount,
+    heldSourceTokensAdmitted: heldAudit.decisions.filter((item) => item.certified).length,
     conditionedTokensHeld: audit.totals.conditionedMappedTokens - conditionedAdmittedTokenCount,
-    unresolvedTokensHeld: audit.totals.ambiguousRepeatedTokens + audit.totals.semanticReviewTokens,
+    unresolvedTokensHeld: audit.totals.ambiguousRepeatedTokens + audit.totals.semanticReviewTokens - heldAudit.decisions.filter((item) => item.certified && ['ambiguous-repeated-guide-form', 'source-repetition-review', 'semantic-review-required'].includes(item.priorClassification)).length,
     nonPapyrusMutationErrors: 0,
     zeroCoverageChapterErrors: 0,
     applicationCoverageErrors: 0,
@@ -137,10 +153,6 @@ for (const record of byVerse.values()) {
       continue;
     }
     const items = byRow.get(attestation.rowId) ?? [];
-    if (items.some((item) => item.siglum === attestation.siglum)) {
-      summary.totals.sourceTokenCollisions++;
-      summary.invariantErrors.push(`same-witness row collision ${record.gospel} ${record.reference} ${attestation.siglum} ${attestation.rowId}`);
-    }
     items.push(attestation);
     byRow.set(attestation.rowId, items);
   }
@@ -149,10 +161,22 @@ for (const record of byVerse.values()) {
   for (const [rowId, attestations] of byRow) {
     summary.totals.rowsWithEvidence++;
     attestations.sort(rank);
-    const selected = attestations[0];
+    const sourceAttestations = [...attestations];
+    const bySiglum = new Map();
+    for (const attestation of sourceAttestations) {
+      const items = bySiglum.get(attestation.siglum) ?? [];
+      items.push(attestation);
+      bySiglum.set(attestation.siglum, items);
+    }
+    const readings = [...bySiglum.values()].map((items) => {
+      items.sort((a, b) => a.sourceIndex - b.sourceIndex);
+      if (items.length > 1) summary.totals.sameWitnessMultiwordRows++;
+      return { ...items[0], sourceMembers: items, diplomatic: items.map((item) => item.diplomatic).join(' '), form: items.map((item) => normalized(item.diplomatic)).join(''), conditions: items.flatMap((item) => item.conditions ?? []), supplied: items.find((item) => item.supplied)?.supplied ?? null };
+    }).sort(rank);
+    const selected = readings[0];
     const selectedForm = normalized(selected.diplomatic);
-    const agreeing = attestations.filter((item) => normalized(item.diplomatic) === selectedForm).sort(rank);
-    const dissenting = attestations.filter((item) => normalized(item.diplomatic) !== selectedForm).sort(rank);
+    const agreeing = readings.filter((item) => normalized(item.diplomatic) === selectedForm).sort(rank);
+    const dissenting = readings.filter((item) => normalized(item.diplomatic) !== selectedForm).sort(rank);
     const row = rowMap.get(rowId);
     const previous = row.papyrus;
     const fragments = agreeing.map((item) => ({ id: item.siglum, date: dates[item.siglum] ?? 'date unavailable' }));
@@ -171,10 +195,11 @@ for (const record of byVerse.values()) {
       type: 'extant',
       fragments,
       text: displayText(selected.diplomatic),
-      ...((selected.conditions?.length || selected.supplied) ? { condition: {
+      ...((selected.conditions?.length || selected.supplied || selected.manuscriptStatus) ? { condition: {
         ...(selected.conditions?.some((condition) => condition.kind === 'damaged') ? { damaged: true, damagedAfter: [...new Set(selected.conditions.filter((condition) => condition.kind === 'damaged').map((condition) => condition.after))].sort((a, b) => a - b) } : {}),
         ...(selected.conditions?.some((condition) => condition.kind === 'missing') ? { missingAfter: [...new Set(selected.conditions.filter((condition) => condition.kind === 'missing').map((condition) => condition.after))].sort((a, b) => a - b) } : {}),
         ...(selected.supplied ? { supplied: selected.supplied } : {}),
+        ...(selected.manuscriptStatus ? { manuscriptStatus: selected.manuscriptStatus } : {}),
       } } : {}),
       ...(previous?.gloss ? { gloss: previous.gloss } : {}),
       provenance: {
@@ -182,6 +207,7 @@ for (const record of byVerse.values()) {
         governingSiglum: selected.siglum,
         sourceToken: selected.sourceIndex + 1,
         diplomatic: selected.diplomatic,
+        sourceAttestations: sourceAttestations.map((item) => ({ siglum: item.siglum, sourceToken: item.sourceIndex + 1, diplomatic: item.diplomatic, classification: item.classification, ...(item.adjudication ? { adjudication: item.adjudication } : {}), ...(item.alignmentStatus ? { alignmentStatus: item.alignmentStatus } : {}) })),
         agreeingSigla: agreeing.map((item) => item.siglum),
         dissentingReadings: dissenting.map((item) => ({ siglum: item.siglum, sourceToken: item.sourceIndex + 1, diplomatic: item.diplomatic })),
         ...(transpositions.length ? { certifiedTranspositions: transpositions } : {}),

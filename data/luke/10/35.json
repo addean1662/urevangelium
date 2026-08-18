@@ -27,6 +27,20 @@
           "governingSiglum": "P75",
           "sourceToken": 1,
           "diplomatic": "και",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 1,
+              "diplomatic": "και",
+              "classification": "contextual-repeated-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 1,
+              "diplomatic": "και",
+              "classification": "contextual-repeated-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -138,6 +152,20 @@
           "governingSiglum": "P75",
           "sourceToken": 2,
           "diplomatic": "επι",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 2,
+              "diplomatic": "επι",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 2,
+              "diplomatic": "επι",
+              "classification": "unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -255,6 +283,20 @@
           "governingSiglum": "P75",
           "sourceToken": 3,
           "diplomatic": "την",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 3,
+              "diplomatic": "την",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 3,
+              "diplomatic": "την",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -351,10 +393,32 @@
           "governingSiglum": "P75",
           "sourceToken": 4,
           "diplomatic": "αυριον",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 4,
+              "diplomatic": "αυριον",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 4,
+              "diplomatic": "επαυριον",
+              "classification": "certified-held-existing-or-addition-row",
+              "adjudication": "contextual-disagreement-aligned-to-shared-sentence-row",
+              "alignmentStatus": "contextually-harmonized"
+            }
+          ],
           "agreeingSigla": [
             "P75"
           ],
-          "dissentingReadings": [],
+          "dissentingReadings": [
+            {
+              "siglum": "P45",
+              "sourceToken": 4,
+              "diplomatic": "επαυριον"
+            }
+          ],
           "verification": "machine-compared-rule-qualified"
         }
       },
@@ -446,22 +510,7 @@
     {
       "id": "r5",
       "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
-          }
-        ],
-        "text": "εκβαλων",
-        "gloss": {
-          "gloss": "having gone out",
-          "source": "TAGNT"
-        }
+        "type": "lost"
       },
       "vaticanus": {
         "type": "omitted"
@@ -530,6 +579,20 @@
           "governingSiglum": "P75",
           "sourceToken": 5,
           "diplomatic": "εκβαλων",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 5,
+              "diplomatic": "εκβαλων",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 5,
+              "diplomatic": "εκβαλων",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -642,6 +705,20 @@
           "governingSiglum": "P75",
           "sourceToken": 6,
           "diplomatic": "εδωκεν",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 6,
+              "diplomatic": "εδωκεν",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 6,
+              "diplomatic": "εδωκεν",
+              "classification": "unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -740,24 +817,45 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
+            "id": "P75",
+            "date": "c. 175–225 CE"
           }
         ],
-        "text": "δυο",
+        "text": "β",
         "gloss": {
           "gloss": "two",
           "source": "TAGNT"
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P75",
           "sourceToken": 7,
-          "diplomatic": "δυο",
-          "agreeingSigla": [
-            "P45"
+          "diplomatic": "β",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 7,
+              "diplomatic": "β",
+              "classification": "certified-held-existing-or-addition-row",
+              "adjudication": "source-order-placement-in-equal-cardinality-bounded-context"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 7,
+              "diplomatic": "δυο",
+              "classification": "unique-guide-row"
+            }
           ],
-          "dissentingReadings": [],
+          "agreeingSigla": [
+            "P75"
+          ],
+          "dissentingReadings": [
+            {
+              "siglum": "P45",
+              "sourceToken": 7,
+              "diplomatic": "δυο"
+            }
+          ],
           "verification": "machine-compared-rule-qualified"
         }
       },
@@ -865,6 +963,20 @@
           "governingSiglum": "P75",
           "sourceToken": 8,
           "diplomatic": "δηναρια",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 8,
+              "diplomatic": "δηναρια",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 8,
+              "diplomatic": "δηναρια",
+              "classification": "unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -978,10 +1090,31 @@
           "governingSiglum": "P75",
           "sourceToken": 9,
           "diplomatic": "τω",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 9,
+              "diplomatic": "τω",
+              "classification": "contextual-repeated-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 9,
+              "diplomatic": "τωι",
+              "classification": "certified-held-existing-or-addition-row",
+              "adjudication": "source-order-placement-in-equal-cardinality-bounded-context"
+            }
+          ],
           "agreeingSigla": [
             "P75"
           ],
-          "dissentingReadings": [],
+          "dissentingReadings": [
+            {
+              "siglum": "P45",
+              "sourceToken": 9,
+              "diplomatic": "τωι"
+            }
+          ],
           "verification": "machine-compared-rule-qualified"
         }
       },
@@ -1073,10 +1206,31 @@
           "governingSiglum": "P75",
           "sourceToken": 10,
           "diplomatic": "πανδοχει",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 10,
+              "diplomatic": "πανδοχει",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 10,
+              "diplomatic": "πανδοκει",
+              "classification": "certified-held-existing-or-addition-row",
+              "adjudication": "unique-high-orthographic-row-with-two-greek-guide-consensus"
+            }
+          ],
           "agreeingSigla": [
             "P75"
           ],
-          "dissentingReadings": [],
+          "dissentingReadings": [
+            {
+              "siglum": "P45",
+              "sourceToken": 10,
+              "diplomatic": "πανδοκει"
+            }
+          ],
           "verification": "machine-compared-rule-qualified"
         }
       },
@@ -1188,6 +1342,20 @@
           "governingSiglum": "P75",
           "sourceToken": 11,
           "diplomatic": "και",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 11,
+              "diplomatic": "και",
+              "classification": "contextual-repeated-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 11,
+              "diplomatic": "και",
+              "classification": "contextual-repeated-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -1294,6 +1462,20 @@
           "governingSiglum": "P75",
           "sourceToken": 12,
           "diplomatic": "ειπεν",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 12,
+              "diplomatic": "ειπεν",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 12,
+              "diplomatic": "ειπεν",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -1465,6 +1647,20 @@
           "governingSiglum": "P75",
           "sourceToken": 13,
           "diplomatic": "επιμεληθητι",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 13,
+              "diplomatic": "επιμεληθητι",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 13,
+              "diplomatic": "επιμεληθητι",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -1576,6 +1772,20 @@
           "governingSiglum": "P75",
           "sourceToken": 14,
           "diplomatic": "αυτου",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 14,
+              "diplomatic": "αυτου",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 14,
+              "diplomatic": "αυτου",
+              "classification": "unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -1687,6 +1897,20 @@
           "governingSiglum": "P75",
           "sourceToken": 15,
           "diplomatic": "και",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 15,
+              "diplomatic": "και",
+              "classification": "contextual-repeated-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 15,
+              "diplomatic": "και",
+              "classification": "contextual-repeated-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -1797,6 +2021,20 @@
           "governingSiglum": "P75",
           "sourceToken": 16,
           "diplomatic": "ο",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 16,
+              "diplomatic": "ο",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 16,
+              "diplomatic": "ο",
+              "classification": "unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -1898,6 +2136,20 @@
           "governingSiglum": "P75",
           "sourceToken": 17,
           "diplomatic": "τι",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 17,
+              "diplomatic": "τι",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 17,
+              "diplomatic": "τι",
+              "classification": "unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -2015,6 +2267,20 @@
           "governingSiglum": "P75",
           "sourceToken": 18,
           "diplomatic": "εαν",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 18,
+              "diplomatic": "εαν",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 18,
+              "diplomatic": "εαν",
+              "classification": "unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -2200,6 +2466,20 @@
           "governingSiglum": "P75",
           "sourceToken": 19,
           "diplomatic": "προσδαπανησησ",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 19,
+              "diplomatic": "προσδαπανησησ",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 19,
+              "diplomatic": "προσδαπανησησ",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -2316,6 +2596,20 @@
           "governingSiglum": "P75",
           "sourceToken": 20,
           "diplomatic": "εγω",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 20,
+              "diplomatic": "εγω",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 20,
+              "diplomatic": "εγω",
+              "classification": "unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -2432,6 +2726,20 @@
           "governingSiglum": "P75",
           "sourceToken": 21,
           "diplomatic": "εν",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 21,
+              "diplomatic": "εν",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 21,
+              "diplomatic": "εν",
+              "classification": "unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -2540,10 +2848,31 @@
           "governingSiglum": "P75",
           "sourceToken": 22,
           "diplomatic": "τω",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 22,
+              "diplomatic": "τω",
+              "classification": "contextual-repeated-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 22,
+              "diplomatic": "τωι",
+              "classification": "certified-held-existing-or-addition-row",
+              "adjudication": "source-order-placement-in-equal-cardinality-bounded-context"
+            }
+          ],
           "agreeingSigla": [
             "P75"
           ],
-          "dissentingReadings": [],
+          "dissentingReadings": [
+            {
+              "siglum": "P45",
+              "sourceToken": 22,
+              "diplomatic": "τωι"
+            }
+          ],
           "verification": "machine-compared-rule-qualified"
         }
       },
@@ -2639,6 +2968,20 @@
           "governingSiglum": "P75",
           "sourceToken": 23,
           "diplomatic": "επανερχεσθαι",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 23,
+              "diplomatic": "επανερχεσθαι",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 23,
+              "diplomatic": "επανερχεσθαι",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -2751,6 +3094,20 @@
           "governingSiglum": "P75",
           "sourceToken": 24,
           "diplomatic": "με",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 24,
+              "diplomatic": "με",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 24,
+              "diplomatic": "με",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -2859,6 +3216,20 @@
           "governingSiglum": "P75",
           "sourceToken": 25,
           "diplomatic": "αποδωσω",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 25,
+              "diplomatic": "αποδωσω",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 25,
+              "diplomatic": "αποδωσω",
+              "classification": "unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"
@@ -2966,6 +3337,20 @@
           "governingSiglum": "P75",
           "sourceToken": 26,
           "diplomatic": "σοι",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 26,
+              "diplomatic": "σοι",
+              "classification": "unique-guide-row"
+            },
+            {
+              "siglum": "P45",
+              "sourceToken": 26,
+              "diplomatic": "σοι",
+              "classification": "unique-guide-row"
+            }
+          ],
           "agreeingSigla": [
             "P75",
             "P45"

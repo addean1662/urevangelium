@@ -1,16 +1,16 @@
 # Papyrus Source-Order Shadow
 
-Generated: 2026-08-18T17:20:51.939Z
+Generated: 2026-08-18T20:59:24.877Z
 
 **Read-only. No live Gospel data was modified.**
 
-- Accepted unconditioned source tokens: 51380
-- Affected verses: 2078
-- Rows carrying mapped evidence: 33549
+- Accepted unconditioned source tokens: 55231
+- Affected verses: 2079
+- Rows carrying mapped evidence: 35405
 - Proposed row changes: 0
-- Rows already identical to the proposed cell: 33549
-- Agreeing badge attestations attached: 51343
-- Dissenting readings retained in provenance: 37
+- Rows already identical to the proposed cell: 35405
+- Agreeing badge attestations attached: 53507
+- Dissenting readings retained in provenance: 1677
 - Certified transposition sequences: 4
 - Row attestations carrying certified transposition provenance: 43
 - Certified orthographic mappings admitted: 52
@@ -18,7 +18,7 @@ Generated: 2026-08-18T17:20:51.939Z
 - Source-identified missing-character tokens admitted: 7811
 - Source-editor supplied tokens admitted: 8440
 - Conditioned/supplied tokens held: 0
-- Ambiguous or semantic-review tokens held: 3889
+- Ambiguous or semantic-review tokens held: 0
 - Same-witness row collisions: 0
 - Missing target rows: 0
 - Non-papyrus mutation errors: 0
