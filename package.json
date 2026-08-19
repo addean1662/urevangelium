@@ -43,7 +43,18 @@
     "shadow:papyrus-rows": "node scripts/build-papyrus-row-shadow.mjs"
     ,"certify:coptic:live": "node scripts/certify-coptic-live.mjs",
     "repair:coptic:john-7-8": "node scripts/repair-coptic-john-7-8.mjs"
-    ,"repair:coptic:gospel": "node scripts/repair-coptic-john-7-8.mjs"
+    ,"repair:coptic:gospel": "node scripts/repair-coptic-john-7-8.mjs",
+    "audit:coptic:english": "node scripts/audit-coptic-english.mjs",
+    "adjudicate:coptic:proper-names": "node scripts/adjudicate-coptic-proper-names.mjs",
+    "apply:coptic:proper-names": "node scripts/apply-coptic-proper-names.mjs",
+    "reclassify:coptic:english": "node scripts/reclassify-coptic-english.mjs",
+    "validate:horner:pilot": "node scripts/validate-horner-pilot.mjs",
+    "validate:coptic:translation-layer": "node scripts/validate-coptic-translation-layer.mjs",
+    "validate:crosswire:copsahhorner": "node scripts/validate-crosswire-copsahhorner.mjs",
+    "apply:coptic:english:ccl": "node scripts/apply-coptic-ccl-english.mjs",
+    "shadow:vulgate:source": "node scripts/build-vulgate-source-shadow.mjs",
+    "apply:vulgate:source": "node scripts/build-vulgate-source-shadow.mjs --apply",
+    "certify:vulgate:live": "node scripts/build-vulgate-source-shadow.mjs --certify"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.95.1",

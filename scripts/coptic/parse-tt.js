@@ -76,23 +76,14 @@ function extractWords(verseBlock) {
 
   // Extract all entity identity annotations visible in this block
   // We build a position→identity map so we can annotate each norm_group
-  const entityRanges = [];
+  const identityByHeadToken = new Map();
   const entityOpenRe = /<entity\s[^>]*>/g;
   let em;
   while ((em = entityOpenRe.exec(verseBlock)) !== null) {
     const tag = em[0];
     const idMatch = tag.match(/identity="([^"]+)"/);
-    if (!idMatch) continue;
-    // Find the matching </entity> after this position
-    const closeIdx = verseBlock.indexOf('</entity>', em.index);
-    entityRanges.push({ start: em.index, end: closeIdx >= 0 ? closeIdx : verseBlock.length, identity: idMatch[1] });
-  }
-
-  function getIdentityAt(pos) {
-    for (const r of entityRanges) {
-      if (pos >= r.start && pos <= r.end) return r.identity;
-    }
-    return null;
+    const headMatch = tag.match(/head_tok="#?([^"]+)"/);
+    if (idMatch && headMatch) identityByHeadToken.set(headMatch[1], idMatch[1]);
   }
 
   // Two TT format variants in the Sahidica corpus:
@@ -112,8 +103,6 @@ function extractWords(verseBlock) {
     if (SKIP_PUNCT.test(origGroup)) continue;
 
     const groupContent = gm[2];
-    const groupPos = gm.index;
-
     // Parse <norm> elements — capture both attributes and inner content for lang detection.
     // Matthew: lang="Greek" is an attribute on <norm>.
     // Mark:    <lang lang="Greek"> is a child element inside <norm>...</norm>.
@@ -128,6 +117,7 @@ function extractWords(verseBlock) {
 
       const posM   = attrs.match(/\bpos="([^"]+)"/);
       const lemmaM = attrs.match(/\blemma="([^"]+)"/);
+      const tokenIdM = attrs.match(/\bxml:id="([^"]+)"/);
       if (!posM || !lemmaM) continue;
 
       const pos   = posM[1];
@@ -138,7 +128,7 @@ function extractWords(verseBlock) {
       const langElemM = normContent.match(/<lang\s[^>]*lang="([^"]+)"/);
       const lang = langAttrM ? langAttrM[1] : (langElemM ? langElemM[1] : undefined);
 
-      const norm = { pos, lemma, lang };
+      const norm = { pos, lemma, lang, tokenId: tokenIdM ? tokenIdM[1] : undefined };
       if (!firstNorm) firstNorm = norm;
       if (!headNorm && HEAD_POS.has(pos)) headNorm = norm;
     }
@@ -146,7 +136,9 @@ function extractWords(verseBlock) {
     const head = headNorm || firstNorm;
     if (!head || SKIP_POS.has(head.pos)) continue;
 
-    const identity = (head.pos === 'NPROP') ? getIdentityAt(groupPos) : null;
+    const identity = head.pos === 'NPROP' && head.tokenId
+      ? identityByHeadToken.get(head.tokenId)
+      : null;
 
     words.push({
       text: origGroup,

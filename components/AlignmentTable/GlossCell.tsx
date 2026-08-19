@@ -36,8 +36,8 @@ export function GlossCell({ gloss, className = '' }: Props) {
     const { display, tooltip } = splitCrum(gloss.tooltip ?? gloss.gloss);
     const tip = tooltip ? <span style={{ fontSize: 14 }}>{tooltip}</span> : null;
     return (
-      <td className={`${base} ${textColor} italic`}>
-        <HoverTooltip content={tip}>{display}</HoverTooltip>
+      <td className={`${base} ${textColor} italic`} aria-label={`lexical aid: ${gloss.gloss}`}>
+        <HoverTooltip content={tip ?? <span style={{ fontSize: 14 }}>Lexical aid—not contextual translation · {gloss.gloss}</span>}>{display}</HoverTooltip>
         {badge}
       </td>
     );

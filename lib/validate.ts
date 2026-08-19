@@ -7,6 +7,7 @@ const GlossCellSchema = z.object({
   gloss: z.string(),
   source: GlossSourceSchema,
   deviation: z.boolean().optional(),
+  generated: z.boolean().optional(),
   tooltip: z.string().optional(),
 });
 

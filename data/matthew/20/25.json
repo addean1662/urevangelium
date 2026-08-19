@@ -85,7 +85,17 @@
         }
       },
       "vulgate": {
-        "type": "empty"
+        "type": "text",
+        "text": "Jesus",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 1,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
+        }
       },
       "peshitta": {
         "type": "empty"
@@ -107,8 +117,9 @@
         "type": "text",
         "text": "ⲛⲛϩⲉⲑⲛⲟⲥ",
         "gloss": {
-          "gloss": "<the>",
-          "source": "TAGNT"
+          "gloss": "unclear: nation(s) or heathen or rather both",
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ϩⲉⲑⲛⲟⲥ · unclear: nation(s) or heathen or rather both"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -120,7 +131,20 @@
           "diplomatic": "ⲛⲛϩⲉⲑⲛⲟⲥ",
           "sourceSha256": "d4df8ae9dadda747f2aed0d5bc6ba22c9202192390e3b987c15cc4f6fca277f4",
           "verification": "exact-source-word-group",
-          "placementMethod": "greek-loanword-partial"
+          "placementMethod": "greek-loanword-partial",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ϩⲉⲑⲛⲟⲥ",
+            "partOfSpeech": "N",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       }
     },
@@ -213,9 +237,14 @@
       "vulgate": {
         "type": "text",
         "text": "autem",
-        "gloss": {
-          "gloss": "And",
-          "source": "Whitaker"
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 2,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -243,8 +272,9 @@
         "type": "text",
         "text": "ⲇⲉ",
         "gloss": {
-          "gloss": "And",
-          "source": "TAGNT"
+          "gloss": "and, so, then, for (marking shift in narrative, or change in subject; introducing new content)",
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲇⲉ · and, so, then, for (marking shift in narrative, or change in subject; introducing new content)"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -256,7 +286,20 @@
           "diplomatic": "ⲇⲉ",
           "sourceSha256": "d4df8ae9dadda747f2aed0d5bc6ba22c9202192390e3b987c15cc4f6fca277f4",
           "verification": "exact-source-word-group",
-          "placementMethod": "greek-loanword"
+          "placementMethod": "greek-loanword",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲇⲉ",
+            "partOfSpeech": "PTC",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       }
     },
@@ -346,12 +389,7 @@
         }
       },
       "vulgate": {
-        "type": "text",
-        "text": "Jesus",
-        "gloss": {
-          "gloss": "Jesus",
-          "source": "Whitaker"
-        }
+        "type": "empty"
       },
       "peshitta": {
         "type": "text",
@@ -376,10 +414,6 @@
       "coptic": {
         "type": "text",
         "text": "ⲓⲏⲥⲟⲩⲥ",
-        "gloss": {
-          "gloss": "Jesus",
-          "source": "TAGNT"
-        },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
           "edition": "Sahidica NT 4.1.0",
@@ -482,9 +516,14 @@
       "vulgate": {
         "type": "text",
         "text": "vocavit",
-        "gloss": {
-          "gloss": "having called to him",
-          "source": "Whitaker"
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 3,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -513,7 +552,8 @@
         "text": "ⲁϥⲙⲟⲩⲧⲉ",
         "gloss": {
           "gloss": "speak, call",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲙⲟⲩⲧⲉ · speak, call"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -525,7 +565,20 @@
           "diplomatic": "ⲁϥⲙⲟⲩⲧⲉ",
           "sourceSha256": "d4df8ae9dadda747f2aed0d5bc6ba22c9202192390e3b987c15cc4f6fca277f4",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲙⲟⲩⲧⲉ",
+            "partOfSpeech": "V",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
@@ -617,9 +670,14 @@
       "vulgate": {
         "type": "text",
         "text": "eos",
-        "gloss": {
-          "gloss": "them",
-          "source": "Whitaker"
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 4,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -647,7 +705,8 @@
         "text": "ⲉⲣⲟⲟⲩ",
         "gloss": {
           "gloss": "to, for, according to, as regards",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲉ · to, for, according to, as regards"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -659,7 +718,20 @@
           "diplomatic": "ⲉⲣⲟⲟⲩ",
           "sourceSha256": "d4df8ae9dadda747f2aed0d5bc6ba22c9202192390e3b987c15cc4f6fca277f4",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲉ",
+            "partOfSpeech": "PREP",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
@@ -750,10 +822,15 @@
       },
       "vulgate": {
         "type": "text",
-        "text": "ad se et ait",
-        "gloss": {
-          "gloss": "said;",
-          "source": "Whitaker"
+        "text": "ad",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 5,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -782,7 +859,8 @@
         "text": "ⲡⲉϫⲁϥ",
         "gloss": {
           "gloss": "say (that which . . . said)",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲡⲉϫⲉ · say (that which . . . said)"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -794,10 +872,134 @@
           "diplomatic": "ⲡⲉϫⲁϥ",
           "sourceSha256": "d4df8ae9dadda747f2aed0d5bc6ba22c9202192390e3b987c15cc4f6fca277f4",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲡⲉϫⲉ",
+            "partOfSpeech": "VBD",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
+    },
+    {
+      "id": "vulgate-matthew-20-25-1",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "se",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 6,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
+        }
+      },
+      "peshitta": {
+        "type": "empty"
+      },
+      "byzantine": {
+        "type": "empty"
+      }
+    },
+    {
+      "id": "vulgate-matthew-20-25-2",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "et",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 7,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
+        }
+      },
+      "peshitta": {
+        "type": "empty"
+      },
+      "byzantine": {
+        "type": "empty"
+      }
+    },
+    {
+      "id": "vulgate-matthew-20-25-3",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "ait",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 8,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
+        }
+      },
+      "peshitta": {
+        "type": "empty"
+      },
+      "byzantine": {
+        "type": "empty"
+      }
     },
     {
       "id": "r7",
@@ -886,9 +1088,14 @@
       "vulgate": {
         "type": "text",
         "text": "Scitis",
-        "gloss": {
-          "gloss": "You know",
-          "source": "Whitaker"
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 9,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -917,7 +1124,8 @@
         "text": "ⲛⲁⲩ",
         "gloss": {
           "gloss": "my",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲛⲁ · my"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -929,7 +1137,20 @@
           "diplomatic": "ⲛⲁⲩ",
           "sourceSha256": "d4df8ae9dadda747f2aed0d5bc6ba22c9202192390e3b987c15cc4f6fca277f4",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲛⲁ",
+            "partOfSpeech": "PREP",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
@@ -1021,9 +1242,14 @@
       "vulgate": {
         "type": "text",
         "text": "quia",
-        "gloss": {
-          "gloss": "that",
-          "source": "Whitaker"
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 10,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -1052,7 +1278,8 @@
         "text": "ϫⲉⲧⲉⲧⲛⲥⲟⲟⲩⲛ",
         "gloss": {
           "gloss": "know",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲥⲟⲟⲩⲛ · know"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -1064,7 +1291,20 @@
           "diplomatic": "ϫⲉⲧⲉⲧⲛⲥⲟⲟⲩⲛ",
           "sourceSha256": "d4df8ae9dadda747f2aed0d5bc6ba22c9202192390e3b987c15cc4f6fca277f4",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲥⲟⲟⲩⲛ",
+            "partOfSpeech": "V",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
@@ -1174,7 +1414,8 @@
         "text": "ϫⲉⲛⲁⲣⲭⲱⲛ",
         "gloss": {
           "gloss": "ruler",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲁⲣⲭⲱⲛ · ruler"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -1186,7 +1427,20 @@
           "diplomatic": "ϫⲉⲛⲁⲣⲭⲱⲛ",
           "sourceSha256": "d4df8ae9dadda747f2aed0d5bc6ba22c9202192390e3b987c15cc4f6fca277f4",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲁⲣⲭⲱⲛ",
+            "partOfSpeech": "N",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
@@ -1284,9 +1538,14 @@
       "vulgate": {
         "type": "text",
         "text": "principes",
-        "gloss": {
-          "gloss": "rulers",
-          "source": "Whitaker"
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 11,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -1314,7 +1573,8 @@
         "text": "ⲥⲉⲟ",
         "gloss": {
           "gloss": "act; become, befall; do",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲉⲓⲣⲉ · act; become, befall; do"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -1326,7 +1586,20 @@
           "diplomatic": "ⲥⲉⲟ",
           "sourceSha256": "d4df8ae9dadda747f2aed0d5bc6ba22c9202192390e3b987c15cc4f6fca277f4",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲉⲓⲣⲉ",
+            "partOfSpeech": "VSTAT",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
@@ -1539,9 +1812,14 @@
       "vulgate": {
         "type": "text",
         "text": "gentium",
-        "gloss": {
-          "gloss": "Gentiles",
-          "source": "Whitaker"
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 12,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -1570,7 +1848,8 @@
         "text": "ⲛϫⲟⲉⲓⲥ",
         "gloss": {
           "gloss": "lord, master, owner",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ϫⲟⲉⲓⲥ · lord, master, owner"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -1582,7 +1861,20 @@
           "diplomatic": "ⲛϫⲟⲉⲓⲥ",
           "sourceSha256": "d4df8ae9dadda747f2aed0d5bc6ba22c9202192390e3b987c15cc4f6fca277f4",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ϫⲟⲉⲓⲥ",
+            "partOfSpeech": "N",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
@@ -1675,9 +1967,14 @@
       "vulgate": {
         "type": "text",
         "text": "dominantur",
-        "gloss": {
-          "gloss": "exercise lordship over",
-          "source": "Whitaker"
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 13,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -1706,7 +2003,8 @@
         "text": "ⲉⲣⲟⲟⲩ",
         "gloss": {
           "gloss": "to, for, according to, as regards",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲉ · to, for, according to, as regards"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -1718,7 +2016,20 @@
           "diplomatic": "ⲉⲣⲟⲟⲩ",
           "sourceSha256": "d4df8ae9dadda747f2aed0d5bc6ba22c9202192390e3b987c15cc4f6fca277f4",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲉ",
+            "partOfSpeech": "PREP",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
@@ -1810,9 +2121,14 @@
       "vulgate": {
         "type": "text",
         "text": "eorum",
-        "gloss": {
-          "gloss": "them,",
-          "source": "Whitaker"
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 14,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -1927,9 +2243,14 @@
       "vulgate": {
         "type": "text",
         "text": "et",
-        "gloss": {
-          "gloss": "and",
-          "source": "Whitaker"
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 15,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -2059,7 +2380,8 @@
         "text": "ⲁⲩⲱ",
         "gloss": {
           "gloss": "and",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲁⲩⲱ · and"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -2071,7 +2393,20 @@
           "diplomatic": "ⲁⲩⲱ",
           "sourceSha256": "d4df8ae9dadda747f2aed0d5bc6ba22c9202192390e3b987c15cc4f6fca277f4",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲁⲩⲱ",
+            "partOfSpeech": "CONJ",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
@@ -2162,10 +2497,15 @@
       },
       "vulgate": {
         "type": "text",
-        "text": "qui majores sunt",
-        "gloss": {
-          "gloss": "great ones",
-          "source": "Whitaker"
+        "text": "qui",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 16,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -2194,7 +2534,8 @@
         "text": "ⲛⲛⲟϭ",
         "gloss": {
           "gloss": "great, large",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲛⲟϭ · great, large"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -2206,7 +2547,20 @@
           "diplomatic": "ⲛⲛⲟϭ",
           "sourceSha256": "d4df8ae9dadda747f2aed0d5bc6ba22c9202192390e3b987c15cc4f6fca277f4",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲛⲟϭ",
+            "partOfSpeech": "N",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
@@ -2226,10 +2580,78 @@
           "diplomatic": "ⲥⲉⲟ",
           "sourceSha256": "d4df8ae9dadda747f2aed0d5bc6ba22c9202192390e3b987c15cc4f6fca277f4",
           "verification": "exact-source-word-group",
-          "placementMethod": "source-order-new-row"
+          "placementMethod": "source-order-new-row",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲉⲓⲣⲉ",
+            "partOfSpeech": "VSTAT",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
+        },
+        "gloss": {
+          "gloss": "act; become, befall; do",
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲉⲓⲣⲉ · act; become, befall; do"
         }
       },
-      "_copticDraft": true
+      "_copticDraft": true,
+      "vulgate": {
+        "type": "text",
+        "text": "majores",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 17,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
+        }
+      }
+    },
+    {
+      "id": "vulgate-matthew-20-25-4",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "sunt",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 18,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
+        }
+      },
+      "peshitta": {
+        "type": "empty"
+      },
+      "byzantine": {
+        "type": "empty"
+      }
     },
     {
       "id": "r18",
@@ -2320,10 +2742,15 @@
       },
       "vulgate": {
         "type": "text",
-        "text": "potestatem exercent",
-        "gloss": {
-          "gloss": "exercise authority over",
-          "source": "Whitaker"
+        "text": "potestatem",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 19,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -2350,8 +2777,9 @@
         "type": "text",
         "text": "ⲛⲧⲉⲩⲉⲝⲟⲩⲥⲓⲁ",
         "gloss": {
-          "gloss": "exercise authority over",
-          "source": "TAGNT"
+          "gloss": "authority, power, right",
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲉⲝⲟⲩⲥⲓⲁ · authority, power, right"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -2363,8 +2791,58 @@
           "diplomatic": "ⲛⲧⲉⲩⲉⲝⲟⲩⲥⲓⲁ",
           "sourceSha256": "d4df8ae9dadda747f2aed0d5bc6ba22c9202192390e3b987c15cc4f6fca277f4",
           "verification": "exact-source-word-group",
-          "placementMethod": "greek-loanword-partial"
+          "placementMethod": "greek-loanword-partial",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲉⲝⲟⲩⲥⲓⲁ",
+            "partOfSpeech": "N",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
+      }
+    },
+    {
+      "id": "vulgate-matthew-20-25-5",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "exercent",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 20,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
+        }
+      },
+      "peshitta": {
+        "type": "empty"
+      },
+      "byzantine": {
+        "type": "empty"
       }
     },
     {
@@ -2459,10 +2937,15 @@
       },
       "vulgate": {
         "type": "text",
-        "text": "in eos",
-        "gloss": {
-          "gloss": "them.",
-          "source": "Whitaker"
+        "text": "in",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 21,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -2487,6 +2970,43 @@
         "latin": "eorum"
       },
       "coptic": {
+        "type": "empty"
+      }
+    },
+    {
+      "id": "vulgate-matthew-20-25-6",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "eos",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 20:25",
+          "sourceToken": 22,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
+        }
+      },
+      "peshitta": {
+        "type": "empty"
+      },
+      "byzantine": {
         "type": "empty"
       }
     }

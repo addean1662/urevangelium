@@ -23,15 +23,15 @@ describe('SyriacCell', () => {
     expect(table?.getAttribute('dir')).toBeNull();
   });
 
-  it('renders empty cell for lost cells — red dot lives in WitnessIndicator', () => {
+  it('renders the explicit lost-state marker', () => {
     const { container } = render(
       <table><tbody><tr>
         <SyriacCell cell={{ type: 'lost' }} />
       </tr></tbody></table>
     );
     const td = container.querySelector('td');
-    expect(td?.getAttribute('dir')).toBe('rtl');
-    expect(td?.textContent).toBe('');
+    expect(td?.textContent).toContain('lost');
+    expect(td?.querySelector('.bg-semantic-lacuna')).not.toBeNull();
   });
 
   it('renders dash for empty cells (alignment gap)', () => {

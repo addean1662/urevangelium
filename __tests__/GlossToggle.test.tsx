@@ -10,23 +10,24 @@ import markData from '@/data/mark/1/1.json';
 describe('AlignmentTable — witness header band token', () => {
   it('witness header row uses bg-witness-band, not bg-band', () => {
     const { container } = render(<AlignmentTable data={matthewData as VerseData} />);
-    const headerRow = container.querySelector('thead tr');
+    const headerRow = container.querySelectorAll('thead tr')[1];
     expect(headerRow?.className).toContain('bg-witness-band');
     expect(headerRow?.className).not.toMatch(/(?<![a-z-])bg-band(?![a-z-])/);
   });
 });
 
-describe('AlignmentTable — 12-column always-on layout', () => {
-  it('renders 6 column headers (primary only — no sub-header row)', () => {
-    render(<AlignmentTable data={matthewData as VerseData} />);
-    const headers = screen.getAllByRole('columnheader');
-    expect(headers).toHaveLength(6);
+describe('AlignmentTable — seven-tradition always-on layout', () => {
+  it('renders seven tradition and seven witness headers', () => {
+    const { container } = render(<AlignmentTable data={matthewData as VerseData} />);
+    expect(container.querySelectorAll('thead tr')).toHaveLength(2);
+    expect(screen.getAllByRole('columnheader')).toHaveLength(14);
   });
 
   it('shows gloss source names in primary headers', () => {
     render(<AlignmentTable data={matthewData as VerseData} />);
     expect(screen.getAllByText('TAGNT').length).toBeGreaterThan(0);
-    expect(screen.getByText('Whitaker')).toBeInTheDocument();
+    expect(screen.queryByText('Whitaker')).toBeNull();
+    expect(screen.getByText(/Clementine 1592\/1598/)).toBeInTheDocument();
     expect(screen.getByText('PayneSmith')).toBeInTheDocument();
   });
 
@@ -41,7 +42,7 @@ describe('AlignmentTable — gloss content always visible', () => {
     render(<AlignmentTable data={matthewData as VerseData} />);
     expect(screen.getAllByText('book').length).toBeGreaterThan(0);
     expect(screen.getAllByText('of the generation').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('of his generation').length).toBeGreaterThan(0);
+    expect(screen.queryByText('of his generation')).toBeNull();
   });
 
   it('shows "no gloss" dash cells for alignment-gap rows (Mark 1:1 τοῦ row)', () => {
@@ -50,10 +51,10 @@ describe('AlignmentTable — gloss content always visible', () => {
     expect(noGlossCells.length).toBeGreaterThan(0);
   });
 
-  it('renders deviation badge for Mark 1:1 ΘΥ gloss cells', () => {
+  it('does not carry the former Douay-Rheims/Whitaker Vulgate English layer', () => {
     render(<AlignmentTable data={markData as VerseData} />);
-    const deviationBadges = screen.getAllByText('DouayRheims');
-    expect(deviationBadges.length).toBeGreaterThan(0);
+    expect(screen.queryByText('DouayRheims')).toBeNull();
+    expect(screen.queryByText('Whitaker')).toBeNull();
   });
 });
 

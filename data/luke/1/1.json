@@ -58,9 +58,14 @@
       "vulgate": {
         "type": "text",
         "text": "Quoniam",
-        "gloss": {
-          "gloss": "because, since, seeing that",
-          "source": "Whitaker"
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 1:1",
+          "sourceToken": 1,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -88,8 +93,9 @@
         "type": "text",
         "text": "ⲉⲡⲉⲓⲇⲏ",
         "gloss": {
-          "gloss": "since",
-          "source": "TAGNT"
+          "gloss": "since, because (introduces subordinate explanatory clause)",
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲉⲡⲉⲓⲇⲏ · since, because (introduces subordinate explanatory clause)"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -101,7 +107,20 @@
           "diplomatic": "ⲉⲡⲉⲓⲇⲏ",
           "sourceSha256": "29eb9df817fa79b83e415590b81adfa73846d5e314e2c9889450dc6f7d9d905c",
           "verification": "exact-source-word-group",
-          "placementMethod": "greek-loanword-partial"
+          "placementMethod": "greek-loanword-partial",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲉⲡⲉⲓⲇⲏ",
+            "partOfSpeech": "CONJ",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       }
     },
@@ -159,9 +178,14 @@
       "vulgate": {
         "type": "text",
         "text": "quidem",
-        "gloss": {
-          "gloss": "indeed (postpositive), certainly, even, at least",
-          "source": "Whitaker"
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 1:1",
+          "sourceToken": 2,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -190,7 +214,8 @@
         "text": "ⲁϩⲁϩ",
         "gloss": {
           "gloss": "many, much",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ϩⲁϩ · many, much"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -202,10 +227,60 @@
           "diplomatic": "ⲁϩⲁϩ",
           "sourceSha256": "29eb9df817fa79b83e415590b81adfa73846d5e314e2c9889450dc6f7d9d905c",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ϩⲁϩ",
+            "partOfSpeech": "N",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
+    },
+    {
+      "id": "vulgate-luke-1-1-1",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "multi",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 1:1",
+          "sourceToken": 3,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
+        }
+      },
+      "peshitta": {
+        "type": "empty"
+      },
+      "byzantine": {
+        "type": "empty"
+      }
     },
     {
       "id": "r3",
@@ -262,9 +337,14 @@
       "vulgate": {
         "type": "text",
         "text": "conati",
-        "gloss": {
-          "gloss": "having attempted",
-          "source": "Whitaker"
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 1:1",
+          "sourceToken": 4,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -321,9 +401,14 @@
       "vulgate": {
         "type": "text",
         "text": "sunt",
-        "gloss": {
-          "gloss": "have",
-          "source": "Whitaker"
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 1:1",
+          "sourceToken": 5,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -394,9 +479,14 @@
       "vulgate": {
         "type": "text",
         "text": "ordinare",
-        "gloss": {
-          "gloss": "to set in order",
-          "source": "Whitaker"
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 1:1",
+          "sourceToken": 6,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -425,7 +515,8 @@
         "text": "ⲉⲥϩⲁⲓ",
         "gloss": {
           "gloss": "write",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲥϩⲁⲓ · write"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -437,7 +528,20 @@
           "diplomatic": "ⲉⲥϩⲁⲓ",
           "sourceSha256": "29eb9df817fa79b83e415590b81adfa73846d5e314e2c9889450dc6f7d9d905c",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲥϩⲁⲓ",
+            "partOfSpeech": "V",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
@@ -496,9 +600,14 @@
       "vulgate": {
         "type": "text",
         "text": "narrationem",
-        "gloss": {
-          "gloss": "a narrative",
-          "source": "Whitaker"
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 1:1",
+          "sourceToken": 7,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -527,7 +636,8 @@
         "text": "ⲛⲛϣⲁϫⲉ",
         "gloss": {
           "gloss": "speak, say",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ϣⲁϫⲉ · speak, say"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -539,7 +649,20 @@
           "diplomatic": "ⲛⲛϣⲁϫⲉ",
           "sourceSha256": "29eb9df817fa79b83e415590b81adfa73846d5e314e2c9889450dc6f7d9d905c",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ϣⲁϫⲉ",
+            "partOfSpeech": "N",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
@@ -596,12 +719,7 @@
         }
       },
       "vulgate": {
-        "type": "text",
-        "text": "rerum",
-        "gloss": {
-          "gloss": "of things",
-          "source": "Whitaker"
-        }
+        "type": "empty"
       },
       "peshitta": {
         "type": "text",
@@ -629,7 +747,8 @@
         "text": "ⲉⲧⲃⲉⲛⲉϩⲃⲏⲩⲉ",
         "gloss": {
           "gloss": "send",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ϩⲱⲃ · send"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -641,7 +760,20 @@
           "diplomatic": "ⲉⲧⲃⲉⲛⲉϩⲃⲏⲩⲉ",
           "sourceSha256": "29eb9df817fa79b83e415590b81adfa73846d5e314e2c9889450dc6f7d9d905c",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ϩⲱⲃ",
+            "partOfSpeech": "N",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
@@ -698,7 +830,17 @@
         }
       },
       "vulgate": {
-        "type": "empty"
+        "type": "text",
+        "text": "quæ",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 1:1",
+          "sourceToken": 8,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
+        }
       },
       "peshitta": {
         "type": "empty"
@@ -772,12 +914,7 @@
         }
       },
       "vulgate": {
-        "type": "text",
-        "text": "completarum",
-        "gloss": {
-          "gloss": "accomplished",
-          "source": "Whitaker"
-        }
+        "type": "empty"
       },
       "peshitta": {
         "type": "text",
@@ -805,7 +942,8 @@
         "text": "ⲉⲛⲧⲁⲩⲧⲱⲧ",
         "gloss": {
           "gloss": "be joined, be persuaded, be agreeable to",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲧⲱⲧ · be joined, be persuaded, be agreeable to"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -817,7 +955,20 @@
           "diplomatic": "ⲉⲛⲧⲁⲩⲧⲱⲧ",
           "sourceSha256": "29eb9df817fa79b83e415590b81adfa73846d5e314e2c9889450dc6f7d9d905c",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲧⲱⲧ",
+            "partOfSpeech": "V",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
@@ -876,9 +1027,14 @@
       "vulgate": {
         "type": "text",
         "text": "in",
-        "gloss": {
-          "gloss": "in, on, at (space)",
-          "source": "Whitaker"
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 1:1",
+          "sourceToken": 9,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -902,7 +1058,8 @@
         "text": "ⲛϩⲏⲧ",
         "gloss": {
           "gloss": "heart, mind",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ϩⲏⲧ · heart, mind"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -914,7 +1071,20 @@
           "diplomatic": "ⲛϩⲏⲧ",
           "sourceSha256": "29eb9df817fa79b83e415590b81adfa73846d5e314e2c9889450dc6f7d9d905c",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ϩⲏⲧ",
+            "partOfSpeech": "N",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
@@ -973,9 +1143,14 @@
       "vulgate": {
         "type": "text",
         "text": "nobis",
-        "gloss": {
-          "gloss": "us",
-          "source": "Whitaker"
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 1:1",
+          "sourceToken": 10,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
         }
       },
       "peshitta": {
@@ -1004,7 +1179,8 @@
         "text": "ϩⲣⲁⲉⲓ",
         "gloss": {
           "gloss": "upper part",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ϩⲣⲁⲓ · upper part"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -1016,7 +1192,20 @@
           "diplomatic": "ϩⲣⲁⲉⲓ",
           "sourceSha256": "29eb9df817fa79b83e415590b81adfa73846d5e314e2c9889450dc6f7d9d905c",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ϩⲣⲁⲓ",
+            "partOfSpeech": "ADV",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
@@ -1073,7 +1262,17 @@
         }
       },
       "vulgate": {
-        "type": "empty"
+        "type": "text",
+        "text": "completæ",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 1:1",
+          "sourceToken": 11,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
+        }
       },
       "peshitta": {
         "type": "empty"
@@ -1095,7 +1294,8 @@
         "text": "ⲛϩⲏⲧⲛ",
         "gloss": {
           "gloss": "in, at, on",
-          "source": "Crum"
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ϩⲛ · in, at, on"
         },
         "provenance": {
           "authority": "Sahidica NT via Coptic SCRIPTORIUM",
@@ -1107,10 +1307,97 @@
           "diplomatic": "ⲛϩⲏⲧⲛ",
           "sourceSha256": "29eb9df817fa79b83e415590b81adfa73846d5e314e2c9889450dc6f7d9d905c",
           "verification": "exact-source-word-group",
-          "placementMethod": "positional"
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ϩⲛ",
+            "partOfSpeech": "PREP",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
         }
       },
       "_copticDraft": true
+    },
+    {
+      "id": "vulgate-luke-1-1-2",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "sunt",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 1:1",
+          "sourceToken": 12,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
+        }
+      },
+      "peshitta": {
+        "type": "empty"
+      },
+      "byzantine": {
+        "type": "empty"
+      }
+    },
+    {
+      "id": "vulgate-luke-1-1-3",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "rerum",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 1:1",
+          "sourceToken": 13,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified"
+        }
+      },
+      "peshitta": {
+        "type": "empty"
+      },
+      "byzantine": {
+        "type": "empty"
+      }
     }
   ],
   "_vaticanusCertification": {

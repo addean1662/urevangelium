@@ -9,18 +9,17 @@ import lukeData from '@/data/luke/1/1.json';
 import johnData from '@/data/john/1/1.json';
 
 describe('AlignmentTable — column headers', () => {
-  it('renders all six witness headers in order', () => {
-    render(<AlignmentTable data={matthewData as VerseData} />);
-    const headers = screen.getAllByRole('columnheader');
-    // 6 primary headers only — sub-header row removed
-    expect(headers).toHaveLength(6);
-    const labels = headers.map((h) => h.textContent ?? '');
-    expect(labels[0]).toMatch(/Earliest Papyrus/i);
-    expect(labels[1]).toMatch(/Vaticanus/i);
-    expect(labels[2]).toMatch(/Sinaiticus/i);
-    expect(labels[3]).toMatch(/Vulgate/i);
-    expect(labels[4]).toMatch(/Peshitta/i);
-    expect(labels[5]).toMatch(/Byzantine/i);
+  it('renders seven tradition bands and seven primary witness headers', () => {
+    const { container } = render(<AlignmentTable data={matthewData as VerseData} />);
+    const rows = container.querySelectorAll('thead tr');
+    expect(rows).toHaveLength(2);
+    expect(rows[0].querySelectorAll('th')).toHaveLength(7);
+    const witnessHeaders = rows[1].querySelectorAll('th');
+    expect(witnessHeaders).toHaveLength(7);
+    const labels = Array.from(witnessHeaders).map((header) => header.textContent ?? '');
+    for (const label of ['Earliest Papyri', 'Sahidic', 'Vaticanus', 'Vulgate', 'Bezae', 'Peshitta', 'Byzantine']) {
+      expect(labels.some((value) => value.includes(label))).toBe(true);
+    }
   });
 });
 
@@ -47,14 +46,15 @@ describe('Matthew 1:1 proof row', () => {
     render(<AlignmentTable data={matthewData as VerseData} />);
     expect(screen.getAllByText('Βίβλος').length).toBeGreaterThan(0);
     expect(screen.getByText('Liber')).toBeInTheDocument();
-    expect(screen.getAllByText('ܣܦܪܐ').length).toBeGreaterThan(0);
+    expect(document.querySelectorAll('td[lang="syr"]').length).toBeGreaterThan(0);
   });
 });
 
 describe('Mark 1:1 proof row', () => {
-  it('renders P45 papyrus indicator for Mark 1:1', () => {
-    const { container } = render(<AlignmentTable data={markData as VerseData} />);
-    expect(container.querySelectorAll('[title*="P45"]').length).toBeGreaterThan(0);
+  it('does not falsely assign P45 to the unattested opening of Mark 1:1', () => {
+    render(<AlignmentTable data={markData as VerseData} />);
+    expect(screen.queryByText(/P45/)).toBeNull();
+    expect(screen.getAllByText('lost').length).toBeGreaterThan(0);
   });
 
   it('renders alignment-gap dashes for Greek article τοῦ row', () => {
@@ -87,27 +87,25 @@ describe('Luke 1:1 proof row — lost-dots acceptance test', () => {
   it('renders the Latin two-word expansion: conati and sunt on separate rows', () => {
     render(<AlignmentTable data={lukeData as VerseData} />);
     expect(screen.getByText('conati')).toBeInTheDocument();
-    expect(screen.getByText('sunt')).toBeInTheDocument();
+    expect(screen.getAllByText('sunt').length).toBeGreaterThan(0);
   });
 });
 
 describe('John 1:1 proof row — multi-papyrus and nomina sacra', () => {
   it('renders P66 · P75 papyrus indicator for John 1:1 (both fragments in tooltip)', () => {
-    const { container } = render(<AlignmentTable data={johnData as VerseData} />);
-    expect(container.querySelectorAll('[title*="P66"]').length).toBeGreaterThan(0);
-    expect(container.querySelectorAll('[title*="P75"]').length).toBeGreaterThan(0);
+    render(<AlignmentTable data={johnData as VerseData} />);
+    expect(screen.getAllByText(/P66/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/P75/).length).toBeGreaterThan(0);
   });
 
-  it('renders ΘΝ nomina sacra (accusative θεόν)', () => {
+  it('renders the papyrus diplomatic ΘΝ contraction', () => {
     render(<AlignmentTable data={johnData as VerseData} />);
-    expect(screen.getAllByText('ΘΝ').length).toBeGreaterThan(0);
-    expect(screen.getAllByTitle('θεόν').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('θν').length).toBeGreaterThan(0);
   });
 
-  it('renders ΘΣ nomina sacra (nominative θεὸς)', () => {
+  it('renders the papyrus diplomatic ΘΣ contraction', () => {
     render(<AlignmentTable data={johnData as VerseData} />);
-    expect(screen.getAllByText('ΘΣ').length).toBeGreaterThan(0);
-    expect(screen.getAllByTitle('θεὸς').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('θσ').length).toBeGreaterThan(0);
   });
 
   it('renders lost-dots for papyrus-empty rows (Syriac auxiliary ܗܘܐ rows)', () => {

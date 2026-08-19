@@ -39,4 +39,20 @@ describe('Sahidica source certification', () => {
     expect(report.totals.unexpectedDisplayedTokens).toBe(0);
     expect(report.totals.provenancePresent).toBe(48275);
   });
+
+  it('resolves SCRIPTORIUM named entities through their explicit head token', () => {
+    const source = fs.readFileSync(path.join(root, 'data/sources/coptic-tt/40_Matthew_01.tt'), 'utf8');
+    const firstVerse = parseTTChapterSequence(source).find((record: { verse: number }) => record.verse === 1);
+    const jesus = firstVerse.words.find((word: { lemma: string }) => word.lemma === 'ⲓⲏⲥⲟⲩⲥ');
+    expect(jesus).toMatchObject({ pos: 'NPROP', identity: 'Jesus' });
+  });
+
+  it('keeps lexical evidence distinct from published Sahidic translation', () => {
+    const report = JSON.parse(fs.readFileSync(path.join(root, 'docs/audits/coptic-english-reclassification.json'), 'utf8'));
+    expect(report.totals.lexicalAidRetained).toBe(43880);
+    expect(report.totals.publishedTranslationRetained).toBe(0);
+    expect(report.totals.removedFromTranslationLayer).toBe(1534);
+    expect(report.totals.nowWithoutPublishedTranslationOrLexicalAid).toBe(4395);
+    expect(report.removedEvidence).toHaveLength(1534);
+  });
 });

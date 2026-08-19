@@ -1,0 +1,33 @@
+{
+  "status": "awaiting-qualified-human-transcription",
+  "pilots": [
+    { "id": "pilot-a-control", "selection": "pending-empirical-selection", "purpose": "demonstrate safe admission in a high-agreement passage" },
+    { "id": "pilot-b-adversarial", "gospel": "mark", "chapter": 16, "purpose": "demonstrate refusal in a high-risk textual passage" }
+  ],
+  "horner": {
+    "authorTranslator": "George W. Horner",
+    "title": "The Coptic Version of the New Testament in the Southern Dialect, Otherwise Called Sahidic and Thebaic",
+    "publisher": "Clarendon Press",
+    "publicationYear": 1911,
+    "sourceImages": [],
+    "rightsBasis": null
+  },
+  "sahidica": { "edition": "Sahidica NT", "version": "4.1.0", "versionDate": "2021-03-31", "localSources": "data/sources/coptic-tt/*.tt" },
+  "acquisition": {
+    "method": null,
+    "allowedMethods": ["HUMAN_DOUBLE_KEY_NEW", "HUMAN_TRANSCRIPTION_EXISTING_VERIFIED", "PUBLISHER_DIGITAL_TRANSCRIPTION_LICENSED", "SCHOLARLY_EDITION_DIGITAL_TRANSCRIPTION_LICENSED"],
+    "humanOriginVerified": false,
+    "sourceEditionIdentified": false,
+    "auditabilitySufficient": false,
+    "rightsValidForPublicUse": false,
+    "producer": null,
+    "provenanceStatement": null,
+    "permissionIdentifier": null
+  },
+  "prohibitedInputs": ["OCR transcription", "AI transcription", "AI translation", "Logos bulk extraction without written permission", "TAGNT English", "dictionary-generated translation", "English borrowed from another tradition"],
+  "allowedEquivalenceClasses": ["TEXT_EXACT", "UNICODE_CANONICAL_EQUIVALENCE", "LAYOUT_ONLY", "PUNCTUATION_ONLY", "SEGMENTATION_ONLY", "SUPRALINEAR_DIFFERENCE_REVIEWED", "NOMEN_SACRUM_EXPANSION_EXACT"],
+  "automaticNormalizationOperations": ["UNICODE_NFC", "REMOVE_LINE_BREAK", "REMOVE_PAGE_BREAK", "NORMALIZE_PRINTER_SPACING", "CONCATENATE_SEGMENTATION", "REMOVE_PUNCTUATION_FOR_TEXTUAL_COMPARISON"],
+  "reviewRequiredOperations": ["SUPRALINEAR_DIFFERENCE", "NOMEN_SACRUM_EXPANSION", "ABBREVIATION_MARK", "EDITORIAL_BRACKET", "DAMAGED_OR_RECONSTRUCTED_CHARACTER"],
+  "neverAdmissibleNormalizations": ["SPELLING_NORMALIZATION", "LEXICAL_CHARACTER_SUBSTITUTION", "MORPHOLOGICAL_NORMALIZATION", "BOUND_FORM_NORMALIZATION", "LEMMA_EQUIVALENCE", "ASSUMED_SCRIBAL_ERROR"],
+  "translationUnits": []
+}

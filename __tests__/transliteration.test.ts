@@ -124,12 +124,8 @@ describe('transliterateSyriac', () => {
   it('shin → š', () => {
     expect(transliterateSyriac('ܫ')).toBe('š');
   });
-  it('ܝܫܘܥ contains y, š, w, ʿ', () => {
-    const result = transliterateSyriac('ܝܫܘܥ');
-    expect(result).toContain('y');
-    expect(result).toContain('š');
-    expect(result).toContain('w');
-    expect(result).toContain('ʿ');
+  it('uses the curated phonetics cache when a form is available', () => {
+    expect(transliterateSyriac('ܝܫܘܥ')).toBe('yeshūʿ');
   });
   it('ܠܟܢܘܫܬܐ starts with l', () => {
     expect(transliterateSyriac('ܠܟܢܘܫܬܐ')).toMatch(/^l/);
