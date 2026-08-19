@@ -12,6 +12,7 @@ export const GLOSS_SOURCES = [
   // Coptic witnesses
   'Horner',       // G. W. Horner, The Coptic Version of the NT in the Southern Dialect (public domain)
   'Crum',         // W. E. Crum, A Coptic Dictionary (Oxford, 1939) via KELLIA Comprehensive Coptic Lexicon (CC BY-SA 4.0)
+  'Scriptorium',  // Coptic SCRIPTORIUM automatic entity identity (experimental display only)
   // Latin witnesses
   'Whitaker',     // Whitaker's Words DICTLINE (public domain)
   'DouayRheims',  // Douay-Rheims Bible (public domain)
@@ -36,6 +37,8 @@ export type GlossCell = {
   source: GlossSource;
   deviation?: boolean; // true when source differs from the default for this witness
   generated?: boolean; // site-generated annotation; displayed in orange
+  experimental?: boolean; // legacy marker for provisional project output
+  automaticAnnotation?: boolean; // source-attributed scholarly automatic annotation
   tooltip?: string;    // full lexicon entry for hover display
   spanId?: string;     // shared translation phrase identifier
   spanRole?: 'start' | 'continuation';

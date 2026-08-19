@@ -85,6 +85,9 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
   const textW  = `${(pairWidth * 0.45).toFixed(4)}%`;
   const dotW   = `${(pairWidth * 0.10).toFixed(4)}%`;
   const glossW = `${(pairWidth * 0.45).toFixed(4)}%`;
+  const hasScriptoriumSupplied = data.rows.some((row) =>
+    row.coptic?.type === 'text' && row.coptic.gloss?.source === 'Scriptorium'
+  );
 
   function pairBg(i: number) {
     return i % 2 === 1 ? 'rgba(250,246,232,0.8)' : 'transparent';
@@ -203,6 +206,9 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
         })()}
 
       </table>
+      {hasScriptoriumSupplied && (
+        <p className="px-2 pt-1 text-[11px] text-accent-gold">*SCRIPTORIUM supplied</p>
+      )}
     </div>
   );
 }

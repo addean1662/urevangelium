@@ -1,0 +1,13 @@
+{
+  "systemId": "urevangelium-sahidic-english-v1",
+  "governingText": "Sahidica NT 4.1.0",
+  "decisionPriority": ["admitted-published-translation-unit", "published-lexical-aid", "scholarly-automatic-annotation", "withheld"],
+  "sources": [
+    {"id":"sahidica-4.1.0","title":"Sahidica NT 4.1.0 via Coptic SCRIPTORIUM","roles":["governing-coptic-text","lemma","part-of-speech","language","entity-evidence"],"englishRole":"source-attributed-scholarly-automatic-annotation","annotationStatus":"automatic-source-layer","mayPopulateContextualTranslation":false,"mayPopulateScholarlyAutomaticEnglish":true},
+    {"id":"kellia-ccl-1.2","title":"KELLIA Comprehensive Coptic Lexicon v1.2","roles":["published-lexical-aid"],"englishRole":"lexical-range-only","doi":"10.17169/refubium-27566","license":"CC BY-SA 4.0","mayPopulateContextualTranslation":false},
+    {"id":"crum-1939-via-kellia","title":"W. E. Crum, A Coptic Dictionary, through KELLIA CCL","roles":["underlying-lexicographic-authority"],"englishRole":"lexical-range-only","mayPopulateContextualTranslation":false},
+    {"id":"crosswire-copsahhorner-1.5","title":"CrossWire CopSahHorner 1.5","roles":["coptic-comparison-witness"],"englishRole":"none","qualification":"package-integrity-verified; transcription provenance insufficient","mayPopulateContextualTranslation":false},
+    {"id":"horner-southern-dialect","title":"George W. Horner, The Coptic Version of the New Testament in the Southern Dialect","roles":["candidate-published-contextual-translation"],"englishRole":"verbatim-published-translation-units-only","qualification":"requires provenance-qualified human transcription, public-use rights, and Horner-Coptic-to-Sahidica applicability","mayPopulateContextualTranslation":true,"unitManifest":"data/sources/horner-pilot/manifest.json"}
+  ],
+  "prohibited": ["AI-authored translation", "OCR-derived authoritative text", "English borrowed from another tradition", "dictionary range represented as contextual translation", "automatic entity identity represented as translation", "unqualified Horner or CrossWire text represented as authoritative"]
+}

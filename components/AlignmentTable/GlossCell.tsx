@@ -21,9 +21,13 @@ export function GlossCell({ gloss, className = '' }: Props) {
     return <td className={`${base} text-ink-muted`} aria-label="no gloss">—</td>;
   }
 
-  const textColor = gloss.generated ? 'text-accent-gold' : 'text-ink-secondary';
+  const textColor = gloss.generated || gloss.experimental || gloss.automaticAnnotation ? 'text-accent-gold' : 'text-ink-secondary';
 
-  const badge = gloss.deviation ? (
+  const badge = gloss.automaticAnnotation ? (
+    <sup className="not-italic ml-0.5 text-[11px] font-semibold text-accent-gold">*</sup>
+  ) : gloss.experimental ? (
+    <span className="not-italic ml-1.5 text-[10px] font-mono text-accent-gold bg-bg-elevated border border-accent-gold/50 px-1 py-0.5 rounded leading-none">experimental</span>
+  ) : gloss.deviation ? (
     <span
       className="not-italic ml-1.5 text-[11px] font-mono text-accent-gold bg-bg-elevated border border-rule-hairline px-1 py-0.5 rounded leading-none"
     >
