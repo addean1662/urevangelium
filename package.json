@@ -54,7 +54,10 @@
     "apply:coptic:english:ccl": "node scripts/apply-coptic-ccl-english.mjs",
     "shadow:vulgate:source": "node scripts/build-vulgate-source-shadow.mjs",
     "apply:vulgate:source": "node scripts/build-vulgate-source-shadow.mjs --apply",
-    "certify:vulgate:live": "node scripts/build-vulgate-source-shadow.mjs --certify"
+    "certify:vulgate:live": "node scripts/build-vulgate-source-shadow.mjs --certify",
+    "shadow:vulgate:english": "node scripts/audit-vulgate-english-sources.mjs",
+    "adjudicate:vulgate:english": "node scripts/adjudicate-vulgate-english-units.mjs",
+    "analyze:vulgate:english:held": "node scripts/analyze-vulgate-english-held.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.95.1",
