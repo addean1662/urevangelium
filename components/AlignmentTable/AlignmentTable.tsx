@@ -23,7 +23,7 @@ const BASE_COLUMNS: ColumnDef[] = [
   { key: 'papyrus',   label: 'Earliest Papyri', date: 'c. 125–250 AD',  script: 'Greek',       glossSource: 'TAGNT'      },
   { key: 'coptic',    label: 'Sahidic',          date: 'c. 250–300 AD',  script: 'Coptic',      glossSource: 'Lexical aid: Crum/KELLIA' },
   { key: 'vaticanus', label: 'Vaticanus',        date: 'c. 175–325 AD',  script: 'Greek',       glossSource: 'Certified English' },
-  { key: 'vulgate',   label: 'Vulgate',          date: 'Clementine 1592/1598', script: 'Latin',    glossSource: null         },
+  { key: 'vulgate',   label: 'Vulgate',          date: 'Clementine 1592/1598', script: 'Latin',    glossSource: 'Douay-Rheims 1899' },
   { key: 'bezae',     label: 'Bezae',            date: 'c. 150–400 AD',  script: 'Greek/Latin', glossSource: null         },
   { key: 'peshitta',  label: 'Peshitta',         date: 'c. 170–400 AD',  script: 'Syriac',      glossSource: 'PayneSmith' },
   { key: 'byzantine', label: 'Byzantine',        date: 'c. 300–500 AD',  script: 'Greek',       glossSource: 'Certified English' },
@@ -164,25 +164,16 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
         </thead>
 
         <tbody>
-          {data.rows.map((row) => (
-            <AlignmentRow key={row.id} row={row} showSinaiticus={showSinaiticus} />
+          {data.rows.map((row, rowIndex) => (
+            <AlignmentRow
+              key={row.id}
+              row={row}
+              showSinaiticus={showSinaiticus}
+              rowIndex={rowIndex}
+              rowCount={data.rows.length}
+              vulgateEnglish={data.vulgateEnglishUnit?.english}
+            />
           ))}
-          {data.vulgateEnglishUnit ? (
-            <tr className="bg-bg-elevated">
-              <td colSpan={9} className="border-b border-rule-hairline" />
-              <td colSpan={3} className="border-b border-rule-hairline px-3 py-3 align-top">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-accent-gold">Published translation unit · Douay-Rheims 1899</p>
-                <p className="mt-1 text-sm leading-relaxed text-ink-secondary">{data.vulgateEnglishUnit.english}</p>
-                <p className="mt-1 text-[10px] text-ink-muted">
-                  {data.vulgateEnglishUnit.displayReferences.length > 1
-                    ? `Unit spans ${data.vulgateEnglishUnit.displayReferences.join(' and ')} · `
-                    : ''}
-                  Whole-unit alignment; no word-level equivalence asserted.
-                </p>
-              </td>
-              <td colSpan={9} className="border-b border-rule-hairline" />
-            </tr>
-          ) : null}
         </tbody>
 
         {(() => {

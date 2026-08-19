@@ -11,6 +11,9 @@ import { transliterateCoptic } from '@/lib/transliteration/coptic';
 interface Props {
   row: AlignmentRowType;
   showSinaiticus: boolean;
+  rowIndex: number;
+  rowCount: number;
+  vulgateEnglish?: string;
 }
 
 function cellGloss(cell: PapyrusCell | WitnessCell): GlossCellType | null {
@@ -18,7 +21,7 @@ function cellGloss(cell: PapyrusCell | WitnessCell): GlossCellType | null {
   return null;
 }
 
-export function AlignmentRow({ row, showSinaiticus }: Props) {
+export function AlignmentRow({ row, showSinaiticus, rowIndex, rowCount, vulgateEnglish }: Props) {
   return (
     <tr>
       {/* Papyri */}
@@ -59,7 +62,12 @@ export function AlignmentRow({ row, showSinaiticus }: Props) {
       {/* Vulgate */}
       <WitnessCellComponent cell={row.vulgate} className="font-latin" />
       <WitnessIndicator cell={row.vulgate} />
-      <GlossCell gloss={cellGloss(row.vulgate)} />
+      {vulgateEnglish ? (rowIndex === 0 ? (
+        <td rowSpan={rowCount} className="border-b border-rule-hairline px-2 py-2 align-top text-left text-sm leading-relaxed text-ink-secondary">
+          <p>{vulgateEnglish}</p>
+          <p className="mt-2 text-[9px] font-semibold uppercase tracking-[0.12em] text-accent-gold">Whole published translation unit · no word-level equivalence asserted</p>
+        </td>
+      ) : null) : <GlossCell gloss={cellGloss(row.vulgate)} />}
 
       {/* Bezae — Greek | Latin, no English gloss */}
       <BezaeCells cell={row.bezae} />
