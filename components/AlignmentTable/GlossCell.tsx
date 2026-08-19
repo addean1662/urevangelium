@@ -1,7 +1,6 @@
 'use client';
 
 import type { GlossCell as GlossCellType } from '@/lib/types';
-import { HoverTooltip } from '@/components/HoverTooltip';
 
 interface Props {
   gloss?: GlossCellType | null;
@@ -10,9 +9,9 @@ interface Props {
 
 // Crum entries are often multi-term ("gospel, good news (Christian; ...)").
 // Extract the first keyword for the cell; put the full string in the tooltip.
-function splitCrum(text: string): { display: string; tooltip: string | null } {
+function splitCrum(text: string): { display: string } {
   const display = text.split(/[,;(]/)[0].trim();
-  return { display, tooltip: display !== text ? text : null };
+  return { display };
 }
 
 export function GlossCell({ gloss, className = '' }: Props) {
@@ -33,13 +32,9 @@ export function GlossCell({ gloss, className = '' }: Props) {
   ) : null;
 
   if (gloss.source === 'Crum') {
-    const { display, tooltip } = splitCrum(gloss.tooltip ?? gloss.gloss);
-    const tip = tooltip ? <span style={{ fontSize: 14 }}>{tooltip}</span> : null;
+    const { display } = splitCrum(gloss.gloss);
     return (
-      <td className={`${base} ${textColor} italic`} aria-label={`lexical aid: ${gloss.gloss}`}>
-        <HoverTooltip content={tip ?? <span style={{ fontSize: 14 }}>Lexical aid—not contextual translation · {gloss.gloss}</span>}>{display}</HoverTooltip>
-        {badge}
-      </td>
+      <td className={`${base} ${textColor} italic`} aria-label={`English lexical aid: ${display}`}>{display}</td>
     );
   }
 

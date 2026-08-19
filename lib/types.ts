@@ -205,6 +205,16 @@ export type VerseData = {
   chapter: number;
   verse: number;
   rows: AlignmentRow[];
+  vulgateEnglishUnit?: {
+    english: string;
+    sourceReference: string;
+    displayReferences: string[];
+    translatorEdition: string;
+    sourceFile: string;
+    alignmentScope: 'whole-published-translation-unit';
+    finerSemanticSegmentationAuthorized: false;
+    status: string;
+  };
 };
 
 // Manifest entry for Gospel navigation — one entry per verse

@@ -26,7 +26,7 @@ const BASE_COLUMNS: ColumnDef[] = [
   { key: 'vulgate',   label: 'Vulgate',          date: 'Clementine 1592/1598', script: 'Latin',    glossSource: null         },
   { key: 'bezae',     label: 'Bezae',            date: 'c. 150–400 AD',  script: 'Greek/Latin', glossSource: null         },
   { key: 'peshitta',  label: 'Peshitta',         date: 'c. 170–400 AD',  script: 'Syriac',      glossSource: 'PayneSmith' },
-  { key: 'byzantine', label: 'Byzantine',        date: 'c. 300–500 AD',  script: 'Greek',       glossSource: 'TAGNT'      },
+  { key: 'byzantine', label: 'Byzantine',        date: 'c. 300–500 AD',  script: 'Greek',       glossSource: 'Certified English' },
 ];
 
 const SINAITICUS_COL: ColumnDef = {
@@ -146,7 +146,7 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
                   {/* Name line */}
                   <div className="flex">
                     <div className="w-[45%] text-right pr-2">
-                      {col.key === 'vaticanus' ? <Link href="/vaticanus" className="underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{col.label}</Link> : col.key === 'papyrus' ? <Link href="/earliest-papyri" className="underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{col.label}</Link> : col.key === 'coptic' ? <Link href="/sahidic" className="underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{col.label}</Link> : col.label}
+                      {col.key === 'vaticanus' ? <Link href="/vaticanus" className="underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{col.label}</Link> : col.key === 'papyrus' ? <Link href="/earliest-papyri" className="underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{col.label}</Link> : col.key === 'coptic' ? <Link href="/sahidic" className="underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{col.label}</Link> : col.key === 'byzantine' ? <Link href="/byzantine" className="underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{col.label}</Link> : col.label}
                     </div>
                     <div className="w-[10%]" />
                     <div className="w-[45%] pl-2" />
@@ -167,6 +167,22 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
           {data.rows.map((row) => (
             <AlignmentRow key={row.id} row={row} showSinaiticus={showSinaiticus} />
           ))}
+          {data.vulgateEnglishUnit ? (
+            <tr className="bg-bg-elevated">
+              <td colSpan={9} className="border-b border-rule-hairline" />
+              <td colSpan={3} className="border-b border-rule-hairline px-3 py-3 align-top">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-accent-gold">Published translation unit · Douay-Rheims 1899</p>
+                <p className="mt-1 text-sm leading-relaxed text-ink-secondary">{data.vulgateEnglishUnit.english}</p>
+                <p className="mt-1 text-[10px] text-ink-muted">
+                  {data.vulgateEnglishUnit.displayReferences.length > 1
+                    ? `Unit spans ${data.vulgateEnglishUnit.displayReferences.join(' and ')} · `
+                    : ''}
+                  Whole-unit alignment; no word-level equivalence asserted.
+                </p>
+              </td>
+              <td colSpan={9} className="border-b border-rule-hairline" />
+            </tr>
+          ) : null}
         </tbody>
 
         {(() => {

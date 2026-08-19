@@ -7,6 +7,20 @@ import { getCachedVerse, cacheVerse } from '@/lib/cache';
 import { computeAlignment } from '@/lib/alignment/computeAlignment';
 export { buildPassagePath, nextVerse, prevVerse } from '@/lib/passageNav';
 
+type VulgateEnglishUnit = NonNullable<VerseData['vulgateEnglishUnit']>;
+let vulgateEnglishUnits: Record<string, VulgateEnglishUnit> | null = null;
+
+function withVulgateEnglish(data: VerseData | null): VerseData | null {
+  if (!data) return null;
+  if (!vulgateEnglishUnits) {
+    const file = path.join(process.cwd(), 'data/sources/vulgate-english/admitted-units.json');
+    const parsed = JSON.parse(fs.readFileSync(file, 'utf8')) as { units: Record<string, VulgateEnglishUnit> };
+    vulgateEnglishUnits = parsed.units;
+  }
+  const unit = vulgateEnglishUnits[`${data.gospel} ${data.chapter}:${data.verse}`];
+  return unit ? { ...data, vulgateEnglishUnit: unit } : data;
+}
+
 function handCodedPath(gospel: Gospel, chapter: number, verse: number): string {
   return path.join(process.cwd(), 'data', gospel, String(chapter), `${verse}.json`);
 }
@@ -33,12 +47,12 @@ export async function loadVerse(
   // 1. Check hand-coded proof verses (never recomputed or overwritten)
   const handCoded = handCodedPath(gospel, chapter, verse);
   if (fs.existsSync(handCoded)) {
-    return readJson(handCoded);
+    return withVulgateEnglish(readJson(handCoded));
   }
 
   // 2. Check Redis / disk cache
   const cached = await getCachedVerse(gospel, chapter, verse);
-  if (cached) return cached;
+  if (cached) return withVulgateEnglish(cached);
 
   // 3. Compute alignment on demand
   try {
@@ -46,7 +60,7 @@ export async function loadVerse(
     if (data) {
       await cacheVerse(gospel, chapter, verse, data);
     }
-    return data;
+    return withVulgateEnglish(data);
   } catch (err) {
     console.error(`computeAlignment failed for ${gospel} ${chapter}:${verse}`, err);
     return null;
