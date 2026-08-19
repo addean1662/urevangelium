@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import { AlignmentTable } from '@/components/AlignmentTable/AlignmentTable';
+import { PapyrusIndicator } from '@/components/AlignmentTable/IndicatorCell';
+import { PapyrusCell } from '@/components/AlignmentTable/PapyrusCell';
 import type { VerseData } from '@/lib/types';
 
 import matthewData from '@/data/matthew/1/1.json';
@@ -20,6 +22,28 @@ describe('AlignmentTable — column headers', () => {
     for (const label of ['Earliest Papyri', 'Sahidic', 'Vaticanus', 'Vulgate', 'Bezae', 'Peshitta', 'Byzantine']) {
       expect(labels.some((value) => value.includes(label))).toBe(true);
     }
+  });
+});
+
+describe('papyrus condition presentation', () => {
+  const suppliedDamaged = {
+    type: 'extant' as const,
+    fragments: [{ id: 'P1' as const, date: 'c. 250 CE' }],
+    text: 'λογος',
+    condition: { damaged: true, supplied: 'editor' as const, missingAfter: [2] },
+  };
+
+  it('keeps a damaged supplied reading green because the word is displayed', () => {
+    const { container } = render(<table><tbody><tr><PapyrusIndicator cell={suppliedDamaged} /></tr></tbody></table>);
+    expect(container.querySelector('.bg-semantic-extant')).toBeInTheDocument();
+    expect(container.querySelector('.bg-semantic-lacuna')).toBeNull();
+  });
+
+  it('shows damaged but does not repeat supplied or missing labels', () => {
+    render(<table><tbody><tr><PapyrusCell cell={suppliedDamaged} /></tr></tbody></table>);
+    expect(screen.getByText('damaged')).toBeInTheDocument();
+    expect(screen.queryByText('supplied')).toBeNull();
+    expect(screen.queryByText('missing/supplied')).toBeNull();
   });
 });
 

@@ -41,11 +41,6 @@ export function PapyrusCell({ cell }: Props) {
               scribal error?
             </span>
           ) : null}
-          {cell.condition?.supplied || cell.condition?.missingAfter?.length ? (
-            <span className="whitespace-nowrap font-sans text-[10px] font-semibold leading-none text-semantic-lacuna" aria-label={cell.condition?.missingAfter?.length ? 'Missing characters identified by the source editor' : `${cell.condition?.supplied === 'vid' ? 'Probably extant' : 'Editorially supplied'} by the source edition`}>
-              {cell.condition?.missingAfter?.length ? 'missing/supplied' : 'supplied'}
-            </span>
-          ) : null}
           {cell.condition?.damaged ? (
             cell.condition.sourceImageUrl ? (
               <a
