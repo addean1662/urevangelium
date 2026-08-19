@@ -29,7 +29,7 @@ export type ColumnSourceRecord = {
   nextAction: string;
 };
 
-export const SOURCE_MANIFEST_VERSION = '2026-08-17.4';
+export const SOURCE_MANIFEST_VERSION = '2026-08-18.5';
 
 export const COLUMN_SOURCES: ColumnSourceRecord[] = [
   {
@@ -66,16 +66,16 @@ export const COLUMN_SOURCES: ColumnSourceRecord[] = [
     displayedObject: 'Sahidica NT 4.1.0, a normalized electronic Sahidic edition rather than one physical manuscript.',
     traditionDate: 'Sahidic Gospel tradition is ancient; the column does not display a single early codex.',
     witnessOrEditionDate: 'Sahidica NT version 4.1.0 (metadata dated 2021-03-31).',
-    status: 'provisional', statusNote: 'Text is sourced, but most word-to-row placements remain computational drafts.',
-    coverage: '3,691 verse files contain Coptic data; 39,153 row placements are marked draft.',
+    status: 'source-verified', statusNote: 'All four Gospels are occurrence-complete and diplomatically exact against the pinned Sahidica NT 4.1.0 files. This certifies the displayed source edition, not every manuscript in the Sahidic tradition; row placement and English remain separate review layers.',
+    coverage: '48,275 Sahidica word-groups displayed exactly once: 13,857 Matthew, 8,390 Mark, 14,237 Luke, and 11,791 John; zero missing, unexpected, or altered forms, with occurrence provenance on every word-group.',
     sources: [
       { name: 'Sahidica NT 4.1.0 via Coptic SCRIPTORIUM', role: 'text', localFiles: 'data/sources/coptic-tt/*.tt', version: '4.1.0', license: 'Academic-use terms recorded in corpus metadata', url: 'https://copticscriptorium.org/' },
       { name: 'Crum through the KELLIA Comprehensive Coptic Lexicon', role: 'gloss', localFiles: 'scripts/coptic/kellia-lexicon.xml', version: 'CCL v1.2 (2020)', license: 'CC BY-SA 4.0' },
       { name: 'STEPBible TAGNT', role: 'alignment', localFiles: 'data/sources/greek-shared/TAGNT-Mat-Jhn-CC-BY.txt', version: 'Local acquisition is not yet pinned', license: 'CC BY 4.0' },
     ],
-    rules: ['Preserve Sahidica word groups and metadata.', 'Align Greek loans by transliteration and proper names by controlled fuzzy match.', 'Flag positional fallback as draft.', 'Use Crum/KELLIA for native Coptic glosses and TAGNT only for identified Greek loans.'],
-    prohibited: ['Calling Sahidica simply Horner', 'Presenting draft alignment as reviewed', 'Using a Greek-row gloss as evidence for native Coptic meaning'],
-    nextAction: 'Review all draft placements and define explicit display behavior for the incomplete and undefined cells.',
+    rules: ['Preserve every Sahidica word-group exactly and attach edition, source file, verse, occurrence number, diplomatic form, and SHA-256 provenance.', 'Treat John 8 as the second logical chapter embedded in the distributed 43_John_07.tt file; keep John 7:53 and John 8:1–11 explicitly omitted.', 'Align Greek loans by transliteration and proper names by controlled fuzzy match.', 'Flag computational row placement as draft without weakening the independently verified source text.', 'Use Crum/KELLIA for native Coptic glosses and TAGNT only for identified Greek loans.'],
+    prohibited: ['Calling Sahidica simply Horner', 'Claiming that one normalized edition represents every Sahidic manuscript', 'Presenting draft alignment as reviewed', 'Using a Greek-row gloss as evidence for native Coptic meaning', 'Filling Sahidica omissions from another tradition'],
+    nextAction: 'Adjudicate computational row placements and certify English independently while retaining the completed source-text certification.',
   },
   {
     id: 'vaticanus', position: '3a', label: 'Vaticanus', tradition: 'Alexandrian Greek manuscript witness',

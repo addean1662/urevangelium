@@ -190,7 +190,7 @@ export type BezaeCell =
 export type AlignmentRow = {
   id: string;           // unique within a verse, e.g. "r1", "r2"
   papyrus: PapyrusCell;
-  coptic?: WitnessCell; // optional — Sahidic Coptic (Horner); data not yet populated for most verses
+  coptic?: WitnessCell; // Sahidica NT 4.1.0 normalized Sahidic edition
   vaticanus: WitnessCell;
   sinaiticus: WitnessCell;
   bezae?: BezaeCell;    // optional — data not yet populated for most verses

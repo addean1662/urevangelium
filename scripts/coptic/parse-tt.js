@@ -27,6 +27,21 @@ const SKIP_POS  = new Set(['PUNCT']);
 function parseTTChapter(content) {
   const result = new Map();
 
+  for (const record of parseTTChapterSequence(content)) {
+    if (record.words.length > 0) result.set(record.verse, record);
+  }
+
+  return result;
+}
+
+/**
+ * Preserve document order and repeated verse numbers. This is required for the
+ * distributed Sahidica 4.1.0 John file, where John 8 follows John 7 in the
+ * physical 43_John_07.tt file and therefore repeats verse numbers.
+ */
+function parseTTChapterSequence(content) {
+  const result = [];
+
   // Locate all <verse_n ...> tag positions
   const verseTagRe = /<verse_n\s[^>]*verse_n="(\d+)"[^>]*>/g;
   const verseStarts = [];
@@ -46,9 +61,7 @@ function parseTTChapter(content) {
     const end = i + 1 < verseStarts.length ? verseStarts[i + 1].start : content.length;
     const block = content.slice(start, end);
     const words = extractWords(block);
-    if (words.length > 0) {
-      result.set(num, { verse: num, translation, words });
-    }
+    result.push({ verse: num, translation, words });
   }
 
   return result;
@@ -147,4 +160,4 @@ function extractWords(verseBlock) {
   return words;
 }
 
-module.exports = { parseTTChapter };
+module.exports = { parseTTChapter, parseTTChapterSequence };

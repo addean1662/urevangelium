@@ -26,7 +26,7 @@ export function AlignmentRow({ row, showSinaiticus }: Props) {
       <PapyrusIndicator cell={row.papyrus} />
       <GlossCell gloss={cellGloss(row.papyrus)} />
 
-      {/* Sahidic Coptic (Horner) — optional; blank when not yet entered */}
+      {/* Sahidica NT 4.1.0 normalized Sahidic edition */}
       {row.coptic ? (
         <>
           <WitnessCellComponent cell={row.coptic} className="font-coptic" translitFn={transliterateCoptic} />

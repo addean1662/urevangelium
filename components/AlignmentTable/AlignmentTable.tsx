@@ -21,7 +21,7 @@ type ColumnDef = {
 
 const BASE_COLUMNS: ColumnDef[] = [
   { key: 'papyrus',   label: 'Earliest Papyri', date: 'c. 125–250 AD',  script: 'Greek',       glossSource: 'TAGNT'      },
-  { key: 'coptic',    label: 'Sahidic',          date: 'c. 250–300 AD',  script: 'Coptic',      glossSource: 'Horner'     },
+  { key: 'coptic',    label: 'Sahidic',          date: 'c. 250–300 AD',  script: 'Coptic',      glossSource: 'Crum/KELLIA' },
   { key: 'vaticanus', label: 'Vaticanus',        date: 'c. 175–325 AD',  script: 'Greek',       glossSource: 'Certified English' },
   { key: 'vulgate',   label: 'Vulgate',          date: 'c. 150–383 AD',  script: 'Latin',       glossSource: 'Whitaker'   },
   { key: 'bezae',     label: 'Bezae',            date: 'c. 150–400 AD',  script: 'Greek/Latin', glossSource: null         },
@@ -146,7 +146,7 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
                   {/* Name line */}
                   <div className="flex">
                     <div className="w-[45%] text-right pr-2">
-                      {col.key === 'vaticanus' ? <Link href="/vaticanus" className="underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{col.label}</Link> : col.key === 'papyrus' ? <Link href="/earliest-papyri" className="underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{col.label}</Link> : col.label}
+                      {col.key === 'vaticanus' ? <Link href="/vaticanus" className="underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{col.label}</Link> : col.key === 'papyrus' ? <Link href="/earliest-papyri" className="underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{col.label}</Link> : col.key === 'coptic' ? <Link href="/sahidic" className="underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{col.label}</Link> : col.label}
                     </div>
                     <div className="w-[10%]" />
                     <div className="w-[45%] pl-2" />
