@@ -29,7 +29,7 @@ export type ColumnSourceRecord = {
   nextAction: string;
 };
 
-export const SOURCE_MANIFEST_VERSION = '2026-08-19.1';
+export const SOURCE_MANIFEST_VERSION = '2026-08-19.2';
 
 export const COLUMN_SOURCES: ColumnSourceRecord[] = [
   {
@@ -109,15 +109,15 @@ export const COLUMN_SOURCES: ColumnSourceRecord[] = [
   {
     id: 'vulgate', position: '4', label: 'Vulgate', tradition: 'Latin Vulgate received tradition',
     displayedObject: 'Clementine Vulgate, not the Stuttgart critical Vulgate.', traditionDate: 'Jerome’s Gospel revision began about 383 CE.', witnessOrEditionDate: 'Displayed recension: 1592/1598.',
-    status: 'source-verified', statusNote: 'All 59,029 Clementine Gospel tokens are displayed once in source order under a hash-pinned local source audit. This is internal source validation, not independent scholarly review.', coverage: 'All four Gospels: 59,029/59,029 source tokens across 3,779 local Gospel verse divisions.',
+    status: 'source-verified', statusNote: 'All 59,029 Clementine Gospel tokens are displayed once in source order under a hash-pinned local source audit. All 3,776 selected Douay-Rheims 1899 published translation units are internally source-admitted with zero held units and displayed only at whole-unit scope. This is internal source and alignment validation, not independent scholarly review or word-level Latin-English certification.', coverage: 'All four Gospels: 59,029/59,029 Latin source tokens across 3,779 local Gospel verse divisions; 3,776/3,776 Douay-Rheims 1899 English units covering 3,779 display references.',
     sources: [
       { name: 'Biblia Sacra juxta Vulgatam Clementinam', role: 'text', localFiles: 'data/sources/vulgate/VulgClementine.txt', version: '1592/1598 received edition; local SHA-256 F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC; upstream revision still to be identified', license: 'Public domain', url: 'https://github.com/scrollmapper/bible_databases' },
-      { name: 'Douay-Rheims American Edition (1899; translation candidate—not yet displayed)', role: 'verification', localFiles: 'data/sources/vulgate-english/challoner-1899/*.usfm', version: 'eBible engDRA, source files dated 2022-11-03 and acquired 2026-08-18', license: 'Public domain', url: 'https://ebible.org/find/show.php?id=engDRA' },
+      { name: 'Douay-Rheims American Edition (1899; displayed published translation units)', role: 'verification', localFiles: 'data/sources/vulgate-english/challoner-1899/*.usfm; data/sources/vulgate-english/admitted-units.json', version: 'eBible engDRA source files dated 2022-11-03; 3,776 internally admitted units, ledger generated 2026-08-19', license: 'Public domain', url: 'https://ebible.org/find/show.php?id=engDRA' },
       { name: 'Original Rheims New Testament (1582; secondary translation witness—not yet displayed)', role: 'verification', localFiles: 'data/sources/vulgate-english/rheims-1582/*.json', version: 'janvier-s structured transcription acquired 2026-08-18', license: 'CC0 1.0', url: 'https://github.com/janvier-s/original-douay-rheims' },
       { name: "Whitaker's Words (lexical aid only)", role: 'gloss', localFiles: 'data/sources/glosses/whitaker/DICTLINE.GEN', version: 'Local acquisition is not yet pinned', license: 'Public domain' },
     ],
     rules: ['Retain source-token order.', 'Give additional Latin words their own alignment rows.', 'Use empty cells only where Latin has no corresponding word.', 'Treat Whitaker as a lexical aid requiring contextual review.', 'Keep published English in source-supported translation units; Urevangelium aligns but does not translate.'],
-    prohibited: ['Calling this text Weber–Gryson/Stuttgart', 'Dating the displayed edition to 383 CE', 'Dropping excess source words', 'Presenting Whitaker lexical output as contextual translation', 'Subdividing published English more finely than its source supports', 'Silently harmonizing Challoner and Rheims'], nextAction: 'Implement whole-unit rendering for all 3,776 internally admitted 1899 translation units without implying word-level semantic alignment; then obtain independent scholarly review of the method and exception ledger.',
+    prohibited: ['Calling this text Weber–Gryson/Stuttgart', 'Dating the displayed edition to 383 CE', 'Dropping excess source words', 'Presenting Whitaker lexical output as contextual translation', 'Subdividing published English more finely than its source supports', 'Silently harmonizing Challoner and Rheims'], nextAction: 'Obtain independent scholarly review of the Vulgate source audit, whole-unit English alignment method, and edition-specific adjudication ledger.',
   },
   {
     id: 'bezae', position: '5', label: 'Bezae', tradition: 'Western bilingual manuscript witness',
