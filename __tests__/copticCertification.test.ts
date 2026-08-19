@@ -38,6 +38,15 @@ describe('Sahidica source certification', () => {
     expect(report.totals.missingSourceTokens).toBe(0);
     expect(report.totals.unexpectedDisplayedTokens).toBe(0);
     expect(report.totals.provenancePresent).toBe(48275);
+    expect(report.certificationGate).toContain('row-placement certification pending');
+  });
+
+  it('keeps the monotonic realignment proposal shadow-only', () => {
+    const report = JSON.parse(fs.readFileSync(path.join(root, 'docs/audits/coptic-monotonic-shadow.json'), 'utf8'));
+    expect(report.status).toBe('shadow-only');
+    expect(report.totals.sourceTokens).toBe(48275);
+    expect(report.totals.proposedOrderBreaks).toBe(0);
+    expect(report.warning).toContain('not contextual or scholarly alignment certification');
   });
 
   it('resolves SCRIPTORIUM named entities through their explicit head token', () => {

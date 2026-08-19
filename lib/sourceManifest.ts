@@ -66,7 +66,7 @@ export const COLUMN_SOURCES: ColumnSourceRecord[] = [
     displayedObject: 'Sahidica NT 4.1.0, a normalized electronic Sahidic edition rather than one physical manuscript.',
     traditionDate: 'Sahidic Gospel tradition is ancient; the column does not display a single early codex.',
     witnessOrEditionDate: 'Sahidica NT version 4.1.0 (metadata dated 2021-03-31).',
-    status: 'source-verified', statusNote: 'All four Gospels are occurrence-complete and diplomatically exact against pinned Sahidica NT 4.1.0. This certifies reproduction of that source representation, not manual validation of SCRIPTORIUM’s automatic segmentation or linguistic annotation. Published-translation alignment remains separate.',
+    status: 'source-verified', statusNote: 'All four Gospels are occurrence-complete and diplomatically exact against pinned Sahidica NT 4.1.0. This certifies the source-form inventory, not parallel-row placement: 42,803 placements remain computationally provisional and the current audit identifies 3,174 source-order breaks. Parallel alignment and published-translation alignment remain under review.',
     coverage: '48,275 Sahidica word-groups displayed exactly once: 13,857 Matthew, 8,390 Mark, 14,237 Luke, and 11,791 John; zero missing, unexpected, or altered forms, with occurrence provenance on every word-group.',
     sources: [
       { name: 'Sahidica NT 4.1.0 via Coptic SCRIPTORIUM', role: 'text', localFiles: 'data/sources/coptic-tt/*.tt', version: '4.1.0', license: 'Free-electronic-edition permission identified; SCRIPTORIUM academic-use wording requires documented clarification', url: 'https://copticscriptorium.org/' },
@@ -76,7 +76,7 @@ export const COLUMN_SOURCES: ColumnSourceRecord[] = [
     ],
     rules: ['Preserve every Sahidica word-group exactly and attach edition, source file, verse, occurrence number, diplomatic form, and SHA-256 provenance.', 'Treat John 8 as the second logical chapter embedded in the distributed 43_John_07.tt file; keep John 7:53 and John 8:1–11 explicitly omitted.', 'Describe SCRIPTORIUM segmentation and linguistic annotation as automatic source layers, not manually Coptologist-validated facts.', 'Display Crum/KELLIA only as lexical aid.', 'Admit Horner English verbatim only when Horner’s underlying Coptic is exact or nonlexically equivalent to the corresponding Sahidica span.'],
     prohibited: ['Calling Sahidica simply Horner', 'Claiming that one normalized edition represents every Sahidic manuscript', 'Presenting automatic SCRIPTORIUM annotations as manually validated', 'Using TAGNT, another tradition, a dictionary, or project-generated wording as Sahidic translation', 'Filling Sahidica omissions from another tradition', 'Extracting Logos content for public redistribution without written permission'],
-    nextAction: 'Acquire a legally reusable, provenance-qualified human transcription; run control and adversarial Horner Coptic-to-Sahidica pilots; admit only source-applicable published translation units.',
+    nextAction: 'Rebuild Sahidic placement in source order in a shadow corpus; adjudicate contextual row spans and genuine distinctive readings; then acquire a qualified Horner transcription for the separate English layer.',
   },
   {
     id: 'vaticanus', position: '3a', label: 'Vaticanus', tradition: 'Alexandrian Greek manuscript witness',
