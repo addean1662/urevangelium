@@ -29,7 +29,7 @@ export type ColumnSourceRecord = {
   nextAction: string;
 };
 
-export const SOURCE_MANIFEST_VERSION = '2026-08-18.5';
+export const SOURCE_MANIFEST_VERSION = '2026-08-19.1';
 
 export const COLUMN_SOURCES: ColumnSourceRecord[] = [
   {
@@ -141,12 +141,14 @@ export const COLUMN_SOURCES: ColumnSourceRecord[] = [
   {
     id: 'byzantine', position: '7', label: 'Byzantine', tradition: 'Byzantine Greek textual tradition',
     displayedObject: 'The Robinson–Pierpont 2018 Byzantine Textform electronic edition, not one medieval manuscript.', traditionDate: 'Byzantine-type readings emerge earlier; the mature tradition spans later centuries.', witnessOrEditionDate: 'Displayed edition: RP2018, byztxt v3.3.2.',
-    status: 'source-verified', statusNote: 'All four Gospels are rebuilt exclusively from the hash-pinned RP2018 v3.3.2 CSVs. Every one of 66,130 source tokens is displayed once in source order; no TAGNT fallback text remains. This is internal source certification, not independent scholarly review.', coverage: '3,778 RP2018 Gospel verse records and 66,130 tokens; Luke 17:36 is explicitly omitted because RP2018 has no verse record there.',
+    status: 'source-verified', statusNote: 'All four Gospels are rebuilt exclusively from the hash-pinned RP2018 v3.3.2 CSVs. Every one of 66,130 source tokens is displayed once in source order, and every token has English admitted by the Byzantine-specific evidence chain. Direct contextual TAGNT English is distinguished from orange project-adjudicated lexical output. This is internal source and process certification, not independent scholarly review.', coverage: '3,778 RP2018 Gospel verse records and 66,130 tokens; 66,130/66,130 English placements admitted; Luke 17:36 is explicitly omitted because RP2018 has no verse record there.',
     sources: [
       { name: 'Robinson–Pierpont 2018 Byzantine Textform via byztxt', role: 'text', localFiles: 'data/sources/byzantine/{MAT,MAR,LUK,JOH}.csv', version: 'v3.3.2; commit 27a45ff1b7be6c17ccbfeac414f3f55732ae8e28; per-file SHA-256 hashes recorded in the certification ledger', license: 'Unlicense / public domain', url: 'https://github.com/byztxt/byzantine-majority-text/tree/v3.3.2' },
       { name: 'STEPBible TAGNT', role: 'alignment', localFiles: 'data/sources/greek-shared/TAGNT-Mat-Jhn-CC-BY.txt', version: 'Local acquisition is not yet pinned', license: 'CC BY 4.0' },
+      { name: 'STEPBible TBESG / Abbott-Smith', role: 'gloss', localFiles: 'data/sources/greek-shared/TBESG-CC-BY.txt', version: 'SHA-256 recorded in docs/audits/byzantine-english-shadow.json', license: 'CC BY 4.0' },
+      { name: 'MorphGNT, PROIEL, and MorphGNT lexicon', role: 'verification', localFiles: 'data/sources/greek-shared/{morphgnt,proiel,morphgnt-lexicon}', version: 'Per-file SHA-256 hashes recorded in the English certification ledger', license: 'Source licenses retained in each local source directory' },
     ],
-    rules: ['Use the pinned Byzantine CSV as the sole text authority.', 'Use TAGNT only as alignment and morphological evidence; English requires a separate admitted source chain.', 'Treat the column as an edited textform rather than a physical witness.', 'Record edition-level uncertainty separately from manuscript lacunae.', 'Represent a verse absent from RP2018 as omitted rather than filling it from another Greek tradition.'],
-    prohibited: ['Silent generic TAGNT fallback', 'Calling the edited textform one physical manuscript', 'Applying physical-manuscript lacuna rules', 'Borrowing readings or English from another Greek column'], nextAction: 'Certify the Byzantine English layer independently; TAGNT may provide alignment evidence but may not supply Byzantine text or unreviewed English.',
+    rules: ['Use the pinned Byzantine CSV as the sole text authority.', 'Admit contextual TAGNT English only for an explicitly Byzantine-aligned token with RP2018 identity evidence.', 'Display project-adjudicated TBESG or MorphGNT-lexicon output in orange.', 'Require exact RP2018 surface and morphology identity before any English admission.', 'Treat the column as an edited textform rather than a physical witness.', 'Represent a verse absent from RP2018 as omitted rather than filling it from another Greek tradition.'],
+    prohibited: ['Silent generic TAGNT fallback', 'Calling the edited textform one physical manuscript', 'Applying physical-manuscript lacuna rules', 'Borrowing readings or English from another Greek column', 'Displaying unresolved generated English as source translation'], nextAction: 'Seek independent specialist review of the published ledger and adjudication rules; preserve the current pinned source versions until a separately audited migration.',
   },
 ];

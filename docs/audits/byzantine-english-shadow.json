@@ -1,0 +1,68 @@
+{
+  "generatedAt": "2026-08-19T07:41:11.011Z",
+  "status": "applied-internal-source-admission",
+  "method": "RP2018 surface + RP2018 morphology/Strong + TAGNT explicit Byzantine alignment + TBESG/Abbott-Smith lexical identity",
+  "displayPolicy": "Direct TAGNT Byzantine contextual English displays normally after RP2018 and TBESG identity agreement. Unambiguous TBESG lexical output displays orange. Unresolved output remains blank.",
+  "sources": {
+    "rp2018Morphology": {
+      "matthew": {
+        "file": "data/sources/byzantine/strongs-with-parsing/MAT.csv",
+        "sha256": "a46e3b9d3f02df1ad2022757474c46fd939517d9457a38f7b253efd6eca7e7d8"
+      },
+      "mark": {
+        "file": "data/sources/byzantine/strongs-with-parsing/MAR.csv",
+        "sha256": "fddcfeeb7f03cd2bd7be230725f78e2a16b872cdb97dc92703f9dc2cffb28261"
+      },
+      "luke": {
+        "file": "data/sources/byzantine/strongs-with-parsing/LUK.csv",
+        "sha256": "929f10c29dbf8f670edeeb87f997a684c6e13615cdeec796c5fc7e4f10deb49c"
+      },
+      "john": {
+        "file": "data/sources/byzantine/strongs-with-parsing/JOH.csv",
+        "sha256": "c1c004f56e931630ac98cb973dea8b2da4d5220d707cd66fe980cb8c11e1fa9c"
+      }
+    },
+    "tagnt": {
+      "file": "data/sources/greek-shared/TAGNT-Mat-Jhn-CC-BY.txt",
+      "sha256": "ab8eaaeb68e17a1dcfa34e1e9350358f22f03bc2a97244d848750ad81044bc8e"
+    },
+    "tbesg": {
+      "file": "data/sources/greek-shared/TBESG-CC-BY.txt",
+      "sha256": "312f723d7b8ef263bbdfb0451c9b8057125804dfff390b6f8544cff2a84b57f4"
+    },
+    "secondaryGreek": {
+      "morphgnt": {
+        "61-Mt-morphgnt.txt": "95b360228bedd1c2d06655469111d3f028a4ce1d46939d440ed549feee8b73ec",
+        "62-Mk-morphgnt.txt": "4a2d2365cfe3e8d6c20b7c130c2c46363fa4459c3a6004992eba0a18231b183e",
+        "63-Lk-morphgnt.txt": "a6f10ccf27a905f21ecbec96c3c01f220c39dd37aae118022113a52dfeb7528e",
+        "64-Jn-morphgnt.txt": "1b1de3e48e3f3d212ba19c76e5b2f1749833f888f5b52513099ec13cc01b619c"
+      },
+      "proiel": {
+        "file": "data/sources/greek-shared/proiel/greek-nt.xml",
+        "sha256": "93f868f54109acf305c0bd5f465e65509c90798ac176ddd20b09ebcfae9f422f"
+      },
+      "morphgntLexicon": {
+        "file": "data/sources/greek-shared/morphgnt-lexicon/lexemes.yaml",
+        "sha256": "16e8c79e1cfd57bde6d2917e7cc9e1f173bac92d11eac2cdb06ef0dcc7dab0c8"
+      }
+    }
+  },
+  "totals": {
+    "liveTokens": 66130,
+    "morphologyExact": 66130,
+    "tagntByzantineExact": 64510,
+    "strongAgreement": 61920,
+    "tbesgExactExtended": 61679,
+    "contextualAdmitted": 61774,
+    "generatedLexicalAdmitted": 2825,
+    "secondaryContextualAdmitted": 1329,
+    "secondaryLexicalAdmitted": 163,
+    "rpTagntMorphologyAdmitted": 25,
+    "rpLexiconAdmitted": 14,
+    "admitted": 66130,
+    "held": 0
+  },
+  "decisionCount": 66130,
+  "decisionSha256": "2853943abfc8af3e78430178ae8dd65b91e61b1f6ab21755831789f0649b0dbb",
+  "decisionLedgerIncluded": false
+}

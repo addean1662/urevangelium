@@ -36,8 +36,21 @@ The gloss import pipeline uses two STEPBible files located at `../greek-shared/`
 Per CC BY 4.0: any redistribution or derivative must credit STEPBible and link to STEPBible.org.
 No ShareAlike clause; commercial use permitted.
 
-## Note on TAGNT / Byzantine divergence
+## English certification policy
 
-TAGNT is primarily aligned to the NA28 critical text. Where the Byzantine text form
-diverges in word choice, the import pipeline should flag the gloss as needing manual
-review. The `gloss_deviation` marker in the schema captures this.
+The English layer is rebuilt by `scripts/build-byzantine-english-shadow.mjs` and
+recorded in `docs/audits/byzantine-english-shadow.json`. It admits all 66,130
+RP2018 Gospel tokens through a Byzantine-specific chain:
+
+- exact RP2018 surface, token order, Strong identity, and parsing;
+- TAGNT only where its apparatus explicitly identifies the Byzantine reading;
+- TBESG / Abbott-Smith as the primary lexical bridge;
+- MorphGNT, PROIEL, and the MorphGNT lexicon for deterministic secondary
+  lemma adjudication.
+
+TAGNT contextual English supported directly by the chain displays normally.
+English selected through the site's secondary lexical rules displays in orange.
+Orange therefore records Urevangelium's responsibility for the selection; it is
+not represented as a separately published translation. No English meaning is
+borrowed from another tradition column. The audit is internal process
+certification and does not claim independent scholarly peer review.
