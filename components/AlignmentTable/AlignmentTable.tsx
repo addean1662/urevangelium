@@ -164,15 +164,8 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
         </thead>
 
         <tbody>
-          {data.rows.map((row, rowIndex) => (
-            <AlignmentRow
-              key={row.id}
-              row={row}
-              showSinaiticus={showSinaiticus}
-              rowIndex={rowIndex}
-              rowCount={data.rows.length}
-              vulgateEnglish={data.vulgateEnglishUnit?.english}
-            />
+          {data.rows.map((row) => (
+            <AlignmentRow key={row.id} row={row} showSinaiticus={showSinaiticus} />
           ))}
         </tbody>
 

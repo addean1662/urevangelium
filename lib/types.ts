@@ -37,6 +37,8 @@ export type GlossCell = {
   deviation?: boolean; // true when source differs from the default for this witness
   generated?: boolean; // site-generated annotation; displayed in orange
   tooltip?: string;    // full lexicon entry for hover display
+  spanId?: string;     // shared translation phrase identifier
+  spanRole?: 'start' | 'continuation';
 };
 
 export const GOSPELS: Gospel[] = ['matthew', 'mark', 'luke', 'john'];

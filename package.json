@@ -44,10 +44,10 @@
     "audit:papyrus-completeness": "node scripts/audit-papyrus-completeness.mjs",
     "shadow:papyrus-completeness": "node scripts/build-papyrus-completeness-shadow.mjs",
     "align:papyrus-rows": "node scripts/align-papyrus-rows-architecturally.mjs",
-    "shadow:papyrus-rows": "node scripts/build-papyrus-row-shadow.mjs"
-    ,"certify:coptic:live": "node scripts/certify-coptic-live.mjs",
-    "repair:coptic:john-7-8": "node scripts/repair-coptic-john-7-8.mjs"
-    ,"repair:coptic:gospel": "node scripts/repair-coptic-john-7-8.mjs",
+    "shadow:papyrus-rows": "node scripts/build-papyrus-row-shadow.mjs",
+    "certify:coptic:live": "node scripts/certify-coptic-live.mjs",
+    "repair:coptic:john-7-8": "node scripts/repair-coptic-john-7-8.mjs",
+    "repair:coptic:gospel": "node scripts/repair-coptic-john-7-8.mjs",
     "audit:coptic:english": "node scripts/audit-coptic-english.mjs",
     "adjudicate:coptic:proper-names": "node scripts/adjudicate-coptic-proper-names.mjs",
     "apply:coptic:proper-names": "node scripts/apply-coptic-proper-names.mjs",
@@ -61,8 +61,12 @@
     "certify:vulgate:live": "node scripts/build-vulgate-source-shadow.mjs --certify",
     "shadow:vulgate:english": "node scripts/audit-vulgate-english-sources.mjs",
     "adjudicate:vulgate:english": "node scripts/adjudicate-vulgate-english-units.mjs",
-    "analyze:vulgate:english:held": "node scripts/analyze-vulgate-english-held.mjs"
-    ,"apply:vulgate:english": "node scripts/apply-vulgate-english-units.mjs"
+    "analyze:vulgate:english:held": "node scripts/analyze-vulgate-english-held.mjs",
+    "apply:vulgate:english": "node scripts/apply-vulgate-english-units.mjs",
+    "shadow:vulgate:word-english": "node scripts/build-vulgate-word-english-shadow.mjs"
+    ,"extract:vulgate:lewis-short": "node scripts/extract-vulgate-lewis-short-evidence.mjs"
+    ,"adjudicate:vulgate:word-english": "node scripts/adjudicate-vulgate-word-english.mjs"
+    ,"apply:vulgate:word-english": "node scripts/apply-vulgate-word-english.mjs --apply"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.95.1",
@@ -71,6 +75,7 @@
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "server-only": "^0.0.1",
+    "whitakers-words": "^0.1.1",
     "zod": "^4.4.2"
   },
   "devDependencies": {

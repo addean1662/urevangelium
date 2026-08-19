@@ -34,12 +34,17 @@ export function GlossCell({ gloss, className = '' }: Props) {
   if (gloss.source === 'Crum') {
     const { display } = splitCrum(gloss.gloss);
     return (
-      <td className={`${base} ${textColor} italic`} aria-label={`English lexical aid: ${display}`}>{display}</td>
+      <td className={`${base} ${textColor} italic`} aria-label={`English lexical aid: ${display}`} title={gloss.tooltip}>{display}</td>
     );
   }
 
+  const continuation = gloss.spanRole === 'continuation';
   return (
-    <td className={`${base} ${textColor} italic`}>
+    <td
+      className={`${base} ${continuation ? 'text-ink-muted not-italic text-center' : `${textColor} italic`}`}
+      title={gloss.tooltip}
+      aria-label={continuation ? `Continues shared English phrase: ${gloss.tooltip ?? ''}` : undefined}
+    >
       {gloss.gloss}
       {badge}
     </td>
