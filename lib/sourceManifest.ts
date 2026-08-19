@@ -140,13 +140,13 @@ export const COLUMN_SOURCES: ColumnSourceRecord[] = [
   },
   {
     id: 'byzantine', position: '7', label: 'Byzantine', tradition: 'Byzantine Greek textual tradition',
-    displayedObject: 'A Robinson–Pierpont Byzantine Textform electronic edition, not one medieval manuscript.', traditionDate: 'Byzantine-type readings emerge earlier; the mature tradition spans later centuries.', witnessOrEditionDate: 'Exact RP edition/repository revision must be pinned.',
-    status: 'provisional', statusNote: 'The appropriate tradition source is local, but edition naming and silent TAGNT fallbacks remain unresolved.', coverage: '3,778 Gospel verses in four local CSV files.',
+    displayedObject: 'The Robinson–Pierpont 2018 Byzantine Textform electronic edition, not one medieval manuscript.', traditionDate: 'Byzantine-type readings emerge earlier; the mature tradition spans later centuries.', witnessOrEditionDate: 'Displayed edition: RP2018, byztxt v3.3.2.',
+    status: 'source-verified', statusNote: 'All four Gospels are rebuilt exclusively from the hash-pinned RP2018 v3.3.2 CSVs. Every one of 66,130 source tokens is displayed once in source order; no TAGNT fallback text remains. This is internal source certification, not independent scholarly review.', coverage: '3,778 RP2018 Gospel verse records and 66,130 tokens; Luke 17:36 is explicitly omitted because RP2018 has no verse record there.',
     sources: [
-      { name: 'byztxt Byzantine Majority Text', role: 'text', localFiles: 'data/sources/byzantine/{MAT,MAR,LUK,JOH}.csv', version: 'Unpinned; repository presently identifies RP2018', license: 'Unlicense', url: 'https://github.com/byztxt/byzantine-majority-text' },
+      { name: 'Robinson–Pierpont 2018 Byzantine Textform via byztxt', role: 'text', localFiles: 'data/sources/byzantine/{MAT,MAR,LUK,JOH}.csv', version: 'v3.3.2; commit 27a45ff1b7be6c17ccbfeac414f3f55732ae8e28; per-file SHA-256 hashes recorded in the certification ledger', license: 'Unlicense / public domain', url: 'https://github.com/byztxt/byzantine-majority-text/tree/v3.3.2' },
       { name: 'STEPBible TAGNT', role: 'alignment', localFiles: 'data/sources/greek-shared/TAGNT-Mat-Jhn-CC-BY.txt', version: 'Local acquisition is not yet pinned', license: 'CC BY 4.0' },
     ],
-    rules: ['Use the pinned Byzantine CSV as the text authority.', 'Use TAGNT only for alignment, morphology, and glossing.', 'Treat the column as an edited textform rather than a physical witness.', 'Record edition-level uncertainty separately from manuscript lacunae.'],
-    prohibited: ['Silent generic TAGNT fallback', 'Calling an unpinned file RP2005 or RP2018 with certainty', 'Applying physical-manuscript lacuna rules'], nextAction: 'Pin and name the exact byztxt revision, then require complete token concordance against its CSV.',
+    rules: ['Use the pinned Byzantine CSV as the sole text authority.', 'Use TAGNT only as alignment and morphological evidence; English requires a separate admitted source chain.', 'Treat the column as an edited textform rather than a physical witness.', 'Record edition-level uncertainty separately from manuscript lacunae.', 'Represent a verse absent from RP2018 as omitted rather than filling it from another Greek tradition.'],
+    prohibited: ['Silent generic TAGNT fallback', 'Calling the edited textform one physical manuscript', 'Applying physical-manuscript lacuna rules', 'Borrowing readings or English from another Greek column'], nextAction: 'Certify the Byzantine English layer independently; TAGNT may provide alignment evidence but may not supply Byzantine text or unreviewed English.',
   },
 ];

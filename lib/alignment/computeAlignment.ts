@@ -93,9 +93,6 @@ export async function computeAlignment(
     const sinGreek = nomina
       ? nomina.contraction
       : tw.spellingWH ?? tw.greek;
-    const byzGreek = nomina
-      ? nomina.contraction
-      : tw.spellingByz ?? tw.greek;
 
     const vatCell: WitnessCell = tw.inAncient
       ? { type: 'text', text: vatGreek, ...(nomina ? { nominaSacra: nomina } : {}), ...(gloss ? { gloss } : {}) }
@@ -105,9 +102,9 @@ export async function computeAlignment(
       ? { type: 'text', text: sinGreek, ...(nomina ? { nominaSacra: { contraction: nomina.contraction, expansion: nomina.expansion } } : {}), ...(gloss ? { gloss } : {}) }
       : { type: 'empty' };
 
-    const byzCell: WitnessCell = tw.inTraditional
-      ? { type: 'text', text: byzGreek, ...(nomina ? { nominaSacra: nomina } : {}), ...(gloss ? { gloss } : {}) }
-      : { type: 'empty' };
+    // Byzantine readings enter only through the pinned RP2018 pipeline.
+    // On-demand TAGNT computation fails closed instead of supplying a proxy.
+    const byzCell: WitnessCell = { type: 'empty' };
 
     // Vulgate cell
     let vulgateCell: WitnessCell;

@@ -192,10 +192,10 @@ describe('computeAlignment — Matthew 1:2', () => {
     expect(row.byzantine).toBeTruthy();
   });
 
-  it('produces text cells for Byzantine witness', async () => {
+  it('does not manufacture Byzantine text in the generic alignment fallback', async () => {
     const data = await computeAlignment('matthew', 1, 2);
     const textRows = data!.rows.filter(r => r.byzantine.type === 'text');
-    expect(textRows.length).toBeGreaterThan(0);
+    expect(textRows).toHaveLength(0);
   });
 
   it('articles get empty cells in Vulgate', async () => {

@@ -131,10 +131,6 @@ function buildVerse(gospel, chapter, verse, tagntWords, byzWords, byVerse, papyr
     // Sinaiticus: use WH spelling when explicitly noted; otherwise NA28 form
     const sinaText = w.spellingWH ?? w.greek;
 
-    // Byzantine: prefer positional match from Byzantine CSV; fall back to TAGNT encoding
-    const byzFromCsv = byzWords[i];
-    const byzText = byzFromCsv ?? w.spellingByz ?? w.greek;
-
     return {
       id: `r${i + 1}`,
       papyrus,
@@ -144,7 +140,8 @@ function buildVerse(gospel, chapter, verse, tagntWords, byzWords, byVerse, papyr
       sinaiticus: { type: 'text', text: sinaText,   gloss: { gloss: w.gloss, source: 'TAGNT' } },
       vulgate:    { type: 'empty' },
       peshitta:   { type: 'empty' },
-      byzantine:  { type: 'text', text: byzText,    gloss: { gloss: w.gloss, source: 'TAGNT' } },
+      // Populated only by the pinned RP2018 source pipeline.
+      byzantine:  { type: 'empty' },
     };
   });
 

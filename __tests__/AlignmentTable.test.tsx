@@ -29,17 +29,17 @@ describe('Matthew 1:1 proof row', () => {
     expect(container.querySelectorAll('[title*="P1"]').length).toBeGreaterThan(0);
   });
 
-  it('shows nomina sacra contractions ΙΥ and ΧΥ', () => {
+  it('preserves Vaticanus nomina sacra and the expanded RP2018 Byzantine forms', () => {
     render(<AlignmentTable data={matthewData as VerseData} />);
-    expect(screen.getAllByText('ΙΥ').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('ΧΥ').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('ιυ').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('χυ').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Ἰησοῦ').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('χριστοῦ').length).toBeGreaterThan(0);
   });
 
-  it('does not display the expansion Ἰησοῦ as bare text', () => {
+  it('displays the RP2018 expansion Ἰησοῦ as Byzantine source text', () => {
     render(<AlignmentTable data={matthewData as VerseData} />);
-    // Ἰησοῦ should only appear in title/aria attrs, not as visible text node
-    const expanded = screen.queryAllByText('Ἰησοῦ');
-    expect(expanded).toHaveLength(0);
+    expect(screen.getAllByText('Ἰησοῦ').length).toBeGreaterThan(0);
   });
 
   it('renders Greek, Latin, and Syriac text', () => {
@@ -63,10 +63,10 @@ describe('Mark 1:1 proof row', () => {
     expect(gaps.length).toBeGreaterThan(0);
   });
 
-  it('renders ΘΥ nomina sacra', () => {
+  it('preserves Vaticanus θυ and renders RP2018 θεοῦ', () => {
     render(<AlignmentTable data={markData as VerseData} />);
-    expect(screen.getAllByText('ΘΥ').length).toBeGreaterThan(0);
-    expect(screen.getAllByTitle('θεοῦ').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('θυ').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('θεοῦ').length).toBeGreaterThan(0);
   });
 });
 

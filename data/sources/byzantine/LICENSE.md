@@ -9,7 +9,14 @@ Robinson-Pierpont Byzantine Textform.
 **Files acquired:** `MAT.csv`, `MAR.csv`, `LUK.csv`, `JOH.csv` from `csv-unicode/ccat/no-variants/`
 **Access date:** 2026-05-03
 
-The underlying Robinson-Pierpont text (RP 2005) was released by its editors for free redistribution.
+**Pinned release:** `v3.3.2`
+**Pinned commit:** `27a45ff1b7be6c17ccbfeac414f3f55732ae8e28`
+
+All four local Gospel CSVs match that tag byte-for-byte. The pinned files
+represent the **Robinson-Pierpont 2018 Byzantine Textform**; upstream identifies
+releases 3.x as RP2018 and recommends them over RP2005.
+
+The underlying Robinson-Pierpont text was released by its editors for free redistribution.
 The byztxt repo places the digital transcription in the public domain via the Unlicense.
 
 ## Gloss source: STEPBible TAGNT + TBESG
