@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { describe, expect, it } from 'vitest';
+import { VerseDataSchema } from '../lib/validate';
 
 const root = path.resolve(import.meta.dirname, '..');
 const require = createRequire(import.meta.url);
@@ -41,12 +42,31 @@ describe('Sahidica source certification', () => {
     expect(report.certificationGate).toContain('row-placement certification pending');
   });
 
-  it('keeps the monotonic realignment proposal shadow-only', () => {
+  it('keeps the contextual alignment graph independent of source structure', () => {
     const report = JSON.parse(fs.readFileSync(path.join(root, 'docs/audits/coptic-monotonic-shadow.json'), 'utf8'));
-    expect(report.status).toBe('shadow-only');
+    expect(report.status).toBe('alignment-graph-shadow');
     expect(report.totals.sourceTokens).toBe(48275);
     expect(report.totals.proposedOrderBreaks).toBe(0);
-    expect(report.warning).toContain('not contextual or scholarly alignment certification');
+    expect(report.warning).toContain('must not reshape, merge, or reorder Sahidica');
+  });
+
+  it('preserves independent provenance when Sahidic word-groups share a row', () => {
+    const provenance = (sourceToken: number, diplomatic: string) => ({
+      authority: 'Sahidica NT via Coptic SCRIPTORIUM', edition: 'Sahidica NT 4.1.0',
+      versionDate: '2021-03-31', sourceFile: '42_Luke_03.tt', sourceReference: 'luke 3:32',
+      sourceToken, diplomatic, sourceSha256: 'abc', verification: 'exact-source-word-group' as const,
+    });
+    const empty = { type: 'empty' as const };
+    const result = VerseDataSchema.safeParse({ gospel: 'luke', chapter: 3, verse: 32, rows: [{
+      id: 'multi-coptic', papyrus: empty, vaticanus: empty, sinaiticus: empty, vulgate: empty,
+      peshitta: empty, byzantine: empty,
+      coptic: { type: 'text', text: 'ⲡϣⲏⲣⲉ ⲛⲓⲉⲥⲥⲁⲓ', sourceUnits: [
+        { text: 'ⲡϣⲏⲣⲉ', provenance: provenance(1, 'ⲡϣⲏⲣⲉ') },
+        { text: 'ⲛⲓⲉⲥⲥⲁⲓ', provenance: provenance(2, 'ⲛⲓⲉⲥⲥⲁⲓ') },
+      ] },
+    }] });
+    expect(result.success).toBe(true);
+    if (result.success) expect(result.data.rows[0].coptic?.type === 'text' && result.data.rows[0].coptic.sourceUnits).toHaveLength(2);
   });
 
   it('resolves SCRIPTORIUM named entities through their explicit head token', () => {

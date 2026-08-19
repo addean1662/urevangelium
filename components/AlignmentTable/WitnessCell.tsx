@@ -43,7 +43,11 @@ export function WitnessCell({ cell, className = '', translitFn }: Props) {
     );
   }
 
-  const textContent = cell.nominaSacra ? <NominaSacra ns={cell.nominaSacra} /> : cell.text;
+  const textContent = cell.nominaSacra ? <NominaSacra ns={cell.nominaSacra} /> : cell.sourceUnits ? (
+    <span className="inline-flex flex-wrap justify-end gap-x-1.5">
+      {cell.sourceUnits.map((unit, index) => <span key={`${index}-${unit.text}`}>{unit.text}</span>)}
+    </span>
+  ) : cell.text;
   const manuscriptFlag = cell.manuscriptStatus === 'scribal-error-question' ? 'scribal error?' : cell.manuscriptStatus;
   const displayedText = manuscriptFlag ? (
     <span className="inline-flex items-baseline justify-end gap-1.5 text-semantic-lacuna">

@@ -6,6 +6,8 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 const GOSPELS = ['matthew', 'mark', 'luke', 'john'];
 const COMPARISON_COLUMNS = ['papyrus', 'vaticanus', 'sinaiticus', 'vulgate', 'peshitta', 'byzantine', 'bezae'];
 const outputFile = path.join(ROOT, 'docs', 'audits', 'coptic-monotonic-shadow.json');
+const shadowDir = path.join(ROOT, 'docs', 'audits', 'coptic-contextual-shadow');
+const writeGraph = process.argv.includes('--write-graph');
 const require = createRequire(import.meta.url);
 const { parseTTChapterSequence } = require('./coptic/parse-tt.js');
 const COPTIC_PREFIX = { matthew: '40_Matthew', mark: '41_Mark', luke: '42_Luke', john: '43_John' };
@@ -95,15 +97,15 @@ function distribute(tokens, slots) {
 }
 
 const report = {
-  status: 'shadow-only',
+  status: 'alignment-graph-shadow',
   generatedAt: new Date().toISOString(),
-  method: 'retain a maximum-weight source-order chain of legacy strong matches and unique within-verse Crum/peer lexical correspondences; distribute remaining source tokens monotonically between anchors',
-  warning: 'Monotonic placement is a structural prerequisite, not contextual or scholarly alignment certification.',
+  method: 'preserve the independent Sahidica source sequence and record only evidence-supported many-to-many links to comparison rows',
+  warning: 'The shared-grid projection is diagnostic only. It must not reshape, merge, or reorder Sahidica source units to fit another tradition.',
   totals: {
     verses: 0, sourceTokens: 0, candidateAnchors: 0, legacyCandidateAnchors: 0,
     lexicalUniqueCandidates: 0, identityUniqueCandidates: 0, retainedAnchors: 0, retainedLegacyAnchors: 0,
     retainedLexicalAnchors: 0, corroboratedAnchors: 0, conflictingEvidenceTokens: 0,
-    crossingAnchorsRejected: 0, changedPlacements: 0, groupedTokens: 0,
+    crossingAnchorsRejected: 0, unlinkedTokens: 0, changedPlacements: 0, groupedTokens: 0,
     copticOnlyRowsRemovedFromGrid: 0, unresolvedTokens: 0, proposedOrderBreaks: 0,
   },
   gospels: {},
@@ -112,6 +114,7 @@ const report = {
 
 for (const gospel of GOSPELS) {
   const sourceWords = loadSourceWords(gospel);
+  const gospelProposals = {};
   const totals = Object.fromEntries(Object.keys(report.totals).map((key) => [key, 0]));
   const gospelDir = path.join(ROOT, 'data', gospel);
   for (const chapter of fs.readdirSync(gospelDir, { withFileTypes: true }).filter((entry) => entry.isDirectory())) {
@@ -164,20 +167,21 @@ for (const gospel of GOSPELS) {
         addCandidate({ token: token.token, rowIndex: matches[0].rowIndex, currentRowId: token.currentRowId, weight: 180, evidence: [`named-entity:${matches[0].overlap.join('+')}`] });
       }
       const candidates = [...candidateMap.values()].sort((a, b) => a.rowIndex - b.rowIndex || a.token - b.token);
-      const anchors = maximumWeightAnchors(candidates);
       const candidateRowsByToken = new Map();
       for (const candidate of candidates) {
         const rows = candidateRowsByToken.get(candidate.token) ?? new Set();
         rows.add(candidate.rowIndex);
         candidateRowsByToken.set(candidate.token, rows);
       }
-      const conflictingEvidenceTokens = [...candidateRowsByToken.values()].filter((rows) => rows.size > 1).length;
+      const conflictingTokenNumbers = new Set([...candidateRowsByToken.entries()].filter(([, rows]) => rows.size > 1).map(([token]) => token));
+      const conflictingEvidenceTokens = conflictingTokenNumbers.size;
+      const anchors = maximumWeightAnchors(candidates.filter((candidate) => !conflictingTokenNumbers.has(candidate.token)));
       const retainedLegacyAnchors = anchors.filter((anchor) => anchor.evidence.some((item) => item === 'legacy-strong')).length;
       const retainedLexicalAnchors = anchors.filter((anchor) => anchor.evidence.some((item) => item.startsWith('unique-lexical:'))).length;
       const corroboratedAnchors = anchors.filter((anchor) => anchor.evidence.includes('legacy-strong') && anchor.evidence.some((item) => item.startsWith('unique-lexical:'))).length;
       const anchorTokens = new Set(anchors.map((anchor) => anchor.token));
-      const assignments = anchors.map((anchor) => ({ rowIndex: anchor.rowIndex, tokens: [tokens.find((token) => token.token === anchor.token)], method: 'retained-anchor' }));
-      const unresolved = [];
+      const assignments = anchors.map((anchor) => ({ rowIndex: anchor.rowIndex, tokens: [tokens.find((token) => token.token === anchor.token)], method: 'evidence-supported', evidence: anchor.evidence }));
+      const unresolved = tokens.filter((token) => conflictingTokenNumbers.has(token.token)).map((token) => ({ ...token, reason: 'conflicting-contextual-evidence' }));
       const boundaries = [
         { token: 0, rowIndex: -1 },
         ...anchors,
@@ -186,12 +190,12 @@ for (const gospel of GOSPELS) {
       for (let i = 0; i < boundaries.length - 1; i++) {
         const left = boundaries[i];
         const right = boundaries[i + 1];
-        const segmentTokens = tokens.filter((token) => token.token > left.token && token.token < right.token && !anchorTokens.has(token.token));
+        const segmentTokens = tokens.filter((token) => token.token > left.token && token.token < right.token && !anchorTokens.has(token.token) && !conflictingTokenNumbers.has(token.token));
         const slots = [];
         for (let rowIndex = left.rowIndex + 1; rowIndex < right.rowIndex; rowIndex++) slots.push(rowIndex);
         const distributed = distribute(segmentTokens, slots);
         assignments.push(...distributed.assignments);
-        unresolved.push(...distributed.unresolved);
+        unresolved.push(...distributed.unresolved.map((token) => ({ ...token, reason: 'no-safe-comparison-slot' })));
       }
       assignments.sort((a, b) => a.rowIndex - b.rowIndex);
       const proposedOrder = assignments.flatMap((assignment) => assignment.tokens.map((token) => token.token));
@@ -206,9 +210,24 @@ for (const gospel of GOSPELS) {
         verses: 1, sourceTokens: tokens.length, candidateAnchors: candidates.length,
         legacyCandidateAnchors: legacyCandidates.length, lexicalUniqueCandidates, identityUniqueCandidates, retainedAnchors: anchors.length,
         retainedLegacyAnchors, retainedLexicalAnchors, corroboratedAnchors, conflictingEvidenceTokens,
-        crossingAnchorsRejected: candidates.length - anchors.length, changedPlacements: changed.length,
+        crossingAnchorsRejected: candidates.length - anchors.length,
+        unlinkedTokens: tokens.length - anchors.length,
+        changedPlacements: changed.length,
         groupedTokens: grouped, copticOnlyRowsRemovedFromGrid: copticOnly, unresolvedTokens: unresolved.length,
         proposedOrderBreaks,
+      };
+      const linkedTokens = new Set(anchors.map((anchor) => anchor.token));
+      gospelProposals[`${chapter.name}:${filename.slice(0, -5)}`] = {
+        sourceSequence: tokens.map(({ token, text }) => ({ token, text })),
+        evidenceLinks: anchors.map((anchor) => ({
+          sourceTokens: [anchor.token],
+          targetRowIds: [comparisonRows[anchor.rowIndex]?.row.id],
+          relation: 'contextual-correspondence',
+          evidence: anchor.evidence,
+          status: 'shadow-evidence-supported',
+        })),
+        conflicts: tokens.filter((token) => conflictingTokenNumbers.has(token.token)).map(({ token, text }) => ({ token, text, reason: 'conflicting-contextual-evidence' })),
+        unlinked: tokens.filter((token) => !linkedTokens.has(token.token)).map(({ token, text }) => ({ token, text })),
       };
       for (const [key, value] of Object.entries(verseTotals)) totals[key] += value;
       if ((changed.length || copticOnly || unresolved.length) && report.reviewCases.length < 250) {
@@ -220,6 +239,10 @@ for (const gospel of GOSPELS) {
     }
   }
   report.gospels[gospel] = totals;
+  if (writeGraph) {
+    fs.mkdirSync(shadowDir, { recursive: true });
+    fs.writeFileSync(path.join(shadowDir, `${gospel}.json`), `${JSON.stringify({ status: 'alignment-graph-shadow', gospel, proposals: gospelProposals }, null, 2)}\n`);
+  }
   for (const [key, value] of Object.entries(totals)) report.totals[key] += value;
 }
 

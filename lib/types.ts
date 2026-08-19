@@ -123,14 +123,41 @@ export type CellSourceProvenance = {
   verification: 'unreviewed' | 'machine-compared' | 'human-reviewed' | 'image-verified';
 };
 
+export type SahidicSourceProvenance = {
+  authority: string;
+  edition: string;
+  versionDate: string;
+  sourceFile: string;
+  sourceReference: string;
+  sourceToken: number;
+  diplomatic: string;
+  sourceSha256: string;
+  verification: 'exact-source-word-group';
+  placementMethod?: string;
+};
+
+export type SourceProvenance = CellSourceProvenance | SahidicSourceProvenance;
+
+export type AlignedSourceUnit = {
+  text: string;
+  gloss?: GlossCell;
+  provenance?: SourceProvenance;
+};
+
 // A cell that contains actual text (optionally with nomina sacra markup and/or a gloss)
 export type TextCell = {
   type: 'text';
   text: string;
+  /**
+   * Ordered source word-groups represented together in this comparative cell.
+   * `text` remains their display projection; each unit retains independent
+   * provenance so phrase-level alignment never erases source granularity.
+   */
+  sourceUnits?: AlignedSourceUnit[];
   manuscriptStatus?: 'damaged' | 'scribal-error-question';
   nominaSacra?: NominaSacraExpansion;
   gloss?: GlossCell;
-  provenance?: CellSourceProvenance;
+  provenance?: SourceProvenance;
 };
 
 // A cell that is empty due to an alignment gap (language has no word for this unit)
