@@ -13,6 +13,7 @@ const sha = (value) => crypto.createHash('sha256').update(value).digest('hex');
 const manifestSha256 = sha(fs.readFileSync(manifestFile));
 const hornerSha256 = sha(fs.readFileSync(hornerFile));
 const coordinate = (gospel, reference, sourceToken) => `${gospel}.${reference.replace(':', '.')}.${sourceToken}`;
+const displayEntity = (identity) => identity.replace(/\s*\([^)]*\)/g, '').replace(/\s{2,}/g, ' ').trim();
 const admittedHorner = new Map();
 const errors = [];
 
@@ -57,7 +58,7 @@ for (const gospel of GOSPELS) {
       const rules = { 'exact-scriptorium-lemma': 'CSE-101-EXACT-LEMMA-CCL', 'declared-bound-form-normalization': 'CSE-102-DECLARED-BOUND-FORM-CCL', 'exact-surface-form': 'CSE-103-EXACT-SURFACE-CCL' };
       decision = { layer: 'lexical-aid', status: 'admitted', sourceId: 'kellia-ccl-1.2', output: item.cclCandidate, rule: rules[item.matchMethod] };
     } else if (item.identity) {
-      decision = { layer: 'scholarly-automatic-annotation', status: 'source-attributed-automatic-pending-corroboration', sourceId: 'sahidica-4.1.0', output: item.identity, contributingSources: ['sahidica-4.1.0'], rule: 'CSE-A201-DIRECT-SCRIPTORIUM-ENTITY' };
+      decision = { layer: 'scholarly-automatic-annotation', status: 'source-attributed-automatic-pending-corroboration', sourceId: 'sahidica-4.1.0', output: displayEntity(item.identity), sourceValue: item.identity, contributingSources: ['sahidica-4.1.0'], rule: 'CSE-A201-DIRECT-SCRIPTORIUM-ENTITY-DISPLAY-WITHOUT-PARENTHETICAL-METADATA' };
     } else {
       decision = { layer: 'none', status: 'withheld', sourceId: null, output: null, rule: item.cclCandidate ? 'CSE-W301-SURFACE-ONLY-LEXICON-MATCH' : 'CSE-W302-NO-PUBLISHED-ENGLISH' };
     }
@@ -95,7 +96,7 @@ for (const gospel of GOSPELS) {
         cell.provenance.translationUnitId = unit.id;
         cell.gloss = { gloss: start ? decision.output : '↳', source: 'Horner', tooltip: `George W. Horner · translation unit ${unit.id}`, spanId: unit.id, spanRole: start ? 'start' : 'continuation' };
       } else if (decision.layer === 'scholarly-automatic-annotation') {
-        cell.gloss = { gloss: decision.output, source: 'Scriptorium', automaticAnnotation: true, tooltip: `Scholarly automatic annotation pending corroboration · Coptic SCRIPTORIUM entity identity · ${item.identity}` };
+        cell.gloss = { gloss: decision.output, source: 'Scriptorium', automaticAnnotation: true, tooltip: `Scholarly automatic annotation pending corroboration · Coptic SCRIPTORIUM entity identity: ${item.identity}` };
       } else {
         delete cell.gloss;
         delete cell.provenance.translationUnitId;
