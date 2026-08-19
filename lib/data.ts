@@ -5,18 +5,14 @@ import type { Gospel, VerseData } from '@/lib/types';
 import { VerseDataSchema } from '@/lib/validate';
 import { getCachedVerse, cacheVerse } from '@/lib/cache';
 import { computeAlignment } from '@/lib/alignment/computeAlignment';
+import vulgateEnglishManifest from '@/data/sources/vulgate-english/admitted-units.json';
 export { buildPassagePath, nextVerse, prevVerse } from '@/lib/passageNav';
 
 type VulgateEnglishUnit = NonNullable<VerseData['vulgateEnglishUnit']>;
-let vulgateEnglishUnits: Record<string, VulgateEnglishUnit> | null = null;
+const vulgateEnglishUnits = vulgateEnglishManifest.units as Record<string, VulgateEnglishUnit>;
 
 function withVulgateEnglish(data: VerseData | null): VerseData | null {
   if (!data) return null;
-  if (!vulgateEnglishUnits) {
-    const file = path.join(process.cwd(), 'data/sources/vulgate-english/admitted-units.json');
-    const parsed = JSON.parse(fs.readFileSync(file, 'utf8')) as { units: Record<string, VulgateEnglishUnit> };
-    vulgateEnglishUnits = parsed.units;
-  }
   const unit = vulgateEnglishUnits[`${data.gospel} ${data.chapter}:${data.verse}`];
   return unit ? { ...data, vulgateEnglishUnit: unit } : data;
 }
