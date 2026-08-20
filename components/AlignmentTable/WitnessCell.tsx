@@ -7,14 +7,20 @@ interface Props {
   cell: WitnessCellType;
   className?: string;
   translitFn?: (text: string) => string;
+  highlighted?: boolean;
+  onPointerEnter?: () => void;
+  onPointerLeave?: () => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
 }
 
-export function WitnessCell({ cell, className = '', translitFn }: Props) {
-  const base = `px-2 py-1.5 text-lg border-b border-rule-hairline align-middle text-right text-ink-primary ${className}`;
+export function WitnessCell({ cell, className = '', translitFn, highlighted = false, onPointerEnter, onPointerLeave, onFocus, onBlur }: Props) {
+  const base = `px-2 py-1.5 text-lg border-b border-rule-hairline align-middle text-right text-ink-primary transition-colors ${highlighted ? 'bg-accent-gold/15' : ''} ${className}`;
+  const interactionProps = { onPointerEnter, onPointerLeave, onFocus, onBlur };
 
   if (cell.type === 'lost') {
     return (
-      <td className={base}>
+      <td className={base} {...interactionProps}>
         <span className="flex items-center justify-end gap-1.5">
           <span className="text-xs italic text-semantic-lacuna">lost</span>
           <span className="inline-block w-2 h-2 rounded-full bg-semantic-lacuna flex-shrink-0" />
@@ -23,25 +29,25 @@ export function WitnessCell({ cell, className = '', translitFn }: Props) {
     );
   }
   if (cell.type === 'lacuna') {
-    return <td className={base}><LostDots /></td>;
+    return <td className={base} {...interactionProps}><LostDots /></td>;
   }
 
   if (cell.type === 'empty') {
     return (
-      <td className={`${base} text-ink-muted`} aria-label="alignment gap">
+      <td className={`${base} text-ink-muted`} aria-label="alignment gap" {...interactionProps}>
         —
       </td>
     );
   }
 
   if (cell.type === 'translation') {
-    return <td className={base} aria-label="published translation expansion row" />;
+    return <td className={base} aria-label="published translation expansion row" {...interactionProps} />;
   }
 
 
   if (cell.type === 'omitted') {
     return (
-      <td className={`${base} text-ink-muted`} aria-label="omitted by this witness">
+      <td className={`${base} text-ink-muted`} aria-label="omitted by this witness" {...interactionProps}>
         <span className="text-xs italic">omitted</span>
       </td>
     );
@@ -65,11 +71,11 @@ export function WitnessCell({ cell, className = '', translitFn }: Props) {
     const translit = translitFn(sourceText);
     const tip = translit ? <em>{translit}</em> : null;
     return (
-      <td className={base}>
+      <td className={base} tabIndex={onFocus ? 0 : undefined} {...interactionProps}>
         <HoverTooltip content={tip}>{displayedText}</HoverTooltip>
       </td>
     );
   }
 
-  return <td className={base}>{displayedText}</td>;
+  return <td className={base} tabIndex={onFocus ? 0 : undefined} {...interactionProps}>{displayedText}</td>;
 }

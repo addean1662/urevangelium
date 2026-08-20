@@ -1,55 +1,62 @@
 {
   "status": "applied-and-validated",
-  "generatedAt": "2026-08-19T21:36:30.933Z",
+  "generatedAt": "2026-08-20T15:40:11.521Z",
   "systemId": "urevangelium-sahidic-english-v1",
   "manifestSha256": "0bd34c42b1e77ed009d4ef3c7ef8ad5894b00bb7ad592d5a8c96ad8600dd7013",
-  "hornerManifestSha256": "708518586a843f703a6dec819b4e3eabe2eb4c713daf0da11cbd3545253feb03",
+  "hornerManifestSha256": "904c070b6701ca24acb5d02bb624a667457db10ae700ddb369452a061f330ac6",
   "invariants": [
     "Every Sahidica source word-group receives exactly one deterministic decision.",
-    "Only an admitted published translation unit may populate certified contextual English.",
+    "Only an admitted published translation unit may populate contextual English.",
     "KELLIA/CCL output is lexical aid and never contextual translation.",
-    "SCRIPTORIUM entity identity may display only as a source-attributed scholarly automatic annotation pending corroboration.",
-    "Cross-tradition, OCR, AI, and unqualified digital English cannot populate certified Sahidic translation."
+    "A SCRIPTORIUM entity component may display only after exact-row corroboration or multi-witness neighboring-row corroboration in the comparative grid.",
+    "Comparative traditions establish context and alignment but never become the Sahidic English source.",
+    "Unmarked or facsimile-uncontrolled OCR, AI-authored English, and unqualified digital English cannot populate the Sahidic translation layer.",
+    "Facsimile-controlled OCR admissions remain explicitly provisional until upgraded by qualified human transcription review."
   ],
   "totals": {
     "sourceWordGroups": 48275,
-    "publishedTranslation": 0,
-    "publishedLexicalAid": 43901,
-    "scholarlyAutomaticEnglish": 1724,
-    "withheldNoEnglish": 2650,
-    "liveChanges": 1724,
+    "publishedTranslation": 8,
+    "publishedLexicalAid": 43845,
+    "scholarlyAutomaticEnglish": 1340,
+    "generatedContextualAid": 92,
+    "withheldNoEnglish": 2990,
+    "liveChanges": 8,
     "invariantErrors": 0
   },
   "byGospel": {
     "matthew": {
       "sourceWordGroups": 13857,
-      "publishedTranslation": 0,
-      "publishedLexicalAid": 12595,
-      "scholarlyAutomaticEnglish": 501,
-      "withheldNoEnglish": 761
+      "publishedTranslation": 8,
+      "publishedLexicalAid": 12575,
+      "scholarlyAutomaticEnglish": 425,
+      "generatedContextualAid": 32,
+      "withheldNoEnglish": 817
     },
     "mark": {
       "sourceWordGroups": 8390,
       "publishedTranslation": 0,
-      "publishedLexicalAid": 7651,
-      "scholarlyAutomaticEnglish": 287,
-      "withheldNoEnglish": 452
+      "publishedLexicalAid": 7645,
+      "scholarlyAutomaticEnglish": 219,
+      "generatedContextualAid": 11,
+      "withheldNoEnglish": 515
     },
     "luke": {
       "sourceWordGroups": 14237,
       "publishedTranslation": 0,
-      "publishedLexicalAid": 12858,
-      "scholarlyAutomaticEnglish": 444,
-      "withheldNoEnglish": 935
+      "publishedLexicalAid": 12847,
+      "scholarlyAutomaticEnglish": 323,
+      "generatedContextualAid": 24,
+      "withheldNoEnglish": 1043
     },
     "john": {
       "sourceWordGroups": 11791,
       "publishedTranslation": 0,
-      "publishedLexicalAid": 10797,
-      "scholarlyAutomaticEnglish": 492,
-      "withheldNoEnglish": 502
+      "publishedLexicalAid": 10778,
+      "scholarlyAutomaticEnglish": 373,
+      "generatedContextualAid": 25,
+      "withheldNoEnglish": 615
     }
   },
-  "decisionLedgerSha256": "712928b69163315bcf0ee42de799f8071058e854682102f7d2d3d9dc2aff68df",
+  "decisionLedgerSha256": "04b6b0d7495ccf1157942f3649ca32b65d8f40173530b541dff598dd4305d420",
   "errors": []
 }

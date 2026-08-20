@@ -26,7 +26,7 @@ Accepted acquisition classes are:
 
 Every class must establish human origin, exact source edition, sufficient facsimile auditability, and legal permission for public use. Fresh double-key transcription with human adjudication is the gold-standard fallback, not a universal requirement.
 
-OCR, AI transcription, AI translation, unauthorized Logos extraction, TAGNT English, dictionary-generated translation, and English borrowed from another tradition are prohibited from the translation channel.
+Unmarked or facsimile-uncontrolled OCR, AI transcription, AI translation, unauthorized Logos extraction, TAGNT English, dictionary-generated translation, and English borrowed from another tradition are prohibited from the translation channel. Facsimile-controlled OCR may enter only through the explicitly provisional admission class: the scan controls, every unit retains a page locator, and uncertainty fails closed.
 
 ## Admission rule
 

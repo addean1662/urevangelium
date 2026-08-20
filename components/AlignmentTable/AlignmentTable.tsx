@@ -73,6 +73,7 @@ const TRADITIONS: TraditionDef[] = [
 
 export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) {
   const [showSinaiticus, setShowSinaiticus] = useState(false);
+  const [activeCopticSpanId, setActiveCopticSpanId] = useState<string | null>(null);
 
   const bezaeLacuna = getBezaeLacuna(data.gospel, data.chapter, data.verse);
 
@@ -88,6 +89,11 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
   const hasScriptoriumSupplied = data.rows.some((row) =>
     row.coptic?.type === 'text' && row.coptic.gloss?.source === 'Scriptorium'
   );
+  const copticSpanLengths = new Map<string, number>();
+  for (const row of data.rows) {
+    const spanId = row.coptic?.type === 'text' ? row.coptic.gloss?.spanId : undefined;
+    if (spanId) copticSpanLengths.set(spanId, (copticSpanLengths.get(spanId) ?? 0) + 1);
+  }
 
   function pairBg(i: number) {
     return i % 2 === 1 ? 'rgba(250,246,232,0.8)' : 'transparent';
@@ -99,12 +105,6 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
         className="w-full border-collapse text-left table-fixed"
         style={{ minWidth: '1440px' }}
       >
-        <caption className="caption-top px-2 pb-2 text-left font-sans text-[11px] leading-relaxed text-ink-muted">
-          <span className="font-semibold text-semantic-damaged">damaged</span>
-          {' '}means the displayed reading remains readable although the papyrus is physically damaged.
-          An underlined label opens a verified free image or scan of that exact passage. Unlinked labels have no verified image-level link yet.
-          Transcription symbols are retained in the source record, not inserted into the reading.
-        </caption>
         <colgroup>
           {columns.map((col, i) => [
             <col key={`${col.key}-t`} style={{ width: textW,  backgroundColor: pairBg(i) }} />,
@@ -154,6 +154,14 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
                     <div className="w-[10%]" />
                     <div className="w-[45%] pl-2" />
                   </div>
+                  {col.key === 'papyrus' && (
+                    <Link
+                      href="/earliest-papyri#damage-and-scan-key"
+                      className="mt-1 block text-center text-[9px] font-normal normal-case tracking-normal text-accent-gold underline decoration-transparent underline-offset-2 hover:decoration-current"
+                    >
+                      damage &amp; scan key
+                    </Link>
+                  )}
                   {/* Date · Script | Gloss — pinned to same baseline across all columns */}
                   <div className="flex mt-0.5 font-normal normal-case tracking-normal text-xs text-ink-on-band-muted">
                     <div className="w-[45%] text-right pr-2">{`${col.date} · ${col.script}`}</div>
@@ -168,7 +176,17 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
 
         <tbody>
           {data.rows.map((row) => (
-            <AlignmentRow key={row.id} row={row} showSinaiticus={showSinaiticus} />
+            <AlignmentRow
+              key={row.id}
+              row={row}
+              showSinaiticus={showSinaiticus}
+              activeCopticSpanId={activeCopticSpanId}
+              copticSpanLength={row.coptic?.type === 'text' && row.coptic.gloss?.spanId
+                ? copticSpanLengths.get(row.coptic.gloss.spanId) ?? 1
+                : 1}
+              onCopticSpanEnter={setActiveCopticSpanId}
+              onCopticSpanLeave={() => setActiveCopticSpanId(null)}
+            />
           ))}
         </tbody>
 

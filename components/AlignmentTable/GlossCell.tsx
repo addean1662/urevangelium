@@ -5,6 +5,12 @@ import type { GlossCell as GlossCellType } from '@/lib/types';
 interface Props {
   gloss?: GlossCellType | null;
   className?: string;
+  rowSpan?: number;
+  highlighted?: boolean;
+  onPointerEnter?: () => void;
+  onPointerLeave?: () => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
 }
 
 // Crum entries are often multi-term ("gospel, good news (Christian; ...)").
@@ -14,11 +20,12 @@ function splitCrum(text: string): { display: string } {
   return { display };
 }
 
-export function GlossCell({ gloss, className = '' }: Props) {
-  const base = `px-2 py-1.5 text-base border-b border-rule-hairline align-middle ${className}`;
+export function GlossCell({ gloss, className = '', rowSpan, highlighted = false, onPointerEnter, onPointerLeave, onFocus, onBlur }: Props) {
+  const base = `px-2 py-1.5 text-base border-b border-rule-hairline align-middle transition-colors ${highlighted ? 'bg-accent-gold/15' : ''} ${className}`;
+  const interactionProps = { rowSpan, onPointerEnter, onPointerLeave, onFocus, onBlur };
 
   if (!gloss) {
-    return <td className={`${base} text-ink-muted`} aria-label="no gloss">—</td>;
+    return <td className={`${base} text-ink-muted`} aria-label="no gloss" {...interactionProps}>—</td>;
   }
 
   const textColor = gloss.generated || gloss.experimental || gloss.automaticAnnotation ? 'text-accent-gold' : 'text-ink-secondary';
@@ -38,7 +45,7 @@ export function GlossCell({ gloss, className = '' }: Props) {
   if (gloss.source === 'Crum') {
     const { display } = splitCrum(gloss.gloss);
     return (
-      <td className={`${base} ${textColor} italic`} aria-label={`English lexical aid: ${display}`} title={gloss.tooltip}>{display}</td>
+      <td className={`${base} ${textColor} italic`} aria-label={`English lexical aid: ${display}`} title={gloss.tooltip} {...interactionProps}>{display}</td>
     );
   }
 
@@ -48,6 +55,8 @@ export function GlossCell({ gloss, className = '' }: Props) {
       className={`${base} ${continuation ? 'text-ink-muted not-italic text-center' : `${textColor} italic`}`}
       title={gloss.tooltip}
       aria-label={continuation ? `Continues shared English phrase: ${gloss.tooltip ?? ''}` : undefined}
+      tabIndex={onFocus ? 0 : undefined}
+      {...interactionProps}
     >
       {gloss.gloss}
       {badge}

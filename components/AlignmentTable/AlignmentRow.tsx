@@ -11,6 +11,10 @@ import { transliterateCoptic } from '@/lib/transliteration/coptic';
 interface Props {
   row: AlignmentRowType;
   showSinaiticus: boolean;
+  activeCopticSpanId: string | null;
+  copticSpanLength: number;
+  onCopticSpanEnter: (spanId: string) => void;
+  onCopticSpanLeave: () => void;
 }
 
 function cellGloss(cell: PapyrusCell | WitnessCell): GlossCellType | null {
@@ -18,7 +22,12 @@ function cellGloss(cell: PapyrusCell | WitnessCell): GlossCellType | null {
   return null;
 }
 
-export function AlignmentRow({ row, showSinaiticus }: Props) {
+export function AlignmentRow({ row, showSinaiticus, activeCopticSpanId, copticSpanLength, onCopticSpanEnter, onCopticSpanLeave }: Props) {
+  const copticGloss = row.coptic ? cellGloss(row.coptic) : null;
+  const copticSpanId = copticGloss?.spanId;
+  const copticSpanActive = Boolean(copticSpanId && activeCopticSpanId === copticSpanId);
+  const copticContinuation = copticGloss?.spanRole === 'continuation';
+  const enterCopticSpan = copticSpanId ? () => onCopticSpanEnter(copticSpanId) : undefined;
   return (
     <tr>
       <PapyrusCellComponent cell={row.papyrus} />
@@ -27,9 +36,9 @@ export function AlignmentRow({ row, showSinaiticus }: Props) {
 
       {row.coptic ? (
         <>
-          <WitnessCellComponent cell={row.coptic} className="font-coptic" translitFn={transliterateCoptic} />
+          <WitnessCellComponent cell={row.coptic} className="font-coptic" translitFn={transliterateCoptic} highlighted={copticSpanActive} onPointerEnter={enterCopticSpan} onPointerLeave={copticSpanId ? onCopticSpanLeave : undefined} onFocus={enterCopticSpan} onBlur={copticSpanId ? onCopticSpanLeave : undefined} />
           <WitnessIndicator cell={row.coptic} />
-          <GlossCell gloss={cellGloss(row.coptic)} />
+          {!copticContinuation && <GlossCell gloss={copticGloss} rowSpan={copticSpanId ? copticSpanLength : undefined} highlighted={copticSpanActive} onPointerEnter={enterCopticSpan} onPointerLeave={copticSpanId ? onCopticSpanLeave : undefined} onFocus={enterCopticSpan} onBlur={copticSpanId ? onCopticSpanLeave : undefined} />}
         </>
       ) : (
         <>

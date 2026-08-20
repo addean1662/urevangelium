@@ -1,7 +1,7 @@
 {
-  "status": "awaiting-qualified-human-transcription",
+  "status": "facsimile-controlled-ocr-pilot-ready",
   "pilots": [
-    { "id": "pilot-a-control", "selection": "pending-empirical-selection", "purpose": "demonstrate safe admission in a high-agreement passage" },
+    { "id": "pilot-a-control", "gospel": "matthew", "chapter": 1, "verseStart": 1, "verseEnd": 1, "selection": "Matthew 1:1", "purpose": "demonstrate safe admission in a short, readily located passage before attempting finer alignment" },
     { "id": "pilot-b-adversarial", "gospel": "mark", "chapter": 16, "purpose": "demonstrate refusal in a high-risk textual passage" }
   ],
   "horner": {
@@ -9,25 +9,66 @@
     "title": "The Coptic Version of the New Testament in the Southern Dialect, Otherwise Called Sahidic and Thebaic",
     "publisher": "Clarendon Press",
     "publicationYear": 1911,
-    "sourceImages": [],
-    "rightsBasis": null
+    "sourceImages": [
+      { "volume": 1, "gospels": ["Matthew", "Mark"], "internetArchiveIdentifier": "HornerNTSV1Mt", "url": "https://archive.org/details/HornerNTSV1Mt", "role": "user-provided-primary-citation" },
+      { "volume": 1, "gospels": ["Matthew", "Mark"], "internetArchiveIdentifier": "copticversionofn01unse", "url": "https://archive.org/details/copticversionofn01unse", "role": "complete-volume-facsimile-shadow" },
+      { "volume": 2, "gospels": ["Luke"], "internetArchiveIdentifier": "copticversionofn02hornuoft", "url": "https://archive.org/details/copticversionofn02hornuoft", "role": "user-provided-primary-citation" },
+      { "volume": 3, "gospels": ["John"], "internetArchiveIdentifier": "copticversionofn03hornuoft", "url": "https://archive.org/details/copticversionofn03hornuoft", "role": "user-provided-primary-citation" }
+    ],
+    "rightsBasis": "George W. Horner's 1911 Southern/Sahidic Gospel volumes are public-domain printed works; Internet Archive page images control this provisional OCR workflow."
   },
   "sahidica": { "edition": "Sahidica NT", "version": "4.1.0", "versionDate": "2021-03-31", "localSources": "data/sources/coptic-tt/*.tt" },
   "acquisition": {
-    "method": null,
-    "allowedMethods": ["HUMAN_DOUBLE_KEY_NEW", "HUMAN_TRANSCRIPTION_EXISTING_VERIFIED", "PUBLISHER_DIGITAL_TRANSCRIPTION_LICENSED", "SCHOLARLY_EDITION_DIGITAL_TRANSCRIPTION_LICENSED"],
+    "method": "OCR_TRANSCRIPTION_FACSIMILE_CONTROLLED_PROVISIONAL",
+    "allowedMethods": ["OCR_TRANSCRIPTION_FACSIMILE_CONTROLLED_PROVISIONAL", "HUMAN_DOUBLE_KEY_NEW", "HUMAN_TRANSCRIPTION_EXISTING_VERIFIED", "PUBLISHER_DIGITAL_TRANSCRIPTION_LICENSED", "SCHOLARLY_EDITION_DIGITAL_TRANSCRIPTION_LICENSED"],
     "humanOriginVerified": false,
-    "sourceEditionIdentified": false,
-    "auditabilitySufficient": false,
-    "rightsValidForPublicUse": false,
-    "producer": null,
-    "provenanceStatement": null,
-    "permissionIdentifier": null
+    "facsimileControlsOcr": true,
+    "ocrMarkedProvisional": true,
+    "uncertaintyFailsClosed": true,
+    "sourceEditionIdentified": true,
+    "auditabilitySufficient": true,
+    "rightsValidForPublicUse": true,
+    "producer": "Internet Archive OCR derivatives of Horner's public-domain facsimiles",
+    "provenanceStatement": "OCR is an acquisition aid only. Every candidate retains a facsimile locator; the page image controls; uncertainty fails closed.",
+    "permissionIdentifier": "public-domain-horner-facsimile"
   },
-  "prohibitedInputs": ["OCR transcription", "AI transcription", "AI translation", "Logos bulk extraction without written permission", "TAGNT English", "dictionary-generated translation", "English borrowed from another tradition"],
+  "prohibitedInputs": ["unmarked OCR transcription", "AI transcription", "AI translation", "Logos bulk extraction without written permission", "TAGNT English", "dictionary-generated translation", "English borrowed from another tradition"],
   "allowedEquivalenceClasses": ["TEXT_EXACT", "UNICODE_CANONICAL_EQUIVALENCE", "LAYOUT_ONLY", "PUNCTUATION_ONLY", "SEGMENTATION_ONLY", "SUPRALINEAR_DIFFERENCE_REVIEWED", "NOMEN_SACRUM_EXPANSION_EXACT"],
   "automaticNormalizationOperations": ["UNICODE_NFC", "REMOVE_LINE_BREAK", "REMOVE_PAGE_BREAK", "NORMALIZE_PRINTER_SPACING", "CONCATENATE_SEGMENTATION", "REMOVE_PUNCTUATION_FOR_TEXTUAL_COMPARISON"],
   "reviewRequiredOperations": ["SUPRALINEAR_DIFFERENCE", "NOMEN_SACRUM_EXPANSION", "ABBREVIATION_MARK", "EDITORIAL_BRACKET", "DAMAGED_OR_RECONSTRUCTED_CHARACTER"],
   "neverAdmissibleNormalizations": ["SPELLING_NORMALIZATION", "LEXICAL_CHARACTER_SUBSTITUTION", "MORPHOLOGICAL_NORMALIZATION", "BOUND_FORM_NORMALIZATION", "LEMMA_EQUIVALENCE", "ASSUMED_SCRIBAL_ERROR"],
-  "translationUnits": []
+  "translationUnits": [
+    {
+      "id": "horner-matt-1-1-control-candidate",
+      "pilotId": "pilot-a-control",
+      "gospel": "matthew",
+      "chapter": 1,
+      "verseStart": 1,
+      "verseEnd": 1,
+      "hornerVolume": 1,
+      "hornerPage": "2-3",
+      "hornerCopticRaw": "ⲡϫⲱⲱⲙⲉ ⲙ̄ⲡⲉϫⲡⲟ ⲛ̄ⲓ̄ⲥ̄ ⲡⲉⲭ̄ⲥ̄ ⲡϣⲏⲣⲉ ⲛ̄ⲇⲁⲩⲉⲓⲇ ⲡϣⲏⲣⲉ ⲛ̄ⲁⲃⲣⲁϩⲁⲙ.",
+      "hornerCopticComparisonForm": "ⲡϫⲱⲱⲙⲉ ⲙⲡⲉϫⲡⲟ ⲛⲓⲏⲥⲟⲩⲥ ⲡⲉⲭⲣⲓⲥⲧⲟⲥ ⲡϣⲏⲣⲉ ⲛⲇⲁⲩⲉⲓⲇ ⲡϣⲏⲣⲉ ⲛⲁⲃⲣⲁϩⲁⲙ",
+      "hornerEnglishVerbatim": "The book of the generation of Jesus the Christ, the son of Daveid, the son of Abraham.",
+      "sahidicaCopticRaw": "ⲡϫⲱⲱⲙⲉ ⲙⲡⲉϫⲡⲟ ⲛⲓⲏⲥⲟⲩⲥ ⲡⲉⲭⲣⲓⲥⲧⲟⲥ ⲡϣⲏⲣⲉ ⲛⲇⲁⲩⲉⲓⲇ ⲡϣⲏⲣⲉ ⲛⲁⲃⲣⲁϩⲁⲙ .",
+      "sahidicaComparisonForm": "ⲡϫⲱⲱⲙⲉ ⲙⲡⲉϫⲡⲟ ⲛⲓⲏⲥⲟⲩⲥ ⲡⲉⲭⲣⲓⲥⲧⲟⲥ ⲡϣⲏⲣⲉ ⲛⲇⲁⲩⲉⲓⲇ ⲡϣⲏⲣⲉ ⲛⲁⲃⲣⲁϩⲁⲙ",
+      "sahidicaGroupIds": ["matthew.1.1.1", "matthew.1.1.2", "matthew.1.1.3", "matthew.1.1.4", "matthew.1.1.5", "matthew.1.1.6", "matthew.1.1.7", "matthew.1.1.8"],
+      "translationUnitBoundaryBasis": "Horner's printed Matthew 1:1 sentence boundary; finer semantic segmentation is prohibited at this stage.",
+      "equivalenceClass": "NOMEN_SACRUM_EXPANSION_EXACT",
+      "normalizationOperations": [
+        {"type": "SUPRALINEAR_DIFFERENCE", "before": "ⲙ̄ / ⲛ̄ and printed abbreviation strokes", "after": "ⲙ / ⲛ and explicit abbreviation records", "rule": "SUPRALINEAR-RECORDED-NOT-LEXICAL", "reviewedBy": "Urevangelium facsimile-controlled inspection 2026-08-20"},
+        {"type": "NOMEN_SACRUM_EXPANSION", "before": "ⲓ̄ⲥ̄", "after": "ⲓⲏⲥⲟⲩⲥ", "rule": "NS-JESUS-EXACT", "reviewedBy": "Urevangelium facsimile-controlled inspection 2026-08-20"},
+        {"type": "NOMEN_SACRUM_EXPANSION", "before": "ⲭ̄ⲥ̄", "after": "ⲭⲣⲓⲥⲧⲟⲥ", "rule": "NS-CHRIST-EXACT", "reviewedBy": "Urevangelium facsimile-controlled inspection 2026-08-20"},
+        {"type": "REMOVE_PUNCTUATION_FOR_TEXTUAL_COMPARISON", "before": ".", "after": "", "rule": "TERMINAL-PUNCTUATION-NONLEXICAL"}
+      ],
+      "decision": "admit",
+      "reviewStatus": "internally-validated-provisional-ocr",
+      "facsimileLocator": {"internetArchiveIdentifier": "copticversionofn01unse", "pdfPage": 20, "printedPage": 2, "pairedEnglishPdfPage": 21, "pairedEnglishPrintedPage": 3},
+      "provenance": {
+        "englishAcquisition": "Internet Archive OCR located against Horner Volume I printed English page 3",
+        "facsimileRequiredBeforeAdmission": true,
+        "ocrMayOverridePageImage": false
+      }
+    }
+  ]
 }

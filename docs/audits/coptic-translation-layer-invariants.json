@@ -1,17 +1,20 @@
 {
   "status": "passed",
-  "generatedAt": "2026-08-19T21:36:39.888Z",
+  "generatedAt": "2026-08-20T23:10:22.193Z",
   "invariants": [
-    "CERTIFIED_SAHIDIC_TRANSLATION is a subset of ADMITTED_PUBLISHED_SAHIDIC_TRANSLATION_UNITS",
-    "SCHOLARLY_AUTOMATIC_ANNOTATION is visibly labeled and excluded from certified translation totals",
-    "LEXICAL_AID, TAGNT_EVIDENCE, GENERATED_ENGLISH, AI_OUTPUT, and OCR_OUTPUT are disjoint from CERTIFIED_SAHIDIC_TRANSLATION"
+    "SAHIDIC_TRANSLATION is a subset of ADMITTED_PUBLISHED_SAHIDIC_TRANSLATION_UNITS",
+    "SCHOLARLY_AUTOMATIC_ANNOTATION and GENERATED_CONTEXTUAL_AID are visibly labeled and excluded from published-translation totals",
+    "LEXICAL_AID, TAGNT_EVIDENCE, GENERATED_ENGLISH, and AI_OUTPUT are disjoint from PUBLISHED_SAHIDIC_TRANSLATION",
+    "Facsimile-controlled OCR translation units remain provisional until upgraded by qualified human transcription review"
   ],
   "totals": {
     "copticTextCells": 48275,
-    "lexicalAidCells": 43901,
-    "scholarlyAutomaticEnglishCells": 1724,
-    "displayedTranslationCells": 0,
-    "blankCells": 2650,
+    "lexicalAidCells": 43845,
+    "scholarlyAutomaticEnglishCells": 1344,
+    "generatedContextualAidCells": 92,
+    "displayedTranslationCells": 235,
+    "classifiedSourceDiscrepancyCells": 1,
+    "blankCells": 2759,
     "violations": 0
   },
   "violations": []

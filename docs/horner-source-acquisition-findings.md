@@ -1,6 +1,6 @@
 # Horner source-acquisition findings
 
-**Checked:** 2026-08-18
+**Checked:** 2026-08-20
 
 ## Logos SCNTE
 
@@ -21,10 +21,10 @@
 
 ## Facsimile coverage
 
-- Southern Dialect volume 2 (Luke) and volume 3 (John) have confirmed public-domain Internet Archive page-image records.
-- The similarly named Internet Archive volume 1 identifiers inspected are the Northern/Bohairic edition, not the Southern/Sahidic edition. They are explicitly excluded from the pilot.
-- A trustworthy downloadable facsimile for Southern Dialect volume 1 (Matthew and Mark) remains to be pinned. Google Books has a volume record, but it is not yet an acquired pilot source.
-- Internet Archive OCR is explicitly machine-generated and remains prohibited; only page images qualify as facsimile evidence.
+- All three Southern Dialect Gospel volumes now have confirmed Internet Archive page-image records and locally pinned evidence packages: volume 1 (Matthew and Mark), volume 2 (Luke), and volume 3 (John).
+- The project owner's Volume 1 citation is Internet Archive item `HornerNTSV1Mt`, covering Matthew and Mark. Item `copticversionofn01unse` is retained as a complete-volume facsimile shadow for page-level comparison, not as a replacement source.
+- Each primary package contains the PDF facsimile, CHOCR, plain OCR text, printed-page mapping, and scan metadata. SHA-256 values are recorded in `docs/horner-source-acquisition-manifest.json`.
+- OCR is permitted as a provisional acquisition and alignment aid by project decision dated 2026-08-20. It is not independent textual evidence and cannot override the printed page image. Uncertain readings fail closed pending facsimile verification.
 
 ## Sahidica/SCRIPTORIUM
 
@@ -35,4 +35,4 @@
 
 ## Decision
 
-No source currently qualifies as the authoritative Horner input. The next step is sending the three prepared requests and recording the responses in the acquisition manifest. Fresh double-key transcription remains the fallback only if no existing qualified source can be licensed or verified.
+The public-domain Horner facsimiles are the authoritative printed source. Their Internet Archive OCR derivatives may now be used to build provisional translation units, provided every admitted unit retains an exact facsimile locator and OCR status. OCR-derived wording is not yet eligible for an independently reviewed claim. Logos is neither required nor permitted in this acquisition path. Human correction or double-key transcription remains the preferred upgrade path for uncertain or high-risk units.

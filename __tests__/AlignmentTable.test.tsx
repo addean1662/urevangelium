@@ -48,6 +48,14 @@ describe('papyrus condition presentation', () => {
 });
 
 describe('Matthew 1:1 proof row', () => {
+  it('renders the admitted Horner English once across all eight Sahidic word-groups', () => {
+    const { container } = render(<AlignmentTable data={matthewData as VerseData} />);
+    const phrase = screen.getByText('The book of the generation of Jesus the Christ, the son of Daveid, the son of Abraham.');
+    expect(phrase.closest('td')).toHaveAttribute('rowspan', '8');
+    expect(screen.getAllByText('The book of the generation of Jesus the Christ, the son of Daveid, the son of Abraham.')).toHaveLength(1);
+    expect(container.textContent).not.toContain('↳');
+  });
+
   it('renders P1 papyrus indicator for Matthew 1:1', () => {
     const { container } = render(<AlignmentTable data={matthewData as VerseData} />);
     expect(container.querySelectorAll('[title*="P1"]').length).toBeGreaterThan(0);

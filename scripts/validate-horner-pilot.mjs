@@ -20,7 +20,13 @@ for (const unit of manifest.translationUnits ?? []) {
   if (unit.decision !== 'admit') continue;
   if (!allowedEquivalence.has(unit.equivalenceClass)) errors.push(`${unit.id}: admission forbidden for ${unit.equivalenceClass}`);
   if (!allowedMethods.has(manifest.acquisition?.method)) errors.push(`${unit.id}: qualified acquisition method missing`);
-  for (const field of ['humanOriginVerified', 'sourceEditionIdentified', 'auditabilitySufficient', 'rightsValidForPublicUse']) if (manifest.acquisition?.[field] !== true) errors.push(`${unit.id}: acquisition.${field} must be true`);
+  const commonFields = ['sourceEditionIdentified', 'auditabilitySufficient', 'rightsValidForPublicUse'];
+  for (const field of commonFields) if (manifest.acquisition?.[field] !== true) errors.push(`${unit.id}: acquisition.${field} must be true`);
+  if (manifest.acquisition?.method === 'OCR_TRANSCRIPTION_FACSIMILE_CONTROLLED_PROVISIONAL') {
+    for (const field of ['facsimileControlsOcr', 'ocrMarkedProvisional', 'uncertaintyFailsClosed']) if (manifest.acquisition?.[field] !== true) errors.push(`${unit.id}: OCR acquisition.${field} must be true`);
+    if (unit.reviewStatus !== 'internally-validated-provisional-ocr') errors.push(`${unit.id}: OCR admission must remain explicitly provisional`);
+    if (!unit.facsimileLocator) errors.push(`${unit.id}: OCR admission requires facsimileLocator`);
+  } else if (manifest.acquisition?.humanOriginVerified !== true) errors.push(`${unit.id}: acquisition.humanOriginVerified must be true`);
   if (!manifest.horner.sourceImages?.length) errors.push(`${unit.id}: facsimile source record missing`);
   if (!manifest.horner.rightsBasis) errors.push(`${unit.id}: rights basis missing`);
   if (!unit.hornerEnglishVerbatim) errors.push(`${unit.id}: Horner English must be verbatim`);
