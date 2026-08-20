@@ -14,7 +14,7 @@ interface Props {
 }
 
 function cellGloss(cell: PapyrusCell | WitnessCell): GlossCellType | null {
-  if (cell.type === 'text' || cell.type === 'extant') return cell.gloss ?? null;
+  if (cell.type === 'text' || cell.type === 'extant' || cell.type === 'translation') return cell.gloss ?? null;
   return null;
 }
 

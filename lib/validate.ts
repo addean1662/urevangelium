@@ -62,9 +62,21 @@ const EmptyCellSchema = z.object({ type: z.literal('empty') });
 const OmittedCellSchema = z.object({ type: z.literal('omitted') });
 const LostCellSchema = z.object({ type: z.literal('lost') });
 const LacunaCellSchema = z.object({ type: z.literal('lacuna') });
+const TranslationOnlyCellSchema = z.object({
+  type: z.literal('translation'),
+  gloss: GlossCellSchema,
+  provenance: z.object({
+    authority: z.string(),
+    sourceReference: z.string(),
+    englishIndex: z.number().int().nonnegative(),
+    alignmentGroupId: z.string(),
+    status: z.literal('published-translation-row'),
+  }),
+});
 
 const WitnessCellSchema = z.discriminatedUnion('type', [
   TextCellSchema,
+  TranslationOnlyCellSchema,
   EmptyCellSchema,
   OmittedCellSchema,
   LostCellSchema,
@@ -101,6 +113,8 @@ const PapyrusCellSchema = z.discriminatedUnion('type', [
 
 const AlignmentRowSchema = z.object({
   id: z.string(),
+  alignmentGroupIds: z.array(z.string()).optional(),
+  rowKind: z.enum(['source', 'translation-expansion']).optional(),
   papyrus: PapyrusCellSchema,
   coptic: WitnessCellSchema.optional(),
   vaticanus: WitnessCellSchema,

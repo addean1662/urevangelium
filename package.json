@@ -70,6 +70,14 @@
     ,"extract:vulgate:lewis-short": "node scripts/extract-vulgate-lewis-short-evidence.mjs"
     ,"adjudicate:vulgate:word-english": "node scripts/adjudicate-vulgate-word-english.mjs"
     ,"apply:vulgate:word-english": "node scripts/apply-vulgate-word-english.mjs --apply"
+    ,"adjudicate:vulgate:lexical-rows": "node scripts/adjudicate-vulgate-lexical-rows.mjs"
+    ,"apply:vulgate:lexical-rows": "node scripts/apply-vulgate-lexical-rows.mjs --apply"
+    ,"build:vulgate:corpus-consensus": "node scripts/build-vulgate-corpus-consensus.mjs"
+    ,"shadow:vulgate:expanded-rows": "node scripts/build-vulgate-expanded-row-shadow.mjs"
+    ,"shadow:vulgate:expanded-row-placement": "node scripts/build-vulgate-expanded-row-placement-shadow.mjs"
+    ,"audit:vulgate:cross-tradition-rows": "node scripts/build-vulgate-cross-tradition-row-evidence.mjs"
+    ,"shadow:vulgate:cross-tradition-english": "node scripts/build-vulgate-cross-tradition-english-shadow.mjs"
+    ,"adjudicate:vulgate:cross-tradition-english": "node scripts/adjudicate-vulgate-cross-tradition-english.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.95.1",

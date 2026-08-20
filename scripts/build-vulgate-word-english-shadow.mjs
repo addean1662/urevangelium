@@ -8,6 +8,7 @@ const unitsFile = path.join(ROOT, 'data', 'sources', 'vulgate-english', 'admitte
 const adjudicationFile = path.join(ROOT, 'docs', 'audits', 'vulgate-english-adjudication.json');
 const dictFile = path.join(ROOT, 'data', 'sources', 'glosses', 'whitaker', 'DICTLINE.GEN');
 const lewisShortFile = path.join(ROOT, 'data', 'sources', 'glosses', 'lewis-short', 'lat.ls.perseus-eng1.xml');
+const consensusFile = path.join(ROOT, 'docs', 'audits', 'vulgate-corpus-consensus.json');
 const outputFile = path.join(ROOT, 'docs', 'audits', 'vulgate-word-english-shadow.json');
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex');
 
@@ -15,10 +16,18 @@ const normalize = (value) => value
   .normalize('NFD')
   .replace(/\p{M}+/gu, '')
   .toLocaleLowerCase('en')
+  // Classical/Church Latin ligatures are spelling-equivalent comparison
+  // forms. This affects lookup only; the certified displayed Latin is never
+  // rewritten.
+  .replaceAll('æ', 'ae')
+  .replaceAll('œ', 'oe')
   .replace(/[^\p{L}\p{N}]+/gu, '');
 
 const englishWords = (value) => value.match(/[\p{L}\p{N}]+(?:['’][\p{L}\p{N}]+)*/gu) ?? [];
 const latinWords = (value) => value.match(/[\p{L}\p{N}]+/gu) ?? [];
+const corpusConsensus = fs.existsSync(consensusFile)
+  ? JSON.parse(fs.readFileSync(consensusFile, 'utf8'))
+  : { entries: {}, consensusSha256: null };
 
 function loadDictionary() {
   const map = new Map();
@@ -99,8 +108,20 @@ function analyzedEntries(surface) {
   ])];
   const whitakerMeanings = [];
   const headwords = new Set();
+  const grammaticalCases = new Set();
+  const grammaticalMoods = new Set();
+  const finiteVerbForms = new Set();
   function collectDictionaryMeanings(value) {
     if (!value || typeof value !== 'object') return;
+    const inflection = value.ir?.qual;
+    for (const detail of [inflection?.noun, inflection?.pron, inflection?.pack]) {
+      if (detail?.cs) grammaticalCases.add(detail.cs);
+    }
+    for (const detail of [inflection?.verb, inflection?.vpar]) {
+      if (detail?.tenseVoiceMood?.mood) grammaticalMoods.add(detail.tenseVoiceMood.mood);
+    }
+    const verb = inflection?.verb;
+    if (verb?.person > 0 && !['INF', 'PPL'].includes(verb.tenseVoiceMood?.mood)) finiteVerbForms.add(`${verb.person}${verb.number}`);
     if (value.de?.mean) {
       whitakerMeanings.push(value.de.mean);
       const headword = dictionaryForm(value.de).split(/[\s,]+/u)[0];
@@ -116,7 +137,7 @@ function analyzedEntries(surface) {
   const lewisShortMeanings = [...headwords].map((headword) => lewisShort.get(headword)).filter(Boolean);
   const whitakerEntries = [...new Set(whitakerMeanings)];
   const lewisShortEntries = [...new Set(lewisShortMeanings)];
-  return { whitakerEntries, lewisShortEntries, allEntries: [...new Set([...whitakerEntries, ...lewisShortEntries])] };
+  return { whitakerEntries, lewisShortEntries, grammaticalCases: [...grammaticalCases].sort(), grammaticalMoods: [...grammaticalMoods].sort(), finiteVerbForms: [...finiteVerbForms].sort(), allEntries: [...new Set([...whitakerEntries, ...lewisShortEntries])] };
 }
 
 const irregularEnglish = new Map(Object.entries({
@@ -142,6 +163,33 @@ const irregularEnglish = new Map(Object.entries({
   rises: 'rise', rose: 'rise', risen: 'rise', rising: 'rise',
   eats: 'eat', ate: 'eat', eaten: 'eat', eating: 'eat',
   drinks: 'drink', drank: 'drink', drunk: 'drink', drinking: 'drink',
+  begins: 'begin', began: 'begin', begun: 'begin', beginning: 'begin',
+  begets: 'beget', begot: 'beget', begotten: 'beget', begetting: 'beget',
+  stands: 'stand', stood: 'stand', standing: 'stand',
+  teaches: 'teach', taught: 'teach', teaching: 'teach',
+  seeks: 'seek', sought: 'seek', seeking: 'seek',
+  sits: 'sit', sat: 'sit', sitten: 'sit', sitting: 'sit',
+  lies: 'lie', lay: 'lie', lain: 'lie', lying: 'lie',
+  bears: 'bear', bore: 'bear', borne: 'bear', born: 'bear', bearing: 'bear',
+  falls: 'fall', fell: 'fall', fallen: 'fall', falling: 'fall',
+  grows: 'grow', grew: 'grow', grown: 'grow', growing: 'grow',
+  holds: 'hold', held: 'hold', holding: 'hold',
+  dwells: 'dwell', dwelt: 'dwell', dwelling: 'dwell',
+  hears: 'hear', heard: 'hear', hearing: 'hear',
+  leads: 'lead', led: 'lead', leading: 'lead',
+  loses: 'lose', lost: 'lose', losing: 'lose',
+  meets: 'meet', met: 'meet', meeting: 'meet',
+  pays: 'pay', paid: 'pay', paying: 'pay',
+  runs: 'run', ran: 'run', running: 'run',
+  sells: 'sell', sold: 'sell', selling: 'sell',
+  shines: 'shine', shone: 'shine', shining: 'shine',
+  shew: 'show', shows: 'show', shews: 'show', showed: 'show', shewed: 'show', shown: 'show', showing: 'show', shewing: 'show',
+  understands: 'understand', understood: 'understand', understanding: 'understand',
+  wins: 'win', won: 'win', winning: 'win',
+  named: 'name', naming: 'name',
+  cometh: 'come', goeth: 'go', seeth: 'see', giveth: 'give', taketh: 'take', knoweth: 'know',
+  riseth: 'rise', ariseth: 'arise', arose: 'arise', arisen: 'arise',
+  shineth: 'shine', crieth: 'cry',
   men: 'man', women: 'woman', children: 'child', brethren: 'brother', feet: 'foot',
   greater: 'great', greatest: 'great', less: 'little', least: 'little', better: 'good', best: 'good', worse: 'bad', worst: 'bad',
   first: 'one', second: 'two', third: 'three', fourth: 'four', fifth: 'five', sixth: 'six', seventh: 'seven', eighth: 'eight', ninth: 'nine', tenth: 'ten',
@@ -157,25 +205,25 @@ function englishLemma(value) {
   if (irregularEnglish.has(word)) return irregularEnglish.get(word);
   if (word.length > 5 && word.endsWith('eth')) {
     const base = word.slice(0, -3);
-    return base.endsWith('v') || base.endsWith('k') || base.endsWith('c') ? `${base}e` : base;
+    return base.endsWith('v') || base.endsWith('k') || base.endsWith('c') || base.endsWith('z') ? `${base}e` : base;
   }
   if (word.length > 5 && word.endsWith('est') && !new Set(['greatest', 'priest', 'honest', 'forest', 'harvest', 'modest', 'interest']).has(word)) {
     const base = word.slice(0, -3);
-    return base.endsWith('v') || base.endsWith('k') || base.endsWith('c') ? `${base}e` : base;
+    return base.endsWith('v') || base.endsWith('k') || base.endsWith('c') || base.endsWith('z') ? `${base}e` : base;
   }
   if (word.length > 5 && word.endsWith('ies')) return `${word.slice(0, -3)}y`;
   if (word.length > 5 && word.endsWith('ing')) {
     const base = word.slice(0, -3);
     if (base.endsWith(base.at(-1).repeat(2)) && !/[lsz]$/u.test(base)) return base.slice(0, -1);
-    return base.endsWith('v') || base.endsWith('k') ? `${base}e` : base;
+    return base.endsWith('v') || base.endsWith('z') || base.endsWith('c') || (base.length === 3 && base.endsWith('k')) ? `${base}e` : base;
   }
   if (word.length > 4 && word.endsWith('ied')) return `${word.slice(0, -3)}y`;
   if (word.length > 4 && word.endsWith('ed')) {
     const base = word.slice(0, -2);
     if (base.endsWith(base.at(-1).repeat(2)) && !/[lsz]$/u.test(base)) return base.slice(0, -1);
-    return base.endsWith('at') || base.endsWith('it') || base.endsWith('iz') ? `${base}e` : base;
+    return base.endsWith('v') || base.endsWith('z') || base.endsWith('c') || (base.length === 3 && base.endsWith('k')) || base.endsWith('at') || base.endsWith('it') || base.endsWith('iz') ? `${base}e` : base;
   }
-  if (word.length > 4 && word.endsWith('es')) return word.slice(0, -2);
+  if (word.length > 4 && word.endsWith('es') && /(?:s|x|z|ch|sh|o)es$/u.test(word)) return word.slice(0, -2);
   if (word.length > 3 && word.endsWith('s')) return word.slice(0, -1);
   return word;
 }
@@ -194,18 +242,104 @@ const lewisShortAnchorStopwords = new Set([
 const whitakerContentStopwords = new Set([
   'a', 'an', 'the', 'and', 'or', 'but', 'nor', 'of', 'to', 'in', 'on', 'at', 'by', 'for', 'from', 'with', 'as', 'than',
   'he', 'she', 'it', 'they', 'i', 'we', 'you', 'this', 'that', 'these', 'those', 'who', 'which', 'what',
+  'thing', 'things', 'be',
 ]);
 
 const latinFunctionWords = new Map(Object.entries({
-  et: ['and'], autem: ['but'], enim: ['for'], in: ['in'], non: ['not'], neque: ['neither', 'nor'], nec: ['nor'],
-  vel: ['or'], aut: ['or'], ad: ['to'], de: ['of', 'from'], ex: ['from'], e: ['from'], cum: ['with', 'when'],
-  per: ['through', 'by'], quia: ['because'], ut: ['that', 'as'], si: ['if'], sed: ['but'], ergo: ['therefore'],
+  et: ['and', 'also'], autem: ['but', 'however', 'moreover', 'also', 'and'], enim: ['for'],
+  in: ['in', 'on', 'at', 'into', 'among', 'within', 'unto', 'for'], non: ['not', 'no'], neque: ['neither', 'nor'], nec: ['nor', 'not'],
+  vel: ['or'], aut: ['or'], ad: ['to', 'unto', 'at', 'by', 'towards', 'against', 'about'], de: ['of', 'from'], ex: ['from'], e: ['from'],
+  cum: ['with', 'when', 'while', 'whilst', 'after', 'since', 'although', 'whereas', 'as', 'seeing'],
+  per: ['through', 'by'], quia: ['because', 'that', 'for', 'seeing'], ut: ['that', 'as', 'to'], si: ['if'], sed: ['but'], ergo: ['therefore', 'then'],
   igitur: ['therefore'], quoque: ['also'], quidem: ['indeed'], amen: ['amen'],
+  qui: ['who', 'that', 'which'], quae: ['who', 'that', 'which'], quod: ['that', 'which', 'what'],
+  quem: ['whom', 'that', 'which'], quam: ['whom', 'that', 'which', 'than', 'as'], cui: ['whom', 'which'],
+  cuius: ['whose'], cujus: ['whose'], quo: ['where', 'which', 'wherein', 'whither'], quos: ['whom', 'which'], quas: ['whom', 'which'],
+  quibus: ['whom', 'which'], quis: ['who', 'what', 'man', 'anyone'], quid: ['what'],
+  apud: ['with', 'among'], sine: ['without'],
+  ipse: ['he', 'himself'], ipsa: ['she', 'herself'], ipsum: ['him', 'it', 'itself'], ipso: ['him', 'it'],
+  ipsi: ['he', 'him'], ipsam: ['her'], ipsius: ['his', 'her', 'its'], ipsos: ['them'], ipsas: ['them'],
+  ipsorum: ['their'], ipsarum: ['their'], ipsis: ['them'],
+  ego: ['i'], mei: ['me', 'my'], mihi: ['me'], me: ['me'], nos: ['we', 'us'], nobis: ['us'], nostrum: ['our', 'us'], nostri: ['our', 'us'],
+  tu: ['thou', 'you'], tui: ['thee', 'thy'], tibi: ['thee', 'you'], te: ['thee', 'you'], vos: ['you'], vobis: ['you'], vestrum: ['your', 'you'], vestri: ['your', 'you'],
+  eum: ['him', 'it'], eius: ['his', 'her', 'its', 'of'], ejus: ['his', 'her', 'its', 'of', 'him'], ei: ['him', 'her', 'it'], eis: ['them'], eos: ['them'], eas: ['them'], ea: ['it', 'them', 'these'],
+  ille: ['he', 'that'], illum: ['him', 'it', 'that'], illi: ['he', 'him', 'they'], illis: ['them'], illos: ['them'], illas: ['them'], illo: ['him', 'it', 'that'],
+  illa: ['she', 'it', 'that'], illam: ['her', 'it'], illud: ['it', 'that'], illius: ['his', 'her', 'its'], illorum: ['their'], illarum: ['their'],
+  hic: ['he', 'this', 'here'], haec: ['she', 'this', 'these', 'things'], hoc: ['it', 'this'], hunc: ['him', 'this'], hanc: ['her', 'this'],
+  huic: ['him', 'her', 'this'], huius: ['his', 'her', 'this'], hujus: ['his', 'her', 'this'], his: ['them', 'these'], hos: ['them', 'these'], has: ['them', 'these'],
+  meus: ['my'], mea: ['my'], meum: ['my'], mei: ['me', 'my'], meae: ['my'], meam: ['my'], meo: ['my'], meos: ['my'], meas: ['my'], meorum: ['my'], meis: ['my'],
+  tuus: ['thy', 'your'], tua: ['thy', 'your'], tuum: ['thy', 'your'], tui: ['thee', 'thy', 'your'], tuae: ['thy', 'your'], tuam: ['thy', 'your'], tuo: ['thy', 'your'], tuos: ['thy', 'your'], tuas: ['thy', 'your'], tuis: ['thy', 'your'],
+  suus: ['his', 'her', 'their'], sua: ['his', 'her', 'their'], suum: ['his', 'her', 'their'], sui: ['his', 'her', 'their'], suae: ['his', 'her', 'their'], suam: ['his', 'her', 'their'], suo: ['his', 'her', 'their'], suos: ['his', 'her', 'their'], suas: ['his', 'her', 'their'], suis: ['his', 'her', 'their'],
+  vester: ['your'], vestra: ['your'], vestrum: ['your', 'you'], vestri: ['your', 'you'], vestrae: ['your'], vestram: ['your'], vestro: ['your'], vestros: ['your'], vestras: ['your'], vestris: ['your'],
+  omnes: ['all'], omnia: ['all', 'things'], sicut: ['as', 'like'], at: ['but', 'and'], nam: ['for'], donec: ['till', 'until'], adhuc: ['yet', 'still'],
+  se: ['himself', 'herself', 'itself', 'themselves', 'him', 'her', 'them'], eorum: ['their', 'them'], eam: ['her', 'it'], eo: ['him', 'it', 'there'],
+  propter: ['for', 'because'], quidam: ['some', 'certain'], quid: ['what', 'why'], vero: ['but', 'indeed', 'truly'],
+  quoniam: ['because', 'that', 'for'], pro: ['for'], nisi: ['unless', 'except', 'but'], super: ['on', 'upon', 'over', 'above'], supra: ['on', 'upon', 'over', 'above'],
+  similiter: ['similarly', 'like', 'manner'], invicem: ['one', 'another'], mecum: ['with', 'me'], circa: ['about', 'around'],
+  ab: ['by', 'from', 'of'], a: ['by', 'from', 'of'], ex: ['from', 'of'], de: ['of', 'from', 'concerning'],
+  usque: ['until', 'till', 'unto'], dum: ['while', 'whilst', 'until', 'as'], pascha: ['pasch', 'passover'],
+  statim: ['presently', 'immediately'], si: ['if', 'whether', 'although'], vero: ['but', 'indeed', 'truly', 'and'], ergo: ['therefore', 'then', 'so', 'and'],
+  sine: ['without', 'let', 'allow'], nomine: ['name', 'named'],
+  sum: ['am', 'be'], es: ['art', 'are'], est: ['is', 'was', 'be'], sumus: ['are'], estis: ['are'], sunt: ['are', 'were'],
+  eram: ['was'], eras: ['wast', 'were'], erat: ['was'], eramus: ['were'], eratis: ['were'], erant: ['were'],
+  fui: ['was', 'have'], fuisti: ['wast', 'have'], fuit: ['was'], fuimus: ['were'], fuistis: ['were'], fuerunt: ['were'],
+  fuerim: ['be', 'have'], fueris: ['be', 'have'], fuerit: ['be', 'shall'], fuerimus: ['be'], fueritis: ['be'],
+  esset: ['was', 'were'], essent: ['were'], sit: ['be', 'is'], sint: ['be', 'are'], ero: ['be'], erit: ['be', 'shall'],
+  erunt: ['be', 'shall', 'will'], eritis: ['be', 'shall', 'will'],
+  fuerat: ['was', 'had', 'been'], fuerant: ['were', 'had', 'been'], fuerint: ['be', 'have'],
+  fuero: ['be', 'shall'], fuisset: ['been', 'had'], esse: ['be', 'being'], sis: ['be'], sitis: ['be'],
+  fieri: ['be', 'become', 'done'],
+  homo: ['man'], hominem: ['man'], hominis: ['man'], homini: ['man'], homine: ['man'],
+  homines: ['men'], hominum: ['men'], hominibus: ['men'], hominumque: ['men'],
+  sacerdos: ['priest'], sacerdotem: ['priest'], sacerdotis: ['priest'], sacerdote: ['priest'],
+  sacerdotes: ['priests'], sacerdotum: ['priests'], sacerdotibus: ['priests'],
+  spiritus: ['spirit', 'ghost'], spiritum: ['spirit', 'ghost'], spiritu: ['spirit', 'ghost'], spiritui: ['spirit', 'ghost'],
+  pharisaei: ['pharisees'], pharisaeorum: ['pharisees'], pharisaeis: ['pharisees'], pharisaeos: ['pharisees'],
+  filii: ['sons', 'children'], filios: ['sons', 'children'], filiorum: ['sons', 'children'], filiis: ['sons', 'children'],
+  panes: ['bread', 'loaves'], panem: ['bread', 'loaf'], panis: ['bread', 'loaf'],
+  monumentum: ['monument', 'tomb', 'grave', 'sepulchre'], monumenti: ['monument', 'tomb', 'grave', 'sepulchre'],
+  pullum: ['colt'], pullus: ['colt'],
+  iacobum: ['jacob', 'james'], jacobum: ['jacob', 'james'],
+  ostensionis: ['manifestation'], dolentes: ['sorrowing', 'grieving'],
+  facis: ['do', 'dost', 'make', 'makest'], valebant: ['able'],
+  prae: ['for', 'before', 'because'],
+  comprehenderunt: ['comprehend'], cognovit: ['knew', 'know'], receperunt: ['received', 'receive'],
+  plenitudine: ['fulness', 'fullness'], quasi: ['as', 'it', 'were', 'about'],
+  mundus: ['world'], mundo: ['world'],
+  oportet: ['must', 'ought'], cognoverunt: ['knew', 'known', 'understood'], potest: ['can', 'able'],
+  praecepit: ['commanded', 'charged'], surge: ['arise', 'rise'], sinite: ['let', 'allow'],
+  rogabant: ['asked', 'besought', 'desired', 'prayed'], rogabat: ['asked', 'besought', 'desired', 'prayed'],
+  rogaverunt: ['asked', 'besought', 'desired', 'prayed'], recipit: ['receiveth', 'receive'],
+  quaerit: ['seeketh', 'seeks', 'seek'], benedixit: ['blessed'], nuntiaverunt: ['told', 'reported', 'announced'],
+  videte: ['see', 'heed'], fregit: ['broke', 'brake'], habes: ['hast', 'have'], cognoscetis: ['know'],
+  loquitur: ['speaketh', 'speaks'], manet: ['abideth', 'remains'], cessavit: ['ceased'],
+  secessit: ['withdrew', 'retired'], attendite: ['beware', 'heed'], solvite: ['loose', 'loosen'],
+  pereat: ['perish'], odit: ['hateth', 'hates'], increpavit: ['rebuked'], dicerent: ['tell', 'say'],
+  appropinquavit: ['hand', 'near'], percussit: ['struck', 'smote'], cantavit: ['crew', 'sang'],
+  remittuntur: ['forgiven', 'remitted'], remittetur: ['forgiven', 'remitted'], surrexit: ['arose', 'rose'],
+  transibunt: ['pass'], abscondit: ['hid'], dedisti: ['gavest', 'gave'],
+  hi: ['these', 'they'], quicumque: ['whoever', 'whosoever', 'every'], qua: ['where', 'which'],
+  an: ['whether', 'or'], ista: ['these', 'those', 'this', 'that'], sibi: ['himself', 'herself', 'itself', 'themselves', 'him', 'her', 'them'],
+  omnis: ['all', 'every'], utique: ['surely', 'indeed', 'certainly'], huc: ['hither', 'here'], istud: ['this', 'that'],
+  secum: ['him', 'her', 'them', 'himself', 'herself', 'themselves', 'with'], potestate: ['power', 'authority'],
+  nemo: ['man', 'one', 'none', 'nobody'], meipso: ['myself'], male: ['evil', 'badly', 'ill'], foris: ['without', 'outside'],
+  quodcumque: ['whatever', 'whatsoever'], secus: ['by', 'beside', 'near'], ac: ['and', 'also'], hodie: ['today', 'this'],
+  extra: ['without', 'outside'], parentes: ['parents'], senioribus: ['ancients', 'elders'], seniores: ['ancients', 'elders'],
+  simonis: ['simon'], simonem: ['simon'], elisabeth: ['elizabeth'],
+  iste: ['this', 'he'], monumento: ['monument', 'tomb', 'grave', 'sepulchre'], domine: ['lord'],
+  vis: ['wilt', 'will', 'desire', 'power'], semetipso: ['himself'], teipsum: ['thyself', 'yourself'],
+  istis: ['these', 'those'], nostris: ['our'], iacobi: ['jacob', 'james'], jacobi: ['jacob', 'james'],
+  patres: ['fathers'], prope: ['near', 'nigh'], quibus: ['whom', 'which'],
 }));
 
 function registeredFunctionCandidates(surface, words) {
   const allowed = latinFunctionWords.get(normalize(repairMojibake(surface)).replaceAll('j', 'i')) ?? [];
-  return words.map((word, index) => ({ word, index })).filter(({ word }) => allowed.includes(englishLemma(word)));
+  const allowedForms = new Set(allowed.map(normalize));
+  return words.map((word, index) => ({ word, index })).filter(({ word }) => allowedForms.has(normalize(word)));
+}
+
+function hasRegisteredFunctionMapping(surface) {
+  return latinFunctionWords.has(normalize(repairMojibake(surface)).replaceAll('j', 'i'));
 }
 
 function editDistance(left, right) {
@@ -400,21 +534,37 @@ for (const [displayReference, unit] of Object.entries(manifest.units)) {
     const evidence = analyzedEntries(surface);
     const entries = evidence.allEntries;
     const direct = english.map((word, index) => ({ word, index })).filter(({ word }) => normalize(word) === normalize(surface));
-    const whitakerHeadEntries = evidence.whitakerEntries.map((entry) => entry.split(';')[0]);
-    const whitakerCandidates = candidateEnglish(whitakerHeadEntries, english, whitakerContentStopwords);
+    // Whitaker's stored entries are already concise lemma gloss records. Use
+    // every semicolon-delimited sense rather than only the first one: the
+    // published Douay wording can legitimately select a later listed sense
+    // (for example invenio -> "find" or doleo -> "sorrowing"). Candidate
+    // multiplicity is resolved by the downstream fail-closed adjudicator.
+    const whitakerCandidates = candidateEnglish(evidence.whitakerEntries, english, whitakerContentStopwords);
     const functionCandidates = registeredFunctionCandidates(surface, english);
     const lewisShortCandidates = candidateEnglish(evidence.lewisShortEntries, english, lewisShortAnchorStopwords);
     // Lewis–Short corroborates a Whitaker-selected contextual candidate. Its
     // long historical entries are deliberately prohibited from creating an
     // independent anchor because incidental words can occur deep in an entry.
-    const lexical = [...whitakerCandidates, ...functionCandidates].filter((candidate, index, all) => all.findIndex((item) => item.index === candidate.index) === index);
+    // Registered closed-class mappings override broad dictionary prose. This
+    // prevents incidental words in a multi-sense entry (for example “all” in
+    // quod's “all that”) from becoming verse-level alignment candidates.
+    const lexical = (hasRegisteredFunctionMapping(surface) ? functionCandidates : whitakerCandidates)
+      .filter((candidate, index, all) => all.findIndex((item) => item.index === candidate.index) === index);
     const properNames = entries.length ? [] : properNameCandidates(surface, english);
-    const candidateRecords = [...direct, ...lexical, ...properNames].filter((candidate, index, all) => all.findIndex((item) => item.index === candidate.index) === index);
+    const baseCandidateRecords = [...direct, ...lexical, ...properNames]
+      .filter((candidate, index, all) => all.findIndex((item) => item.index === candidate.index) === index);
+    const consensusKey = normalize(repairMojibake(surface)).replaceAll('j', 'i');
+    const consensusEvidence = corpusConsensus.entries?.[consensusKey] ?? null;
+    const consensusCandidates = baseCandidateRecords.length || !consensusEvidence ? [] : english
+      .map((word, index) => ({ word, index }))
+      .filter(({ word }) => normalize(word) === consensusEvidence.english);
+    const candidateRecords = [...baseCandidateRecords, ...consensusCandidates];
     const candidates = candidateRecords.map(({ word }) => word);
     let classification = 'HELD_NO_CONTEXTUAL_CANDIDATE';
     if (direct.length) classification = 'EXACT_SURFACE_CONTEXT_CANDIDATE';
     else if (lexical.length) classification = 'LEXICON_CONTEXT_CANDIDATE';
     else if (properNames.length) classification = 'PROPER_NAME_ORTHOGRAPHIC_CANDIDATE';
+    else if (consensusCandidates.length) classification = 'DOUAY_CORPUS_CONSENSUS_CANDIDATE';
     else if (entries.length) classification = 'LEXICON_FOUND_CONTEXT_UNRESOLVED';
     const heldForm = normalize(repairMojibake(surface));
     if (!candidates.length) unresolvedForms.set(heldForm, (unresolvedForms.get(heldForm) ?? 0) + 1);
@@ -436,6 +586,10 @@ for (const [displayReference, unit] of Object.entries(manifest.units)) {
       dictionaryEntries: entries.slice(0, 3),
       whitakerEntries: evidence.whitakerEntries.slice(0, 3),
       lewisShortEntries: evidence.lewisShortEntries.slice(0, 2),
+      grammaticalCases: evidence.grammaticalCases,
+      grammaticalMoods: evidence.grammaticalMoods,
+      finiteVerbForms: evidence.finiteVerbForms,
+      consensusEvidence,
     };
   });
   const anchors = monotonicAnchors(tokenRecords, english.length);

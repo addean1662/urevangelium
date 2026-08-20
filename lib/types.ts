@@ -185,7 +185,24 @@ export type LacunaCell = {
   type: 'lacuna';
 };
 
-export type WitnessCell = TextCell | EmptyCell | OmittedCell | LostCell | LacunaCell;
+/**
+ * A published-translation token that needs a visual alignment row but has no
+ * independent source-language token in that tradition. It is not an omission
+ * and must never participate in source-text token projections.
+ */
+export type TranslationOnlyCell = {
+  type: 'translation';
+  gloss: GlossCell;
+  provenance: {
+    authority: string;
+    sourceReference: string;
+    englishIndex: number;
+    alignmentGroupId: string;
+    status: 'published-translation-row';
+  };
+};
+
+export type WitnessCell = TextCell | TranslationOnlyCell | EmptyCell | OmittedCell | LostCell | LacunaCell;
 
 // The Earliest Papyrus column has its own cell type
 export type PapyrusExtantCell = {
@@ -221,6 +238,9 @@ export type BezaeCell =
 // One row in the alignment table = one word (or alignment slot)
 export type AlignmentRow = {
   id: string;           // unique within a verse, e.g. "r1", "r2"
+  /** Stable semantic link, independent of physical row position. */
+  alignmentGroupIds?: string[];
+  rowKind?: 'source' | 'translation-expansion';
   papyrus: PapyrusCell;
   coptic?: WitnessCell; // Sahidica NT 4.1.0 normalized Sahidic edition
   vaticanus: WitnessCell;

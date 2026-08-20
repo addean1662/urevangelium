@@ -42,6 +42,10 @@ export function SyriacCell({ cell }: Props) {
     );
   }
 
+  if (cell.type === 'translation') {
+    return <td className={base} aria-label="published translation expansion row" />;
+  }
+
 
   if (cell.type === 'omitted') {
     return (
