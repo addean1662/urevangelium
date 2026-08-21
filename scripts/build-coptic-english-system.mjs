@@ -127,6 +127,7 @@ for (const gospel of GOSPELS) {
     }));
     const key = coordinate(gospel, item.reference, item.sourceToken);
     const unit = admittedHorner.get(key);
+    const unitDisplayOutput = unit?.displayAllocations?.[key] ?? unit?.hornerEnglishVerbatim;
     const evidence = [
       { sourceId: 'sahidica-4.1.0', role: 'governing-coptic-text', value: item.coptic },
       { sourceId: 'sahidica-4.1.0', role: 'lemma', value: item.lemma },
@@ -140,7 +141,7 @@ for (const gospel of GOSPELS) {
     let decision;
     if (unit) {
       evidence.push({ sourceId: 'horner-southern-dialect', role: 'admitted-published-translation-unit', unitId: unit.id, value: unit.hornerEnglishVerbatim });
-      decision = { layer: 'published-translation', status: 'admitted', sourceId: 'horner-southern-dialect', output: unit.hornerEnglishVerbatim, unitId: unit.id, rule: 'CSE-001-ADMITTED-HORNER-UNIT' };
+      decision = { layer: 'published-translation', status: 'admitted', sourceId: 'horner-southern-dialect', output: unitDisplayOutput, unitId: unit.id, rule: unit.displayAllocations ? 'CSE-002-ADMITTED-HORNER-DISPLAY-ALLOCATION' : 'CSE-001-ADMITTED-HORNER-UNIT' };
     } else if (lexicalOutput && ['exact-scriptorium-lemma', 'declared-bound-form-normalization', 'exact-surface-form'].includes(item.matchMethod)) {
       const rules = { 'exact-scriptorium-lemma': 'CSE-101-EXACT-LEMMA-CCL', 'declared-bound-form-normalization': 'CSE-102-DECLARED-BOUND-FORM-CCL', 'exact-surface-form': 'CSE-103-EXACT-SURFACE-CCL' };
       decision = { layer: 'lexical-aid', status: 'admitted', sourceId: 'kellia-ccl-1.2', output: lexicalOutput, sourceValue: item.cclCandidate, rule: rules[item.matchMethod] };
@@ -182,7 +183,9 @@ for (const gospel of GOSPELS) {
         const members = unit.sahidicaGroupIds ?? [];
         const start = members[0] === key;
         cell.provenance.translationUnitId = unit.id;
-        cell.gloss = { gloss: start ? decision.output : '', source: 'Horner', tooltip: `George W. Horner · provisional facsimile-controlled OCR · translation unit ${unit.id}`, spanId: unit.id, spanRole: start ? 'start' : 'continuation' };
+        cell.gloss = unit.displayAllocations
+          ? { gloss: decision.output, source: 'Horner', tooltip: `George W. Horner · provisional facsimile-controlled OCR · display allocation within translation unit ${unit.id}` }
+          : { gloss: start ? decision.output : '', source: 'Horner', tooltip: `George W. Horner · provisional facsimile-controlled OCR · translation unit ${unit.id}`, spanId: unit.id, spanRole: start ? 'start' : 'continuation' };
       } else if (decision.layer === 'scholarly-automatic-annotation') {
         cell.gloss = { gloss: decision.output, source: 'Scriptorium', automaticAnnotation: true, tooltip: `Coptic SCRIPTORIUM name annotation · comparative ${decision.alignmentMode} corroboration: ${decision.corroboratingWitnesses.join(', ')}` };
       } else if (decision.layer === 'generated-contextual-aid') {

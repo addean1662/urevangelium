@@ -30,6 +30,13 @@ for (const unit of manifest.translationUnits ?? []) {
   if (!manifest.horner.sourceImages?.length) errors.push(`${unit.id}: facsimile source record missing`);
   if (!manifest.horner.rightsBasis) errors.push(`${unit.id}: rights basis missing`);
   if (!unit.hornerEnglishVerbatim) errors.push(`${unit.id}: Horner English must be verbatim`);
+  if (unit.displayAllocations) {
+    const allocationKeys = Object.keys(unit.displayAllocations);
+    const groupIds = unit.sahidicaGroupIds ?? [];
+    if (allocationKeys.length !== groupIds.length || allocationKeys.some((key) => !groupIds.includes(key))) errors.push(`${unit.id}: display allocations must cover every Sahidica group exactly once`);
+    const allocatedEnglish = groupIds.map((key) => unit.displayAllocations[key]).join(' ').replace(/\s+([,.!?;:])/g, '$1');
+    if (allocatedEnglish !== unit.hornerEnglishVerbatim) errors.push(`${unit.id}: display allocations must reproduce Horner English verbatim`);
+  }
 }
 
 const result = { status: errors.length ? 'failed' : manifest.translationUnits.length ? 'valid-pilot-ledger' : 'valid-empty-scaffold', pilots: manifest.pilots.length, translationUnits: manifest.translationUnits.length, admitted: manifest.translationUnits.filter((unit) => unit.decision === 'admit').length, errors };

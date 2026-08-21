@@ -48,11 +48,14 @@ describe('papyrus condition presentation', () => {
 });
 
 describe('Matthew 1:1 proof row', () => {
-  it('renders the admitted Horner English once across all eight Sahidic word-groups', () => {
+  it('renders the admitted Horner English across all eight Sahidic word-groups', () => {
     const { container } = render(<AlignmentTable data={matthewData as VerseData} />);
-    const phrase = screen.getByText('The book of the generation of Jesus the Christ, the son of Daveid, the son of Abraham.');
-    expect(phrase.closest('td')).toHaveAttribute('rowspan', '8');
-    expect(screen.getAllByText('The book of the generation of Jesus the Christ, the son of Daveid, the son of Abraham.')).toHaveLength(1);
+    const allocated = [...container.querySelectorAll('td[title*="display allocation within translation unit horner-matt-1-1-control-candidate"]')];
+    expect(allocated.map((cell) => cell.textContent)).toEqual([
+      'The book', 'of the generation', 'of Jesus', 'the Christ,',
+      'the son', 'of Daveid,', 'the son', 'of Abraham.',
+    ]);
+    expect(container.querySelector('[rowspan="8"]')).toBeNull();
     expect(container.textContent).not.toContain('↳');
   });
 

@@ -60,6 +60,10 @@ const reviewedPhraseAdmissions = new Set([
   'horner-phrase-john-6-39-5-5',
   'horner-phrase-john-9-22-20-20',
 ]);
+const reviewedCellAllocations = new Map([
+  ['horner-phrase-luke-1-15-7-8', ['strong', 'drink']],
+  ['horner-phrase-luke-22-31-1-2', ['Simon,', 'Simon']],
+]);
 for (const decision of cohort.decisions.filter((item) => item.decision === 'WITHHOLD_ALIGNMENT_UNRESOLVED')) {
   if (remainingKeys && !remainingKeys.has(`${decision.sourceReference}:${decision.sourceToken}`)) continue;
   const entries = byReference.get(decision.sourceReference) ?? [];
@@ -132,12 +136,16 @@ if (APPLY) {
   for (const result of results.filter((item) => item.classification === 'ADMIT_HORNER_PHRASE_SPAN')) {
     const file = path.join(ROOT, 'data', result.gospel, result.chapter, `${result.verse}.json`);
     const data = files.get(file);
+    const allocations = reviewedCellAllocations.get(result.id);
+    if (allocations && allocations.length !== result.rowIndexes.length) throw new Error(`${result.id}: reviewed cell allocation does not cover the phrase span`);
     for (const [memberIndex, rowIndex] of result.rowIndexes.entries()) {
       const cell = data.rows[rowIndex]?.coptic;
       const existing = cell?.provenance?.hornerPhraseAdjudication229;
-      if (existing?.decisionSha256 === result.decisionSha256 && cell.gloss?.spanId === result.id) continue;
+      if (existing?.decisionSha256 === result.decisionSha256 && (allocations ? cell.gloss?.gloss === allocations[memberIndex] && !cell.gloss?.spanId : cell.gloss?.spanId === result.id)) continue;
       if (cell?.gloss?.gloss) throw new Error(`${result.sourceReference}:${rowIndex}: phrase adjudication would overwrite existing English`);
-      cell.gloss = { gloss: memberIndex === 0 ? result.phrase : '', source: 'Horner', tooltip: `George W. Horner · phrase-level source-order alignment corroborated by Scriptorium · ${result.hornerUnitId}`, spanId: result.id, spanRole: memberIndex === 0 ? 'start' : 'continuation' };
+      cell.gloss = allocations
+        ? { gloss: allocations[memberIndex], source: 'Horner', tooltip: `George W. Horner · reviewed cell allocation within phrase-level source-order alignment · ${result.hornerUnitId}` }
+        : { gloss: memberIndex === 0 ? result.phrase : '', source: 'Horner', tooltip: `George W. Horner · phrase-level source-order alignment corroborated by Scriptorium · ${result.hornerUnitId}`, spanId: result.id, spanRole: memberIndex === 0 ? 'start' : 'continuation' };
       cell.provenance.hornerPhraseAdjudication229 = { decisionSha256: result.decisionSha256, unitId: result.hornerUnitId, phraseUnitId: result.id, status: 'internally-adjudicated-not-independent-scholarly-review' };
       touched.add(file);
     }
