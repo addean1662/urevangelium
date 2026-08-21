@@ -53,4 +53,60 @@ describe('Coptic entity display boundaries', () => {
       { text: 'ⲛⲟⲩⲣⲓⲁⲥ', gloss: 'of Uriah.' },
     ]);
   });
+
+  it('identifies both Joram name groups in Matthew 1:8', () => {
+    const data = JSON.parse(fs.readFileSync(path.join(root, 'data/matthew/1/8.json'), 'utf8'));
+    const joram = data.rows
+      .filter((row: any) => [8, 9].includes(row.coptic?.provenance?.sourceToken))
+      .map((row: any) => ({ text: row.coptic.text, gloss: row.coptic.gloss?.gloss }));
+
+    expect(joram).toEqual([
+      { text: 'ⲛⲓⲱⲣⲁⲙ', gloss: 'Joram;' },
+      { text: 'ⲓⲱⲣⲁⲙ', gloss: 'Joram' },
+    ]);
+  });
+
+  it('identifies the missing Ahaz group in Matthew 1:9', () => {
+    const data = JSON.parse(fs.readFileSync(path.join(root, 'data/matthew/1/9.json'), 'utf8'));
+    const ahaz = data.rows.find((row: any) => row.coptic?.provenance?.sourceToken === 8)?.coptic;
+
+    expect(ahaz).toMatchObject({ text: 'ⲛⲁⲭⲁⲍ', gloss: { gloss: 'Ahaz', source: 'Scriptorium' } });
+  });
+
+  it.each([
+    [11, 8],
+    [12, 4],
+  ])('identifies Babylon in Matthew 1:%i', (verse, sourceToken) => {
+    const data = JSON.parse(fs.readFileSync(path.join(root, `data/matthew/1/${verse}.json`), 'utf8'));
+    const babylon = data.rows.find((row: any) => row.coptic?.provenance?.sourceToken === sourceToken)?.coptic;
+
+    expect(babylon).toMatchObject({ text: 'ⲛⲧⲃⲁⲃⲩⲗⲱⲛ', gloss: { gloss: 'Babylon', source: 'Scriptorium' } });
+  });
+
+  it('identifies both Abiud groups and Azor in Matthew 1:13', () => {
+    const data = JSON.parse(fs.readFileSync(path.join(root, 'data/matthew/1/13.json'), 'utf8'));
+    const names = [4, 5, 12].map((sourceToken) => {
+      const cell = data.rows.find((row: any) => row.coptic?.provenance?.sourceToken === sourceToken)?.coptic;
+      return { text: cell?.text, gloss: cell?.gloss?.gloss };
+    });
+
+    expect(names).toEqual([
+      { text: 'ⲛⲁⲃⲓⲟⲩⲇ', gloss: 'Abiud;' },
+      { text: 'ⲁⲃⲓⲟⲩⲇ', gloss: 'Abiud' },
+      { text: 'ⲛⲁⲍⲱⲣⲁ', gloss: 'Azor;' },
+    ]);
+  });
+
+  it.each([
+    [14, [[1, 'Azor'], [4, 'Zadok;'], [5, 'Zadok'], [8, 'Achim;'], [9, 'Achim'], [12, 'Eliud;']]],
+    [15, [[1, 'Eliud'], [4, 'Eleazar;'], [5, 'Eleazar'], [8, 'Matthan;'], [9, 'Matthan']]],
+  ] as const)('restores every omitted genealogy name in Matthew 1:%i', (verse, expected) => {
+    const data = JSON.parse(fs.readFileSync(path.join(root, `data/matthew/1/${verse}.json`), 'utf8'));
+    const actual = expected.map(([sourceToken]) => {
+      const cell = data.rows.find((row: any) => row.coptic?.provenance?.sourceToken === sourceToken)?.coptic;
+      return [sourceToken, cell?.gloss?.gloss];
+    });
+
+    expect(actual).toEqual(expected);
+  });
 });
