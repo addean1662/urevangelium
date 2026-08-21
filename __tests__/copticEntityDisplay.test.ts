@@ -20,4 +20,37 @@ describe('Coptic entity display boundaries', () => {
     expect(glosses.some((gloss: string) => /^Isk?ariot\b/i.test(gloss))).toBe(true);
     expect(glosses).not.toContain('Judas Iscariot');
   });
+
+  it('identifies both Hezron name groups in Matthew 1:3', () => {
+    const data = JSON.parse(fs.readFileSync(path.join(root, 'data/matthew/1/3.json'), 'utf8'));
+    const hezron = data.rows
+      .filter((row: any) => [11, 12].includes(row.coptic?.provenance?.sourceToken))
+      .map((row: any) => ({ text: row.coptic.text, gloss: row.coptic.gloss?.gloss }));
+
+    expect(hezron).toEqual([
+      { text: 'ⲛⲉⲥⲣⲱⲙ', gloss: 'Hezron;' },
+      { text: 'ⲉⲥⲣⲱⲙ', gloss: 'Hezron' },
+    ]);
+  });
+
+  it('identifies Rahab in Matthew 1:5', () => {
+    const data = JSON.parse(fs.readFileSync(path.join(root, 'data/matthew/1/5.json'), 'utf8'));
+    const rahab = data.rows.find((row: any) => row.coptic?.provenance?.sourceToken === 6)?.coptic;
+
+    expect(rahab).toMatchObject({ text: 'ϩⲛϩⲣⲁⲭⲁⲃ', gloss: { gloss: 'Rahab;', source: 'Scriptorium' } });
+  });
+
+  it('preserves the complete wife-of-Uriah ending in Matthew 1:6', () => {
+    const data = JSON.parse(fs.readFileSync(path.join(root, 'data/matthew/1/6.json'), 'utf8'));
+    const ending = ['r15', 'r16', 'r18'].map((rowId) => {
+      const row = data.rows.find((candidate: any) => candidate.id === rowId);
+      return { text: row?.coptic?.text, gloss: row?.coptic?.gloss?.gloss };
+    });
+
+    expect(ending).toEqual([
+      { text: 'ⲉⲃⲟⲗ', gloss: 'out of' },
+      { text: 'ϩⲛⲑⲓⲙⲉ', gloss: 'the wife' },
+      { text: 'ⲛⲟⲩⲣⲓⲁⲥ', gloss: 'of Uriah.' },
+    ]);
+  });
 });

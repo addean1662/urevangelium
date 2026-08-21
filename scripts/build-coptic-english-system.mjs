@@ -93,7 +93,11 @@ for (const gospel of GOSPELS) {
     const rowIndex = data.rows.indexOf(row);
     const contextRows = data.rows.slice(Math.max(0, rowIndex - 2), rowIndex + 3);
     const peerEnglish = witnessKeys.map((witness) => ({ witness, value: row?.[witness]?.gloss?.gloss ?? null })).filter((peer) => peer.value && peer.value !== '↳');
-    const allCandidateMatches = (item.identity ? entityCandidates(item.identity) : []).map((candidate) => ({
+    const key = coordinate(gospel, item.reference, item.sourceToken);
+    const entityOverride = manifest.entityOverrides?.[key];
+    const contextualOverride = manifest.contextualOverrides?.[key];
+    const effectiveIdentity = item.identity ?? entityOverride?.identity;
+    const allCandidateMatches = (effectiveIdentity ? entityCandidates(effectiveIdentity) : []).map((candidate) => ({
       candidate,
       exactWitnesses: peerEnglish.filter((peer) => contextualCore(peer.value) === normalizeEnglish(candidate)).map((peer) => peer.witness),
       windowWitnesses: witnessKeys.filter((witness) => contextRows.some((contextRow) => contextualCore(contextRow[witness]?.gloss?.gloss) === normalizeEnglish(candidate))),
@@ -125,7 +129,6 @@ for (const gospel of GOSPELS) {
       coptic: contextRow.coptic?.type === 'text' ? contextRow.coptic.text : null,
       witnesses: Object.fromEntries(witnessKeys.map((witness) => [witness, contextRow[witness]?.gloss?.gloss ?? null])),
     }));
-    const key = coordinate(gospel, item.reference, item.sourceToken);
     const unit = admittedHorner.get(key);
     const unitDisplayOutput = unit?.displayAllocations?.[key] ?? unit?.hornerEnglishVerbatim;
     const evidence = [
@@ -134,26 +137,29 @@ for (const gospel of GOSPELS) {
       { sourceId: 'sahidica-4.1.0', role: 'part-of-speech', value: item.pos },
       { sourceId: 'sahidica-4.1.0', role: 'language', value: item.language }
     ];
-    if (item.identity) evidence.push({ sourceId: 'sahidica-4.1.0', role: 'automatic-entity-evidence', value: item.identity });
-    if (item.identity) evidence.push({ sourceId: 'comparative-grid', role: 'contextual-corroboration-only', sameRow: peerEnglish, neighboringRows: comparativeContext, candidateMatches });
+    if (effectiveIdentity) evidence.push({ sourceId: 'sahidica-4.1.0', role: entityOverride ? 'verse-translation-proper-name-evidence' : 'automatic-entity-evidence', value: effectiveIdentity, sourceReference: entityOverride?.sourceReference, sourceValue: entityOverride?.sourceValue });
+    if (effectiveIdentity) evidence.push({ sourceId: 'comparative-grid', role: 'contextual-corroboration-only', sameRow: peerEnglish, neighboringRows: comparativeContext, candidateMatches });
+    if (contextualOverride) evidence.push({ sourceId: 'sahidica-4.1.0', role: 'verse-translation-source-span-evidence', value: contextualOverride.output, sourceReference: contextualOverride.sourceReference, sourceValue: contextualOverride.sourceValue });
     if (item.cclCandidate) evidence.push({ sourceId: 'kellia-ccl-1.2', role: 'published-lexical-aid', value: item.cclCandidate, matchMethod: item.matchMethod });
 
     let decision;
     if (unit) {
       evidence.push({ sourceId: 'horner-southern-dialect', role: 'admitted-published-translation-unit', unitId: unit.id, value: unit.hornerEnglishVerbatim });
       decision = { layer: 'published-translation', status: 'admitted', sourceId: 'horner-southern-dialect', output: unitDisplayOutput, unitId: unit.id, rule: unit.displayAllocations ? 'CSE-002-ADMITTED-HORNER-DISPLAY-ALLOCATION' : 'CSE-001-ADMITTED-HORNER-UNIT' };
+    } else if (contextualOverride) {
+      decision = { layer: 'scholarly-automatic-annotation', status: 'source-attributed-verse-translation-source-span', sourceId: 'sahidica-4.1.0', output: contextualOverride.output, sourceValue: contextualOverride.sourceValue, contributingSources: ['sahidica-4.1.0'], corroboratingWitnesses: [], alignmentMode: 'source-coordinate', rule: contextualOverride.rule };
     } else if (lexicalOutput && ['exact-scriptorium-lemma', 'declared-bound-form-normalization', 'exact-surface-form'].includes(item.matchMethod)) {
       const rules = { 'exact-scriptorium-lemma': 'CSE-101-EXACT-LEMMA-CCL', 'declared-bound-form-normalization': 'CSE-102-DECLARED-BOUND-FORM-CCL', 'exact-surface-form': 'CSE-103-EXACT-SURFACE-CCL' };
       decision = { layer: 'lexical-aid', status: 'admitted', sourceId: 'kellia-ccl-1.2', output: lexicalOutput, sourceValue: item.cclCandidate, rule: rules[item.matchMethod] };
     } else if (surfaceLexicalOutput && surfaceLexicalPeerSupport.length > 0) {
       decision = { layer: 'lexical-aid', status: 'admitted-contextually-corroborated-surface-match', sourceId: 'kellia-ccl-1.2', output: surfaceLexicalOutput, sourceValue: item.cclCandidate, corroboratingWitnesses: surfaceLexicalPeerSupport, rule: 'CSE-104-SURFACE-LEXICON-CANDIDATE-WITH-EXACT-SAME-ROW-COMPARATIVE-CORROBORATION' };
-    } else if (item.identity && entityOutput && entityPeerSupport.length > 0) {
-      decision = { layer: 'scholarly-automatic-annotation', status: 'source-attributed-automatic-contextually-corroborated', sourceId: 'sahidica-4.1.0', output: entityOutput, sourceValue: item.identity, contributingSources: ['sahidica-4.1.0'], corroboratingWitnesses: entityPeerSupport, alignmentMode: entityAlignmentMode, rule: entityAlignmentMode === 'exact-row' ? 'CSE-A202-SCRIPTORIUM-ENTITY-COMPONENT-WITH-EXACT-SAME-ROW-COMPARATIVE-CORROBORATION' : 'CSE-A203-SCRIPTORIUM-ENTITY-COMPONENT-WITH-MULTI-WITNESS-NEIGHBORING-ROW-CORROBORATION' };
+    } else if (effectiveIdentity && entityOutput && entityPeerSupport.length > 0) {
+      decision = { layer: 'scholarly-automatic-annotation', status: 'source-attributed-automatic-contextually-corroborated', sourceId: 'sahidica-4.1.0', output: entityOutput, sourceValue: effectiveIdentity, contributingSources: ['sahidica-4.1.0'], corroboratingWitnesses: entityPeerSupport, alignmentMode: entityAlignmentMode, rule: entityOverride?.rule ?? (entityAlignmentMode === 'exact-row' ? 'CSE-A202-SCRIPTORIUM-ENTITY-COMPONENT-WITH-EXACT-SAME-ROW-COMPARATIVE-CORROBORATION' : 'CSE-A203-SCRIPTORIUM-ENTITY-COMPONENT-WITH-MULTI-WITNESS-NEIGHBORING-ROW-CORROBORATION') };
     } else if (sameLemmaOutput && (sameLemmaExactSupport.length > 0 || sameLemmaWindowSupport.length >= 2)) {
       const exact = sameLemmaExactSupport.length > 0;
       decision = { layer: 'generated-contextual-aid', status: 'same-lemma-source-output-contextually-corroborated', sourceId: 'urevangelium-comparative-context', output: sameLemmaOutput, lemma: item.lemma, contributingSources: [...sameLemmaRecord.sources], corroboratingWitnesses: exact ? sameLemmaExactSupport : sameLemmaWindowSupport, alignmentMode: exact ? 'exact-row' : 'neighboring-row-window', rule: exact ? 'CSE-G401-UNANIMOUS-DIRECT-SAME-LEMMA-OUTPUT-WITH-EXACT-CONTEXT' : 'CSE-G402-UNANIMOUS-DIRECT-SAME-LEMMA-OUTPUT-WITH-MULTI-WITNESS-NEIGHBORING-CONTEXT' };
     } else {
-      decision = { layer: 'none', status: 'withheld', sourceId: null, output: null, sourceValue: item.identity ?? item.cclCandidate ?? null, rule: item.identity && candidateMatches.length > 1 ? 'CSE-W303-AMBIGUOUS-COMPARATIVE-ENTITY-MATCH' : item.identity ? 'CSE-W304-ENTITY-WITHOUT-EXACT-SAME-ROW-CORROBORATION' : item.cclCandidate ? 'CSE-W301-SURFACE-ONLY-LEXICON-MATCH' : 'CSE-W302-NO-PUBLISHED-ENGLISH' };
+      decision = { layer: 'none', status: 'withheld', sourceId: null, output: null, sourceValue: effectiveIdentity ?? item.cclCandidate ?? null, rule: effectiveIdentity && candidateMatches.length > 1 ? 'CSE-W303-AMBIGUOUS-COMPARATIVE-ENTITY-MATCH' : effectiveIdentity ? 'CSE-W304-ENTITY-WITHOUT-EXACT-SAME-ROW-CORROBORATION' : item.cclCandidate ? 'CSE-W301-SURFACE-ONLY-LEXICON-MATCH' : 'CSE-W302-NO-PUBLISHED-ENGLISH' };
     }
 
     totals.sourceWordGroups++; gospelTotals.sourceWordGroups++;

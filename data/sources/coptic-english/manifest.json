@@ -1,6 +1,16 @@
 {
   "systemId": "urevangelium-sahidic-english-v1",
   "governingText": "Sahidica NT 4.1.0",
+  "entityOverrides": {
+    "matthew.1.3.11": {"identity":"Hezron","sourceReference":"Matthew 1:3","sourceValue":"Perez became the father of Hezron.","rule":"CSE-A204-SCRIPTORIUM-VERSE-TRANSLATION-PROPER-NAME-WITH-UNANIMOUS-COMPARATIVE-CORROBORATION"},
+    "matthew.1.3.12": {"identity":"Hezron","sourceReference":"Matthew 1:3","sourceValue":"Hezron became the father of Ram.","rule":"CSE-A204-SCRIPTORIUM-VERSE-TRANSLATION-PROPER-NAME-WITH-UNANIMOUS-COMPARATIVE-CORROBORATION"},
+    "matthew.1.5.6": {"identity":"Rahab","sourceReference":"Matthew 1:5","sourceValue":"Salmon became the father of Boaz by Rahab.","rule":"CSE-A204-SCRIPTORIUM-VERSE-TRANSLATION-PROPER-NAME-WITH-UNANIMOUS-COMPARATIVE-CORROBORATION"}
+  },
+  "contextualOverrides": {
+    "matthew.1.6.10": {"output":"out of","sourceReference":"Matthew 1:6","sourceValue":"David became the father of Solomon by her who had been the wife of Uriah.","rule":"CSE-A206-SCRIPTORIUM-VERSE-TRANSLATION-SOURCE-SPAN"},
+    "matthew.1.6.11": {"output":"the wife","sourceReference":"Matthew 1:6","sourceValue":"David became the father of Solomon by her who had been the wife of Uriah.","rule":"CSE-A206-SCRIPTORIUM-VERSE-TRANSLATION-SOURCE-SPAN"},
+    "matthew.1.6.12": {"output":"of Uriah.","sourceReference":"Matthew 1:6","sourceValue":"David became the father of Solomon by her who had been the wife of Uriah.","rule":"CSE-A206-SCRIPTORIUM-VERSE-TRANSLATION-SOURCE-SPAN"}
+  },
   "decisionPriority": ["admitted-published-translation-unit", "published-lexical-aid", "scholarly-automatic-annotation", "withheld"],
   "sources": [
     {"id":"sahidica-4.1.0","title":"Sahidica NT 4.1.0 via Coptic SCRIPTORIUM","roles":["governing-coptic-text","lemma","part-of-speech","language","entity-evidence"],"englishRole":"source-attributed-scholarly-automatic-annotation","annotationStatus":"automatic-source-layer","mayPopulateContextualTranslation":false,"mayPopulateScholarlyAutomaticEnglish":true},
