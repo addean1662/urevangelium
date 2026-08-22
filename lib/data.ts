@@ -6,10 +6,13 @@ import { VerseDataSchema } from '@/lib/validate';
 import { getCachedVerse, cacheVerse } from '@/lib/cache';
 import { computeAlignment } from '@/lib/alignment/computeAlignment';
 import vulgateEnglishManifest from '@/data/sources/vulgate-english/admitted-units.json';
+import peshittaEnglishManifest from '@/data/sources/peshitta/murdock-admitted-units.json';
 export { buildPassagePath, nextVerse, prevVerse } from '@/lib/passageNav';
 
 type VulgateEnglishUnit = NonNullable<VerseData['vulgateEnglishUnit']>;
 const vulgateEnglishUnits = vulgateEnglishManifest.units as Record<string, VulgateEnglishUnit>;
+type PeshittaEnglishUnit = NonNullable<VerseData['peshittaEnglishUnit']>;
+const peshittaEnglishUnits = peshittaEnglishManifest.units as Record<string, PeshittaEnglishUnit>;
 const REQUIRED_ALIGNMENT_CELLS = [
   'papyrus',
   'vaticanus',
@@ -53,6 +56,13 @@ function withVulgateEnglish(data: VerseData | null): VerseData | null {
   return unit ? { ...data, vulgateEnglishUnit: unit } : data;
 }
 
+function withCertifiedEnglish(data: VerseData | null): VerseData | null {
+  const withVulgate = withVulgateEnglish(data);
+  if (!withVulgate) return null;
+  const unit = peshittaEnglishUnits[`${withVulgate.gospel} ${withVulgate.chapter}:${withVulgate.verse}`];
+  return unit ? { ...withVulgate, peshittaEnglishUnit: unit } : withVulgate;
+}
+
 function handCodedPath(gospel: Gospel, chapter: number, verse: number): string {
   return path.join(process.cwd(), 'data', gospel, String(chapter), `${verse}.json`);
 }
@@ -79,12 +89,12 @@ export async function loadVerse(
   // 1. Check hand-coded proof verses (never recomputed or overwritten)
   const handCoded = handCodedPath(gospel, chapter, verse);
   if (fs.existsSync(handCoded)) {
-    return withVulgateEnglish(readJson(handCoded));
+    return withCertifiedEnglish(readJson(handCoded));
   }
 
   // 2. Check Redis / disk cache
   const cached = await getCachedVerse(gospel, chapter, verse);
-  if (cached) return withVulgateEnglish(cached);
+  if (cached) return withCertifiedEnglish(cached);
 
   // 3. Compute alignment on demand
   try {
@@ -92,7 +102,7 @@ export async function loadVerse(
     if (data) {
       await cacheVerse(gospel, chapter, verse, data);
     }
-    return withVulgateEnglish(data);
+    return withCertifiedEnglish(data);
   } catch (err) {
     console.error(`computeAlignment failed for ${gospel} ${chapter}:${verse}`, err);
     return null;

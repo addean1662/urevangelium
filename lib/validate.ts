@@ -8,7 +8,11 @@ const GlossCellSchema = z.object({
   source: GlossSourceSchema,
   deviation: z.boolean().optional(),
   generated: z.boolean().optional(),
+  experimental: z.boolean().optional(),
+  automaticAnnotation: z.boolean().optional(),
   tooltip: z.string().optional(),
+  spanId: z.string().optional(),
+  spanRole: z.enum(['start', 'continuation']).optional(),
 });
 
 const NominaSacraSchema = z.object({

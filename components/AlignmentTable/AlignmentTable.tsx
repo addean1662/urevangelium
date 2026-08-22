@@ -25,7 +25,7 @@ const BASE_COLUMNS: ColumnDef[] = [
   { key: 'vaticanus', label: 'Vaticanus',        date: 'c. 175–325 AD',  script: 'Greek',       glossSource: 'Certified English' },
   { key: 'vulgate',   label: 'Vulgate',          date: 'Clementine 1592/1598', script: 'Latin',    glossSource: 'Douay-Rheims 1899' },
   { key: 'bezae',     label: 'Bezae',            date: 'c. 150–400 AD',  script: 'Greek/Latin', glossSource: null         },
-  { key: 'peshitta',  label: 'Peshitta',         date: 'c. 170–400 AD',  script: 'Syriac',      glossSource: 'English under review' },
+  { key: 'peshitta',  label: 'Peshitta',         date: 'c. 170–400 AD',  script: 'Syriac',      glossSource: 'Murdock 1851' },
   { key: 'byzantine', label: 'Byzantine',        date: 'c. 300–500 AD',  script: 'Greek',       glossSource: 'Certified English' },
 ];
 

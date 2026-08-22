@@ -144,10 +144,19 @@ Section headers `### BookName` followed by verse lines `[chapter:verse] Latin te
 ## 5. Peshitta Column
 
 **Directory:** `data/sources/peshitta/`
-**Gloss source:** Payne Smith CSD proof-verse evidence only; word-level English is otherwise withheld
+**English source:** James Murdock 1851; Payne Smith CSD is retained as proof-verse lexical evidence only
 
 ### Text source
 Pinned scrollmapper electronic Syriac Peshitta. The exact printed exemplar is not established.
+
+Certified contextual English is James Murdock's 1851 public-domain translation.
+Two electronic transcriptions were collated: 3,660 single-verse units agree
+lexically, while 17 boundary spans cover 119 references without forcing disputed
+digital verse divisions. The complete units are displayed in the accompanying
+Peshitta English cells as 23,650 ordered row-phrase groups. Cross-tradition
+lexical anchors bound the phrases; all 84,136 admitted English words and all
+50,477 Syriac rows are accounted once. No proportional assignment or borrowed
+wording is permitted.
 
 | File | Lines |
 |------|-------|

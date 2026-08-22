@@ -56,7 +56,7 @@ describe('Matthew 1:1 proof row', () => {
       'the son', 'of Daveid,', 'the son', 'of Abraham.',
     ]);
     expect(container.querySelector('[rowspan="8"]')).toBeNull();
-    expect(container.textContent).not.toContain('↳');
+    expect(allocated.every((cell) => !cell.textContent?.includes('↳'))).toBe(true);
   });
 
   it('renders P1 papyrus indicator for Matthew 1:1', () => {

@@ -167,9 +167,24 @@ alignment relations. Relations may target one row, a multirow lexical unit, or
 a monotonic source-governed span. A span records honest non-one-to-one
 correspondence and is not presented as lexical equivalence or English.
 
+Murdock's 1851 English translation is displayed in the English cell accompanying
+each Peshitta row. Its 3,677 certified published units cover all 3,779 Gospel
+references. They are partitioned into 23,650 ordered row-phrase groups using
+22,007 monotonic lexical anchors corroborated across at least two displayed
+tradition families. The remaining wording stays inside explicit bounded phrase
+spans; it is never proportionally sliced or presented as unsupported one-to-one
+lexical equivalence. All 84,136 Murdock words and all 50,477 Syriac rows are
+accounted exactly once.
+
 ### Source data
 
 `Peshitta.txt` from scrollmapper/bible_databases commit `ba07bc991644d82b24426b920245eb4422daa769`, SHA-256 `6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B`. The precise printed exemplar remains unverified.
+
+Published English: James Murdock, *The New Testament: A Literal Translation
+from the Syriac Peshito Version* (1851), collated from two independently
+distributed public-domain electronic transcriptions. Controlling acquisition
+and admission hashes are recorded in `murdock-gospels.json` and
+`murdock-admitted-units.json`.
 
 ### Lacuna handling
 

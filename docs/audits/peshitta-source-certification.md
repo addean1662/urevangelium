@@ -4,9 +4,9 @@
 
 The live four-Gospel Peshitta stream is internally **source-text verified**
 against the pinned scrollmapper electronic edition. This is not a claim of
-independent scholarly review, exact BFBS 1905 identity, or certified word-level
-English. Parallel alignment is internally certified at the explicit row or
-span level described below; a certified span is not a one-to-one lexical claim.
+independent scholarly review or exact BFBS 1905 identity. Parallel and Murdock
+English alignment are internally certified at the explicit row or bounded-span
+levels described below; a certified span is not a one-to-one lexical claim.
 
 | Gate | Result |
 |---|---:|
@@ -16,7 +16,9 @@ span level described below; a certified span is not a one-to-one lexical claim.
 | Missing, extra, reordered, or altered live tokens | 0 |
 | Tokens with complete source-coordinate provenance | 50,477 / 50,477 |
 | Provenance failures | 0 |
-| Published Peshitta gloss cells after certification | 0 |
+| Certified Murdock row cells | 50,477 / 50,477 |
+| Published Murdock words accounted | 84,136 / 84,136 |
+| English-alignment provenance failures | 0 |
 | Existing non-Peshitta rows removed | 0 |
 | Existing non-Peshitta field mutations | 0 |
 | New Syriac-only rows | 728 |
@@ -140,9 +142,9 @@ certificate is `docs/audits/peshitta-alignment-certification.json`.
 
 ## English and lexical evidence
 
-All legacy Peshitta glosses were withheld during the rebuild. The live source
-stream therefore contains zero gloss cells rather than publishing unsupported
-English.
+All unsupported legacy Peshitta glosses were withheld during the source rebuild.
+The separately governed Murdock layer is now displayed in the left-aligned
+English cell accompanying each right-aligned Syriac row.
 
 - Payne Smith TSV material covers only four proof verses and must be remapped
   to certified source occurrences before republication.
@@ -155,9 +157,27 @@ English.
   (OpenAPI metadata declares Apache-2.0) and are retained as review evidence,
   not as Peshitta English glosses.
 
-The runtime proportional Etheridge/Murdock fallback has been disabled. English
-will remain visibly under review until a reproducible occurrence-level lexical
-ledger or reviewed published-translation allocation is available.
+The runtime proportional Etheridge/Murdock fallback remains disabled. Murdock
+1851 English was first admitted as 3,677 intact published translation units:
+3,660 single-verse units concordant across two digital transcriptions and 17
+explicit boundary spans covering 119 references where the transcriptions
+divide or omit numbered units differently. All 84,136 admitted English words
+are accounted once; zero units are held.
+
+Those complete units are then partitioned into 23,650 ordered row-phrase groups.
+The certified Syriac row stream is the alignment spine. Existing Greek, Latin,
+and Coptic English cells provide placement evidence only; the four Greek
+witnesses count as one dependent evidence family. A lexical boundary anchor is
+admitted only when the same normalized concept is corroborated by at least two
+tradition families and remains monotonic within the Murdock unit. This yields
+22,007 lexical anchors. Material between anchors remains intact in a bounded
+phrase span, so the procedure does not manufacture word equivalence or borrow
+foreign-column wording. Only 53 units require a whole-unit fallback span.
+
+The final row certificate accounts for all 50,477 Syriac rows and all 84,136
+Murdock words exactly once, with zero failures. It contains 12,674 single-row
+phrase owners and 10,976 multirow phrase spans with 26,827 continuation rows.
+This is internal process certification, not independent Syriacist review.
 
 ## Reproducibility
 
@@ -168,8 +188,16 @@ ledger or reviewed published-translation allocation is available.
 - Inserted-row semantic ledger: `docs/audits/peshitta-semantic-alignment.json`
 - Occurrence-morphology concordance: `docs/audits/peshitta-etcbc-morphology-concordance.json`
 - Controlling alignment certificate: `docs/audits/peshitta-alignment-certification.json`
+- Murdock English source collation: `data/sources/peshitta/murdock-gospels.json`
+- Admitted English units: `data/sources/peshitta/murdock-admitted-units.json`
+- English certificate: `docs/audits/peshitta-english-certification.json`
+- Row-phrase adjudication: `docs/audits/peshitta-row-english-adjudication.json`
+- Row application report: `docs/audits/peshitta-row-english-application.json`
 - Commands: `npm run shadow:peshitta:source`, `npm run apply:peshitta:source`,
   `npm run certify:peshitta:live`, `npm run acquire:peshitta:sedra`,
   `npm run audit:peshitta:semantic-alignment`,
-  `npm run audit:peshitta:etcbc-morphology`, and
-  `npm run certify:peshitta:alignment`
+  `npm run audit:peshitta:etcbc-morphology`, `npm run certify:peshitta:alignment`,
+  `npm run acquire:peshitta:murdock-english`, and
+  `npm run certify:peshitta:english`, `npm run adjudicate:peshitta:row-english`,
+  `npm run apply:peshitta:row-english`, and
+  `npm run certify:peshitta:row-english`

@@ -10,6 +10,10 @@ const HEADINGS = { Matthew: 'matthew', Mark: 'mark', Luke: 'luke', John: 'john' 
 const COLUMNS = ['papyrus', 'coptic', 'vaticanus', 'sinaiticus', 'bezae', 'vulgate', 'peshitta', 'byzantine'];
 const SOURCE_FILE = 'data/sources/peshitta/Peshitta.txt';
 const SOURCE_SHA256 = '6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B';
+const ENGLISH_LEDGER_FILE = path.join(ROOT, 'docs/audits/peshitta-row-english-adjudication.json');
+const ENGLISH_ADJUDICATION_SHA256 = fs.existsSync(ENGLISH_LEDGER_FILE)
+  ? JSON.parse(fs.readFileSync(ENGLISH_LEDGER_FILE, 'utf8')).adjudicationSha256
+  : null;
 
 function tokenize(value) {
   return value.normalize('NFC').replace(/[\p{P}\p{S}]+/gu, ' ').trim().split(/\s+/u).filter(Boolean);
@@ -112,6 +116,7 @@ function displayedTokens(rows) {
       rowIndex,
       tokenInCell,
       provenance: row.peshitta.provenance,
+      cell: row.peshitta,
     }));
   });
   return result;
@@ -159,8 +164,8 @@ function emptyRow(id) {
   return { id, ...Object.fromEntries(COLUMNS.map((column) => [column, { type: 'empty' }])) };
 }
 
-function certifiedCell(text, sourceReference, sourceToken) {
-  return {
+function certifiedCell(text, sourceReference, sourceToken, englishOverlay = null) {
+  const cell = {
     type: 'text',
     text,
     provenance: {
@@ -173,10 +178,18 @@ function certifiedCell(text, sourceReference, sourceToken) {
       verification: 'source-token-order-verified',
     },
   };
+  if (englishOverlay) {
+    cell.gloss = structuredClone(englishOverlay.gloss);
+    cell.provenance.englishAlignment = structuredClone(englishOverlay.englishAlignment);
+  }
+  return cell;
 }
 
 function rebuild(rows, source, displayReference, sourceReference) {
   const display = displayedTokens(rows);
+  const englishBySourceToken = new Map(display
+    .filter((item) => item.cell.gloss && item.provenance?.englishAlignment?.status === 'internally-certified-row-phrase-alignment')
+    .map((item) => [item.provenance.sourceToken, { gloss: item.cell.gloss, englishAlignment: item.provenance.englishAlignment }]));
   const pairs = lcs(source, display);
   const anchors = [];
   const usedRows = new Set();
@@ -215,13 +228,13 @@ function rebuild(rows, source, displayReference, sourceReference) {
     for (const sourceIndex of insertBefore.get(rowIndex) ?? []) {
       insertionOrdinal += 1;
       const row = emptyRow(`peshitta-${displayReference.replace(/[ :]/gu, '-')}-${insertionOrdinal}`);
-      row.peshitta = certifiedCell(source[sourceIndex], sourceReference, sourceIndex + 1);
+      row.peshitta = certifiedCell(source[sourceIndex], sourceReference, sourceIndex + 1, englishBySourceToken.get(sourceIndex + 1));
       rebuilt.push(row);
     }
     if (rowIndex === rows.length) break;
     const row = structuredClone(rows[rowIndex]);
     const sourceIndex = assignments.get(rowIndex);
-    row.peshitta = sourceIndex === undefined ? { type: 'empty' } : certifiedCell(source[sourceIndex], sourceReference, sourceIndex + 1);
+    row.peshitta = sourceIndex === undefined ? { type: 'empty' } : certifiedCell(source[sourceIndex], sourceReference, sourceIndex + 1, englishBySourceToken.get(sourceIndex + 1));
     rebuilt.push(row);
   }
   const actual = displayedTokens(rebuilt).map((item) => item.normalized);
@@ -232,7 +245,7 @@ function rebuild(rows, source, displayReference, sourceReference) {
 
 const sources = sourceVerses();
 const ledger = [];
-const totals = { sourceVerseRecords: sources.size, sourceTokens: 0, previousDisplayed: 0, finalDisplayed: 0, insertedRows: 0, reusedRows: 0, missingSourceVerse: 0, sourceOnlyVerse: 0, liveExactVerses: 0, liveMismatchedVerses: 0, wrappedSourceVerses: 0, liveProvenanceFailures: 0, liveGlossCells: 0, liveInsertedRows: 0 };
+const totals = { sourceVerseRecords: sources.size, sourceTokens: 0, previousDisplayed: 0, finalDisplayed: 0, insertedRows: 0, reusedRows: 0, missingSourceVerse: 0, sourceOnlyVerse: 0, liveExactVerses: 0, liveMismatchedVerses: 0, wrappedSourceVerses: 0, liveProvenanceFailures: 0, liveGlossCells: 0, liveEnglishAlignmentFailures: 0, liveInsertedRows: 0 };
 const visited = new Set();
 for (const source of sources.values()) if (source.physicalLines.length > 1) totals.wrappedSourceVerses += 1;
 
@@ -257,6 +270,12 @@ for (const gospel of GOSPELS) {
       const live = liveItems.map((item) => item.normalized);
       const expected = sourceRecord.tokens.map(normalized);
       totals.liveGlossCells += document.rows.filter((row) => row.peshitta?.type === 'text' && row.peshitta.gloss).length;
+      document.rows.filter((row) => row.peshitta?.type === 'text' && row.peshitta.gloss).forEach((row) => {
+        const english = row.peshitta.provenance?.englishAlignment;
+        if (row.peshitta.gloss.source !== 'Murdock' || english?.status !== 'internally-certified-row-phrase-alignment' || !ENGLISH_ADJUDICATION_SHA256 || english.adjudicationSha256 !== ENGLISH_ADJUDICATION_SHA256) {
+          totals.liveEnglishAlignmentFailures += 1;
+        }
+      });
       totals.liveInsertedRows += document.rows.filter((row) => row.id.startsWith('peshitta-')).length;
       liveItems.forEach((item, index) => {
         const provenance = item.provenance;
@@ -295,16 +314,17 @@ fs.mkdirSync(path.join(ROOT, 'docs/audits'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'docs/audits/peshitta-source-order-shadow.json'), `${JSON.stringify(report, null, 2)}\n`);
 console.log(JSON.stringify(totals, null, 2));
 if (!APPLY) console.log('Shadow only. Run with --apply only after reviewing the ledger.');
-const certificationFailed = totals.missingSourceVerse !== 0 || totals.sourceOnlyVerse !== 0 || totals.liveMismatchedVerses !== 0 || totals.previousDisplayed !== totals.sourceTokens || totals.liveProvenanceFailures !== 0 || totals.liveGlossCells !== 0;
+const englishLayerIncomplete = totals.liveGlossCells !== 0 && totals.liveGlossCells !== totals.sourceTokens;
+const certificationFailed = totals.missingSourceVerse !== 0 || totals.sourceOnlyVerse !== 0 || totals.liveMismatchedVerses !== 0 || totals.previousDisplayed !== totals.sourceTokens || totals.liveProvenanceFailures !== 0 || englishLayerIncomplete || totals.liveEnglishAlignmentFailures !== 0;
 if (CERTIFY) {
   const certification = {
     generatedAt: report.generatedAt,
     status: certificationFailed ? 'failed' : 'source-text-verified',
-    scope: 'Pinned electronic Syriac text and occurrence provenance only; semantic parallel alignment and English are separate layers.',
+    scope: 'Pinned electronic Syriac text and occurrence provenance, plus validation (when present) of the separately adjudicated Murdock row-phrase layer.',
     source: { file: SOURCE_FILE, sha256: SOURCE_SHA256, upstreamCommit: 'ba07bc991644d82b24426b920245eb4422daa769' },
     totals,
     boundaryDecisions: [{ localReference: 'mark 9:50', sourceReference: 'mark 9:49 (embedded marker 50)', rule: 'Split the upstream embedded numeric marker without adding, removing, or changing Syriac tokens.' }],
-    withheld: ['Proportional Etheridge/Murdock word glosses', 'Specialist semantic certification of computational row placements', 'Exact BFBS/Urmia/Lee exemplar identity'],
+    withheld: ['Proportional Etheridge/Murdock word glosses', 'Independent specialist review of internal row-phrase adjudication', 'Exact BFBS/Urmia/Lee exemplar identity'],
   };
   fs.writeFileSync(path.join(ROOT, 'docs/audits/peshitta-live-certification.json'), `${JSON.stringify(certification, null, 2)}\n`);
 }

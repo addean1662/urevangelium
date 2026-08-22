@@ -267,6 +267,18 @@ export type VerseData = {
     finerSemanticSegmentationAuthorized: false;
     status: string;
   };
+  peshittaEnglishUnit?: {
+    english: string;
+    unitId: string;
+    sourceReference: string;
+    displayReferences: string[];
+    translatorEdition: string;
+    sourceFile: string;
+    sourceContentSha256: string;
+    alignmentScope: 'whole-published-translation-unit';
+    finerSemanticSegmentationAuthorized: false;
+    status: string;
+  };
 };
 
 // Manifest entry for Gospel navigation — one entry per verse

@@ -29,7 +29,7 @@ Every column must pass all of these gates before it is labeled source-verified:
 | Sinaiticus | Individual manuscript, GA 01 | CNTR Class 1 transcription | Pin the source; select and declare the hand; preserve corrections and physical loss | Requires rebuild |
 | Vulgate | Clementine received edition | Biblia Sacra juxta Vulgatam Clementinam | Exact token concordance; preserve Latin-only words; contextual lexical review | Provisional |
 | Bezae | Bilingual manuscript, GA 05 / VL 5 | ITSEE/IGNTP Greek and Latin TEI | Preserve both sides and their separate losses, hands, corrections, and supplied text | Provisional |
-| Peshitta | Pinned scrollmapper electronic Peshitta text | `Peshitta.txt` at commit `ba07bc991644d82b24426b920245eb4422daa769` | Exact token concordance and RTL order; certify row and span relations without forcing one-to-one equivalence | Source text and governed alignment verified; English under review |
+| Peshitta | Pinned scrollmapper electronic Peshitta text | `Peshitta.txt` at commit `ba07bc991644d82b24426b920245eb4422daa769` | Exact token concordance and RTL order; certify row/span relations; align complete Murdock units to bounded Syriac row phrases | Source text, governed alignment, and Murdock row-phrase English verified |
 | Byzantine | Edited Byzantine Textform | Local byztxt CSV after revision pin | Exact token concordance; prohibit TAGNT fallback; treat gaps as edition-level, not physical lacunae | Provisional |
 
 ## Rollout order
