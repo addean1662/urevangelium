@@ -28,7 +28,7 @@ Columns appear in this fixed chronological order and may not be rearranged:
 | 2 | **Vaticanus** | B / 03 | c. 325 CE | Greek uncial |
 | 3 | **Sinaiticus** | ℵ / 01 | c. 350 CE | Greek uncial |
 | 4 | **Vulgate** | Stuttgart / Weber-Gryson | c. 400 CE | Latin |
-| 5 | **Peshitta** | BFBS 1905/1920 | c. 400–450 CE | Syriac |
+| 5 | **Peshitta** | Pinned scrollmapper electronic Peshitta | c. 400–450 CE tradition; digital revision 2024 | Syriac |
 | 6 | **Byzantine** | Robinson-Pierpont 2005 | Medieval | Greek |
 
 Column headers display the witness name and its date.
@@ -90,7 +90,7 @@ The following sources need to be licensed/acquired and converted to the local JS
 
 - **Greek (Vaticanus, Sinaiticus, Byzantine):** CNTR / Nestle-Aland apparatus; Robinson-Pierpont 2005
 - **Latin:** Stuttgart Vulgate (Weber-Gryson)
-- **Syriac:** BFBS Peshitta 1905/1920
+- **Syriac:** pinned scrollmapper electronic Peshitta; exact printed exemplar unverified
 - **Papyri:** per-fragment diplomatic transcriptions
 
 ---

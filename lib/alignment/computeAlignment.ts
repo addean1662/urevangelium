@@ -12,8 +12,6 @@ import { getVulgateVerse } from '@/lib/sources/parseVulgate';
 import { getPeshittaVerse } from '@/lib/sources/parsePeshitta';
 import { getCoveringPapyri } from '@/lib/sources/parsePapyrus';
 import { getLatinGloss, getLatinGlossFull } from '@/lib/sources/dictline';
-import { getPayneSmithGloss } from '@/lib/sources/payneSmithTop60';
-import { getPeshittaGloss } from '@/lib/glosses/peshittaCrossReference';
 
 // Greek article grammar codes start with T-
 function isArticle(grammar: string): boolean {
@@ -56,7 +54,6 @@ export async function computeAlignment(
   // Maps: tagntWordIndex → Vulgate word string and Peshitta word string
   const vulgateByRow = new Map<number, string>();
   const peshittaByRow = new Map<number, string>();
-  const peshittaSlotByRow = new Map<number, number>(); // tagntWordIndex → slotIdx
 
   contentWordIndices.forEach((rowIdx, slotIdx) => {
     const vWord = vulgateWords[slotIdx];
@@ -65,7 +62,6 @@ export async function computeAlignment(
     const pWord = peshittaWords[slotIdx];
     if (pWord) {
       peshittaByRow.set(rowIdx, pWord);
-      peshittaSlotByRow.set(rowIdx, slotIdx);
     }
   });
 
@@ -138,14 +134,9 @@ export async function computeAlignment(
     } else {
       const pWord = peshittaByRow.get(i);
       if (pWord) {
-        const slotIdx = peshittaSlotByRow.get(i) ?? 0;
-        const pGloss =
-          getPayneSmithGloss(pWord) ??
-          getPeshittaGloss(gospel, chapter, verse, slotIdx, peshittaWords.length);
         peshittaCell = {
           type: 'text',
           text: pWord,
-          ...(pGloss ? { gloss: pGloss } : {}),
         };
       } else {
         peshittaCell = { type: 'empty' };

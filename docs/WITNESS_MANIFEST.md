@@ -144,13 +144,13 @@ The Vulgate is a fully established text; physical lacunae from its manuscript ba
 ## Column 5: Peshitta
 
 **Display name:** Peshitta  
-**Edition:** BFBS 1905 / 1920 (British and Foreign Bible Society)  
+**Edition:** scrollmapper electronic Syriac Peshitta, pinned revision
 **Date:** c. 400–450 CE  
 **Script:** Syriac (Classical / Estrangela)
 
 ### What it represents
 
-The Syriac Peshitta New Testament, the standard version of the Bible for Syriac Christianity. The BFBS 1905/1920 edition is the established scholarly reference text.
+The Syriac Peshitta New Testament as represented by the pinned scrollmapper electronic text. Its upstream metadata does not establish an exact printed exemplar, so this project does not identify it as BFBS 1905/1920.
 
 ### Display
 
@@ -160,15 +160,20 @@ The Syriac Peshitta New Testament, the standard version of the Bible for Syriac 
 
 ### Coverage
 
-Complete Peshitta New Testament, all four Gospels.
+All four Gospels: 3,779 verse records and 50,477 Syriac tokens, each displayed exactly once in source order.
+
+All 728 Syriac-only rows created by the lossless rebuild have certified
+alignment relations. Relations may target one row, a multirow lexical unit, or
+a monotonic source-governed span. A span records honest non-one-to-one
+correspondence and is not presented as lexical equivalence or English.
 
 ### Source data
 
-BFBS 1905/1920 text. Digital form available from various Syriac studies projects. Data acquisition is a separate workstream.
+`Peshitta.txt` from scrollmapper/bible_databases commit `ba07bc991644d82b24426b920245eb4422daa769`, SHA-256 `6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B`. The precise printed exemplar remains unverified.
 
 ### Lacuna handling
 
-The BFBS Peshitta is an established critical text. Lacuna cells would reflect only passages absent from the Peshitta canon (e.g., John 7:53–8:11, which is absent in most Peshitta manuscripts). These are marked with red lost-dots, not alignment gaps (em-dashes).
+This column represents an electronic received text rather than a physical manuscript. Edition-level omissions must be distinguished from ordinary alignment-empty cells and must never be filled from another tradition.
 
 ---
 

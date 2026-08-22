@@ -28,7 +28,7 @@ describe('AlignmentTable — seven-tradition always-on layout', () => {
     expect(screen.getAllByText('TAGNT').length).toBeGreaterThan(0);
     expect(screen.queryByText('Whitaker')).toBeNull();
     expect(screen.getByText(/Clementine 1592\/1598/)).toBeInTheDocument();
-    expect(screen.getByText('PayneSmith')).toBeInTheDocument();
+    expect(screen.getByText('English under review')).toBeInTheDocument();
   });
 
   it('does not render a Show/Hide glosses button', () => {

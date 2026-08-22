@@ -144,16 +144,17 @@ Section headers `### BookName` followed by verse lines `[chapter:verse] Latin te
 ## 5. Peshitta Column
 
 **Directory:** `data/sources/peshitta/`
-**Gloss source:** Payne Smith CSD, manually curated (see §9)
+**Gloss source:** Payne Smith CSD proof-verse evidence only; word-level English is otherwise withheld
 
 ### Text source
-Peshitta New Testament (received text, Urmia/BFBS Lee tradition, c. 400–450 CE).
+Pinned scrollmapper electronic Syriac Peshitta. The exact printed exemplar is not established.
 
 | File | Lines |
 |------|-------|
 | `Peshitta.txt` | 31,300 |
 
-**Source:** scrollmapper/bible_databases `formats/txt/Peshitta.txt`
+**Source:** scrollmapper/bible_databases `formats/txt/Peshitta.txt`, commit `ba07bc991644d82b24426b920245eb4422daa769`
+**SHA-256:** `6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B`
 **License:** Public domain
 
 ### Format

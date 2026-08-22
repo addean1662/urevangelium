@@ -25,7 +25,7 @@ const BASE_COLUMNS: ColumnDef[] = [
   { key: 'vaticanus', label: 'Vaticanus',        date: 'c. 175–325 AD',  script: 'Greek',       glossSource: 'Certified English' },
   { key: 'vulgate',   label: 'Vulgate',          date: 'Clementine 1592/1598', script: 'Latin',    glossSource: 'Douay-Rheims 1899' },
   { key: 'bezae',     label: 'Bezae',            date: 'c. 150–400 AD',  script: 'Greek/Latin', glossSource: null         },
-  { key: 'peshitta',  label: 'Peshitta',         date: 'c. 170–400 AD',  script: 'Syriac',      glossSource: 'PayneSmith' },
+  { key: 'peshitta',  label: 'Peshitta',         date: 'c. 170–400 AD',  script: 'Syriac',      glossSource: 'English under review' },
   { key: 'byzantine', label: 'Byzantine',        date: 'c. 300–500 AD',  script: 'Greek',       glossSource: 'Certified English' },
 ];
 
@@ -194,7 +194,6 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
           const bezaeIdx = columns.findIndex(c => c.key === 'bezae');
           const midCols = bezaeIdx * 3 - 3;
           const bezaeTrailCols = columns.length * 3 - bezaeIdx * 3 - 3;
-          const totalTrailCols = columns.length * 3 - 3;
           const btnClass = 'inline-block px-4 py-1.5 text-sm font-semibold border-2 border-ink-primary text-ink-primary rounded hover:bg-ink-primary hover:text-ink-on-band transition-colors';
           return (
             <tfoot className="bg-bg-page">

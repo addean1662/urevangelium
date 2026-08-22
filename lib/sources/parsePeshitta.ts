@@ -30,6 +30,14 @@ function loadGospel(gospel: Gospel): Map<VerseKey, string[]> {
   const map = new Map<VerseKey, string[]>();
 
   let inSection = false;
+  let pendingKey: VerseKey | null = null;
+  let pendingText: string[] = [];
+  const flush = () => {
+    if (!pendingKey) return;
+    map.set(pendingKey, tokeniseSyriac(pendingText.join(' ')));
+    pendingKey = null;
+    pendingText = [];
+  };
   for (const line of lines) {
     const trimmed = line.trim();
 
@@ -37,19 +45,34 @@ function loadGospel(gospel: Gospel): Map<VerseKey, string[]> {
       inSection = true;
       continue;
     }
-    if (inSection && trimmed.startsWith('### ')) break;
+    if (inSection && trimmed.startsWith('### ')) {
+      flush();
+      break;
+    }
 
     if (!inSection) continue;
 
     // Format: [chapter:verse] Syriac text ܀
-    const match = trimmed.match(/^\[(\d+):(\d+)\]\s+(.+)$/);
-    if (!match) continue;
-
-    const [, ch, v, text] = match;
-    const words = tokeniseSyriac(text);
-    if (words.length > 0) {
-      map.set(`${ch}:${v}`, words);
+    const match = trimmed.match(/^\[(\d+):(\d+)\]\s*(.*)$/);
+    if (match) {
+      flush();
+      const [, ch, v, text] = match;
+      pendingKey = `${ch}:${v}`;
+      pendingText = [text];
+    } else if (pendingKey && trimmed && !trimmed.startsWith('#')) {
+      pendingText.push(trimmed);
     }
+  }
+  flush();
+
+  if (gospel === 'mark') {
+    const verse49 = map.get('9:49') ?? [];
+    const marker = verse49.indexOf('50');
+    if (marker < 0 || (map.get('9:50')?.length ?? 0) !== 0) {
+      throw new Error('Unexpected Peshitta Mark 9:49-50 source boundary');
+    }
+    map.set('9:49', verse49.slice(0, marker));
+    map.set('9:50', verse49.slice(marker + 1));
   }
 
   sectionCache.set(gospel, map);
@@ -63,8 +86,6 @@ function tokeniseSyriac(text: string): string[] {
       // Strip Syriac punctuation: ܀ (sof pasuqa), ܁ (supralinear full stop), ܃ (comma)
       .replace(/[܀-܍܏]+$/, '')
       .replace(/^[܀-܍܏]+/, '')
-      // Normalize alternate samekh ܤ (U+0724) → ܣ (U+0723) to match SEDRA index keys
-      .replace(/ܤ/g, 'ܣ')
       .trim()
     )
     .filter(Boolean);

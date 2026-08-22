@@ -6,13 +6,17 @@ The Peshitta (c. 400–450 CE) is the standard Syriac Christian Bible.
 
 **Source:** scrollmapper/bible_databases, `formats/txt/Peshitta.txt`
 **Source repo:** https://github.com/scrollmapper/bible_databases
+**Pinned commit:** `ba07bc991644d82b24426b920245eb4422daa769` (2024-11-19)
+**SHA-256:** `6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B`
 **Source README:** `sources/syr/Peshitta/README.md` — "License: Public Domain"
 **Repo license:** MIT (for the database infrastructure; the text itself is public domain)
 **File acquired:** `Peshitta.txt` (31,300 lines, full Bible)
 **Access date:** 2026-05-03
 
-The text represents the received Peshitta text (based on the Urmia/BFBS Lee tradition),
-which is public domain in all jurisdictions by virtue of its antiquity.
+The upstream metadata identifies this only as the Syriac Peshitta and public
+domain. It does not document a printed exemplar. Urevangelium therefore
+identifies the displayed object as this pinned electronic edition and does not
+claim exact identity with BFBS 1905, the Urmia edition, or Lee's edition.
 
 ## Gloss source: Payne Smith — manual curated TSV
 

@@ -95,6 +95,13 @@
     ,"audit:vulgate:cross-tradition-rows": "node scripts/build-vulgate-cross-tradition-row-evidence.mjs"
     ,"shadow:vulgate:cross-tradition-english": "node scripts/build-vulgate-cross-tradition-english-shadow.mjs"
     ,"adjudicate:vulgate:cross-tradition-english": "node scripts/adjudicate-vulgate-cross-tradition-english.mjs"
+    ,"shadow:peshitta:source": "node scripts/build-peshitta-source-shadow.mjs"
+    ,"apply:peshitta:source": "node scripts/build-peshitta-source-shadow.mjs --apply"
+    ,"certify:peshitta:live": "node scripts/build-peshitta-source-shadow.mjs --certify"
+    ,"acquire:peshitta:sedra": "node scripts/acquire-peshitta-sedra-evidence.mjs"
+    ,"audit:peshitta:semantic-alignment": "node scripts/audit-peshitta-semantic-alignment.mjs"
+    ,"audit:peshitta:etcbc-morphology": "node scripts/audit-peshitta-etcbc-morphology.mjs"
+    ,"certify:peshitta:alignment": "node scripts/certify-peshitta-alignment.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.95.1",

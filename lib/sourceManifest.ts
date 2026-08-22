@@ -29,7 +29,7 @@ export type ColumnSourceRecord = {
   nextAction: string;
 };
 
-export const SOURCE_MANIFEST_VERSION = '2026-08-19.2';
+export const SOURCE_MANIFEST_VERSION = '2026-08-21.2';
 
 export const COLUMN_SOURCES: ColumnSourceRecord[] = [
   {
@@ -132,14 +132,16 @@ export const COLUMN_SOURCES: ColumnSourceRecord[] = [
   },
   {
     id: 'peshitta', position: '6', label: 'Peshitta', tradition: 'Syriac Peshitta received tradition',
-    displayedObject: 'An electronic received Peshitta text whose exact printed exemplar remains to be established.', traditionDate: 'Peshitta Gospel tradition: approximately fourth to fifth century CE.', witnessOrEditionDate: 'Digital source claims an Urmia/BFBS Lee relationship; exact exemplar unverified.',
-    status: 'provisional', statusNote: 'Source-token concordance passes, but provenance, alignment, and glossing need specialist review.', coverage: 'All 3,778 local Gospel verse divisions are represented.',
+    displayedObject: 'The scrollmapper electronic Syriac Peshitta text at pinned commit ba07bc991644d82b24426b920245eb4422daa769; its exact printed exemplar remains unestablished.', traditionDate: 'Peshitta Gospel tradition: approximately fourth to fifth century CE.', witnessOrEditionDate: 'Pinned electronic revision committed 2024-11-19; no BFBS/Urmia exemplar claim is made.',
+    status: 'source-verified', statusNote: 'All four Gospels are exact and occurrence-complete against the hash-pinned electronic source: 50,477/50,477 Syriac tokens in source order. Alignment relations for all 728 governed Syriac-only rows are certified as row correspondences or explicit monotonic spans; span certification does not assert false one-to-one lexical equivalence. Word-level English remains withheld.', coverage: 'All 3,779 Gospel verse records; 50,477 source tokens displayed exactly once with source-coordinate provenance; zero missing, extra, reordered, or altered tokens; 728/728 governed inserted rows have certified alignment relations with zero failures.',
     sources: [
-      { name: 'scrollmapper Peshitta.txt', role: 'text', localFiles: 'data/sources/peshitta/Peshitta.txt', version: 'Digital revision not pinned; printed exemplar unverified', license: 'Public domain', url: 'https://github.com/scrollmapper/bible_databases' },
-      { name: 'Payne Smith, A Compendious Syriac Dictionary', role: 'gloss', localFiles: 'data/sources/peshitta/payne-smith-proof-verses.tsv', version: '1903 reference; coverage currently limited', license: 'Public domain' },
+      { name: 'scrollmapper Peshitta.txt', role: 'text', localFiles: 'data/sources/peshitta/Peshitta.txt', version: 'Commit ba07bc991644d82b24426b920245eb4422daa769; SHA-256 6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B', license: 'Public domain', url: 'https://github.com/scrollmapper/bible_databases/tree/ba07bc991644d82b24426b920245eb4422daa769' },
+      { name: 'ETCBC/syrnt Text-Fabric morphology', role: 'alignment', localFiles: 'data/sources/peshitta/etcbc-syrnt/tf/0.1', version: 'Commit dae3eb6ff62b9b272fb503646796c25d248175ce', license: 'MIT', url: 'https://github.com/ETCBC/syrnt/tree/dae3eb6ff62b9b272fb503646796c25d248175ce' },
+      { name: 'Payne Smith, A Compendious Syriac Dictionary', role: 'gloss', localFiles: 'data/sources/peshitta/payne-smith-proof-verses.tsv', version: '1903 reference; proof-verse evidence only and withheld after the source rebuild pending occurrence remapping', license: 'Public domain' },
+      { name: 'Etheridge (1846) and Murdock (1851) Peshitta translations', role: 'verification', localFiles: 'data/sources/peshitta/etheridge.txt; data/sources/peshitta/murdock.txt', version: 'Verse-level contextual witnesses; proportional word extraction prohibited', license: 'Public domain' },
     ],
-    rules: ['Preserve Syriac source-token order and RTL display.', 'Keep alignment status separate from text-source status.', 'Use lemma-based lexical evidence for glosses.', 'Represent Greek-only articles with empty alignment cells where appropriate.'],
-    prohibited: ['Claiming BFBS 1905 without an exemplar chain', 'Using proportional English translations as word-level lexical evidence'], nextAction: 'Establish the exemplar and replace translation-derived gloss fallbacks with reviewed Payne Smith/CAL analysis.',
+    rules: ['Preserve every Syriac source token exactly once, in source order, with source-file hash and occurrence provenance.', 'Preserve RTL display without changing logical token order.', 'Certify one-to-one, one-to-many, many-to-one, and source-specific units as distinct alignment relation types.', 'Use lemma-based lexical evidence for word glosses and published translation-unit boundaries for contextual English.', 'Represent Greek-only articles with empty alignment cells where appropriate.'],
+    prohibited: ['Claiming BFBS 1905 without an exemplar chain', 'Treating a certified alignment span as lexical equivalence', 'Using proportional English translations as word-level lexical evidence', 'Normalizing samekh forms in the archival display', 'Dropping source overflow words to fit Greek-derived rows'], nextAction: 'Obtain independent Syriacist review of the alignment certificate and an independently identified printed exemplar; admit English only through recorded lexical or published translation-unit evidence.',
   },
   {
     id: 'byzantine', position: '7', label: 'Byzantine', tradition: 'Byzantine Greek textual tradition',
