@@ -228,12 +228,15 @@ export type PapyrusCell = PapyrusExtantCell | EmptyCell | LostCell | LacunaCell;
 // greek and latin are stored separately; no English gloss is shown
 // 'lost' = folio physically damaged/missing (shows red "lost" on each side)
 // 'empty' = alignment gap row where neither Greek nor Latin has a word
-// No 'lacuna' type: Bezae covers all four Gospels; use 'lost' for physical damage,
-// 'empty' for alignment gaps, and greekLost/latinLost for per-side losses in a text row.
+// Absence states remain evidence-specific: lost = physical damage, omitted =
+// TEI-attested textual absence, empty = comparison-row gap, and unpopulated =
+// a row added after Bezae processing that makes no textual claim.
 export type BezaeCell =
-  | { type: 'text'; greek?: string; latin?: string; greekLost?: true; latinLost?: true }
+  | { type: 'text'; greek?: string; latin?: string; greekLost?: true; latinLost?: true; greekOmitted?: true; latinOmitted?: true }
   | { type: 'empty' }
-  | { type: 'lost' };
+  | { type: 'lost' }
+  | { type: 'omitted'; greek?: true; latin?: true }
+  | { type: 'unpopulated' };
 
 // One row in the alignment table = one word (or alignment slot)
 export type AlignmentRow = {

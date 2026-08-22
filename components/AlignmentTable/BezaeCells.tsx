@@ -20,6 +20,29 @@ export function BezaeCells({ cell }: Props) {
     );
   }
 
+  if (cell.type === 'unpopulated') {
+    return (
+      <>
+        <td className={base} aria-label="Bezae row not yet populated" />
+        <td className={`${base} text-center text-ink-muted/30 text-sm select-none`}>|</td>
+        <td className={base} aria-label="Bezae row not yet populated" />
+      </>
+    );
+  }
+
+  if (cell.type === 'omitted') {
+    const side = (omitted: boolean | undefined) => omitted
+      ? <span className="text-xs italic text-ink-muted">omitted</span>
+      : <span className="text-ink-muted">—</span>;
+    return (
+      <>
+        <td className={`${base} text-right`}>{side(cell.greek)}</td>
+        <td className={`${base} text-center text-ink-muted/50 text-sm select-none`}>|</td>
+        <td className={base}>{side(cell.latin)}</td>
+      </>
+    );
+  }
+
   if (cell.type === 'lost') {
     return (
       <>
@@ -55,6 +78,8 @@ export function BezaeCells({ cell }: Props) {
       <span className="text-xs italic text-semantic-lacuna">lost</span>
       <span className="inline-block w-2 h-2 rounded-full bg-semantic-lacuna flex-shrink-0" />
     </span>
+  ) : cell.greekOmitted ? (
+    <span className="text-xs italic text-ink-muted">omitted</span>
   ) : greek ? (
     translit ? <HoverTooltip content={tip}>{greek}</HoverTooltip> : greek
   ) : (
@@ -66,6 +91,8 @@ export function BezaeCells({ cell }: Props) {
       <span className="inline-block w-2 h-2 rounded-full bg-semantic-lacuna flex-shrink-0" />
       <span className="text-xs italic text-semantic-lacuna">lost</span>
     </span>
+  ) : cell.latinOmitted ? (
+    <span className="text-xs italic text-ink-muted">omitted</span>
   ) : latin ? latin : (
     <span className="text-ink-muted">—</span>
   );

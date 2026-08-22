@@ -99,7 +99,7 @@ allFiles.sort((a,b)=> GOSPELS.indexOf(a.gospel)-GOSPELS.indexOf(b.gospel) || a.c
 // ── Rule 4: Schema validation ─────────────────────────────────────────────────
 console.log('Rule 4 — Schema validation');
 const r4 = [];
-const VALID_TYPES = new Set(['empty','text','extant','lacuna','not_extant','lost']);
+const VALID_TYPES = new Set(['empty','text','extant','lacuna','not_extant','lost','omitted','unpopulated']);
 function validateCell(cell, col, ref) {
   if (!cell || typeof cell !== 'object') {
     r4.push(`  ${ref} [${col}]: primitive value ${JSON.stringify(cell)}`); return;
@@ -143,7 +143,7 @@ for (const {gospel, ch, v, fp} of allFiles) {
   for (const col of COLS) {
     const allEmpty = contentRows.every(r => {
       const cell = r[col];
-      return !cell || cell.type === 'empty' || cell.type === 'lost';
+      return !cell || cell.type === 'empty' || cell.type === 'lost' || cell.type === 'omitted' || cell.type === 'unpopulated';
     });
     if (!allEmpty) continue;
     const key = `${gospel} ${ch}:${v} ${col}`;

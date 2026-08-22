@@ -141,7 +141,22 @@ Section headers `### BookName` followed by verse lines `[chapter:verse] Latin te
 
 ---
 
-## 5. Peshitta Column
+## 5. Bezae Column
+
+**Directory:** `data/sources/bezae/`
+**Displayed object:** Codex Bezae Greek and Latin sides
+
+The visible layer is certified against the local ITSEE/IGNTP TEI files at the
+hashes recorded in `docs/audits/bezae-display-certification.json`. Certification
+is deliberately limited to the forms and status markers rendered by the site.
+Each visible form consumes one unique occurrence in the corresponding TEI
+verse. Shared rows are comparative placements, not claims of literal bilingual
+equivalence or diplomatic sequence. Unused apparatus layers remain in the TEI
+and outside the display claim.
+
+---
+
+## 6. Peshitta Column
 
 **Directory:** `data/sources/peshitta/`
 **English source:** James Murdock 1851; Payne Smith CSD is retained as proof-verse lexical evidence only

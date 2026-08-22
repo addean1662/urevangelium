@@ -141,7 +141,7 @@ for (const gospel of GOSPELS) {
     }
     for (const side of ['Greek', 'Latin']) {
       const column = `bezae${side}`, displayed = [];
-      for (const row of data.rows) { const cell = row.bezae; if (cell?.type === 'text' && cell[side.toLowerCase()]) displayed.push({ rowId: row.id, text: cell[side.toLowerCase()] }); else if (cell?.type === 'lost' || cell?.type === 'lacuna') report.totals[column].lacunaCells++; else if (cell?.type === 'empty') report.totals[column].emptyCells++; }
+      for (const row of data.rows) { const cell = row.bezae; if (cell?.type === 'text' && cell[side.toLowerCase()]) displayed.push({ rowId: row.id, text: cell[side.toLowerCase()] }); else if (cell?.type === 'lost' || cell?.type === 'lacuna' || (cell?.type === 'text' && cell[`${side.toLowerCase()}Lost`])) report.totals[column].lacunaCells++; else if (cell?.type === 'omitted' || (cell?.type === 'text' && cell[`${side.toLowerCase()}Omitted`])) report.totals[column].omittedCells++; else if (cell?.type === 'empty' || cell?.type === 'unpopulated') report.totals[column].emptyCells++; }
       auditSequence(column, gospel, reference, displayed, sources[column][gospel].get(reference));
     }
     for (const row of data.rows) {

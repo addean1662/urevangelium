@@ -115,12 +115,40 @@ const PapyrusCellSchema = z.discriminatedUnion('type', [
   LacunaCellSchema,
 ]);
 
+const BezaeTextCellSchema = z.object({
+  type: z.literal('text'),
+  greek: z.string().optional(),
+  latin: z.string().optional(),
+  greekLost: z.literal(true).optional(),
+  latinLost: z.literal(true).optional(),
+  greekOmitted: z.literal(true).optional(),
+  latinOmitted: z.literal(true).optional(),
+}).refine(
+  (cell) => Boolean(cell.greek || cell.latin || cell.greekLost || cell.latinLost || cell.greekOmitted || cell.latinOmitted),
+  { message: 'Bezae text cell must contain text or an explicit side-specific absence' },
+);
+
+const BezaeCellSchema = z.union([
+  BezaeTextCellSchema,
+  EmptyCellSchema,
+  LostCellSchema,
+  z.object({
+    type: z.literal('omitted'),
+    greek: z.literal(true).optional(),
+    latin: z.literal(true).optional(),
+  }).refine((cell) => Boolean(cell.greek || cell.latin), {
+    message: 'Bezae omission must identify at least one omitted side',
+  }),
+  z.object({ type: z.literal('unpopulated') }),
+]);
+
 const AlignmentRowSchema = z.object({
   id: z.string(),
   alignmentGroupIds: z.array(z.string()).optional(),
   rowKind: z.enum(['source', 'translation-expansion']).optional(),
   papyrus: PapyrusCellSchema,
   coptic: WitnessCellSchema.optional(),
+  bezae: BezaeCellSchema.optional(),
   vaticanus: WitnessCellSchema,
   sinaiticus: WitnessCellSchema,
   vulgate: WitnessCellSchema,

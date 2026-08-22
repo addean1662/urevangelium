@@ -141,7 +141,32 @@ The Vulgate is a fully established text; physical lacunae from its manuscript ba
 
 ---
 
-## Column 5: Peshitta
+## Column 5: Bezae
+
+**Display name:** Bezae
+**Witness:** Codex Bezae Cantabrigiensis, GA 05 / VL 5
+**Date:** approximately 400 CE
+**Scripts:** Greek and Latin
+
+### Certified display scope
+
+The displayed Bezae layer is internally source-verified against the local
+hash-pinned ITSEE/IGNTP Greek and Latin TEI transcriptions. All 48,920 visible
+Greek forms and 52,749 visible Latin forms consume unique exact occurrences in
+their respective TEI verses; unsupported and reused occurrences are zero.
+
+Greek and Latin are certified independently. Their shared comparison row does
+not assert literal equivalence or diplomatic word order. The certificate also
+keeps 3,398 full physical-loss rows, 19 Greek-side loss rows, 94 full textual-
+omission rows, 236 Greek-side omission rows, 6,425 explicit alignment gaps,
+and 1,780 unpopulated post-generation display gaps distinct. Unused TEI
+apparatus layers remain outside this display-scope claim.
+
+Certificate: `docs/audits/bezae-display-certification.json`.
+
+---
+
+## Column 6: Peshitta
 
 **Display name:** Peshitta  
 **Edition:** scrollmapper electronic Syriac Peshitta, pinned revision
