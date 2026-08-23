@@ -15,6 +15,7 @@ interface Props {
   copticSpanLength: number;
   peshittaSpanLength: number;
   peshittaLocalSpanStart: boolean;
+  peshittaSpanCovered: boolean;
   onCopticSpanEnter: (spanId: string) => void;
   onCopticSpanLeave: () => void;
 }
@@ -24,14 +25,13 @@ function cellGloss(cell: PapyrusCell | WitnessCell): GlossCellType | null {
   return null;
 }
 
-export function AlignmentRow({ row, showSinaiticus, activeCopticSpanId, copticSpanLength, peshittaSpanLength, peshittaLocalSpanStart, onCopticSpanEnter, onCopticSpanLeave }: Props) {
+export function AlignmentRow({ row, showSinaiticus, activeCopticSpanId, copticSpanLength, peshittaSpanLength, peshittaLocalSpanStart, peshittaSpanCovered, onCopticSpanEnter, onCopticSpanLeave }: Props) {
   const copticGloss = row.coptic ? cellGloss(row.coptic) : null;
   const copticSpanId = copticGloss?.spanId;
   const copticSpanActive = Boolean(copticSpanId && activeCopticSpanId === copticSpanId);
   const copticContinuation = copticGloss?.spanRole === 'continuation';
   const enterCopticSpan = copticSpanId ? () => onCopticSpanEnter(copticSpanId) : undefined;
   const peshittaGloss = cellGloss(row.peshitta);
-  const peshittaContinuation = peshittaGloss?.spanRole === 'continuation';
   return (
     <tr>
       <PapyrusCellComponent cell={row.papyrus} />
@@ -74,7 +74,7 @@ export function AlignmentRow({ row, showSinaiticus, activeCopticSpanId, copticSp
 
       <SyriacCell cell={row.peshitta} />
       <WitnessIndicator cell={row.peshitta} />
-      {(!peshittaContinuation || peshittaLocalSpanStart) && <GlossCell gloss={peshittaGloss} rowSpan={peshittaGloss?.spanId ? peshittaSpanLength : undefined} />}
+      {(!peshittaSpanCovered || peshittaLocalSpanStart) && <GlossCell gloss={peshittaGloss} rowSpan={peshittaSpanCovered ? peshittaSpanLength : undefined} />}
 
       <WitnessCellComponent cell={row.byzantine} className="font-greek" translitFn={transliterateGreek} />
       <WitnessIndicator cell={row.byzantine} />

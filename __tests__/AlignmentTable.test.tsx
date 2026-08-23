@@ -6,6 +6,7 @@ import { PapyrusCell } from '@/components/AlignmentTable/PapyrusCell';
 import type { VerseData } from '@/lib/types';
 
 import matthewData from '@/data/matthew/1/1.json';
+import matthewOneTwentyData from '@/data/matthew/1/20.json';
 import markData from '@/data/mark/1/1.json';
 import lukeData from '@/data/luke/1/1.json';
 import johnData from '@/data/john/1/1.json';
@@ -88,6 +89,15 @@ describe('Matthew 1:1 proof row', () => {
     expect(screen.getAllByText('Βίβλος').length).toBeGreaterThan(0);
     expect(screen.getByText('Liber')).toBeInTheDocument();
     expect(document.querySelectorAll('td[lang="syr"]').length).toBeGreaterThan(0);
+  });
+});
+
+describe('Matthew 1:20 Peshitta merged-cell geometry', () => {
+  it('includes intervening physical gap rows in each English rowspan', () => {
+    const completeRows = matthewOneTwentyData.rows.filter((row) => row.papyrus && row.vaticanus && row.sinaiticus);
+    const { container } = render(<AlignmentTable data={{ ...matthewOneTwentyData, rows: completeRows } as VerseData} />);
+    expect(container.querySelector('td[title^="Murdock 1851"][rowspan="6"]')?.textContent).toBe('an angel');
+    expect(container.querySelector('td[title^="Murdock 1851"][rowspan="4"]')?.textContent).toBe('appeared to him in a dream, and said');
   });
 });
 
