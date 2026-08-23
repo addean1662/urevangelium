@@ -90,22 +90,9 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
     row.coptic?.type === 'text' && row.coptic.gloss?.source === 'Scriptorium'
   );
   const copticSpanLengths = new Map<string, number>();
-  const peshittaSpanBounds = new Map<string, { start: number; end: number }>();
-  for (const [rowIndex, row] of data.rows.entries()) {
+  for (const row of data.rows) {
     const spanId = row.coptic?.type === 'text' ? row.coptic.gloss?.spanId : undefined;
     if (spanId) copticSpanLengths.set(spanId, (copticSpanLengths.get(spanId) ?? 0) + 1);
-    const peshittaSpanId = row.peshitta.type === 'text' ? row.peshitta.gloss?.spanId : undefined;
-    if (peshittaSpanId) {
-      const bounds = peshittaSpanBounds.get(peshittaSpanId);
-      if (bounds) bounds.end = rowIndex;
-      else peshittaSpanBounds.set(peshittaSpanId, { start: rowIndex, end: rowIndex });
-    }
-  }
-  const peshittaSpanCoverage = new Map<number, { start: boolean; length: number }>();
-  for (const { start, end } of peshittaSpanBounds.values()) {
-    for (let rowIndex = start; rowIndex <= end; rowIndex += 1) {
-      peshittaSpanCoverage.set(rowIndex, { start: rowIndex === start, length: end - start + 1 });
-    }
   }
 
   function pairBg(i: number) {
@@ -188,7 +175,7 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
         </thead>
 
         <tbody>
-          {data.rows.map((row, rowIndex) => (
+          {data.rows.map((row) => (
             <AlignmentRow
               key={row.id}
               row={row}
@@ -197,9 +184,6 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
               copticSpanLength={row.coptic?.type === 'text' && row.coptic.gloss?.spanId
                 ? copticSpanLengths.get(row.coptic.gloss.spanId) ?? 1
                 : 1}
-              peshittaSpanLength={peshittaSpanCoverage.get(rowIndex)?.length ?? 1}
-              peshittaLocalSpanStart={peshittaSpanCoverage.get(rowIndex)?.start ?? true}
-              peshittaSpanCovered={peshittaSpanCoverage.has(rowIndex)}
               onCopticSpanEnter={setActiveCopticSpanId}
               onCopticSpanLeave={() => setActiveCopticSpanId(null)}
             />

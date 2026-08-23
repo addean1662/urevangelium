@@ -49,10 +49,11 @@ describe('papyrus condition presentation', () => {
 });
 
 describe('Matthew 1:1 proof row', () => {
-  it('renders Peshitta phrase alignment as merged English cells without arrows', () => {
+  it('renders Peshitta English in ordinary row cells without arrows or merged cells', () => {
     const { container } = render(<AlignmentTable data={matthewData as VerseData} />);
     expect(container.textContent).not.toMatch(/[←→↔↕↑↓⇄⇆⟷⟶⟵↳]/u);
-    expect(container.querySelectorAll('td[title^="Murdock 1851"][rowspan]').length).toBeGreaterThan(0);
+    expect(container.querySelectorAll('td[title^="Murdock 1851"]').length).toBeGreaterThan(0);
+    expect(container.querySelector('td[title^="Murdock 1851"][rowspan]')).toBeNull();
   });
 
   it('renders the admitted Horner English across all eight Sahidic word-groups', () => {
@@ -92,12 +93,15 @@ describe('Matthew 1:1 proof row', () => {
   });
 });
 
-describe('Matthew 1:20 Peshitta merged-cell geometry', () => {
-  it('includes intervening physical gap rows in each English rowspan', () => {
+describe('Matthew 1:20 Peshitta row-cell alignment', () => {
+  it('keeps ordered English allocations in ordinary cells across Syriac gaps', () => {
     const completeRows = matthewOneTwentyData.rows.filter((row) => row.papyrus && row.vaticanus && row.sinaiticus);
     const { container } = render(<AlignmentTable data={{ ...matthewOneTwentyData, rows: completeRows } as VerseData} />);
-    expect(container.querySelector('td[title^="Murdock 1851"][rowspan="6"]')?.textContent).toBe('an angel');
-    expect(container.querySelector('td[title^="Murdock 1851"][rowspan="4"]')?.textContent).toBe('appeared to him in a dream, and said');
+    const cells = [...container.querySelectorAll('td[title^="Murdock 1851"]')];
+    expect(cells.some((cell) => cell.textContent === 'an')).toBe(true);
+    expect(cells.some((cell) => cell.textContent === 'angel')).toBe(true);
+    expect(cells.some((cell) => cell.textContent === 'appeared to him in')).toBe(true);
+    expect(cells.every((cell) => !cell.hasAttribute('rowspan'))).toBe(true);
   });
 });
 

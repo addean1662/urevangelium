@@ -187,7 +187,7 @@ const pendingFiles = new Map();
 const decisions = [];
 const totals = {
   units: units.length, displayReferences: 0, syriacRows: 0, englishWords: 0, groups: 0, lexicalAnchors: 0,
-  directRows: 0, continuationRows: 0, wholeUnitSpans: 0, multirowPhraseSpans: 0, accountingErrors: 0, filesChanged: 0,
+  populatedEnglishCells: 0, blankEnglishCells: 0, multiwordEnglishCells: 0, multirowPhraseGroups: 0, accountingErrors: 0, filesChanged: 0,
 };
 
 for (const unit of units) {
@@ -213,26 +213,30 @@ for (const unit of units) {
   totals.englishWords += englishWords.length;
   totals.groups += groups.length;
   totals.lexicalAnchors += anchors.length;
-  if (groups.length === 1 && rows.length > 1) totals.wholeUnitSpans += 1;
-
   const groupDecisions = groups.map((group, groupIndex) => {
     const phrase = exactPhrase(unit.english, englishWords, group.englishStart, group.englishEnd);
     const members = rows.slice(group.rowStart, group.rowEnd + 1);
     const groupId = `${unit.unitId}#row-phrase-${groupIndex + 1}`;
-    if (members.length === 1) totals.directRows += 1;
-    else {
-      totals.multirowPhraseSpans += 1;
-      totals.continuationRows += members.length - 1;
-    }
-    members.forEach((member, memberIndex) => {
+    if (members.length > 1) totals.multirowPhraseGroups += 1;
+    const englishCount = group.englishEnd - group.englishStart + 1;
+    const allocations = members.map((member, memberIndex) => {
+      const start = group.englishStart + Math.floor(memberIndex * englishCount / members.length);
+      const endExclusive = group.englishStart + Math.floor((memberIndex + 1) * englishCount / members.length);
+      const end = endExclusive - 1;
+      const allocated = start <= end ? exactPhrase(unit.english, englishWords, start, end) : { display: '', charStart: null, charEnd: null };
+      return { member, start, end, englishIndices: start <= end ? Array.from({ length: end - start + 1 }, (_, index) => start + index) : [], ...allocated };
+    });
+    allocations.forEach((allocation) => {
+      const { member } = allocation;
+      if (allocation.display) totals.populatedEnglishCells += 1;
+      else totals.blankEnglishCells += 1;
+      if (allocation.englishIndices.length > 1) totals.multiwordEnglishCells += 1;
       member.row.peshitta.gloss = {
-        gloss: memberIndex === 0 ? phrase.display : '',
+        gloss: allocation.display,
         source: 'Murdock',
-        tooltip: memberIndex === 0
-          ? `Murdock 1851 · ${members.length === 1 ? 'row alignment' : 'certified phrase span'} · ${members.map((item) => item.row.peshitta.text).join(' ')}`
-          : `Shared Murdock phrase: “${phrase.display}”`,
-        spanId: groupId,
-        spanRole: memberIndex === 0 ? 'start' : 'continuation',
+        tooltip: allocation.display
+          ? `Murdock 1851 · ordered cell allocation within certified phrase: “${phrase.display}”`
+          : `Murdock 1851 · no separately allocated English word within certified phrase: “${phrase.display}”`,
       };
       member.row.peshitta.provenance ??= {};
       member.row.peshitta.provenance.englishAlignment = {
@@ -240,11 +244,11 @@ for (const unit of units) {
         sourceReference: unit.sourceReference,
         unitId: unit.unitId,
         groupId,
-        scope: members.length === 1 ? 'row-phrase-ownership' : 'bounded-multirow-phrase-span',
+        scope: 'ordered-row-display-allocation',
         syriacRowIds: members.map((item) => item.row.id),
         syriacRowKeys: members.map((item) => `${item.reference}#${item.row.id}`),
-        englishIndices: Array.from({ length: group.englishEnd - group.englishStart + 1 }, (_, index) => group.englishStart + index),
-        englishCharRange: [phrase.charStart, phrase.charEnd],
+        englishIndices: allocation.englishIndices,
+        englishCharRange: [allocation.charStart, allocation.charEnd],
         anchor: group.anchor ? {
           syriacRowId: rows[group.anchor.rowIndex].row.id,
           englishIndex: group.anchor.englishIndex,
@@ -253,7 +257,7 @@ for (const unit of units) {
           exactEvidenceFamilies: group.anchor.exactFamilies,
         } : null,
         evidence: group.anchor ? ['MONOTONIC_CROSS_TRADITION_LEXICAL_ANCHOR', 'CERTIFIED_SYRIAC_ROW_ORDER'] : ['COMPLETE_PUBLISHED_UNIT_BOUNDARY', 'CERTIFIED_SYRIAC_ROW_ORDER'],
-        status: 'internally-certified-row-phrase-alignment',
+        status: 'internally-certified-row-cell-alignment',
       };
     });
     return {
@@ -273,17 +277,23 @@ for (const unit of units) {
         evidenceFamilies: group.anchor.families,
         exactEvidenceFamilies: group.anchor.exactFamilies,
       } : null,
+      rowAllocations: allocations.map((allocation) => ({
+        rowKey: `${allocation.member.reference}#${allocation.member.row.id}`,
+        english: allocation.display,
+        englishIndices: allocation.englishIndices,
+        englishCharRange: [allocation.charStart, allocation.charEnd],
+      })),
     };
   });
   decisions.push({ unitId: unit.unitId, sourceReference: unit.sourceReference, displayReferences: unit.displayReferences, syriacRows: rows.length, englishWords: englishWords.length, rowAccounting, englishAccounting, groups: groupDecisions });
 }
 
 if (totals.accountingErrors) throw new Error(`Refusing certification: ${totals.accountingErrors} units failed complete accounting.`);
-const decisionCore = { standard: 'Complete Murdock-unit English is partitioned into ordered, non-overlapping phrases bounded by monotonic lexical anchors corroborated by at least two independent displayed tradition families. Multirow phrases render as one merged English cell covering their Syriac rows; continuation symbols and proportional word slicing are prohibited.', totals, decisions };
+const decisionCore = { standard: 'Complete Murdock-unit English is partitioned into ordered, non-overlapping phrases bounded by monotonic lexical anchors corroborated by at least two independent displayed tradition families. Each bounded phrase is then allocated in source order across its ordinary Syriac-row English cells. Arrows, merged cells, continuation cells, borrowed wording, and claims of one-to-one lexical equivalence are prohibited.', totals, decisions };
 const adjudicationSha256 = sha256(JSON.stringify(decisionCore));
 for (const document of pendingFiles.values()) {
   for (const row of document.rows) {
-    if (row.peshitta?.provenance?.englishAlignment?.status === 'internally-certified-row-phrase-alignment') {
+    if (row.peshitta?.provenance?.englishAlignment?.status === 'internally-certified-row-cell-alignment') {
       row.peshitta.provenance.englishAlignment.adjudicationSha256 = adjudicationSha256;
     }
   }
@@ -298,7 +308,7 @@ const ledger = {
     english: manifest.translation,
     alignmentEvidence: 'Displayed Greek, Latin, and Coptic glosses counted as three tradition families; Greek witnesses count as one dependent family',
   },
-  exclusions: 'Other traditions supply alignment evidence only. Their English wording is never inserted into the Peshitta column. A merged multirow cell claims bounded phrase correspondence, not one-to-one lexical equivalence.',
+  exclusions: 'Other traditions supply alignment evidence only. Their English wording is never inserted into the Peshitta column. Per-row display allocation preserves the certified phrase and source order but does not claim one-to-one lexical equivalence.',
   sourceContentSha256: manifest.sourceContentSha256,
   adjudicationSha256,
   totals,

@@ -196,11 +196,11 @@ Murdock's 1851 English translation is displayed in the English cell accompanying
 each Peshitta row. Its 3,677 certified published units cover all 3,779 Gospel
 references. They are partitioned into 23,650 ordered row-phrase groups using
 22,007 monotonic lexical anchors corroborated across at least two displayed
-tradition families. The remaining wording stays inside bounded phrase spans,
-rendered as one merged English cell over the covered Syriac rows. Continuation
-arrows are prohibited; the wording is never proportionally sliced or presented
-as unsupported one-to-one lexical equivalence. All 84,136 Murdock words and all
-50,477 Syriac rows are accounted exactly once.
+tradition families. Each phrase is allocated in source order across ordinary
+left-aligned English cells accompanying its Syriac rows. Merged cells and
+continuation arrows are prohibited; row allocation is not presented as
+one-to-one lexical equivalence. All 84,136 Murdock words and all 50,477 Syriac
+rows are accounted exactly once.
 
 ### Source data
 
