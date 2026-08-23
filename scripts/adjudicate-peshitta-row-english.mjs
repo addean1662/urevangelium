@@ -226,11 +226,11 @@ for (const unit of units) {
     }
     members.forEach((member, memberIndex) => {
       member.row.peshitta.gloss = {
-        gloss: memberIndex === 0 ? phrase.display : '↳',
+        gloss: memberIndex === 0 ? phrase.display : '',
         source: 'Murdock',
         tooltip: memberIndex === 0
           ? `Murdock 1851 · ${members.length === 1 ? 'row alignment' : 'certified phrase span'} · ${members.map((item) => item.row.peshitta.text).join(' ')}`
-          : `Continues Murdock phrase “${phrase.display}”`,
+          : `Shared Murdock phrase: “${phrase.display}”`,
         spanId: groupId,
         spanRole: memberIndex === 0 ? 'start' : 'continuation',
       };
@@ -279,7 +279,7 @@ for (const unit of units) {
 }
 
 if (totals.accountingErrors) throw new Error(`Refusing certification: ${totals.accountingErrors} units failed complete accounting.`);
-const decisionCore = { standard: 'Complete Murdock-unit English is partitioned into ordered, non-overlapping phrases bounded by monotonic lexical anchors corroborated by at least two independent displayed tradition families. Unanchored material remains inside an intact bounded phrase; no proportional word slicing or borrowed wording is permitted.', totals, decisions };
+const decisionCore = { standard: 'Complete Murdock-unit English is partitioned into ordered, non-overlapping phrases bounded by monotonic lexical anchors corroborated by at least two independent displayed tradition families. Multirow phrases render as one merged English cell covering their Syriac rows; continuation symbols and proportional word slicing are prohibited.', totals, decisions };
 const adjudicationSha256 = sha256(JSON.stringify(decisionCore));
 for (const document of pendingFiles.values()) {
   for (const row of document.rows) {
@@ -298,7 +298,7 @@ const ledger = {
     english: manifest.translation,
     alignmentEvidence: 'Displayed Greek, Latin, and Coptic glosses counted as three tradition families; Greek witnesses count as one dependent family',
   },
-  exclusions: 'Other traditions supply alignment evidence only. Their English wording is never inserted into the Peshitta column. A multirow span claims bounded phrase correspondence, not one-to-one lexical equivalence.',
+  exclusions: 'Other traditions supply alignment evidence only. Their English wording is never inserted into the Peshitta column. A merged multirow cell claims bounded phrase correspondence, not one-to-one lexical equivalence.',
   sourceContentSha256: manifest.sourceContentSha256,
   adjudicationSha256,
   totals,

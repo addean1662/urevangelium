@@ -168,8 +168,9 @@ Certified contextual English is James Murdock's 1851 public-domain translation.
 Two electronic transcriptions were collated: 3,660 single-verse units agree
 lexically, while 17 boundary spans cover 119 references without forcing disputed
 digital verse divisions. The complete units are displayed in the accompanying
-Peshitta English cells as 23,650 ordered row-phrase groups. Cross-tradition
-lexical anchors bound the phrases; all 84,136 admitted English words and all
+Peshitta English cells as 23,650 ordered row-phrase groups. Groups covering
+multiple Syriac rows render as one merged English cell without continuation
+symbols. Cross-tradition lexical anchors bound the phrases; all 84,136 admitted English words and all
 50,477 Syriac rows are accounted once. No proportional assignment or borrowed
 wording is permitted.
 

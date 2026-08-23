@@ -5,7 +5,8 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 const ledger = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/audits/peshitta-row-english-adjudication.json'), 'utf8'));
 const files = new Map();
 const failures = [];
-const totals = { units: 0, groups: 0, syriacRows: 0, englishWords: 0, glossStarts: 0, glossContinuations: 0, failures: 0 };
+const totals = { units: 0, groups: 0, syriacRows: 0, englishWords: 0, mergedGlossCells: 0, coveredContinuationRows: 0, arrowGlyphs: 0, failures: 0 };
+const ARROW_RE = /[←→↔↕↑↓⇄⇆⟷⟶⟵↳]/u;
 const words = (value) => value.match(/[A-Za-z]+(?:['’][A-Za-z]+)*/gu) ?? [];
 
 function documentFor(reference) {
@@ -32,17 +33,17 @@ for (const unit of ledger.decisions) {
     seenEnglish.push(...group.englishIndices);
     group.syriacRowIds.forEach((rowId, memberIndex) => {
       const key = group.syriacRowKeys?.[memberIndex];
-      const reference = key?.slice(0, key.lastIndexOf('#'));
       const cell = byId.get(key);
       seenRows.add(key);
       totals.syriacRows += 1;
       if (!cell) failures.push({ unitId: unit.unitId, groupId: group.groupId, rowId, issue: 'MISSING_SYRIAC_ROW' });
       else if (cell.gloss?.source !== 'Murdock') failures.push({ unitId: unit.unitId, groupId: group.groupId, rowId, issue: 'WRONG_GLOSS_SOURCE' });
       else if (memberIndex === 0 && (cell.gloss.gloss !== group.english || cell.gloss.spanRole !== 'start')) failures.push({ unitId: unit.unitId, groupId: group.groupId, rowId, issue: 'START_GLOSS_MISMATCH' });
-      else if (memberIndex > 0 && (cell.gloss.gloss !== '↳' || cell.gloss.spanRole !== 'continuation')) failures.push({ unitId: unit.unitId, groupId: group.groupId, rowId, issue: 'CONTINUATION_MISMATCH' });
+      else if (memberIndex > 0 && (cell.gloss.gloss !== '' || cell.gloss.spanRole !== 'continuation')) failures.push({ unitId: unit.unitId, groupId: group.groupId, rowId, issue: 'MERGED_CELL_CONTINUATION_MISMATCH' });
       else if (cell.gloss.spanId !== group.groupId || cell.provenance?.englishAlignment?.groupId !== group.groupId || cell.provenance?.englishAlignment?.adjudicationSha256 !== ledger.adjudicationSha256) failures.push({ unitId: unit.unitId, groupId: group.groupId, rowId, issue: 'PROVENANCE_MISMATCH' });
-      if (memberIndex === 0) totals.glossStarts += 1;
-      else totals.glossContinuations += 1;
+      if (ARROW_RE.test(cell.gloss?.gloss ?? '') || ARROW_RE.test(cell.gloss?.tooltip ?? '')) totals.arrowGlyphs += 1;
+      if (memberIndex === 0) totals.mergedGlossCells += 1;
+      else totals.coveredContinuationRows += 1;
     });
   }
   const expectedEnglish = Array.from({ length: unit.englishWords }, (_, index) => index);
@@ -50,8 +51,8 @@ for (const unit of ledger.decisions) {
   if (seenEnglish.length !== expectedEnglish.length || seenEnglish.some((index, position) => index !== expectedEnglish[position])) failures.push({ unitId: unit.unitId, issue: 'ENGLISH_WORD_ACCOUNTING' });
 }
 
-if (totals.glossStarts !== totals.groups || totals.glossStarts + totals.glossContinuations !== totals.syriacRows) {
-  failures.push({ issue: 'DISPLAY_CELL_ACCOUNTING', groups: totals.groups, glossStarts: totals.glossStarts, glossContinuations: totals.glossContinuations, syriacRows: totals.syriacRows });
+if (totals.mergedGlossCells !== totals.groups || totals.mergedGlossCells + totals.coveredContinuationRows !== totals.syriacRows || totals.arrowGlyphs !== 0) {
+  failures.push({ issue: 'DISPLAY_CELL_ACCOUNTING', groups: totals.groups, mergedGlossCells: totals.mergedGlossCells, coveredContinuationRows: totals.coveredContinuationRows, arrowGlyphs: totals.arrowGlyphs, syriacRows: totals.syriacRows });
 }
 totals.failures = failures.length;
 const passed = failures.length === 0

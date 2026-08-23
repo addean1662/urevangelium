@@ -90,9 +90,20 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
     row.coptic?.type === 'text' && row.coptic.gloss?.source === 'Scriptorium'
   );
   const copticSpanLengths = new Map<string, number>();
+  const peshittaSpanLengths = new Map<string, number>();
+  const peshittaLocalSpanStarts = new Set<string>();
+  const peshittaSeenSpans = new Set<string>();
   for (const row of data.rows) {
     const spanId = row.coptic?.type === 'text' ? row.coptic.gloss?.spanId : undefined;
     if (spanId) copticSpanLengths.set(spanId, (copticSpanLengths.get(spanId) ?? 0) + 1);
+    const peshittaSpanId = row.peshitta.type === 'text' ? row.peshitta.gloss?.spanId : undefined;
+    if (peshittaSpanId) {
+      peshittaSpanLengths.set(peshittaSpanId, (peshittaSpanLengths.get(peshittaSpanId) ?? 0) + 1);
+      if (!peshittaSeenSpans.has(peshittaSpanId)) {
+        peshittaSeenSpans.add(peshittaSpanId);
+        peshittaLocalSpanStarts.add(`${peshittaSpanId}\u0000${row.id}`);
+      }
+    }
   }
 
   function pairBg(i: number) {
@@ -184,6 +195,12 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
               copticSpanLength={row.coptic?.type === 'text' && row.coptic.gloss?.spanId
                 ? copticSpanLengths.get(row.coptic.gloss.spanId) ?? 1
                 : 1}
+              peshittaSpanLength={row.peshitta.type === 'text' && row.peshitta.gloss?.spanId
+                ? peshittaSpanLengths.get(row.peshitta.gloss.spanId) ?? 1
+                : 1}
+              peshittaLocalSpanStart={row.peshitta.type === 'text' && Boolean(row.peshitta.gloss?.spanId)
+                ? peshittaLocalSpanStarts.has(`${row.peshitta.gloss?.spanId}\u0000${row.id}`)
+                : true}
               onCopticSpanEnter={setActiveCopticSpanId}
               onCopticSpanLeave={() => setActiveCopticSpanId(null)}
             />

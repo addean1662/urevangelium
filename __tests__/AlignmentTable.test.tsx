@@ -48,6 +48,12 @@ describe('papyrus condition presentation', () => {
 });
 
 describe('Matthew 1:1 proof row', () => {
+  it('renders Peshitta phrase alignment as merged English cells without arrows', () => {
+    const { container } = render(<AlignmentTable data={matthewData as VerseData} />);
+    expect(container.textContent).not.toMatch(/[←→↔↕↑↓⇄⇆⟷⟶⟵↳]/u);
+    expect(container.querySelectorAll('td[title^="Murdock 1851"][rowspan]').length).toBeGreaterThan(0);
+  });
+
   it('renders the admitted Horner English across all eight Sahidic word-groups', () => {
     const { container } = render(<AlignmentTable data={matthewData as VerseData} />);
     const allocated = [...container.querySelectorAll('td[title*="display allocation within translation unit horner-matt-1-1-control-candidate"]')];

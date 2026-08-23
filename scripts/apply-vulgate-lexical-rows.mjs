@@ -48,7 +48,7 @@ for (const unit of ledger.units) {
       status: 'internally-adjudicated-not-independent-scholarly-review',
     };
     if (decision.action === 'display') {
-      cell.gloss = { gloss: decision.english, source: 'DouayRheims', tooltip: `Douay-Rheims 1899 · Latin lexical anchor: ${decision.latin} ↔ ${decision.anchorEnglish}` };
+      cell.gloss = { gloss: decision.english, source: 'DouayRheims', tooltip: `Douay-Rheims 1899 · Latin: ${decision.latin} · English: ${decision.anchorEnglish}` };
       totals.displayedRows++;
     } else if (decision.action === 'blank-compressed') totals.blankCompressedRows++;
     else if (decision.action === 'blank-reordered') totals.blankReorderedRows++;
@@ -61,7 +61,10 @@ for (const unit of ledger.units) {
 
 if (errors.length) throw new Error(`Refusing to apply: ${errors.length} coordinate errors. ${errors.slice(0, 5).join('; ')}`);
 if (APPLY) for (const [filename, data] of pending) { fs.writeFileSync(filename, `${JSON.stringify(data, null, 2)}\n`); totals.filesChanged++; }
-for (const data of pending.values()) for (const row of data.rows) if (['↳', 'â†³'].includes(row.vulgate?.gloss?.gloss)) totals.arrowsRemaining++;
+const ARROW_RE = /[←→↔↕↑↓⇄⇆⟷⟶⟵↳]/u;
+for (const data of pending.values()) for (const row of data.rows) {
+  if (ARROW_RE.test(row.vulgate?.gloss?.gloss ?? '') || ARROW_RE.test(row.vulgate?.gloss?.tooltip ?? '')) totals.arrowsRemaining++;
+}
 const appliedStatus = totals.blankUnresolvedRows === 0
   ? 'applied-complete-latin-row-classification-with-phrase-level-english'
   : 'applied-partial-internal-lexical-row-alignment';
