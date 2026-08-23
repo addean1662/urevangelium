@@ -94,13 +94,14 @@ describe('Matthew 1:1 proof row', () => {
 });
 
 describe('Matthew 1:20 Peshitta row-cell alignment', () => {
-  it('keeps ordered English allocations in ordinary cells across Syriac gaps', () => {
+  it('keeps semantically aligned English in ordinary cells across Syriac gaps', () => {
     const completeRows = matthewOneTwentyData.rows.filter((row) => row.papyrus && row.vaticanus && row.sinaiticus);
     const { container } = render(<AlignmentTable data={{ ...matthewOneTwentyData, rows: completeRows } as VerseData} />);
     const cells = [...container.querySelectorAll('td[title^="Murdock 1851"]')];
-    expect(cells.some((cell) => cell.textContent === 'an')).toBe(true);
-    expect(cells.some((cell) => cell.textContent === 'angel')).toBe(true);
-    expect(cells.some((cell) => cell.textContent === 'appeared to him in')).toBe(true);
+    expect(cells.some((cell) => cell.textContent === 'an angel')).toBe(true);
+    expect(cells.some((cell) => cell.textContent === 'appeared')).toBe(true);
+    expect(cells.some((cell) => cell.textContent === 'to him')).toBe(true);
+    expect(cells.some((cell) => cell.textContent === 'in a dream,')).toBe(true);
     expect(cells.every((cell) => !cell.hasAttribute('rowspan'))).toBe(true);
   });
 });

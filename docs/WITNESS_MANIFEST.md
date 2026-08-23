@@ -192,15 +192,14 @@ alignment relations. Relations may target one row, a multirow lexical unit, or
 a monotonic source-governed span. A span records honest non-one-to-one
 correspondence and is not presented as lexical equivalence or English.
 
-Murdock's 1851 English translation is displayed in the English cell accompanying
-each Peshitta row. Its 3,677 certified published units cover all 3,779 Gospel
-references. They are partitioned into 23,650 ordered row-phrase groups using
-22,007 monotonic lexical anchors corroborated across at least two displayed
-tradition families. Each phrase is allocated in source order across ordinary
-left-aligned English cells accompanying its Syriac rows. Merged cells and
-continuation arrows are prohibited; row allocation is not presented as
-one-to-one lexical equivalence. All 84,136 Murdock words and all 50,477 Syriac
-rows are accounted exactly once.
+Murdock's 1851 English translation is displayed in ordinary left-aligned cells
+accompanying the Peshitta. Its 3,779 independent verse units cover all Gospel
+references. Syriac-cell placements require SEDRA lexical evidence, governed
+parallel-corpus evidence, cross-tradition agreement, or a documented function-
+word relation. The 7,347 words without a supported Syriac-cell placement remain
+visible on explicit English-only expansion rows. Merged cells, continuation
+arrows, proportional phrase distribution, and cross-verse units are prohibited.
+All 84,133 Murdock words and all 50,477 Syriac rows are accounted exactly once.
 
 ### Source data
 

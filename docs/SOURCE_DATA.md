@@ -165,15 +165,14 @@ and outside the display claim.
 Pinned scrollmapper electronic Syriac Peshitta. The exact printed exemplar is not established.
 
 Certified contextual English is James Murdock's 1851 public-domain translation.
-Two electronic transcriptions were collated: 3,660 single-verse units agree
-lexically, while 17 boundary spans cover 119 references without forcing disputed
-digital verse divisions. The complete units are displayed in the accompanying
-Peshitta English cells as 23,650 ordered row-phrase groups. Each phrase is
-allocated in source order across the ordinary left-aligned English cells beside
-its Syriac rows; merged cells and continuation symbols are prohibited.
-Cross-tradition lexical anchors bound the phrases; all 84,136 admitted English words and all
-50,477 Syriac rows are accounted once. No proportional assignment or borrowed
-wording is permitted.
+All 3,779 governing verses remain independent; seven malformed electronic verse
+markers are corrected explicitly instead of collapsing adjacent verses. English
+is admitted to a Syriac row through SEDRA lexical evidence, governed parallel-
+corpus evidence, or a documented function-word relation. The 7,347 words without
+a supported Syriac-cell placement use distinct English-only expansion rows.
+All 84,133 admitted English words and all 50,477 Syriac rows are accounted once.
+Proportional distribution, merged cells, continuation symbols, and borrowed
+wording are prohibited.
 
 | File | Lines |
 |------|-------|

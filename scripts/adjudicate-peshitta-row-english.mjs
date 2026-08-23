@@ -3,331 +3,98 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const unitsFile = path.join(ROOT, 'data', 'sources', 'peshitta', 'murdock-admitted-units.json');
-const ledgerFile = path.join(ROOT, 'docs', 'audits', 'peshitta-row-english-adjudication.json');
-const applicationFile = path.join(ROOT, 'docs', 'audits', 'peshitta-row-english-application.json');
+const unitsFile = path.join(ROOT, 'data/sources/peshitta/murdock-admitted-units.json');
+const sedraFile = path.join(ROOT, 'data/sources/peshitta/sedra-inserted-token-evidence.json');
+const ledgerFile = path.join(ROOT, 'docs/audits/peshitta-row-english-adjudication.json');
+const applicationFile = path.join(ROOT, 'docs/audits/peshitta-row-english-application.json');
 const apply = process.argv.includes('--apply');
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex');
 const manifest = JSON.parse(fs.readFileSync(unitsFile, 'utf8'));
-
-const WORD_RE = /[A-Za-z]+(?:['’][A-Za-z]+)*/gu;
-const STOPWORDS = new Set([
-  'a', 'an', 'the', 'and', 'or', 'but', 'nor', 'of', 'to', 'in', 'on', 'at', 'by', 'for', 'from', 'with',
-  'as', 'than', 'that', 'this', 'these', 'those', 'who', 'whom', 'which', 'what', 'when', 'where', 'how',
-  'i', 'we', 'you', 'he', 'she', 'it', 'they', 'me', 'us', 'him', 'her', 'them', 'my', 'our', 'your',
-  'his', 'their', 'be', 'have', 'do', 'not', 'no', 'all', 'any', 'some', 'one', 'there', 'here', 'then',
-]);
-
-const IRREGULAR = new Map(Object.entries({
-  am: 'be', is: 'be', are: 'be', was: 'be', were: 'be', been: 'be', being: 'be', art: 'be', wast: 'be',
-  has: 'have', hath: 'have', had: 'have', having: 'have', does: 'do', doth: 'do', did: 'do', done: 'do', doing: 'do',
-  says: 'say', saith: 'say', said: 'say', saying: 'say', saw: 'see', seen: 'see', seeing: 'see',
-  came: 'come', coming: 'come', went: 'go', gone: 'go', going: 'go', gave: 'give', given: 'give',
-  made: 'make', knew: 'know', known: 'know', brought: 'bring', thought: 'think', told: 'tell', sent: 'send',
-  wrote: 'write', written: 'write', rose: 'rise', risen: 'rise', ate: 'eat', eaten: 'eat', began: 'begin', begun: 'begin',
-  begat: 'beget', begot: 'beget', begotten: 'beget', stood: 'stand', taught: 'teach', sought: 'seek', sat: 'sit',
-  lay: 'lie', lain: 'lie', bore: 'bear', borne: 'bear', born: 'bear', fell: 'fall', fallen: 'fall', grew: 'grow', grown: 'grow',
-  held: 'hold', dwelt: 'dwell', heard: 'hear', led: 'lead', lost: 'lose', met: 'meet', paid: 'pay', ran: 'run', sold: 'sell',
-  shone: 'shine', shew: 'show', shewed: 'show', shown: 'show', understood: 'understand', won: 'win',
-  men: 'man', women: 'woman', children: 'child', brethren: 'brother', feet: 'foot',
-  me: 'i', my: 'i', mine: 'i', us: 'we', our: 'we', ours: 'we', thee: 'you', thou: 'you', thy: 'you', thine: 'you', ye: 'you',
-  him: 'he', his: 'he', her: 'she', them: 'they', their: 'they', himself: 'he', herself: 'she', themselves: 'they',
-}));
+const sedra = JSON.parse(fs.readFileSync(sedraFile, 'utf8'));
+const sedraByToken = new Map(sedra.records.map((record) => [record.token, record]));
+const WORD_RE = /[A-Za-z]+(?:['â€™][A-Za-z]+)*/gu;
+const FUNCTION_WORDS = new Set(['a','an','the','and','or','but','nor','of','to','in','on','at','by','for','from','with','as','than','that','this','these','those','who','whom','which','what','when','where','how','i','we','you','he','she','it','they','me','us','him','her','them','my','our','your','thy','his','their','be','have','do','not','no','all','any','some','one','there','here','then']);
+const NO_CORPUS_FUNCTIONS = new Set(['a','an','the','and','or','but','nor','i','we','you','he','she','it','they','me','us','him','her','them','my','our','your','thy','his','their']);
+const SEMANTIC_GROUPS = [['think','contemplate','ponder','imagine'],['beget','conceive','generate','bear','birth'],['say','speak','announce','affirm'],['see','appear','behold','visible','perceive'],['receive','take'],['fear','afraid'],['wife','woman']];
+const IRREGULAR = new Map(Object.entries({am:'be',is:'be',are:'be',was:'be',were:'be',been:'be',being:'be',art:'be',wast:'be',has:'have',hath:'have',had:'have',does:'do',doth:'do',did:'do',done:'do',says:'say',saith:'say',said:'say',saw:'see',seen:'see',came:'come',went:'go',gone:'go',gave:'give',given:'give',made:'make',knew:'know',known:'know',brought:'bring',thought:'think',told:'tell',sent:'send',wrote:'write',written:'write',rose:'rise',risen:'rise',begat:'beget',begot:'beget',begotten:'beget',contemplated:'contemplate',conceived:'conceive',appeared:'appear',men:'man',women:'woman',children:'child',brethren:'brother',feet:'foot',me:'i',my:'i',mine:'i',us:'we',our:'we',ours:'we',thee:'you',thou:'you',thy:'you',thine:'you',ye:'you',him:'he',his:'he',her:'she',them:'they',their:'they'}));
 
 function lemma(value) {
   const word = value.toLocaleLowerCase('en').replace(/[^a-z]/gu, '');
   if (IRREGULAR.has(word)) return IRREGULAR.get(word);
-  if (word.length > 5 && word.endsWith('eth')) return word.slice(0, -3);
-  if (word.length > 5 && word.endsWith('est')) return word.slice(0, -3);
+  if (word.length > 5 && /(?:eth|est)$/u.test(word)) return word.slice(0, -3);
   if (word.length > 5 && word.endsWith('ies')) return `${word.slice(0, -3)}y`;
-  if (word.length > 5 && word.endsWith('ing')) {
-    const base = word.slice(0, -3);
-    return base.endsWith(base.at(-1)?.repeat(2)) ? base.slice(0, -1) : base;
-  }
+  if (word.length > 5 && word.endsWith('ing')) return word.slice(0, -3).replace(/(.)\1$/u, '$1');
   if (word.length > 4 && word.endsWith('ied')) return `${word.slice(0, -3)}y`;
-  if (word.length > 4 && word.endsWith('ed')) {
-    const base = word.slice(0, -2);
-    return base.endsWith(base.at(-1)?.repeat(2)) ? base.slice(0, -1) : base;
-  }
+  if (word.length > 4 && word.endsWith('ed')) return word.slice(0, -2).replace(/(.)\1$/u, '$1');
   if (word.length > 4 && word.endsWith('es')) return word.slice(0, -2);
   if (word.length > 3 && word.endsWith('s')) return word.slice(0, -1);
   return word;
 }
 
-function wordsWithOffsets(value) {
-  return [...value.matchAll(WORD_RE)].map((match, index) => ({ surface: match[0], lemma: lemma(match[0]), index, charStart: match.index }));
+function words(value) {
+  const matches = [...value.matchAll(WORD_RE)];
+  return matches.map((match, index) => ({ surface: match[0], lemma: lemma(match[0]), index, display: value.slice(match.index, matches[index + 1]?.index ?? value.length).trim() }));
+}
+function parseReference(reference) { const m=reference.match(/^(matthew|mark|luke|john) (\d+):(\d+)$/u); if(!m) throw new Error(`Invalid reference: ${reference}`); return {gospel:m[1],chapter:m[2],verse:m[3]}; }
+function fileFor(reference) { const p=parseReference(reference); return path.join(ROOT,'data',p.gospel,p.chapter,`${p.verse}.json`); }
+function gloss(cell) { return cell?.type === 'text' ? cell.gloss?.gloss ?? '' : ''; }
+function terms(values) { const result=new Set(values.flatMap((value) => words(value).map((word) => word.lemma)).filter(Boolean));for(const group of SEMANTIC_GROUPS)if(group.some((term)=>result.has(term)))for(const term of group)result.add(term);return result; }
+function evidenceFor(row) {
+  const record = sedraByToken.get(row.peshitta.text);
+  const lexicalSurfaces = (record?.analyses ?? []).flatMap((analysis) => analysis.englishGlosses ?? []);
+  const families = {greek:terms([gloss(row.papyrus),gloss(row.vaticanus),gloss(row.sinaiticus),gloss(row.byzantine)]),latin:terms([gloss(row.vulgate)]),coptic:terms([gloss(row.coptic)])};
+  return { lexical: new Set([...terms(lexicalSurfaces)].filter((term)=>!FUNCTION_WORDS.has(term))), families, sedraStatus: record?.status ?? 'MISSING' };
 }
 
-function parseReference(reference) {
-  const match = reference.match(/^(matthew|mark|luke|john) (\d+):(\d+)$/u);
-  if (!match) throw new Error(`Invalid reference: ${reference}`);
-  return { gospel: match[1], chapter: Number(match[2]), verse: Number(match[3]) };
+let translationModel;
+function trainTranslationModel(units) {
+  const corpus=units.map((unit)=>{const document=JSON.parse(fs.readFileSync(fileFor(unit.displayReferences[0]),'utf8'));return{syriac:[...new Set(document.rows.filter((row)=>row.peshitta?.type==='text').map((row)=>row.peshitta.text))],english:[...new Set(words(unit.english).map((word)=>word.lemma))]};});
+  const model=new Map(),frequency=new Map();
+  for(const verse of corpus)for(const syriac of verse.syriac)frequency.set(syriac,(frequency.get(syriac)??0)+1);
+  for(const verse of corpus)for(const syriac of verse.syriac){if(!model.has(syriac))model.set(syriac,new Map());const lexical=evidenceFor({peshitta:{type:'text',text:syriac}}).lexical;const row=model.get(syriac);for(const english of verse.english)row.set(english,(row.get(english)??0)+(lexical.has(english)?12:1));}
+  for(const row of model.values()){const total=[...row.values()].reduce((sum,value)=>sum+value,0);for(const [english,value]of row)row.set(english,value/total);}
+  for(let iteration=0;iteration<7;iteration+=1){const counts=new Map(),totals=new Map();for(const verse of corpus)for(const english of verse.english){const normalization=verse.syriac.reduce((sum,syriac)=>sum+(model.get(syriac)?.get(english)??1e-9),0);if(!normalization)continue;for(const syriac of verse.syriac){const contribution=(model.get(syriac)?.get(english)??1e-9)/normalization;if(!counts.has(syriac))counts.set(syriac,new Map());counts.get(syriac).set(english,(counts.get(syriac).get(english)??0)+contribution);totals.set(syriac,(totals.get(syriac)??0)+contribution);}}for(const [syriac,row]of counts)for(const [english,value]of row)model.get(syriac).set(english,value/totals.get(syriac));}
+  return {model,frequency};
 }
 
-function fileFor(reference) {
-  const parsed = parseReference(reference);
-  return path.join(ROOT, 'data', parsed.gospel, String(parsed.chapter), `${parsed.verse}.json`);
+function assignEnglish(rows, englishWords) {
+  const rowEvidence = rows.map(({row}) => evidenceFor(row));
+  const assigned = new Map(rows.map((_, index) => [index, []]));
+  const placements = Array(englishWords.length).fill(null);
+  const candidates = englishWords.map((word) => NO_CORPUS_FUNCTIONS.has(word.lemma)?[]:rowEvidence.map((evidence,index) => {
+    const syriac=rows[index].row.peshitta.text,lexical=evidence.lexical.has(word.lemma),familyCount=Object.values(evidence.families).filter((set)=>set.has(word.lemma)).length,corpusProbability=(translationModel.frequency.get(syriac)??0)>=3?(translationModel.model.get(syriac)?.get(word.lemma)??0):0;
+    if(!lexical&&familyCount<2&&corpusProbability<0.012)return null;
+    const expected=englishWords.length<2?0:word.index/(englishWords.length-1),actual=rows.length<2?0:index/(rows.length-1);
+    return {rowIndex:index,lexical,familyCount,corpusProbability,score:(lexical?140:0)+familyCount*10+Math.log1p(corpusProbability*1000)*20-Math.abs(expected-actual)*5};
+  }).filter(Boolean).sort((a,b)=>b.score-a.score));
+  const order=englishWords.map((word,index)=>({index,content:!FUNCTION_WORDS.has(word.lemma),best:candidates[index][0]?.score??-Infinity,gap:(candidates[index][0]?.score??0)-(candidates[index][1]?.score??0)})).sort((a,b)=>Number(b.content)-Number(a.content)||b.best-a.best||b.gap-a.gap||a.index-b.index);
+  for(const item of order){const list=candidates[item.index];if(!list.length)continue;const best=list.map((candidate)=>{const duplicate=assigned.get(candidate.rowIndex).some((index)=>englishWords[index].lemma===englishWords[item.index].lemma);return{...candidate,adjusted:candidate.score-assigned.get(candidate.rowIndex).length*7-(duplicate?1000:0)};}).sort((a,b)=>b.adjusted-a.adjusted)[0];const tied=list.filter((candidate)=>Math.abs(candidate.score-list[0].score)<0.5).length>1;if(!best.lexical&&best.corpusProbability<0.02&&tied)continue;placements[item.index]={...best,status:best.lexical?'SEDRA_LEXICAL_MATCH':best.corpusProbability>=0.012?'PARALLEL_CORPUS_ALIGNMENT':'CROSS_TRADITION_EXACT_MATCH'};assigned.get(best.rowIndex).push(item.index);}
+  const supported=[...placements],prepositions=new Set(['of','to','in','on','at','by','for','from','with']),forward=new Set(['a','an','the','and','or','but','nor','that','this','these','those','who','whom','which','what','when','where','how']),subjectSurfaces=new Set(['i','we','you','thou','ye','he','she','it','they']),objectSurfaces=new Set(['me','us','thee','you','him','her','them']),possessiveSurfaces=new Set(['my','mine','our','ours','your','yours','thy','thine','his','her','hers','their','theirs']);
+  for(const word of englishWords){if(placements[word.index]||!FUNCTION_WORDS.has(word.lemma))continue;let previousIndex=-1,nextIndex=-1;for(let index=word.index-1;index>=0;index-=1)if(supported[index]){previousIndex=index;break;}for(let index=word.index+1;index<supported.length;index+=1)if(supported[index]){nextIndex=index;break;}const betweenNext=nextIndex<0?[]:englishWords.slice(word.index+1,nextIndex).map((item)=>item.lemma),surface=word.surface.toLocaleLowerCase('en');let head=null;if((forward.has(word.lemma)||(possessiveSurfaces.has(surface)&&!/[,:;]/u.test(word.display)))&&nextIndex>0&&nextIndex-word.index<=3)head=supported[nextIndex];else if(subjectSurfaces.has(surface)&&nextIndex===word.index+1)head=supported[nextIndex];else if(objectSurfaces.has(surface)&&previousIndex===word.index-1&&prepositions.has(englishWords[previousIndex]?.lemma))head=supported[previousIndex];else if(prepositions.has(word.lemma)&&nextIndex>0&&nextIndex-word.index<=3&&!betweenNext.some((term)=>prepositions.has(term)))head=supported[nextIndex];else if(word.lemma==='not')head=previousIndex>=0?supported[previousIndex]:nextIndex>=0?supported[nextIndex]:null;else if(['be','have','do'].includes(word.lemma)&&nextIndex>0&&nextIndex-word.index<=2)head=supported[nextIndex];if(!head)continue;placements[word.index]={...head,status:'FUNCTION_WORD_WITH_SUPPORTED_HEAD'};assigned.get(head.rowIndex).push(word.index);}
+  for(const indices of assigned.values())indices.sort((a,b)=>a-b);
+  return {assigned,placements,rowEvidence};
 }
 
-function cellGloss(cell) {
-  if (!cell || !['text', 'extant', 'translation'].includes(cell.type)) return '';
-  return cell.gloss?.spanRole === 'continuation' ? '' : cell.gloss?.gloss ?? '';
+function emptyRow(reference,index,word,placement){const p=parseReference(reference),empty={type:'empty'};return{id:`peshitta-english-${p.gospel}-${p.chapter}-${p.verse}-${index+1}`,rowKind:'translation-expansion',papyrus:empty,coptic:empty,sinaiticus:empty,vaticanus:empty,vulgate:empty,peshitta:{type:'translation',gloss:{gloss:word.display,source:'Murdock',tooltip:'Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent'},provenance:{authority:placement.authority,sourceReference:reference,englishIndex:index,alignmentGroupId:`${placement.unitId}#english-${index+1}`,status:'published-translation-row'}},byzantine:empty,bezae:empty};}
+
+const units=Object.values(manifest.units).filter((unit,index,all)=>all.findIndex((candidate)=>candidate.unitId===unit.unitId)===index);
+translationModel=trainTranslationModel(units);
+const pendingFiles=new Map(),decisions=[];
+const totals={units:units.length,displayReferences:0,syriacRows:0,englishWords:0,lexicallyAlignedWords:0,parallelCorpusAlignedWords:0,crossTraditionAlignedWords:0,functionWordsWithHead:0,expansionWords:0,populatedSyriacCells:0,blankSyriacCells:0,filesChanged:0,failures:0};
+for(const unit of units){
+  if(unit.displayReferences.length!==1)throw new Error(`${unit.unitId}: cross-verse unit prohibited`);
+  const reference=unit.displayReferences[0],filename=fileFor(reference),document=pendingFiles.get(filename)??JSON.parse(fs.readFileSync(filename,'utf8'));pendingFiles.set(filename,document);document.rows=document.rows.filter((row)=>!row.id.startsWith('peshitta-english-'));
+  const rows=document.rows.map((row,documentIndex)=>({row,documentIndex})).filter(({row})=>row.peshitta?.type==='text'),englishWords=words(unit.english),{assigned,placements,rowEvidence}=assignEnglish(rows,englishWords),wordRecords=[];
+  for(let rowIndex=0;rowIndex<rows.length;rowIndex+=1){const member=rows[rowIndex],indices=assigned.get(rowIndex),display=indices.map((index)=>englishWords[index].display).join(' ').trim();if(display)totals.populatedSyriacCells+=1;else totals.blankSyriacCells+=1;member.row.peshitta.gloss={gloss:display,source:'Murdock',tooltip:display?'Murdock 1851 · Syriac lexical alignment':'Murdock 1851 · no certified English equivalent assigned'};member.row.peshitta.provenance??={};member.row.peshitta.provenance.englishAlignment={authority:'James Murdock 1851',sourceReference:reference,unitId:unit.unitId,scope:'syriac-lexical-cell',englishIndices:indices,evidence:[...new Set(indices.map((index)=>placements[index].status))],sedraStatus:rowEvidence[rowIndex].sedraStatus,status:display?'adjudicated':'no-certified-equivalent'};for(const index of indices)wordRecords.push({englishIndex:index,english:englishWords[index].display,rowId:member.row.id,status:placements[index].status});}
+  const expansions=[];for(const word of englishWords){if(placements[word.index])continue;totals.expansionWords+=1;const prior=placements.slice(0,word.index).map((placement,index)=>placement?{placement,index}:null).filter(Boolean).at(-1),nextOffset=placements.slice(word.index+1).findIndex(Boolean),next=nextOffset<0?null:{placement:placements[word.index+1+nextOffset],index:word.index+1+nextOffset},insertAfter=prior?rows[prior.placement.rowIndex].documentIndex:(next?rows[next.placement.rowIndex].documentIndex-1:-1),placement={authority:'James Murdock 1851',sourceReference:reference,unitId:unit.unitId,scope:'english-only-expansion',englishIndices:[word.index],evidence:['NO_UNIQUE_SYRIAC_LEXICAL_MATCH'],status:'translation-expansion'};expansions.push({insertAfter,index:word.index,row:emptyRow(reference,word.index,word,placement)});wordRecords.push({englishIndex:word.index,english:word.display,rowId:expansions.at(-1).row.id,status:'ENGLISH_ONLY_EXPANSION'});}
+  for(const item of expansions.sort((a,b)=>b.insertAfter-a.insertAfter||b.index-a.index))document.rows.splice(item.insertAfter+1,0,item.row);
+  const ordered=wordRecords.sort((a,b)=>a.englishIndex-b.englishIndex);if(ordered.length!==englishWords.length||ordered.some((record,index)=>record.englishIndex!==index))totals.failures+=1;
+  for(const placement of placements){if(!placement)continue;if(placement.status==='SEDRA_LEXICAL_MATCH')totals.lexicallyAlignedWords+=1;else if(placement.status==='PARALLEL_CORPUS_ALIGNMENT')totals.parallelCorpusAlignedWords+=1;else if(placement.status==='CROSS_TRADITION_EXACT_MATCH')totals.crossTraditionAlignedWords+=1;else totals.functionWordsWithHead+=1;}
+  totals.displayReferences+=1;totals.syriacRows+=rows.length;totals.englishWords+=englishWords.length;decisions.push({unitId:unit.unitId,sourceReference:reference,displayReferences:[reference],syriacRows:rows.length,englishWords:englishWords.length,words:ordered});
 }
-
-function rowEvidence(row) {
-  const families = {
-    greek: [row.papyrus, row.vaticanus, row.sinaiticus, row.byzantine],
-    latin: [row.vulgate],
-    coptic: [row.coptic],
-  };
-  const result = {};
-  for (const [family, cells] of Object.entries(families)) {
-    const surfaces = cells.flatMap((cell) => wordsWithOffsets(cellGloss(cell)).map((word) => word.surface));
-    result[family] = {
-      surfaces: new Set(surfaces.map((surface) => surface.toLocaleLowerCase('en'))),
-      lemmas: new Set(surfaces.map(lemma).filter(Boolean)),
-    };
-  }
-  return result;
-}
-
-function candidatesForRows(rows, englishWords) {
-  return rows.map(({ row }) => {
-    const evidence = rowEvidence(row);
-    const candidates = [];
-    for (const word of englishWords) {
-      const families = Object.entries(evidence).filter(([, terms]) => terms.lemmas.has(word.lemma)).map(([family]) => family);
-      const exactFamilies = Object.entries(evidence).filter(([, terms]) => terms.surfaces.has(word.surface.toLocaleLowerCase('en'))).map(([family]) => family);
-      const content = !STOPWORDS.has(word.lemma) && word.lemma.length > 1;
-      if (families.length >= 2 || (content && exactFamilies.length >= 2)) {
-        candidates.push({ englishIndex: word.index, families, exactFamilies, weight: families.length * 4 + exactFamilies.length * 2 + (content ? 2 : 0) });
-      }
-    }
-    return candidates;
-  });
-}
-
-function monotonicAnchors(rowCandidates, englishLength) {
-  const scores = Array.from({ length: rowCandidates.length + 1 }, () => Array(englishLength + 1).fill(0));
-  const choices = Array.from({ length: rowCandidates.length + 1 }, () => Array(englishLength + 1).fill(null));
-  for (let rowIndex = 1; rowIndex <= rowCandidates.length; rowIndex += 1) {
-    const byEnglish = new Map(rowCandidates[rowIndex - 1].map((candidate) => [candidate.englishIndex, candidate]));
-    for (let englishIndex = 1; englishIndex <= englishLength; englishIndex += 1) {
-      let score = scores[rowIndex - 1][englishIndex];
-      let choice = 'row-skip';
-      if (scores[rowIndex][englishIndex - 1] > score) { score = scores[rowIndex][englishIndex - 1]; choice = 'english-skip'; }
-      const candidate = byEnglish.get(englishIndex - 1);
-      if (candidate && scores[rowIndex - 1][englishIndex - 1] + candidate.weight >= score) {
-        score = scores[rowIndex - 1][englishIndex - 1] + candidate.weight;
-        choice = 'match';
-      }
-      scores[rowIndex][englishIndex] = score;
-      choices[rowIndex][englishIndex] = choice;
-    }
-  }
-  const anchors = [];
-  let rowIndex = rowCandidates.length;
-  let englishIndex = englishLength;
-  while (rowIndex > 0 && englishIndex > 0) {
-    const choice = choices[rowIndex][englishIndex];
-    if (choice === 'match') {
-      const candidate = rowCandidates[rowIndex - 1].find((item) => item.englishIndex === englishIndex - 1);
-      anchors.push({ rowIndex: rowIndex - 1, englishIndex: englishIndex - 1, ...candidate });
-      rowIndex -= 1;
-      englishIndex -= 1;
-    } else if (choice === 'english-skip') englishIndex -= 1;
-    else rowIndex -= 1;
-  }
-  return anchors.reverse();
-}
-
-function buildGroups(rowCount, englishCount, anchors) {
-  const groups = [];
-  let rowStart = 0;
-  let englishStart = 0;
-  for (const anchor of anchors) {
-    groups.push({ rowStart, rowEnd: anchor.rowIndex, englishStart, englishEnd: anchor.englishIndex, anchor });
-    rowStart = anchor.rowIndex + 1;
-    englishStart = anchor.englishIndex + 1;
-  }
-  if (rowStart < rowCount || englishStart < englishCount) {
-    groups.push({ rowStart, rowEnd: rowCount - 1, englishStart, englishEnd: englishCount - 1, anchor: null });
-  }
-  // A final lexical anchor can occupy the last Syriac row while Murdock still
-  // has trailing function words. They belong to that last real phrase, never
-  // to a zero-row display object.
-  if (groups.length > 1 && groups.at(-1).rowStart > groups.at(-1).rowEnd) {
-    groups.at(-2).englishEnd = groups.at(-1).englishEnd;
-    groups.pop();
-  }
-  // Empty-English source spans express morphology not separately represented by
-  // Murdock. Merge them into the next phrase where possible, otherwise the prior.
-  for (let index = groups.length - 1; index >= 0; index -= 1) {
-    const group = groups[index];
-    if (group.englishStart <= group.englishEnd) continue;
-    if (index + 1 < groups.length) {
-      groups[index + 1].rowStart = group.rowStart;
-      groups.splice(index, 1);
-    } else if (index > 0) {
-      groups[index - 1].rowEnd = group.rowEnd;
-      groups.splice(index, 1);
-    }
-  }
-  return groups;
-}
-
-function exactPhrase(english, words, start, end) {
-  const charStart = start === 0 ? 0 : words[start].charStart;
-  const charEnd = end + 1 < words.length ? words[end + 1].charStart : english.length;
-  return { raw: english.slice(charStart, charEnd), display: english.slice(charStart, charEnd).trim(), charStart, charEnd };
-}
-
-const units = Object.values(manifest.units).filter((unit, index, all) => all.findIndex((candidate) => candidate.unitId === unit.unitId) === index);
-const pendingFiles = new Map();
-const decisions = [];
-const totals = {
-  units: units.length, displayReferences: 0, syriacRows: 0, englishWords: 0, groups: 0, lexicalAnchors: 0,
-  populatedEnglishCells: 0, blankEnglishCells: 0, multiwordEnglishCells: 0, multirowPhraseGroups: 0, accountingErrors: 0, filesChanged: 0,
-};
-
-for (const unit of units) {
-  const documents = unit.displayReferences.map((reference) => {
-    const filename = fileFor(reference);
-    const document = pendingFiles.get(filename) ?? JSON.parse(fs.readFileSync(filename, 'utf8'));
-    pendingFiles.set(filename, document);
-    return { reference, filename, document };
-  });
-  const rows = documents.flatMap(({ reference, filename, document }) => document.rows
-    .filter((row) => row.peshitta?.type === 'text')
-    .map((row) => ({ reference, filename, row })));
-  const englishWords = wordsWithOffsets(unit.english);
-  const anchors = monotonicAnchors(candidatesForRows(rows, englishWords), englishWords.length);
-  const groups = buildGroups(rows.length, englishWords.length, anchors);
-  const coveredRows = groups.flatMap((group) => Array.from({ length: group.rowEnd - group.rowStart + 1 }, (_, index) => group.rowStart + index));
-  const coveredEnglish = groups.flatMap((group) => Array.from({ length: group.englishEnd - group.englishStart + 1 }, (_, index) => group.englishStart + index));
-  const rowAccounting = groups.every((group) => group.rowStart <= group.rowEnd) && coveredRows.length === rows.length && new Set(coveredRows).size === rows.length && Math.min(...coveredRows) === 0 && Math.max(...coveredRows) === rows.length - 1;
-  const englishAccounting = coveredEnglish.length === englishWords.length && new Set(coveredEnglish).size === englishWords.length && Math.min(...coveredEnglish) === 0 && Math.max(...coveredEnglish) === englishWords.length - 1;
-  if (!rowAccounting || !englishAccounting || rows.length === 0 || englishWords.length === 0) totals.accountingErrors += 1;
-  totals.displayReferences += unit.displayReferences.length;
-  totals.syriacRows += rows.length;
-  totals.englishWords += englishWords.length;
-  totals.groups += groups.length;
-  totals.lexicalAnchors += anchors.length;
-  const groupDecisions = groups.map((group, groupIndex) => {
-    const phrase = exactPhrase(unit.english, englishWords, group.englishStart, group.englishEnd);
-    const members = rows.slice(group.rowStart, group.rowEnd + 1);
-    const groupId = `${unit.unitId}#row-phrase-${groupIndex + 1}`;
-    if (members.length > 1) totals.multirowPhraseGroups += 1;
-    const englishCount = group.englishEnd - group.englishStart + 1;
-    const allocations = members.map((member, memberIndex) => {
-      const start = group.englishStart + Math.floor(memberIndex * englishCount / members.length);
-      const endExclusive = group.englishStart + Math.floor((memberIndex + 1) * englishCount / members.length);
-      const end = endExclusive - 1;
-      const allocated = start <= end ? exactPhrase(unit.english, englishWords, start, end) : { display: '', charStart: null, charEnd: null };
-      return { member, start, end, englishIndices: start <= end ? Array.from({ length: end - start + 1 }, (_, index) => start + index) : [], ...allocated };
-    });
-    allocations.forEach((allocation) => {
-      const { member } = allocation;
-      if (allocation.display) totals.populatedEnglishCells += 1;
-      else totals.blankEnglishCells += 1;
-      if (allocation.englishIndices.length > 1) totals.multiwordEnglishCells += 1;
-      member.row.peshitta.gloss = {
-        gloss: allocation.display,
-        source: 'Murdock',
-        tooltip: allocation.display
-          ? `Murdock 1851 · ordered cell allocation within certified phrase: “${phrase.display}”`
-          : `Murdock 1851 · no separately allocated English word within certified phrase: “${phrase.display}”`,
-      };
-      member.row.peshitta.provenance ??= {};
-      member.row.peshitta.provenance.englishAlignment = {
-        authority: 'James Murdock, The New Testament: A Literal Translation from the Syriac Peshito Version (1851)',
-        sourceReference: unit.sourceReference,
-        unitId: unit.unitId,
-        groupId,
-        scope: 'ordered-row-display-allocation',
-        syriacRowIds: members.map((item) => item.row.id),
-        syriacRowKeys: members.map((item) => `${item.reference}#${item.row.id}`),
-        englishIndices: allocation.englishIndices,
-        englishCharRange: [allocation.charStart, allocation.charEnd],
-        anchor: group.anchor ? {
-          syriacRowId: rows[group.anchor.rowIndex].row.id,
-          englishIndex: group.anchor.englishIndex,
-          concept: englishWords[group.anchor.englishIndex].surface,
-          evidenceFamilies: group.anchor.families,
-          exactEvidenceFamilies: group.anchor.exactFamilies,
-        } : null,
-        evidence: group.anchor ? ['MONOTONIC_CROSS_TRADITION_LEXICAL_ANCHOR', 'CERTIFIED_SYRIAC_ROW_ORDER'] : ['COMPLETE_PUBLISHED_UNIT_BOUNDARY', 'CERTIFIED_SYRIAC_ROW_ORDER'],
-        status: 'internally-certified-row-cell-alignment',
-      };
-    });
-    return {
-      groupId,
-      scope: members.length === 1 ? 'ROW_PHRASE_OWNERSHIP' : 'BOUNDED_MULTIROW_PHRASE_SPAN',
-      displayReferences: [...new Set(members.map((member) => member.reference))],
-      syriacRowIds: members.map((member) => member.row.id),
-      syriacRowKeys: members.map((member) => `${member.reference}#${member.row.id}`),
-      syriac: members.map((member) => member.row.peshitta.text),
-      english: phrase.display,
-      englishIndices: Array.from({ length: group.englishEnd - group.englishStart + 1 }, (_, index) => group.englishStart + index),
-      englishCharRange: [phrase.charStart, phrase.charEnd],
-      anchor: group.anchor ? {
-        syriacRowId: rows[group.anchor.rowIndex].row.id,
-        englishIndex: group.anchor.englishIndex,
-        concept: englishWords[group.anchor.englishIndex].surface,
-        evidenceFamilies: group.anchor.families,
-        exactEvidenceFamilies: group.anchor.exactFamilies,
-      } : null,
-      rowAllocations: allocations.map((allocation) => ({
-        rowKey: `${allocation.member.reference}#${allocation.member.row.id}`,
-        english: allocation.display,
-        englishIndices: allocation.englishIndices,
-        englishCharRange: [allocation.charStart, allocation.charEnd],
-      })),
-    };
-  });
-  decisions.push({ unitId: unit.unitId, sourceReference: unit.sourceReference, displayReferences: unit.displayReferences, syriacRows: rows.length, englishWords: englishWords.length, rowAccounting, englishAccounting, groups: groupDecisions });
-}
-
-if (totals.accountingErrors) throw new Error(`Refusing certification: ${totals.accountingErrors} units failed complete accounting.`);
-const decisionCore = { standard: 'Complete Murdock-unit English is partitioned into ordered, non-overlapping phrases bounded by monotonic lexical anchors corroborated by at least two independent displayed tradition families. Each bounded phrase is then allocated in source order across its ordinary Syriac-row English cells. Arrows, merged cells, continuation cells, borrowed wording, and claims of one-to-one lexical equivalence are prohibited.', totals, decisions };
-const adjudicationSha256 = sha256(JSON.stringify(decisionCore));
-for (const document of pendingFiles.values()) {
-  for (const row of document.rows) {
-    if (row.peshitta?.provenance?.englishAlignment?.status === 'internally-certified-row-cell-alignment') {
-      row.peshitta.provenance.englishAlignment.adjudicationSha256 = adjudicationSha256;
-    }
-  }
-}
-
-const ledger = {
-  status: 'INTERNALLY_CERTIFIED',
-  generatedAt: new Date().toISOString(),
-  standard: decisionCore.standard,
-  authorities: {
-    syriac: 'Pinned scrollmapper electronic Peshitta; source token sequence separately certified',
-    english: manifest.translation,
-    alignmentEvidence: 'Displayed Greek, Latin, and Coptic glosses counted as three tradition families; Greek witnesses count as one dependent family',
-  },
-  exclusions: 'Other traditions supply alignment evidence only. Their English wording is never inserted into the Peshitta column. Per-row display allocation preserves the certified phrase and source order but does not claim one-to-one lexical equivalence.',
-  sourceContentSha256: manifest.sourceContentSha256,
-  adjudicationSha256,
-  totals,
-  decisions,
-};
-fs.writeFileSync(ledgerFile, `${JSON.stringify(ledger, null, 2)}\n`);
-
-if (apply) {
-  for (const [filename, document] of pendingFiles) {
-    fs.writeFileSync(filename, `${JSON.stringify(document, null, 2)}\n`);
-    totals.filesChanged += 1;
-  }
-}
-const application = {
-  status: apply ? 'APPLIED_INTERNALLY_CERTIFIED' : 'DRY_RUN',
-  generatedAt: new Date().toISOString(),
-  adjudicationSha256,
-  totals,
-};
-application.reportSha256 = sha256(JSON.stringify(application));
-fs.writeFileSync(applicationFile, `${JSON.stringify(application, null, 2)}\n`);
-console.log(JSON.stringify(application, null, 2));
+if(totals.failures)throw new Error(`${totals.failures} units failed English accounting`);
+const core={standard:'Every Murdock verse is independent. English is placed in a Syriac row only by SEDRA lexical evidence, exact agreement of at least two independent displayed tradition families, or attachment of a function word to an adjacent supported English head. Otherwise it is displayed in an explicit English-only expansion row. Proportional distribution, merged cells, continuation cells, arrows, and cross-verse spans are prohibited.',totals,decisions},adjudicationSha256=sha256(JSON.stringify(core));
+for(const document of pendingFiles.values())for(const row of document.rows)if(row.peshitta?.provenance?.englishAlignment)row.peshitta.provenance.englishAlignment.adjudicationSha256=adjudicationSha256;
+const ledger={status:'ADJUDICATED',generatedAt:new Date().toISOString(),standard:core.standard,authorities:{syriac:'Pinned scrollmapper Peshitta',english:manifest.translation,lexical:'SEDRA IV, Beth Mardutho'},sourceContentSha256:manifest.sourceContentSha256,sedraGeneratedAt:sedra.generatedAt,adjudicationSha256,totals,decisions};fs.writeFileSync(ledgerFile,`${JSON.stringify(ledger,null,2)}\n`);
+if(apply){for(const [filename,document]of pendingFiles){fs.writeFileSync(filename,`${JSON.stringify(document,null,2)}\n`);totals.filesChanged+=1;}}
+const application={status:apply?'APPLIED_ADJUDICATED':'DRY_RUN',generatedAt:new Date().toISOString(),adjudicationSha256,totals};application.reportSha256=sha256(JSON.stringify(application));fs.writeFileSync(applicationFile,`${JSON.stringify(application,null,2)}\n`);console.log(JSON.stringify(application,null,2));
