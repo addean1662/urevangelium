@@ -155,7 +155,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
@@ -367,11 +367,11 @@
             ],
             "evidence": [
               "SEDRA_LEXICAL_MATCH",
-              "PARALLEL_CORPUS_ALIGNMENT"
+              "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
@@ -510,18 +510,20 @@
             "unitId": "murdock-john-19-28",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
+              3,
               4
             ],
             "evidence": [
+              "MURDOCK_PHRASE_CONTEXT",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
-          "gloss": "knew",
+          "gloss": "Jesus knew",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1135,21 +1137,17 @@
             "sourceReference": "john 19:28",
             "unitId": "murdock-john-19-28",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              3
-            ],
-            "evidence": [
-              "SEDRA_LEXICAL_MATCH"
-            ],
+            "englishIndices": [],
+            "evidence": [],
             "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "status": "no-certified-equivalent",
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
-          "gloss": "Jesus",
+          "gloss": "",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
         }
       },
       "byzantine": {
@@ -1339,17 +1337,24 @@
             "sourceReference": "john 19:28",
             "unitId": "murdock-john-19-28",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              5,
+              6,
+              7
+            ],
+            "evidence": [
+              "ETCBC_MORPHOLOGICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "status": "adjudicated",
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "that every thing",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -1519,21 +1524,19 @@
             "unitId": "murdock-john-19-28",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              5,
-              6,
-              7
+              8,
+              9
             ],
             "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
-              "PARALLEL_CORPUS_ALIGNMENT"
+              "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
-          "gloss": "that every thing",
+          "gloss": "was finished;",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1598,86 +1601,6 @@
         }
       },
       "_copticDraft": true
-    },
-    {
-      "id": "peshitta-english-john-19-28-9",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "was",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "john 19:28",
-          "englishIndex": 8,
-          "alignmentGroupId": "murdock-john-19-28#english-9",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
-    },
-    {
-      "id": "peshitta-english-john-19-28-10",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "finished;",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "john 19:28",
-          "englishIndex": 9,
-          "alignmentGroupId": "murdock-john-19-28#english-10",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
     },
     {
       "id": "r9",
@@ -1829,17 +1752,24 @@
             "sourceReference": "john 19:28",
             "unitId": "murdock-john-19-28",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              10,
+              11,
+              12
+            ],
+            "evidence": [
+              "ETCBC_MORPHOLOGICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "status": "adjudicated",
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "and, that the",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -2036,22 +1966,21 @@
             "unitId": "murdock-john-19-28",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              10,
               13,
-              16
+              14,
+              15
             ],
             "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
               "SEDRA_LEXICAL_MATCH",
-              "PARALLEL_CORPUS_ALIGNMENT"
+              "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
-          "gloss": "and, scripture fulfilled,",
+          "gloss": "scripture might be",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2082,166 +2011,6 @@
         "latin": "ut"
       },
       "coptic": {
-        "type": "empty"
-      }
-    },
-    {
-      "id": "peshitta-english-john-19-28-12",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "that",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "john 19:28",
-          "englishIndex": 11,
-          "alignmentGroupId": "murdock-john-19-28#english-12",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
-    },
-    {
-      "id": "peshitta-english-john-19-28-13",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "the",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "john 19:28",
-          "englishIndex": 12,
-          "alignmentGroupId": "murdock-john-19-28#english-13",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
-    },
-    {
-      "id": "peshitta-english-john-19-28-15",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "might",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "john 19:28",
-          "englishIndex": 14,
-          "alignmentGroupId": "murdock-john-19-28#english-15",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
-    },
-    {
-      "id": "peshitta-english-john-19-28-16",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "be",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "john 19:28",
-          "englishIndex": 15,
-          "alignmentGroupId": "murdock-john-19-28#english-16",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
         "type": "empty"
       }
     },
@@ -2648,20 +2417,22 @@
             "unitId": "murdock-john-19-28",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
+              16,
               17,
               18
             ],
             "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "MURDOCK_PHRASE_CONTEXT",
+              "ETCBC_MORPHOLOGICAL_MATCH",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
-          "gloss": "he said:",
+          "gloss": "fulfilled, he said:",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2871,18 +2642,20 @@
             "unitId": "murdock-john-19-28",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
+              19,
               20
             ],
             "evidence": [
+              "ETCBC_MORPHOLOGICAL_MATCH",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
-          "gloss": "thirst.",
+          "gloss": "I thirst.",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -3050,21 +2823,17 @@
             "sourceReference": "john 19:28",
             "unitId": "murdock-john-19-28",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              19
-            ],
-            "evidence": [
-              "SEDRA_LEXICAL_MATCH"
-            ],
+            "englishIndices": [],
+            "evidence": [],
             "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "status": "no-certified-equivalent",
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
-          "gloss": "I",
+          "gloss": "",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
         }
       },
       "byzantine": {

@@ -111,12 +111,12 @@
               1
             ],
             "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "ETCBC_MORPHOLOGICAL_MATCH",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
@@ -380,12 +380,12 @@
               3
             ],
             "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "MURDOCK_PHRASE_CONTEXT",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
@@ -565,12 +565,12 @@
               5
             ],
             "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "ETCBC_MORPHOLOGICAL_MATCH",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
@@ -751,7 +751,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
@@ -934,11 +934,11 @@
             ],
             "evidence": [
               "SEDRA_LEXICAL_MATCH",
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD"
+              "ETCBC_MORPHOLOGICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
@@ -1117,12 +1117,13 @@
               11
             ],
             "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "ETCBC_MORPHOLOGICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
@@ -1420,12 +1421,13 @@
               14
             ],
             "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "ETCBC_MORPHOLOGICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
@@ -1493,46 +1495,6 @@
         }
       },
       "_copticDraft": true
-    },
-    {
-      "id": "peshitta-english-luke-2-9-16",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "shone",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "luke 2:9",
-          "englishIndex": 15,
-          "alignmentGroupId": "murdock-luke-2-9#english-16",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
     },
     {
       "id": "r10",
@@ -1639,17 +1601,21 @@
             "sourceReference": "luke 2:9",
             "unitId": "murdock-luke-2-9",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              15
+            ],
+            "evidence": [
+              "MURDOCK_PHRASE_CONTEXT"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "status": "adjudicated",
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "shone",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -1818,18 +1784,20 @@
             "unitId": "murdock-luke-2-9",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              16
+              16,
+              17
             ],
             "evidence": [
-              "PARALLEL_CORPUS_ALIGNMENT"
+              "MURDOCK_PHRASE_CONTEXT",
+              "ETCBC_MORPHOLOGICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
-          "gloss": "upon",
+          "gloss": "upon them:",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1894,46 +1862,6 @@
         }
       },
       "_copticDraft": true
-    },
-    {
-      "id": "peshitta-english-luke-2-9-18",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "them:",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "luke 2:9",
-          "englishIndex": 17,
-          "alignmentGroupId": "murdock-luke-2-9#english-18",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
     },
     {
       "id": "r12",
@@ -2039,18 +1967,19 @@
             "unitId": "murdock-luke-2-9",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              23
+              18,
+              19
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH"
+              "ETCBC_MORPHOLOGICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
-          "gloss": "fear.",
+          "gloss": "and they",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2396,21 +2325,20 @@
             "unitId": "murdock-luke-2-9",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              18,
-              19,
-              20
+              20,
+              21
             ],
             "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
-              "SEDRA_LEXICAL_MATCH"
+              "SEDRA_LEXICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
-          "gloss": "and they feared",
+          "gloss": "feared with",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2545,20 +2473,20 @@
             "unitId": "murdock-luke-2-9",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              21,
-              22
+              22,
+              23
             ],
             "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
-              "SEDRA_LEXICAL_MATCH"
+              "SEDRA_LEXICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d3c698691e9376f48456d7d4e2efb63f3603ae0f023bbe3a8f9d5f61eff4d282"
+            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
           }
         },
         "gloss": {
-          "gloss": "with great",
+          "gloss": "great fear.",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }

@@ -7,8 +7,12 @@ const OUTPUT = path.join(ROOT, 'docs/audits/peshitta-etcbc-morphology-concordanc
 const GOSPELS = ['matthew', 'mark', 'luke', 'john'];
 
 function bodyLines(filename) {
-  return fs.readFileSync(path.join(TF, filename), 'utf8').split(/\r?\n/u)
-    .filter((line) => line && !line.startsWith('@'));
+  const lines=fs.readFileSync(path.join(TF, filename), 'utf8').split(/\r?\n/u);
+  const separator=lines.findIndex((line)=>line==='');
+  if(separator<0)throw new Error(filename+': Text-Fabric metadata separator missing');
+  const body=lines.slice(separator+1);
+  if(body.at(-1)==='')body.pop();
+  return body;
 }
 
 function nodeFeature(filename) {
