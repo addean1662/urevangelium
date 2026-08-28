@@ -35,6 +35,15 @@ const SYRIAC_FUNCTION_GLOSSES = new Map(Object.entries({
   '\u0710\u071d\u071f':['as','like'], '\u0721\u071b\u0720\u0717\u0722\u0710':['therefore']
 }));
 const SYRIAC_FUNCTION_CAPACITY = new Map([['\u0720\u0717',2],['\u0720\u0717\u0718\u0722',2],['\u0718\u0720\u0710',2],['\u0718\u071f\u0715',2],['\u0712\u0717',2],['\u0718\u0715\u071d\u0722',2]]);
+const GOVERNED_VERSE_OVERRIDES = new Map(Object.entries({
+  'matthew 1:17':['r1','r4','r4','r2',null,'r5','r6','r7','r8','r10','r9','r11','r11','r13','r14','r16','r16','r17','r17','r19','r18','r20','r20','r23','r23','r24','r24','r25','r27','r27','r29','r28'],
+  'matthew 1:18':['r2','r1','r1','r3','r3','r4','r4','r8','r7','r9','r12','r12','peshitta-matthew-1-18-1','r11','r10','r16','r16','r17','r19','r19','r19','r21','r21','r21',null,null,'r23','r23','r25','r27','r27','r26'],
+  'matthew 1:19':['r2','r1','r4','r4','r7','r6','r6','r6','r9','r10','r12','r12','r12','r13','r13','r13',null,'r15','r15','r15','r14'],
+  'matthew 1:21':['r2','r1','r1','r1','r3','r3',null,'r5','r5','r5','r7','r7','r9','r11','r10','r12','r12','r14','r14','r16','r18','r18'],
+  'matthew 1:22':['r2','r3','r1','r4','r4',null,'r6','r6','r8','vulgate-matthew-1-22-3','vulgate-matthew-1-22-3','r9','r11','r11','r12','r14','r14'],
+  'matthew 1:23':['r2','r3','r3','r6','r6','r8','r8','r8','r9','r9',null,'r11','r11','r11','r13','r13','r15','r18','r18','r18','r22','r22','r19','r19'],
+  'matthew 1:25':['r2','r3','r3','r3','r2','r5','r7','r7','r7','r12','r12','r9','r14','r14','r16','r16','r18']
+}));
 const IRREGULAR = new Map(Object.entries({am:'be',is:'be',are:'be',was:'be',were:'be',been:'be',being:'be',art:'be',wast:'be',has:'have',hath:'have',had:'have',does:'do',doth:'do',did:'do',done:'do',says:'say',saith:'say',said:'say',saw:'see',seen:'see',came:'come',went:'go',gone:'go',gave:'give',given:'give',made:'make',knew:'know',known:'know',brought:'bring',thought:'think',told:'tell',sent:'send',wrote:'write',written:'write',rose:'rise',risen:'rise',begat:'beget',begot:'beget',begotten:'beget',born:'bear',contemplated:'contemplate',conceived:'conceive',appeared:'appear',men:'man',women:'woman',children:'child',brethren:'brother',feet:'foot',me:'i',my:'i',mine:'i',us:'we',our:'we',ours:'we',thee:'you',thou:'you',thy:'you',thine:'you',ye:'you',him:'he',his:'he',her:'she',them:'they',their:'they'}));
 
 function lemma(value) {
@@ -109,6 +118,15 @@ function assignEnglish(rows, englishWords) {
   return {assigned,placements,rowEvidence};
 }
 
+function applyGovernedOverride(reference,rows,englishWords,assigned,placements){
+  const owners=GOVERNED_VERSE_OVERRIDES.get(reference);if(!owners)return;
+  if(owners.length!==englishWords.length)throw new Error(reference+': governed override word-count mismatch');
+  const rowIndexById=new Map(rows.map((member,index)=>[member.row.id,index]));
+  for(const indices of assigned.values())indices.length=0;placements.fill(null);
+  for(let index=0;index<owners.length;index+=1){const rowId=owners[index];if(rowId===null)continue;const rowIndex=rowIndexById.get(rowId);if(rowIndex===undefined)throw new Error(reference+': governed override row missing: '+rowId);const indices=assigned.get(rowIndex);if(indices.length>=3)throw new Error(reference+': governed override exceeds three words on '+rowId);indices.push(index);placements[index]={rowIndex,lexical:true,familyCount:0,corpusProbability:0,score:1000,status:'GOVERNED_VERSE_ADJUDICATION'};}
+  for(const indices of assigned.values())indices.sort((a,b)=>a-b);
+}
+
 function emptyRow(reference,index,word,placement){const p=parseReference(reference),empty={type:'empty'};return{id:`peshitta-english-${p.gospel}-${p.chapter}-${p.verse}-${index+1}`,rowKind:'translation-expansion',papyrus:empty,coptic:empty,sinaiticus:empty,vaticanus:empty,vulgate:empty,peshitta:{type:'translation',gloss:{gloss:word.display,source:'Murdock',tooltip:'Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent'},provenance:{authority:placement.authority,sourceReference:reference,englishIndex:index,alignmentGroupId:`${placement.unitId}#english-${index+1}`,status:'published-translation-row'}},byzantine:empty,bezae:empty};}
 
 const units=Object.values(manifest.units).filter((unit,index,all)=>all.findIndex((candidate)=>candidate.unitId===unit.unitId)===index);
@@ -118,7 +136,10 @@ const totals={units:units.length,displayReferences:0,syriacRows:0,englishWords:0
 for(const unit of units){
   if(unit.displayReferences.length!==1)throw new Error(`${unit.unitId}: cross-verse unit prohibited`);
   const reference=unit.displayReferences[0],filename=fileFor(reference),document=pendingFiles.get(filename)??JSON.parse(fs.readFileSync(filename,'utf8'));pendingFiles.set(filename,document);document.rows=document.rows.filter((row)=>!row.id.startsWith('peshitta-english-'));
-  const rows=document.rows.map((row,documentIndex)=>({row,documentIndex})).filter(({row})=>row.peshitta?.type==='text'),englishWords=words(unit.english),{assigned,placements,rowEvidence}=assignEnglish(rows,englishWords),wordRecords=[];
+  const rows=document.rows.map((row,documentIndex)=>({row,documentIndex})).filter(({row})=>row.peshitta?.type==='text'),englishWords=words(unit.english);
+  const {assigned,placements,rowEvidence}=assignEnglish(rows,englishWords);
+  applyGovernedOverride(reference,rows,englishWords,assigned,placements);
+  const wordRecords=[];
   for(let rowIndex=0;rowIndex<rows.length;rowIndex+=1){const member=rows[rowIndex],indices=assigned.get(rowIndex),display=indices.map((index)=>englishWords[index].display).join(' ').trim();if(display)totals.populatedSyriacCells+=1;else totals.blankSyriacCells+=1;member.row.peshitta.gloss={gloss:display,source:'Murdock',tooltip:display?'Murdock 1851 · Syriac lexical alignment':'Murdock 1851 · no certified English equivalent assigned'};member.row.peshitta.provenance??={};member.row.peshitta.provenance.englishAlignment={authority:'James Murdock 1851',sourceReference:reference,unitId:unit.unitId,scope:'syriac-lexical-cell',englishIndices:indices,evidence:[...new Set(indices.map((index)=>placements[index].status))],sedraStatus:rowEvidence[rowIndex].sedraStatus,status:display?'adjudicated':'no-certified-equivalent'};for(const index of indices)wordRecords.push({englishIndex:index,english:englishWords[index].display,rowId:member.row.id,status:placements[index].status});}
   const expansions=[];for(const word of englishWords){if(placements[word.index])continue;totals.expansionWords+=1;const prior=placements.slice(0,word.index).map((placement,index)=>placement?{placement,index}:null).filter(Boolean).at(-1),nextOffset=placements.slice(word.index+1).findIndex(Boolean),next=nextOffset<0?null:{placement:placements[word.index+1+nextOffset],index:word.index+1+nextOffset},insertAfter=prior?rows[prior.placement.rowIndex].documentIndex:(next?rows[next.placement.rowIndex].documentIndex-1:-1),placement={authority:'James Murdock 1851',sourceReference:reference,unitId:unit.unitId,scope:'english-only-expansion',englishIndices:[word.index],evidence:['NO_UNIQUE_SYRIAC_LEXICAL_MATCH'],status:'translation-expansion'};expansions.push({insertAfter,index:word.index,row:emptyRow(reference,word.index,word,placement)});wordRecords.push({englishIndex:word.index,english:word.display,rowId:expansions.at(-1).row.id,status:'ENGLISH_ONLY_EXPANSION'});}
   for(const item of expansions.sort((a,b)=>b.insertAfter-a.insertAfter||b.index-a.index))document.rows.splice(item.insertAfter+1,0,item.row);
