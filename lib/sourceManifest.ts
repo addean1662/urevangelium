@@ -29,7 +29,7 @@ export type ColumnSourceRecord = {
   nextAction: string;
 };
 
-export const SOURCE_MANIFEST_VERSION = '2026-08-21.3';
+export const SOURCE_MANIFEST_VERSION = '2026-08-27.1';
 
 export const COLUMN_SOURCES: ColumnSourceRecord[] = [
   {
@@ -133,7 +133,7 @@ export const COLUMN_SOURCES: ColumnSourceRecord[] = [
   {
     id: 'peshitta', position: '6', label: 'Peshitta', tradition: 'Syriac Peshitta received tradition',
     displayedObject: 'The scrollmapper electronic Syriac Peshitta text at pinned commit ba07bc991644d82b24426b920245eb4422daa769; its exact printed exemplar remains unestablished.', traditionDate: 'Peshitta Gospel tradition: approximately fourth to fifth century CE.', witnessOrEditionDate: 'Pinned electronic revision committed 2024-11-19; no BFBS/Urmia exemplar claim is made.',
-    status: 'source-verified', statusNote: 'All four Gospels are exact and occurrence-complete against the hash-pinned electronic source: 50,477/50,477 Syriac tokens in source order. Every Murdock verse remains an independent unit. English is admitted to a Syriac cell through SEDRA lexical evidence, governed parallel-corpus evidence, or a documented function-word relation; unsupported wording uses an explicit English-only expansion row.', coverage: 'All 3,779 Gospel verse records; 50,477 Syriac source tokens and 84,133 Murdock English words accounted exactly once; 39,793 populated Syriac English cells, 10,684 Syriac cells without an assigned equivalent, 7,347 explicit English-only expansion rows, zero cross-verse units, zero merged cells, zero arrow glyphs, and zero accounting failures.',
+    status: 'source-verified', statusNote: 'All four Gospels are exact and occurrence-complete against the hash-pinned electronic source: 50,477/50,477 Syriac tokens in source order. Every Murdock verse remains an independent unit. English is admitted to its Syriac parent through SEDRA lexical evidence, governed parallel-corpus evidence, cross-tradition corroboration, or a documented function-word relation. A Syriac source cell carries no more than three Murdock words; wording without an honest available parent remains in an explicit English-only expansion row.', coverage: 'All 3,779 Gospel verse records; 50,477 Syriac source tokens and 84,133 Murdock English words accounted exactly once; 34,077 populated Syriac English cells, 16,400 Syriac cells without an assigned equivalent, 14,337 explicit English-only expansion rows, all 728 inserted Syriac rows alignment-certified, zero cross-verse units, zero merged cells, zero continuation cells, zero arrow glyphs, and zero certification failures.',
     sources: [
       { name: 'scrollmapper Peshitta.txt', role: 'text', localFiles: 'data/sources/peshitta/Peshitta.txt', version: 'Commit ba07bc991644d82b24426b920245eb4422daa769; SHA-256 6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B', license: 'Public domain', url: 'https://github.com/scrollmapper/bible_databases/tree/ba07bc991644d82b24426b920245eb4422daa769' },
       { name: 'ETCBC/syrnt Text-Fabric morphology', role: 'alignment', localFiles: 'data/sources/peshitta/etcbc-syrnt/tf/0.1', version: 'Commit dae3eb6ff62b9b272fb503646796c25d248175ce', license: 'MIT', url: 'https://github.com/ETCBC/syrnt/tree/dae3eb6ff62b9b272fb503646796c25d248175ce' },

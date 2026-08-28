@@ -168,7 +168,7 @@ Certified contextual English is James Murdock's 1851 public-domain translation.
 All 3,779 governing verses remain independent; seven malformed electronic verse
 markers are corrected explicitly instead of collapsing adjacent verses. English
 is admitted to a Syriac row through SEDRA lexical evidence, governed parallel-
-corpus evidence, or a documented function-word relation. The 7,347 words without
+corpus evidence, or a documented function-word relation. No Syriac cell carries more than three Murdock words. The 14,337 words without
 a supported Syriac-cell placement use distinct English-only expansion rows.
 All 84,133 admitted English words and all 50,477 Syriac rows are accounted once.
 Proportional distribution, merged cells, continuation symbols, and borrowed

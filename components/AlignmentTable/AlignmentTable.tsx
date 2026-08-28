@@ -33,6 +33,17 @@ const SINAITICUS_COL: ColumnDef = {
   key: 'sinaiticus', label: 'Sinaiticus', date: 'c. 175–350 AD', script: 'Greek', glossSource: 'TAGNT',
 };
 
+const SYSTEM_HREFS: Record<string, string> = {
+  papyrus: '/certification-systems#earliest-papyri',
+  coptic: '/certification-systems#sahidic',
+  vaticanus: '/certification-systems#vaticanus',
+  sinaiticus: '/certification-systems#sinaiticus',
+  vulgate: '/certification-systems#vulgate',
+  bezae: '/certification-systems#bezae',
+  peshitta: '/certification-systems#peshitta',
+  byzantine: '/certification-systems#byzantine',
+};
+
 // Major Bezae lacunae (physical damage) — single-verse scribal omissions are not noted.
 const BEZAE_LACUNAE: Array<{
   gospel: string; sc: number; sv: number; ec: number; ev: number;
@@ -144,24 +155,27 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
                 <th
                   key={col.key}
                   colSpan={3}
-                  className="py-2 text-sm font-semibold uppercase tracking-wide align-bottom"
+                  className="py-2 text-sm font-semibold uppercase tracking-wide align-top"
                 >
-                  {/* Name line */}
-                  <div className="flex">
-                    <div className="w-[45%] text-right pr-2">
-                      {col.key === 'vaticanus' ? <Link href="/vaticanus" className="underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{col.label}</Link> : col.key === 'papyrus' ? <Link href="/earliest-papyri" className="underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{col.label}</Link> : col.key === 'coptic' ? <span><Link href="/sahidic" className="underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{col.label}</Link><span className="mt-0.5 block text-[9px] font-normal normal-case tracking-normal text-accent-gold">alignment under review</span></span> : col.key === 'byzantine' ? <Link href="/byzantine" className="underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{col.label}</Link> : col.label}
+                  {/* Fixed-height name area keeps every source title on one horizontal line. */}
+                  <div className="flex min-h-10 items-start">
+                    <div className="w-[45%] pr-2 text-right leading-5">
+                      <div className="whitespace-nowrap">
+                        <Link href={SYSTEM_HREFS[col.key]} className="inline-block leading-5 underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{col.label}</Link>
+                      </div>
+                      {col.key === 'coptic' && <div className="text-[9px] font-normal normal-case tracking-normal text-accent-gold">alignment under review</div>}
+                      {col.key === 'papyrus' && (
+                        <Link
+                          href="/earliest-papyri#damage-and-scan-key"
+                          className="block whitespace-nowrap text-[9px] font-normal normal-case tracking-normal text-accent-gold underline decoration-transparent underline-offset-2 hover:decoration-current"
+                        >
+                          damage &amp; scan key
+                        </Link>
+                      )}
                     </div>
                     <div className="w-[10%]" />
                     <div className="w-[45%] pl-2" />
                   </div>
-                  {col.key === 'papyrus' && (
-                    <Link
-                      href="/earliest-papyri#damage-and-scan-key"
-                      className="mt-1 block text-center text-[9px] font-normal normal-case tracking-normal text-accent-gold underline decoration-transparent underline-offset-2 hover:decoration-current"
-                    >
-                      damage &amp; scan key
-                    </Link>
-                  )}
                   {/* Date · Script | Gloss — pinned to same baseline across all columns */}
                   <div className="flex mt-0.5 font-normal normal-case tracking-normal text-xs text-ink-on-band-muted">
                     <div className="w-[45%] text-right pr-2">{`${col.date} · ${col.script}`}</div>

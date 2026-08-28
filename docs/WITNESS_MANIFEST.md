@@ -196,7 +196,7 @@ Murdock's 1851 English translation is displayed in ordinary left-aligned cells
 accompanying the Peshitta. Its 3,779 independent verse units cover all Gospel
 references. Syriac-cell placements require SEDRA lexical evidence, governed
 parallel-corpus evidence, cross-tradition agreement, or a documented function-
-word relation. The 7,347 words without a supported Syriac-cell placement remain
+word relation. No Syriac cell carries more than three Murdock words. The 14,337 words without a supported Syriac-cell placement remain
 visible on explicit English-only expansion rows. Merged cells, continuation
 arrows, proportional phrase distribution, and cross-verse units are prohibited.
 All 84,133 Murdock words and all 50,477 Syriac rows are accounted exactly once.

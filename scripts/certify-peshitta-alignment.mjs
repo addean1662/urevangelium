@@ -26,7 +26,7 @@ for (const gospel of GOSPELS) {
       const document = JSON.parse(fs.readFileSync(path.join(chapterDir, filename), 'utf8'));
       const reference = `${gospel} ${chapter}:${filename.replace('.json', '')}`;
       document.rows.forEach((row, rowIndex) => {
-        if (!row.id.startsWith('peshitta-')) return;
+        if (!row.id.startsWith('peshitta-') || row.peshitta?.type !== 'text') return;
         const key = `${reference}|${row.id}`;
         const semantic = semanticByRow.get(key);
         if (!semantic) {

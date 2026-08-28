@@ -20,8 +20,18 @@ describe('AlignmentTable — column headers', () => {
     const witnessHeaders = rows[1].querySelectorAll('th');
     expect(witnessHeaders).toHaveLength(7);
     const labels = Array.from(witnessHeaders).map((header) => header.textContent ?? '');
-    for (const label of ['Earliest Papyri', 'Sahidic', 'Vaticanus', 'Vulgate', 'Bezae', 'Peshitta', 'Byzantine']) {
+    const systemLinks = {
+      'Earliest Papyri': '/certification-systems#earliest-papyri',
+      Sahidic: '/certification-systems#sahidic',
+      Vaticanus: '/certification-systems#vaticanus',
+      Vulgate: '/certification-systems#vulgate',
+      Bezae: '/certification-systems#bezae',
+      Peshitta: '/certification-systems#peshitta',
+      Byzantine: '/certification-systems#byzantine',
+    };
+    for (const [label, href] of Object.entries(systemLinks)) {
       expect(labels.some((value) => value.includes(label))).toBe(true);
+      expect(Array.from(witnessHeaders).find((header) => header.textContent?.includes(label))?.querySelector('a')).toHaveAttribute('href', href);
     }
   });
 });

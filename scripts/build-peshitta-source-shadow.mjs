@@ -188,7 +188,7 @@ function certifiedCell(text, sourceReference, sourceToken, englishOverlay = null
 function rebuild(rows, source, displayReference, sourceReference) {
   const display = displayedTokens(rows);
   const englishBySourceToken = new Map(display
-    .filter((item) => item.cell.gloss && item.provenance?.englishAlignment?.status === 'internally-certified-row-phrase-alignment')
+    .filter((item) => item.cell.gloss && ['internally-certified-row-phrase-alignment', 'adjudicated', 'no-certified-equivalent'].includes(item.provenance?.englishAlignment?.status))
     .map((item) => [item.provenance.sourceToken, { gloss: item.cell.gloss, englishAlignment: item.provenance.englishAlignment }]));
   const pairs = lcs(source, display);
   const anchors = [];
@@ -272,11 +272,11 @@ for (const gospel of GOSPELS) {
       totals.liveGlossCells += document.rows.filter((row) => row.peshitta?.type === 'text' && row.peshitta.gloss).length;
       document.rows.filter((row) => row.peshitta?.type === 'text' && row.peshitta.gloss).forEach((row) => {
         const english = row.peshitta.provenance?.englishAlignment;
-        if (row.peshitta.gloss.source !== 'Murdock' || english?.status !== 'internally-certified-row-phrase-alignment' || !ENGLISH_ADJUDICATION_SHA256 || english.adjudicationSha256 !== ENGLISH_ADJUDICATION_SHA256) {
+        if (row.peshitta.gloss.source !== 'Murdock' || !['adjudicated', 'no-certified-equivalent'].includes(english?.status) || !ENGLISH_ADJUDICATION_SHA256 || english.adjudicationSha256 !== ENGLISH_ADJUDICATION_SHA256) {
           totals.liveEnglishAlignmentFailures += 1;
         }
       });
-      totals.liveInsertedRows += document.rows.filter((row) => row.id.startsWith('peshitta-')).length;
+      totals.liveInsertedRows += document.rows.filter((row) => row.id.startsWith('peshitta-') && row.peshitta?.type === 'text').length;
       liveItems.forEach((item, index) => {
         const provenance = item.provenance;
         if (item.tokenInCell !== 0 || provenance?.sourceFile !== SOURCE_FILE || provenance?.sourceSha256 !== SOURCE_SHA256 || provenance?.sourceReference !== sourceRecord.sourceReference || provenance?.sourceToken !== index + 1 || provenance?.verification !== 'source-token-order-verified') {

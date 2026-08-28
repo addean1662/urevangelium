@@ -112,23 +112,17 @@
             "sourceReference": "matthew 5:13",
             "unitId": "murdock-matthew-5-13",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              29,
-              30
-            ],
-            "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
-              "PARALLEL_CORPUS_ALIGNMENT"
-            ],
+            "englishIndices": [],
+            "evidence": [],
             "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
+            "status": "no-certified-equivalent",
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
           }
         },
         "gloss": {
-          "gloss": "and be",
+          "gloss": "",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
         }
       },
       "byzantine": {
@@ -180,6 +174,194 @@
             "rule": "exact-scriptorium-lemma-to-ccl",
             "lemma": "ⲛⲧⲱⲧⲛ",
             "partOfSpeech": "PPERI",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
+        }
+      },
+      "_copticDraft": true
+    },
+    {
+      "id": "r2",
+      "papyrus": {
+        "type": "lost",
+        "fragments": [
+          {
+            "id": "P86",
+            "date": "c. 4th c. CE"
+          }
+        ]
+      },
+      "vaticanus": {
+        "type": "text",
+        "text": "εστε",
+        "provenance": {
+          "witness": "GA 03",
+          "source": "INTF NTVMR transcription",
+          "documentId": 20003,
+          "readingLayer": "original-hand",
+          "sourceReference": "matthew 5:13",
+          "diplomatic": "εστε",
+          "intfSha256": "4da56617802a28d1398e18f0069800ef960512038e68cf995d512575adfa5ad3",
+          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
+          "corroboration": "exact",
+          "englishCertification": {
+            "layer": "primary-shadow",
+            "rule": "certifiable-exact",
+            "alignment": {
+              "similarity": 1,
+              "tagntReference": "Mat.5.13",
+              "tagntPosition": 2,
+              "tagntGreek": "ἐστε"
+            },
+            "lexicalVerification": {
+              "source": "TBESG/Abbott-Smith",
+              "strong": "G1510",
+              "lemma": "εἰμί",
+              "briefGloss": "to be"
+            },
+            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
+            "status": "internally-certified"
+          }
+        },
+        "gloss": {
+          "gloss": "are",
+          "source": "TAGNT",
+          "tooltip": "G1510 · V-PAI-2P · TBESG: to be · εἰμί"
+        }
+      },
+      "sinaiticus": {
+        "type": "text",
+        "text": "ἐστε",
+        "gloss": {
+          "gloss": "are",
+          "source": "TAGNT"
+        }
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "estis",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 5:13",
+          "sourceToken": 2,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
+            "sourceReference": "matthew 5:13",
+            "scope": "lexical-row-ownership",
+            "latinIndex": 1,
+            "action": "display",
+            "englishIndices": [
+              1
+            ],
+            "anchorEnglishIndex": 1,
+            "evidence": [
+              "MONOTONIC_LEXICAL_OWNER",
+              "LEXICON_CONTEXT_CANDIDATE"
+            ],
+            "translationUnit": null,
+            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
+            "status": "internally-adjudicated-not-independent-scholarly-review"
+          }
+        },
+        "gloss": {
+          "gloss": "are",
+          "source": "DouayRheims",
+          "tooltip": "Douay-Rheims 1899 · Latin: estis · English: are"
+        }
+      },
+      "peshitta": {
+        "type": "text",
+        "text": "ܐܢܘܢ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "matthew 5:13",
+          "sourceToken": 2,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "matthew 5:13",
+            "unitId": "murdock-matthew-5-13",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              17,
+              30
+            ],
+            "evidence": [
+              "PARALLEL_CORPUS_ALIGNMENT"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+          }
+        },
+        "gloss": {
+          "gloss": "be be",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
+      },
+      "byzantine": {
+        "type": "text",
+        "text": "ἐστε",
+        "provenance": {
+          "sourceId": "robinson-pierpont-2018",
+          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
+          "sourceReference": "matthew 5:13",
+          "sourceToken": 2,
+          "sourceFile": "data/sources/byzantine/MAT.csv",
+          "sourceSha256": "f098a3be6c8a7ecf406189ff41000f7933adf41d522fc6b6484b303314820d5d",
+          "upstreamTag": "v3.3.2",
+          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
+          "verification": "source-token-order-verified"
+        },
+        "gloss": {
+          "gloss": "are",
+          "source": "TAGNT",
+          "tooltip": "RP2018 Strong G1510 · V-PAI-2P · TBESG/Abbott-Smith: to be"
+        }
+      },
+      "bezae": {
+        "type": "text",
+        "greek": "εστε",
+        "latin": "estis"
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲡⲉ",
+        "gloss": {
+          "gloss": "sg. masc. copula",
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲡⲉ · sg. masc. copula (nexus pronoun)"
+        },
+        "provenance": {
+          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
+          "edition": "Sahidica NT 4.1.0",
+          "versionDate": "2021-03-31",
+          "sourceFile": "40_Matthew_05.tt",
+          "sourceReference": "matthew 5:13",
+          "sourceToken": 2,
+          "diplomatic": "ⲡⲉ",
+          "sourceSha256": "9ecb444fefd9e0724183b08bfbcd6750bceda048f0a4468dfb26f0cd3dc3520e",
+          "verification": "exact-source-word-group",
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲡⲉ",
+            "partOfSpeech": "COP",
             "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
             "lexicalSourceDate": "2020-07-16",
             "doi": "10.17169/refubium-27566",
@@ -313,195 +495,6 @@
       }
     },
     {
-      "id": "r2",
-      "papyrus": {
-        "type": "lost",
-        "fragments": [
-          {
-            "id": "P86",
-            "date": "c. 4th c. CE"
-          }
-        ]
-      },
-      "vaticanus": {
-        "type": "text",
-        "text": "εστε",
-        "provenance": {
-          "witness": "GA 03",
-          "source": "INTF NTVMR transcription",
-          "documentId": 20003,
-          "readingLayer": "original-hand",
-          "sourceReference": "matthew 5:13",
-          "diplomatic": "εστε",
-          "intfSha256": "4da56617802a28d1398e18f0069800ef960512038e68cf995d512575adfa5ad3",
-          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
-          "corroboration": "exact",
-          "englishCertification": {
-            "layer": "primary-shadow",
-            "rule": "certifiable-exact",
-            "alignment": {
-              "similarity": 1,
-              "tagntReference": "Mat.5.13",
-              "tagntPosition": 2,
-              "tagntGreek": "ἐστε"
-            },
-            "lexicalVerification": {
-              "source": "TBESG/Abbott-Smith",
-              "strong": "G1510",
-              "lemma": "εἰμί",
-              "briefGloss": "to be"
-            },
-            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
-            "status": "internally-certified"
-          }
-        },
-        "gloss": {
-          "gloss": "are",
-          "source": "TAGNT",
-          "tooltip": "G1510 · V-PAI-2P · TBESG: to be · εἰμί"
-        }
-      },
-      "sinaiticus": {
-        "type": "text",
-        "text": "ἐστε",
-        "gloss": {
-          "gloss": "are",
-          "source": "TAGNT"
-        }
-      },
-      "vulgate": {
-        "type": "text",
-        "text": "estis",
-        "provenance": {
-          "sourceId": "vulgate-clementine",
-          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
-          "sourceReference": "matthew 5:13",
-          "sourceToken": 2,
-          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
-          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
-            "sourceReference": "matthew 5:13",
-            "scope": "lexical-row-ownership",
-            "latinIndex": 1,
-            "action": "display",
-            "englishIndices": [
-              1
-            ],
-            "anchorEnglishIndex": 1,
-            "evidence": [
-              "MONOTONIC_LEXICAL_OWNER",
-              "LEXICON_CONTEXT_CANDIDATE"
-            ],
-            "translationUnit": null,
-            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
-            "status": "internally-adjudicated-not-independent-scholarly-review"
-          }
-        },
-        "gloss": {
-          "gloss": "are",
-          "source": "DouayRheims",
-          "tooltip": "Douay-Rheims 1899 · Latin: estis · English: are"
-        }
-      },
-      "peshitta": {
-        "type": "text",
-        "text": "ܐܢܘܢ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "matthew 5:13",
-          "sourceToken": 2,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "matthew 5:13",
-            "unitId": "murdock-matthew-5-13",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              0,
-              1
-            ],
-            "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
-              "PARALLEL_CORPUS_ALIGNMENT"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
-          }
-        },
-        "gloss": {
-          "gloss": "Ye are",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
-      },
-      "byzantine": {
-        "type": "text",
-        "text": "ἐστε",
-        "provenance": {
-          "sourceId": "robinson-pierpont-2018",
-          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
-          "sourceReference": "matthew 5:13",
-          "sourceToken": 2,
-          "sourceFile": "data/sources/byzantine/MAT.csv",
-          "sourceSha256": "f098a3be6c8a7ecf406189ff41000f7933adf41d522fc6b6484b303314820d5d",
-          "upstreamTag": "v3.3.2",
-          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
-          "verification": "source-token-order-verified"
-        },
-        "gloss": {
-          "gloss": "are",
-          "source": "TAGNT",
-          "tooltip": "RP2018 Strong G1510 · V-PAI-2P · TBESG/Abbott-Smith: to be"
-        }
-      },
-      "bezae": {
-        "type": "text",
-        "greek": "εστε",
-        "latin": "estis"
-      },
-      "coptic": {
-        "type": "text",
-        "text": "ⲡⲉ",
-        "gloss": {
-          "gloss": "sg. masc. copula",
-          "source": "Crum",
-          "tooltip": "KELLIA CCL v1.2 · ⲡⲉ · sg. masc. copula (nexus pronoun)"
-        },
-        "provenance": {
-          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
-          "edition": "Sahidica NT 4.1.0",
-          "versionDate": "2021-03-31",
-          "sourceFile": "40_Matthew_05.tt",
-          "sourceReference": "matthew 5:13",
-          "sourceToken": 2,
-          "diplomatic": "ⲡⲉ",
-          "sourceSha256": "9ecb444fefd9e0724183b08bfbcd6750bceda048f0a4468dfb26f0cd3dc3520e",
-          "verification": "exact-source-word-group",
-          "placementMethod": "positional",
-          "englishCertification": {
-            "status": "lexical-range-certified",
-            "rule": "exact-scriptorium-lemma-to-ccl",
-            "lemma": "ⲡⲉ",
-            "partOfSpeech": "COP",
-            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
-            "lexicalSourceDate": "2020-07-16",
-            "doi": "10.17169/refubium-27566",
-            "license": "CC BY-SA 4.0",
-            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
-            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
-            "scope": "documented lexical range; contextual sense not independently selected"
-          }
-        }
-      },
-      "_copticDraft": true
-    },
-    {
       "id": "r3",
       "papyrus": {
         "type": "lost",
@@ -590,6 +583,46 @@
         "latin": "enim"
       },
       "coptic": {
+        "type": "empty"
+      }
+    },
+    {
+      "id": "peshitta-english-matthew-5-13-1",
+      "rowKind": "translation-expansion",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "translation",
+        "gloss": {
+          "gloss": "Ye",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
+        },
+        "provenance": {
+          "authority": "James Murdock 1851",
+          "sourceReference": "matthew 5:13",
+          "englishIndex": 0,
+          "alignmentGroupId": "murdock-matthew-5-13#english-1",
+          "status": "published-translation-row"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      },
+      "bezae": {
         "type": "empty"
       }
     },
@@ -704,6 +737,7 @@
             "unitId": "murdock-matthew-5-13",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
+              1,
               2,
               3
             ],
@@ -713,11 +747,11 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
           }
         },
         "gloss": {
-          "gloss": "the salt",
+          "gloss": "are the salt",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1152,13 +1186,12 @@
               6
             ],
             "evidence": [
-              "PARALLEL_CORPUS_ALIGNMENT",
               "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
           }
         },
         "gloss": {
@@ -1274,7 +1307,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
           }
         },
         "gloss": {
@@ -1420,23 +1453,17 @@
             "sourceReference": "matthew 5:13",
             "unitId": "murdock-matthew-5-13",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              19,
-              20
-            ],
-            "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
-              "PARALLEL_CORPUS_ALIGNMENT"
-            ],
+            "englishIndices": [],
+            "evidence": [],
             "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
+            "status": "no-certified-equivalent",
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
           }
         },
         "gloss": {
-          "gloss": "It is",
+          "gloss": "",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
         }
       },
       "byzantine": {
@@ -1948,7 +1975,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
           }
         },
         "gloss": {
@@ -2353,7 +2380,6 @@
             "englishIndices": [
               11,
               12,
-              14,
               15
             ],
             "evidence": [
@@ -2361,11 +2387,11 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
           }
         },
         "gloss": {
-          "gloss": "become insipid, what shall",
+          "gloss": "become insipid, shall",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2429,6 +2455,86 @@
         }
       },
       "_copticDraft": true
+    },
+    {
+      "id": "peshitta-english-matthew-5-13-14",
+      "rowKind": "translation-expansion",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "translation",
+        "gloss": {
+          "gloss": "with",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
+        },
+        "provenance": {
+          "authority": "James Murdock 1851",
+          "sourceReference": "matthew 5:13",
+          "englishIndex": 13,
+          "alignmentGroupId": "murdock-matthew-5-13#english-14",
+          "status": "published-translation-row"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      }
+    },
+    {
+      "id": "peshitta-english-matthew-5-13-17",
+      "rowKind": "translation-expansion",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "translation",
+        "gloss": {
+          "gloss": "it",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
+        },
+        "provenance": {
+          "authority": "James Murdock 1851",
+          "sourceReference": "matthew 5:13",
+          "englishIndex": 16,
+          "alignmentGroupId": "murdock-matthew-5-13#english-17",
+          "status": "published-translation-row"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      }
     },
     {
       "id": "r14",
@@ -2572,21 +2678,18 @@
             "unitId": "murdock-matthew-5-13",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              16,
-              17,
-              34
+              14
             ],
             "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
               "PARALLEL_CORPUS_ALIGNMENT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
           }
         },
         "gloss": {
-          "gloss": "it be by",
+          "gloss": "what",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2788,21 +2891,19 @@
             "englishIndices": [
               9,
               10,
-              13,
               18
             ],
             "evidence": [
               "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
-              "SEDRA_LEXICAL_MATCH",
-              "PARALLEL_CORPUS_ALIGNMENT"
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
           }
         },
         "gloss": {
-          "gloss": "the salt with seasoned?",
+          "gloss": "the salt seasoned?",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2867,6 +2968,46 @@
         }
       },
       "_copticDraft": true
+    },
+    {
+      "id": "peshitta-english-matthew-5-13-20",
+      "rowKind": "translation-expansion",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "translation",
+        "gloss": {
+          "gloss": "It",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
+        },
+        "provenance": {
+          "authority": "James Murdock 1851",
+          "sourceReference": "matthew 5:13",
+          "englishIndex": 19,
+          "alignmentGroupId": "murdock-matthew-5-13#english-20",
+          "status": "published-translation-row"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      }
     },
     {
       "id": "r16",
@@ -3006,7 +3147,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
           }
         },
         "gloss": {
@@ -3214,21 +3355,17 @@
             "sourceReference": "matthew 5:13",
             "unitId": "murdock-matthew-5-13",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              26
-            ],
-            "evidence": [
-              "PARALLEL_CORPUS_ALIGNMENT"
-            ],
+            "englishIndices": [],
+            "evidence": [],
             "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
+            "status": "no-certified-equivalent",
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
           }
         },
         "gloss": {
-          "gloss": "be",
+          "gloss": "",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
         }
       },
       "byzantine": {
@@ -3291,46 +3428,6 @@
         }
       },
       "_copticDraft": true
-    },
-    {
-      "id": "peshitta-english-matthew-5-13-28",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "thrown",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "matthew 5:13",
-          "englishIndex": 27,
-          "alignmentGroupId": "murdock-matthew-5-13#english-28",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
     },
     {
       "id": "r18",
@@ -3656,18 +3753,20 @@
             "unitId": "murdock-matthew-5-13",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
+              20,
               21
             ],
             "evidence": [
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
           }
         },
         "gloss": {
-          "gloss": "fit",
+          "gloss": "is fit",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -3698,6 +3797,126 @@
         "latin": "nisi"
       },
       "coptic": {
+        "type": "empty"
+      }
+    },
+    {
+      "id": "peshitta-english-matthew-5-13-23",
+      "rowKind": "translation-expansion",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "translation",
+        "gloss": {
+          "gloss": "for",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
+        },
+        "provenance": {
+          "authority": "James Murdock 1851",
+          "sourceReference": "matthew 5:13",
+          "englishIndex": 22,
+          "alignmentGroupId": "murdock-matthew-5-13#english-23",
+          "status": "published-translation-row"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      }
+    },
+    {
+      "id": "peshitta-english-matthew-5-13-24",
+      "rowKind": "translation-expansion",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "translation",
+        "gloss": {
+          "gloss": "nothing;",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
+        },
+        "provenance": {
+          "authority": "James Murdock 1851",
+          "sourceReference": "matthew 5:13",
+          "englishIndex": 23,
+          "alignmentGroupId": "murdock-matthew-5-13#english-24",
+          "status": "published-translation-row"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      }
+    },
+    {
+      "id": "peshitta-english-matthew-5-13-25",
+      "rowKind": "translation-expansion",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "translation",
+        "gloss": {
+          "gloss": "but",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
+        },
+        "provenance": {
+          "authority": "James Murdock 1851",
+          "sourceReference": "matthew 5:13",
+          "englishIndex": 24,
+          "alignmentGroupId": "murdock-matthew-5-13#english-25",
+          "status": "published-translation-row"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      },
+      "bezae": {
         "type": "empty"
       }
     },
@@ -3838,7 +4057,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
           }
         },
         "gloss": {
@@ -4024,7 +4243,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
           }
         },
         "gloss": {
@@ -4194,24 +4413,17 @@
             "sourceReference": "matthew 5:13",
             "unitId": "murdock-matthew-5-13",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              22,
-              24,
-              25
-            ],
-            "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
-              "PARALLEL_CORPUS_ALIGNMENT"
-            ],
+            "englishIndices": [],
+            "evidence": [],
             "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
+            "status": "no-certified-equivalent",
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
           }
         },
         "gloss": {
-          "gloss": "for but to",
+          "gloss": "",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
         }
       },
       "byzantine": {
@@ -4240,46 +4452,6 @@
         "latin": "foras"
       },
       "coptic": {
-        "type": "empty"
-      }
-    },
-    {
-      "id": "peshitta-english-matthew-5-13-24",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "nothing;",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "matthew 5:13",
-          "englishIndex": 23,
-          "alignmentGroupId": "murdock-matthew-5-13#english-24",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
         "type": "empty"
       }
     },
@@ -4538,7 +4710,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
           }
         },
         "gloss": {
@@ -4710,18 +4882,21 @@
             "unitId": "murdock-matthew-5-13",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
+              25,
+              26,
               28
             ],
             "evidence": [
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
           }
         },
         "gloss": {
-          "gloss": "out,",
+          "gloss": "to be out,",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -4752,6 +4927,86 @@
         "latin": "ab"
       },
       "coptic": {
+        "type": "empty"
+      }
+    },
+    {
+      "id": "peshitta-english-matthew-5-13-28",
+      "rowKind": "translation-expansion",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "translation",
+        "gloss": {
+          "gloss": "thrown",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
+        },
+        "provenance": {
+          "authority": "James Murdock 1851",
+          "sourceReference": "matthew 5:13",
+          "englishIndex": 27,
+          "alignmentGroupId": "murdock-matthew-5-13#english-28",
+          "status": "published-translation-row"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      }
+    },
+    {
+      "id": "peshitta-english-matthew-5-13-30",
+      "rowKind": "translation-expansion",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "translation",
+        "gloss": {
+          "gloss": "and",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
+        },
+        "provenance": {
+          "authority": "James Murdock 1851",
+          "sourceReference": "matthew 5:13",
+          "englishIndex": 29,
+          "alignmentGroupId": "murdock-matthew-5-13#english-30",
+          "status": "published-translation-row"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      },
+      "bezae": {
         "type": "empty"
       }
     },
@@ -5009,18 +5264,20 @@
             "unitId": "murdock-matthew-5-13",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
+              34,
               35
             ],
             "evidence": [
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "dbe983ce91a49bddbc95398c7891f806fe2a843aece6365aeacd966762b7df9d"
+            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
           }
         },
         "gloss": {
-          "gloss": "men.",
+          "gloss": "by men.",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
