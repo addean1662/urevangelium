@@ -4,6 +4,188 @@
   "verse": 17,
   "rows": [
     {
+      "id": "r1",
+      "papyrus": {
+        "type": "extant",
+        "fragments": [
+          {
+            "id": "P45",
+            "date": "c. 200–250 CE"
+          }
+        ],
+        "text": "και",
+        "condition": {
+          "supplied": "editor"
+        },
+        "gloss": {
+          "gloss": "And",
+          "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P45",
+          "sourceToken": 1,
+          "diplomatic": "και",
+          "sourceAttestations": [
+            {
+              "siglum": "P45",
+              "sourceToken": 1,
+              "diplomatic": "και",
+              "classification": "conditioned-contextual-guide-row"
+            }
+          ],
+          "agreeingSigla": [
+            "P45"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
+        }
+      },
+      "vaticanus": {
+        "type": "text",
+        "text": "και",
+        "provenance": {
+          "witness": "GA 03",
+          "source": "INTF NTVMR transcription",
+          "documentId": 20003,
+          "readingLayer": "original-hand",
+          "sourceReference": "matthew 21:17",
+          "diplomatic": "και",
+          "intfSha256": "4da56617802a28d1398e18f0069800ef960512038e68cf995d512575adfa5ad3",
+          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
+          "corroboration": "exact",
+          "englishCertification": {
+            "layer": "primary-shadow",
+            "rule": "certifiable-exact",
+            "alignment": {
+              "similarity": 1,
+              "tagntReference": "Mat.21.17",
+              "tagntPosition": 1,
+              "tagntGreek": "Καὶ"
+            },
+            "lexicalVerification": {
+              "source": "TBESG/Abbott-Smith",
+              "strong": "G2532",
+              "lemma": "καί",
+              "briefGloss": "and"
+            },
+            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
+            "status": "internally-certified"
+          }
+        },
+        "gloss": {
+          "gloss": "And",
+          "source": "TAGNT",
+          "tooltip": "G2532 · CONJ · TBESG: and · καί"
+        }
+      },
+      "sinaiticus": {
+        "type": "text",
+        "text": "Καὶ",
+        "gloss": {
+          "gloss": "And",
+          "source": "TAGNT"
+        }
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "Et",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "matthew 21:17",
+          "sourceToken": 1,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
+            "sourceReference": "matthew 21:17",
+            "scope": "lexical-row-ownership",
+            "latinIndex": 0,
+            "action": "display",
+            "englishIndices": [
+              0
+            ],
+            "anchorEnglishIndex": 0,
+            "evidence": [
+              "MONOTONIC_LEXICAL_OWNER",
+              "LEXICON_CONTEXT_CANDIDATE"
+            ],
+            "translationUnit": null,
+            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
+            "status": "internally-adjudicated-not-independent-scholarly-review"
+          }
+        },
+        "gloss": {
+          "gloss": "And",
+          "source": "DouayRheims",
+          "tooltip": "Douay-Rheims 1899 · Latin: Et · English: And"
+        }
+      },
+      "peshitta": {
+        "type": "text",
+        "text": "ܘܫܒܩ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "matthew 21:17",
+          "sourceToken": 1,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "matthew 21:17",
+            "unitId": "murdock-matthew-21-17",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              6
+            ],
+            "evidence": [
+              "SEDRA_LEXICAL_MATCH"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+          }
+        },
+        "gloss": {
+          "gloss": "left",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
+      },
+      "byzantine": {
+        "type": "text",
+        "text": "Καὶ",
+        "provenance": {
+          "sourceId": "robinson-pierpont-2018",
+          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
+          "sourceReference": "matthew 21:17",
+          "sourceToken": 1,
+          "sourceFile": "data/sources/byzantine/MAT.csv",
+          "sourceSha256": "f098a3be6c8a7ecf406189ff41000f7933adf41d522fc6b6484b303314820d5d",
+          "upstreamTag": "v3.3.2",
+          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
+          "verification": "source-token-order-verified"
+        },
+        "gloss": {
+          "gloss": "And",
+          "source": "TAGNT",
+          "tooltip": "RP2018 Strong G2532 · CONJ · TBESG/Abbott-Smith: and"
+        }
+      },
+      "bezae": {
+        "type": "text",
+        "greek": "και",
+        "latin": "et"
+      },
+      "coptic": {
+        "type": "empty"
+      }
+    },
+    {
       "id": "peshitta-english-matthew-21-17-1",
       "rowKind": "translation-expansion",
       "papyrus": {
@@ -160,191 +342,6 @@
         "type": "empty"
       },
       "bezae": {
-        "type": "empty"
-      }
-    },
-    {
-      "id": "r1",
-      "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          }
-        ],
-        "text": "και",
-        "condition": {
-          "supplied": "editor"
-        },
-        "gloss": {
-          "gloss": "And",
-          "source": "TAGNT"
-        },
-        "provenance": {
-          "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
-          "sourceToken": 1,
-          "diplomatic": "και",
-          "sourceAttestations": [
-            {
-              "siglum": "P45",
-              "sourceToken": 1,
-              "diplomatic": "και",
-              "classification": "conditioned-contextual-guide-row"
-            }
-          ],
-          "agreeingSigla": [
-            "P45"
-          ],
-          "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
-      },
-      "vaticanus": {
-        "type": "text",
-        "text": "και",
-        "provenance": {
-          "witness": "GA 03",
-          "source": "INTF NTVMR transcription",
-          "documentId": 20003,
-          "readingLayer": "original-hand",
-          "sourceReference": "matthew 21:17",
-          "diplomatic": "και",
-          "intfSha256": "4da56617802a28d1398e18f0069800ef960512038e68cf995d512575adfa5ad3",
-          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
-          "corroboration": "exact",
-          "englishCertification": {
-            "layer": "primary-shadow",
-            "rule": "certifiable-exact",
-            "alignment": {
-              "similarity": 1,
-              "tagntReference": "Mat.21.17",
-              "tagntPosition": 1,
-              "tagntGreek": "Καὶ"
-            },
-            "lexicalVerification": {
-              "source": "TBESG/Abbott-Smith",
-              "strong": "G2532",
-              "lemma": "καί",
-              "briefGloss": "and"
-            },
-            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
-            "status": "internally-certified"
-          }
-        },
-        "gloss": {
-          "gloss": "And",
-          "source": "TAGNT",
-          "tooltip": "G2532 · CONJ · TBESG: and · καί"
-        }
-      },
-      "sinaiticus": {
-        "type": "text",
-        "text": "Καὶ",
-        "gloss": {
-          "gloss": "And",
-          "source": "TAGNT"
-        }
-      },
-      "vulgate": {
-        "type": "text",
-        "text": "Et",
-        "provenance": {
-          "sourceId": "vulgate-clementine",
-          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
-          "sourceReference": "matthew 21:17",
-          "sourceToken": 1,
-          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
-          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
-            "sourceReference": "matthew 21:17",
-            "scope": "lexical-row-ownership",
-            "latinIndex": 0,
-            "action": "display",
-            "englishIndices": [
-              0
-            ],
-            "anchorEnglishIndex": 0,
-            "evidence": [
-              "MONOTONIC_LEXICAL_OWNER",
-              "LEXICON_CONTEXT_CANDIDATE"
-            ],
-            "translationUnit": null,
-            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
-            "status": "internally-adjudicated-not-independent-scholarly-review"
-          }
-        },
-        "gloss": {
-          "gloss": "And",
-          "source": "DouayRheims",
-          "tooltip": "Douay-Rheims 1899 · Latin: Et · English: And"
-        }
-      },
-      "peshitta": {
-        "type": "text",
-        "text": "ܘܫܒܩ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "matthew 21:17",
-          "sourceToken": 1,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "matthew 21:17",
-            "unitId": "murdock-matthew-21-17",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              4,
-              5,
-              6
-            ],
-            "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
-              "SEDRA_LEXICAL_MATCH"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
-          }
-        },
-        "gloss": {
-          "gloss": "And he left",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
-      },
-      "byzantine": {
-        "type": "text",
-        "text": "Καὶ",
-        "provenance": {
-          "sourceId": "robinson-pierpont-2018",
-          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
-          "sourceReference": "matthew 21:17",
-          "sourceToken": 1,
-          "sourceFile": "data/sources/byzantine/MAT.csv",
-          "sourceSha256": "f098a3be6c8a7ecf406189ff41000f7933adf41d522fc6b6484b303314820d5d",
-          "upstreamTag": "v3.3.2",
-          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
-          "verification": "source-token-order-verified"
-        },
-        "gloss": {
-          "gloss": "And",
-          "source": "TAGNT",
-          "tooltip": "RP2018 Strong G2532 · CONJ · TBESG/Abbott-Smith: and"
-        }
-      },
-      "bezae": {
-        "type": "text",
-        "greek": "και",
-        "latin": "et"
-      },
-      "coptic": {
         "type": "empty"
       }
     },
@@ -524,17 +521,23 @@
             "sourceReference": "matthew 21:17",
             "unitId": "murdock-matthew-21-17",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              4,
+              5
+            ],
+            "evidence": [
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "SEDRA_LEXICAL_MATCH"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "status": "adjudicated",
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "And he",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -744,7 +747,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -997,7 +1000,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -1199,17 +1202,21 @@
             "sourceReference": "matthew 21:17",
             "unitId": "murdock-matthew-21-17",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              11
+            ],
+            "evidence": [
+              "SEDRA_LEXICAL_MATCH"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "status": "adjudicated",
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "of",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -1709,7 +1716,6 @@
             "unitId": "murdock-matthew-21-17",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              11,
               12,
               13
             ],
@@ -1719,11 +1725,11 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "of the city",
+          "gloss": "the city",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1941,7 +1947,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -2144,7 +2150,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -2441,7 +2447,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -2651,11 +2657,11 @@
               18
             ],
             "evidence": [
-              "PARALLEL_CORPUS_ALIGNMENT"
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {

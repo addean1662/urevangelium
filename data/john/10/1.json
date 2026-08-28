@@ -166,7 +166,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -399,7 +399,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -593,20 +593,18 @@
             "unitId": "murdock-john-10-1",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              2,
               3
             ],
             "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "I say",
+          "gloss": "say",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -831,17 +829,21 @@
             "sourceReference": "john 10:1",
             "unitId": "murdock-john-10-1",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              2
+            ],
+            "evidence": [
+              "SEDRA_LEXICAL_MATCH"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "status": "adjudicated",
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "I",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -1289,20 +1291,18 @@
             "unitId": "murdock-john-10-1",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              4,
-              5
+              4
             ],
             "evidence": [
-              "PARALLEL_CORPUS_ALIGNMENT",
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD"
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "to you,",
+          "gloss": "to",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1524,18 +1524,18 @@
             "unitId": "murdock-john-10-1",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              6
+              8
             ],
             "evidence": [
-              "PARALLEL_CORPUS_ALIGNMENT"
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "That",
+          "gloss": "who",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1600,46 +1600,6 @@
         }
       },
       "_copticDraft": true
-    },
-    {
-      "id": "peshitta-english-john-10-1-8",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "he",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "john 10:1",
-          "englishIndex": 7,
-          "alignmentGroupId": "murdock-john-10-1#english-8",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
     },
     {
       "id": "r8",
@@ -1797,20 +1757,21 @@
             "unitId": "murdock-john-10-1",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
+              9,
               10,
               23
             ],
             "evidence": [
-              "PARALLEL_CORPUS_ALIGNMENT",
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "not up",
+          "gloss": "doth not up",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2170,22 +2131,20 @@
             "unitId": "murdock-john-10-1",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              8,
               11,
               15
             ],
             "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
               "SEDRA_LEXICAL_MATCH",
               "PARALLEL_CORPUS_ALIGNMENT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "who enter into",
+          "gloss": "enter into",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2250,126 +2209,6 @@
         }
       },
       "_copticDraft": true
-    },
-    {
-      "id": "peshitta-english-john-10-1-10",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "doth",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "john 10:1",
-          "englishIndex": 9,
-          "alignmentGroupId": "murdock-john-10-1#english-10",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
-    },
-    {
-      "id": "peshitta-english-john-10-1-17",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "the",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "john 10:1",
-          "englishIndex": 16,
-          "alignmentGroupId": "murdock-john-10-1#english-17",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
-    },
-    {
-      "id": "peshitta-english-john-10-1-18",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "fold",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "john 10:1",
-          "englishIndex": 17,
-          "alignmentGroupId": "murdock-john-10-1#english-18",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
     },
     {
       "id": "r11",
@@ -2527,17 +2366,23 @@
             "sourceReference": "john 10:1",
             "unitId": "murdock-john-10-1",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              16,
+              18
+            ],
+            "evidence": [
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "SEDRA_LEXICAL_MATCH"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "status": "adjudicated",
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "the of",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -2600,6 +2445,46 @@
         }
       },
       "_copticDraft": true
+    },
+    {
+      "id": "peshitta-english-john-10-1-18",
+      "rowKind": "translation-expansion",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "translation",
+        "gloss": {
+          "gloss": "fold",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
+        },
+        "provenance": {
+          "authority": "James Murdock 1851",
+          "sourceReference": "john 10:1",
+          "englishIndex": 17,
+          "alignmentGroupId": "murdock-john-10-1#english-18",
+          "status": "published-translation-row"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      }
     },
     {
       "id": "r12",
@@ -2938,7 +2823,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -3308,7 +3193,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -3676,7 +3561,6 @@
             "unitId": "murdock-john-10-1",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              18,
               19,
               20
             ],
@@ -3686,11 +3570,11 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "of the flock,",
+          "gloss": "the flock,",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -3916,12 +3800,12 @@
               22
             ],
             "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "SEDRA_LEXICAL_MATCH",
               "CROSS_TRADITION_EXACT_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -4149,7 +4033,7 @@
             "evidence": [],
             "sedraStatus": 404,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -4378,7 +4262,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -4612,7 +4496,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -4681,46 +4565,6 @@
         }
       },
       "_copticDraft": true
-    },
-    {
-      "id": "peshitta-english-john-10-1-29",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "he",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "john 10:1",
-          "englishIndex": 28,
-          "alignmentGroupId": "murdock-john-10-1#english-29",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
     },
     {
       "id": "r21",
@@ -4887,7 +4731,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -5152,17 +4996,24 @@
             "sourceReference": "john 10:1",
             "unitId": "murdock-john-10-1",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              5,
+              6,
+              28
+            ],
+            "evidence": [
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "SEDRA_LEXICAL_MATCH"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "status": "adjudicated",
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "you, That he",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -5351,7 +5202,7 @@
             "unitId": "murdock-john-10-1",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              29,
+              30,
               31,
               34
             ],
@@ -5362,11 +5213,11 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "is thief robber.",
+          "gloss": "a thief robber.",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -5431,46 +5282,6 @@
         }
       },
       "_copticDraft": true
-    },
-    {
-      "id": "peshitta-english-john-10-1-31",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "a",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "john 10:1",
-          "englishIndex": 30,
-          "alignmentGroupId": "murdock-john-10-1#english-31",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
     },
     {
       "id": "peshitta-english-john-10-1-33",
@@ -5593,17 +5404,22 @@
             "sourceReference": "john 10:1",
             "unitId": "murdock-john-10-1",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              7,
+              29
+            ],
+            "evidence": [
+              "SEDRA_LEXICAL_MATCH"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "status": "adjudicated",
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "he is",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "bezae": {
@@ -5673,7 +5489,7 @@
             "evidence": [],
             "sedraStatus": 404,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {

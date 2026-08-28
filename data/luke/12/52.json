@@ -144,18 +144,19 @@
             "unitId": "murdock-luke-12-52",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              1
+              1,
+              12
             ],
             "evidence": [
-              "PARALLEL_CORPUS_ALIGNMENT"
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "from",
+          "gloss": "from who",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -222,42 +223,60 @@
       "_copticDraft": true
     },
     {
-      "id": "peshitta-english-luke-12-52-3",
-      "rowKind": "translation-expansion",
+      "id": "peshitta-luke-12-52-1",
       "papyrus": {
         "type": "empty"
       },
       "coptic": {
         "type": "empty"
       },
+      "vaticanus": {
+        "type": "empty"
+      },
       "sinaiticus": {
         "type": "empty"
       },
-      "vaticanus": {
+      "bezae": {
         "type": "empty"
       },
       "vulgate": {
         "type": "empty"
       },
       "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "this",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
+        "type": "text",
+        "text": "ܗܫܐ",
         "provenance": {
-          "authority": "James Murdock 1851",
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "luke 12:52",
-          "englishIndex": 2,
-          "alignmentGroupId": "murdock-luke-12-52#english-3",
-          "status": "published-translation-row"
+          "sourceToken": 2,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "luke 12:52",
+            "unitId": "murdock-luke-12-52",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              2,
+              13
+            ],
+            "evidence": [
+              "PARALLEL_CORPUS_ALIGNMENT"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+          }
+        },
+        "gloss": {
+          "gloss": "this will",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
         "type": "empty"
       }
     },
@@ -302,61 +321,42 @@
       }
     },
     {
-      "id": "peshitta-luke-12-52-1",
+      "id": "peshitta-english-luke-12-52-5",
+      "rowKind": "translation-expansion",
       "papyrus": {
         "type": "empty"
       },
       "coptic": {
         "type": "empty"
       },
-      "vaticanus": {
-        "type": "empty"
-      },
       "sinaiticus": {
         "type": "empty"
       },
-      "bezae": {
+      "vaticanus": {
         "type": "empty"
       },
       "vulgate": {
         "type": "empty"
       },
       "peshitta": {
-        "type": "text",
-        "text": "ܗܫܐ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "luke 12:52",
-          "sourceToken": 2,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "luke 12:52",
-            "unitId": "murdock-luke-12-52",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              12,
-              13
-            ],
-            "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
-              "PARALLEL_CORPUS_ALIGNMENT"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
-          }
-        },
+        "type": "translation",
         "gloss": {
-          "gloss": "who will",
+          "gloss": "there",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
+        },
+        "provenance": {
+          "authority": "James Murdock 1851",
+          "sourceReference": "luke 12:52",
+          "englishIndex": 4,
+          "alignmentGroupId": "murdock-luke-12-52#english-5",
+          "status": "published-translation-row"
         }
       },
       "byzantine": {
+        "type": "empty"
+      },
+      "bezae": {
         "type": "empty"
       }
     },
@@ -497,11 +497,11 @@
               0
             ],
             "evidence": [
-              "PARALLEL_CORPUS_ALIGNMENT"
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -1037,18 +1037,20 @@
             "unitId": "murdock-luke-12-52",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              5
+              5,
+              6
             ],
             "evidence": [
-              "PARALLEL_CORPUS_ALIGNMENT"
+              "PARALLEL_CORPUS_ALIGNMENT",
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "will",
+          "gloss": "will be",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1451,20 +1453,18 @@
             "unitId": "murdock-luke-12-52",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              6,
               7
             ],
             "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "be five",
+          "gloss": "five",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1778,20 +1778,18 @@
             "unitId": "murdock-luke-12-52",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              9,
               11
             ],
             "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "in house,",
+          "gloss": "house,",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1991,18 +1989,20 @@
             "unitId": "murdock-luke-12-52",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
+              9,
               10
             ],
             "evidence": [
-              "PARALLEL_CORPUS_ALIGNMENT"
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "one",
+          "gloss": "in one",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2227,7 +2227,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -2434,7 +2434,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -2649,7 +2649,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -3032,7 +3032,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -3217,20 +3217,18 @@
             "unitId": "murdock-luke-12-52",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              4,
               18
             ],
             "evidence": [
-              "PARALLEL_CORPUS_ALIGNMENT",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "there two,",
+          "gloss": "two,",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -3405,7 +3403,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -3594,7 +3592,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {

@@ -110,7 +110,7 @@
             "evidence": [],
             "sedraStatus": 404,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -255,7 +255,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -428,17 +428,21 @@
             "sourceReference": "luke 4:22",
             "unitId": "murdock-luke-4-22",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              3
+            ],
+            "evidence": [
+              "SEDRA_LEXICAL_MATCH"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "status": "adjudicated",
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "him",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -501,309 +505,6 @@
         }
       },
       "_copticDraft": true
-    },
-    {
-      "id": "peshitta-english-luke-4-22-1",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "And",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "luke 4:22",
-          "englishIndex": 0,
-          "alignmentGroupId": "murdock-luke-4-22#english-1",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
-    },
-    {
-      "id": "r4",
-      "papyrus": {
-        "type": "lost"
-      },
-      "vaticanus": {
-        "type": "text",
-        "text": "αυτω",
-        "provenance": {
-          "witness": "GA 03",
-          "source": "INTF NTVMR transcription",
-          "documentId": 20003,
-          "readingLayer": "original-hand",
-          "sourceReference": "luke 4:22",
-          "diplomatic": "αυτω",
-          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
-          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
-          "corroboration": "exact",
-          "englishCertification": {
-            "layer": "primary-shadow",
-            "rule": "certifiable-exact",
-            "alignment": {
-              "similarity": 1,
-              "tagntReference": "Luk.4.22",
-              "tagntPosition": 4,
-              "tagntGreek": "αὐτῷ"
-            },
-            "lexicalVerification": {
-              "source": "TBESG/Abbott-Smith",
-              "strong": "G0846",
-              "lemma": "αὐτός",
-              "briefGloss": "it/s/he"
-            },
-            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
-            "status": "internally-certified"
-          }
-        },
-        "gloss": {
-          "gloss": "to Him",
-          "source": "TAGNT",
-          "tooltip": "G0846 · P-DSM · TBESG: it/s/he · αὐτός"
-        }
-      },
-      "sinaiticus": {
-        "type": "text",
-        "text": "αὐτῷ",
-        "gloss": {
-          "gloss": "to Him",
-          "source": "TAGNT"
-        }
-      },
-      "vulgate": {
-        "type": "text",
-        "text": "illi",
-        "provenance": {
-          "sourceId": "vulgate-clementine",
-          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
-          "sourceReference": "luke 4:22",
-          "sourceToken": 4,
-          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
-          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
-            "sourceReference": "luke 4:22",
-            "scope": "lexical-row-ownership",
-            "latinIndex": 3,
-            "action": "display",
-            "englishIndices": [
-              4,
-              5
-            ],
-            "anchorEnglishIndex": 5,
-            "evidence": [
-              "MONOTONIC_LEXICAL_OWNER",
-              "LEXICON_CONTEXT_CANDIDATE",
-              "WHITAKER_MORPHOLOGY_SUPPORTED_ENGLISH_FUNCTION"
-            ],
-            "translationUnit": null,
-            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
-            "status": "internally-adjudicated-not-independent-scholarly-review"
-          }
-        },
-        "gloss": {
-          "gloss": "to him",
-          "source": "DouayRheims",
-          "tooltip": "Douay-Rheims 1899 · Latin: illi · English: him"
-        }
-      },
-      "peshitta": {
-        "type": "text",
-        "text": "ܟܠܗܘܢ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "luke 4:22",
-          "sourceToken": 4,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "luke 4:22",
-            "unitId": "murdock-luke-4-22",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              1
-            ],
-            "evidence": [
-              "PARALLEL_CORPUS_ALIGNMENT"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
-          }
-        },
-        "gloss": {
-          "gloss": "all",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
-      },
-      "byzantine": {
-        "type": "text",
-        "text": "αὐτῷ",
-        "provenance": {
-          "sourceId": "robinson-pierpont-2018",
-          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
-          "sourceReference": "luke 4:22",
-          "sourceToken": 4,
-          "sourceFile": "data/sources/byzantine/LUK.csv",
-          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
-          "upstreamTag": "v3.3.2",
-          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
-          "verification": "source-token-order-verified"
-        },
-        "gloss": {
-          "gloss": "to Him",
-          "source": "TAGNT",
-          "tooltip": "RP2018 Strong G0846 · P-DSM · TBESG/Abbott-Smith: it/s/he"
-        }
-      },
-      "bezae": {
-        "type": "text",
-        "greek": "αυτω",
-        "latin": "ei"
-      },
-      "coptic": {
-        "type": "text",
-        "text": "ⲛⲓⲙ",
-        "gloss": {
-          "gloss": "who?",
-          "source": "Crum",
-          "tooltip": "KELLIA CCL v1.2 · ⲛⲓⲙ · who?"
-        },
-        "provenance": {
-          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
-          "edition": "Sahidica NT 4.1.0",
-          "versionDate": "2021-03-31",
-          "sourceFile": "42_Luke_04.tt",
-          "sourceReference": "luke 4:22",
-          "sourceToken": 3,
-          "diplomatic": "ⲛⲓⲙ",
-          "sourceSha256": "d161d3e608dd145780ba68d697840584b1929290df4e621db236b159fac843ef",
-          "verification": "exact-source-word-group",
-          "placementMethod": "positional",
-          "englishCertification": {
-            "status": "lexical-range-certified",
-            "rule": "exact-scriptorium-lemma-to-ccl",
-            "lemma": "ⲛⲓⲙ",
-            "partOfSpeech": "PINT",
-            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
-            "lexicalSourceDate": "2020-07-16",
-            "doi": "10.17169/refubium-27566",
-            "license": "CC BY-SA 4.0",
-            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
-            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
-            "scope": "documented lexical range; contextual sense not independently selected"
-          }
-        }
-      },
-      "_copticDraft": true
-    },
-    {
-      "id": "peshitta-english-luke-4-22-3",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "bare",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "luke 4:22",
-          "englishIndex": 2,
-          "alignmentGroupId": "murdock-luke-4-22#english-3",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
-    },
-    {
-      "id": "peshitta-english-luke-4-22-4",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "him",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "luke 4:22",
-          "englishIndex": 3,
-          "alignmentGroupId": "murdock-luke-4-22#english-4",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
     },
     {
       "id": "peshitta-english-luke-4-22-5",
@@ -926,6 +627,231 @@
       }
     },
     {
+      "id": "r4",
+      "papyrus": {
+        "type": "lost"
+      },
+      "vaticanus": {
+        "type": "text",
+        "text": "αυτω",
+        "provenance": {
+          "witness": "GA 03",
+          "source": "INTF NTVMR transcription",
+          "documentId": 20003,
+          "readingLayer": "original-hand",
+          "sourceReference": "luke 4:22",
+          "diplomatic": "αυτω",
+          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
+          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
+          "corroboration": "exact",
+          "englishCertification": {
+            "layer": "primary-shadow",
+            "rule": "certifiable-exact",
+            "alignment": {
+              "similarity": 1,
+              "tagntReference": "Luk.4.22",
+              "tagntPosition": 4,
+              "tagntGreek": "αὐτῷ"
+            },
+            "lexicalVerification": {
+              "source": "TBESG/Abbott-Smith",
+              "strong": "G0846",
+              "lemma": "αὐτός",
+              "briefGloss": "it/s/he"
+            },
+            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
+            "status": "internally-certified"
+          }
+        },
+        "gloss": {
+          "gloss": "to Him",
+          "source": "TAGNT",
+          "tooltip": "G0846 · P-DSM · TBESG: it/s/he · αὐτός"
+        }
+      },
+      "sinaiticus": {
+        "type": "text",
+        "text": "αὐτῷ",
+        "gloss": {
+          "gloss": "to Him",
+          "source": "TAGNT"
+        }
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "illi",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 4:22",
+          "sourceToken": 4,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
+            "sourceReference": "luke 4:22",
+            "scope": "lexical-row-ownership",
+            "latinIndex": 3,
+            "action": "display",
+            "englishIndices": [
+              4,
+              5
+            ],
+            "anchorEnglishIndex": 5,
+            "evidence": [
+              "MONOTONIC_LEXICAL_OWNER",
+              "LEXICON_CONTEXT_CANDIDATE",
+              "WHITAKER_MORPHOLOGY_SUPPORTED_ENGLISH_FUNCTION"
+            ],
+            "translationUnit": null,
+            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
+            "status": "internally-adjudicated-not-independent-scholarly-review"
+          }
+        },
+        "gloss": {
+          "gloss": "to him",
+          "source": "DouayRheims",
+          "tooltip": "Douay-Rheims 1899 · Latin: illi · English: him"
+        }
+      },
+      "peshitta": {
+        "type": "text",
+        "text": "ܟܠܗܘܢ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "luke 4:22",
+          "sourceToken": 4,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "luke 4:22",
+            "unitId": "murdock-luke-4-22",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              0,
+              1
+            ],
+            "evidence": [
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "SEDRA_LEXICAL_MATCH"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+          }
+        },
+        "gloss": {
+          "gloss": "And all",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
+      },
+      "byzantine": {
+        "type": "text",
+        "text": "αὐτῷ",
+        "provenance": {
+          "sourceId": "robinson-pierpont-2018",
+          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
+          "sourceReference": "luke 4:22",
+          "sourceToken": 4,
+          "sourceFile": "data/sources/byzantine/LUK.csv",
+          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
+          "upstreamTag": "v3.3.2",
+          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
+          "verification": "source-token-order-verified"
+        },
+        "gloss": {
+          "gloss": "to Him",
+          "source": "TAGNT",
+          "tooltip": "RP2018 Strong G0846 · P-DSM · TBESG/Abbott-Smith: it/s/he"
+        }
+      },
+      "bezae": {
+        "type": "text",
+        "greek": "αυτω",
+        "latin": "ei"
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲛⲓⲙ",
+        "gloss": {
+          "gloss": "who?",
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲛⲓⲙ · who?"
+        },
+        "provenance": {
+          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
+          "edition": "Sahidica NT 4.1.0",
+          "versionDate": "2021-03-31",
+          "sourceFile": "42_Luke_04.tt",
+          "sourceReference": "luke 4:22",
+          "sourceToken": 3,
+          "diplomatic": "ⲛⲓⲙ",
+          "sourceSha256": "d161d3e608dd145780ba68d697840584b1929290df4e621db236b159fac843ef",
+          "verification": "exact-source-word-group",
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲛⲓⲙ",
+            "partOfSpeech": "PINT",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
+        }
+      },
+      "_copticDraft": true
+    },
+    {
+      "id": "peshitta-english-luke-4-22-3",
+      "rowKind": "translation-expansion",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "translation",
+        "gloss": {
+          "gloss": "bare",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
+        },
+        "provenance": {
+          "authority": "James Murdock 1851",
+          "sourceReference": "luke 4:22",
+          "englishIndex": 2,
+          "alignmentGroupId": "murdock-luke-4-22#english-3",
+          "status": "published-translation-row"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      }
+    },
+    {
       "id": "r5",
       "papyrus": {
         "type": "lost"
@@ -1032,7 +958,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -1176,7 +1102,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -1362,7 +1288,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -1462,86 +1388,6 @@
           "sourceReference": "luke 4:22",
           "englishIndex": 8,
           "alignmentGroupId": "murdock-luke-4-22#english-9",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
-    },
-    {
-      "id": "peshitta-english-luke-4-22-11",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "which",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "luke 4:22",
-          "englishIndex": 10,
-          "alignmentGroupId": "murdock-luke-4-22#english-11",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
-    },
-    {
-      "id": "peshitta-english-luke-4-22-12",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "proceeded",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "luke 4:22",
-          "englishIndex": 11,
-          "alignmentGroupId": "murdock-luke-4-22#english-12",
           "status": "published-translation-row"
         }
       },
@@ -1745,7 +1591,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -2009,7 +1855,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -2420,17 +2266,21 @@
             "sourceReference": "luke 4:22",
             "unitId": "murdock-luke-4-22",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              18
+            ],
+            "evidence": [
+              "SEDRA_LEXICAL_MATCH"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "status": "adjudicated",
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "Is",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -2687,17 +2537,23 @@
             "sourceReference": "luke 4:22",
             "unitId": "murdock-luke-4-22",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              10,
+              12
+            ],
+            "evidence": [
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "SEDRA_LEXICAL_MATCH"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "status": "adjudicated",
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "which from",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -2759,6 +2615,46 @@
         }
       },
       "_copticDraft": true
+    },
+    {
+      "id": "peshitta-english-luke-4-22-12",
+      "rowKind": "translation-expansion",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "translation",
+        "gloss": {
+          "gloss": "proceeded",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
+        },
+        "provenance": {
+          "authority": "James Murdock 1851",
+          "sourceReference": "luke 4:22",
+          "englishIndex": 11,
+          "alignmentGroupId": "murdock-luke-4-22#english-12",
+          "status": "published-translation-row"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      }
     },
     {
       "id": "r17",
@@ -2864,7 +2760,6 @@
             "unitId": "murdock-luke-4-22",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              12,
               13,
               14
             ],
@@ -2874,11 +2769,11 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "from his mouth;",
+          "gloss": "his mouth;",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -3026,7 +2921,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -3171,7 +3066,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -3343,17 +3238,21 @@
             "sourceReference": "luke 4:22",
             "unitId": "murdock-luke-4-22",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              19
+            ],
+            "evidence": [
+              "SEDRA_LEXICAL_MATCH"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "status": "adjudicated",
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "not",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -3527,7 +3426,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -3702,21 +3601,18 @@
             "unitId": "murdock-luke-4-22",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              18,
-              19,
               20
             ],
             "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "Is not this",
+          "gloss": "this",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -4026,7 +3922,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -4347,7 +4243,7 @@
             ],
             "sedraStatus": 404,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {

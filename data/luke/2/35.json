@@ -114,7 +114,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -256,18 +256,18 @@
             "unitId": "murdock-luke-2-35",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              18
+              0
             ],
             "evidence": [
-              "PARALLEL_CORPUS_ALIGNMENT"
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
-          "gloss": "be",
+          "gloss": "and",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -332,206 +332,6 @@
         }
       },
       "_copticDraft": true
-    },
-    {
-      "id": "peshitta-english-luke-2-35-20",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "disclosed.",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "luke 2:35",
-          "englishIndex": 19,
-          "alignmentGroupId": "murdock-luke-2-35#english-20",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
-    },
-    {
-      "id": "r3",
-      "papyrus": {
-        "type": "lost"
-      },
-      "vaticanus": {
-        "type": "omitted"
-      },
-      "sinaiticus": {
-        "type": "text",
-        "text": "δὲ",
-        "gloss": {
-          "gloss": "also",
-          "source": "TAGNT"
-        }
-      },
-      "vulgate": {
-        "type": "text",
-        "text": "ipsius",
-        "provenance": {
-          "sourceId": "vulgate-clementine",
-          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
-          "sourceReference": "luke 2:35",
-          "sourceToken": 3,
-          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
-          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
-            "sourceReference": "luke 2:35",
-            "scope": "lexical-row-ownership",
-            "latinIndex": 2,
-            "action": "blank-unit-member",
-            "englishIndices": [],
-            "anchorEnglishIndex": null,
-            "evidence": [
-              "PUBLISHED_DOUAY_TRANSLATION_UNIT",
-              "LEXICALLY_ANCHORED_ORDERED_SPAN",
-              "NO_FINER_WORD_BOUNDARY_CLAIMED"
-            ],
-            "translationUnit": {
-              "latinStart": 2,
-              "latinEnd": 3,
-              "englishStart": 2,
-              "englishEnd": 3,
-              "status": "LEXICALLY_ANCHORED_ORDERED_SPAN",
-              "closingAnchor": {
-                "latinIndex": 3,
-                "englishIndex": 3
-              }
-            },
-            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
-            "status": "internally-adjudicated-not-independent-scholarly-review"
-          }
-        }
-      },
-      "peshitta": {
-        "type": "empty"
-      },
-      "byzantine": {
-        "type": "text",
-        "text": "δὲ",
-        "provenance": {
-          "sourceId": "robinson-pierpont-2018",
-          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
-          "sourceReference": "luke 2:35",
-          "sourceToken": 3,
-          "sourceFile": "data/sources/byzantine/LUK.csv",
-          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
-          "upstreamTag": "v3.3.2",
-          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
-          "verification": "source-token-order-verified"
-        },
-        "gloss": {
-          "gloss": "also",
-          "source": "TAGNT",
-          "tooltip": "RP2018 Strong G1161 · CONJ · TBESG/Abbott-Smith: then"
-        }
-      },
-      "bezae": {
-        "type": "text",
-        "greek": "δε",
-        "latin": "ipsius"
-      },
-      "coptic": {
-        "type": "text",
-        "text": "ⲇⲉ",
-        "gloss": {
-          "gloss": "and, so, then, for",
-          "source": "Crum",
-          "tooltip": "KELLIA CCL v1.2 · ⲇⲉ · and, so, then, for (marking shift in narrative, or change in subject; introducing new content)"
-        },
-        "provenance": {
-          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
-          "edition": "Sahidica NT 4.1.0",
-          "versionDate": "2021-03-31",
-          "sourceFile": "42_Luke_02.tt",
-          "sourceReference": "luke 2:35",
-          "sourceToken": 2,
-          "diplomatic": "ⲇⲉ",
-          "sourceSha256": "05d42d584121724b6f1e68d0b0fe9a64d86eae5666314b2cfc3e2031e852612e",
-          "verification": "exact-source-word-group",
-          "placementMethod": "positional",
-          "englishCertification": {
-            "status": "lexical-range-certified",
-            "rule": "exact-scriptorium-lemma-to-ccl",
-            "lemma": "ⲇⲉ",
-            "partOfSpeech": "PTC",
-            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
-            "lexicalSourceDate": "2020-07-16",
-            "doi": "10.17169/refubium-27566",
-            "license": "CC BY-SA 4.0",
-            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
-            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
-            "scope": "documented lexical range; contextual sense not independently selected"
-          }
-        }
-      },
-      "_copticDraft": true
-    },
-    {
-      "id": "peshitta-english-luke-2-35-1",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "and",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "luke 2:35",
-          "englishIndex": 0,
-          "alignmentGroupId": "murdock-luke-2-35#english-1",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
     },
     {
       "id": "peshitta-english-luke-2-35-2",
@@ -734,6 +534,126 @@
       }
     },
     {
+      "id": "r3",
+      "papyrus": {
+        "type": "lost"
+      },
+      "vaticanus": {
+        "type": "omitted"
+      },
+      "sinaiticus": {
+        "type": "text",
+        "text": "δὲ",
+        "gloss": {
+          "gloss": "also",
+          "source": "TAGNT"
+        }
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "ipsius",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 2:35",
+          "sourceToken": 3,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
+            "sourceReference": "luke 2:35",
+            "scope": "lexical-row-ownership",
+            "latinIndex": 2,
+            "action": "blank-unit-member",
+            "englishIndices": [],
+            "anchorEnglishIndex": null,
+            "evidence": [
+              "PUBLISHED_DOUAY_TRANSLATION_UNIT",
+              "LEXICALLY_ANCHORED_ORDERED_SPAN",
+              "NO_FINER_WORD_BOUNDARY_CLAIMED"
+            ],
+            "translationUnit": {
+              "latinStart": 2,
+              "latinEnd": 3,
+              "englishStart": 2,
+              "englishEnd": 3,
+              "status": "LEXICALLY_ANCHORED_ORDERED_SPAN",
+              "closingAnchor": {
+                "latinIndex": 3,
+                "englishIndex": 3
+              }
+            },
+            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
+            "status": "internally-adjudicated-not-independent-scholarly-review"
+          }
+        }
+      },
+      "peshitta": {
+        "type": "empty"
+      },
+      "byzantine": {
+        "type": "text",
+        "text": "δὲ",
+        "provenance": {
+          "sourceId": "robinson-pierpont-2018",
+          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
+          "sourceReference": "luke 2:35",
+          "sourceToken": 3,
+          "sourceFile": "data/sources/byzantine/LUK.csv",
+          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
+          "upstreamTag": "v3.3.2",
+          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
+          "verification": "source-token-order-verified"
+        },
+        "gloss": {
+          "gloss": "also",
+          "source": "TAGNT",
+          "tooltip": "RP2018 Strong G1161 · CONJ · TBESG/Abbott-Smith: then"
+        }
+      },
+      "bezae": {
+        "type": "text",
+        "greek": "δε",
+        "latin": "ipsius"
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲇⲉ",
+        "gloss": {
+          "gloss": "and, so, then, for",
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲇⲉ · and, so, then, for (marking shift in narrative, or change in subject; introducing new content)"
+        },
+        "provenance": {
+          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
+          "edition": "Sahidica NT 4.1.0",
+          "versionDate": "2021-03-31",
+          "sourceFile": "42_Luke_02.tt",
+          "sourceReference": "luke 2:35",
+          "sourceToken": 2,
+          "diplomatic": "ⲇⲉ",
+          "sourceSha256": "05d42d584121724b6f1e68d0b0fe9a64d86eae5666314b2cfc3e2031e852612e",
+          "verification": "exact-source-word-group",
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲇⲉ",
+            "partOfSpeech": "PTC",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
+        }
+      },
+      "_copticDraft": true
+    },
+    {
       "id": "r4",
       "papyrus": {
         "type": "lost"
@@ -813,7 +733,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -1043,7 +963,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -1375,7 +1295,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -1552,7 +1472,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -1880,7 +1800,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -2029,7 +1949,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -2362,7 +2282,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -2545,7 +2465,7 @@
             ],
             "sedraStatus": 404,
             "status": "adjudicated",
-            "adjudicationSha256": "95c7e832f63fa5f2f191c4356901485e1d73d0581008b0a4e3ce2dadbde4badd"
+            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
           }
         },
         "gloss": {
@@ -2645,6 +2565,86 @@
           "sourceReference": "luke 2:35",
           "englishIndex": 17,
           "alignmentGroupId": "murdock-luke-2-35#english-18",
+          "status": "published-translation-row"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      }
+    },
+    {
+      "id": "peshitta-english-luke-2-35-19",
+      "rowKind": "translation-expansion",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "translation",
+        "gloss": {
+          "gloss": "be",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
+        },
+        "provenance": {
+          "authority": "James Murdock 1851",
+          "sourceReference": "luke 2:35",
+          "englishIndex": 18,
+          "alignmentGroupId": "murdock-luke-2-35#english-19",
+          "status": "published-translation-row"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      }
+    },
+    {
+      "id": "peshitta-english-luke-2-35-20",
+      "rowKind": "translation-expansion",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "translation",
+        "gloss": {
+          "gloss": "disclosed.",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
+        },
+        "provenance": {
+          "authority": "James Murdock 1851",
+          "sourceReference": "luke 2:35",
+          "englishIndex": 19,
+          "alignmentGroupId": "murdock-luke-2-35#english-20",
           "status": "published-translation-row"
         }
       },
