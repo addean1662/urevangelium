@@ -144,7 +144,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -523,7 +523,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -846,7 +846,7 @@
             ],
             "sedraStatus": 404,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -1159,7 +1159,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -1373,11 +1373,11 @@
             ],
             "evidence": [
               "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
-              "SEDRA_LEXICAL_MATCH"
+              "PARALLEL_CORPUS_ALIGNMENT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -1754,17 +1754,23 @@
             "sourceReference": "matthew 1:16",
             "unitId": "murdock-matthew-1-16",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              7,
+              8
+            ],
+            "evidence": [
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "SEDRA_LEXICAL_MATCH"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "status": "adjudicated",
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "of whom",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -1965,21 +1971,20 @@
             "unitId": "murdock-matthew-1-16",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              7,
-              8,
+              9,
               10
             ],
             "evidence": [
               "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
-              "PARALLEL_CORPUS_ALIGNMENT"
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
-          "gloss": "of whom born",
+          "gloss": "was born",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2030,46 +2035,6 @@
         }
       },
       "_copticDraft": true
-    },
-    {
-      "id": "peshitta-english-matthew-1-16-10",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "was",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "matthew 1:16",
-          "englishIndex": 9,
-          "alignmentGroupId": "murdock-matthew-1-16#english-10",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
     },
     {
       "id": "r12",
@@ -2205,21 +2170,18 @@
             "unitId": "murdock-matthew-1-16",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              11,
-              12,
-              14
+              11
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH",
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD"
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
-          "gloss": "Jesus who called",
+          "gloss": "Jesus",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2282,46 +2244,6 @@
         }
       },
       "_copticDraft": true
-    },
-    {
-      "id": "peshitta-english-matthew-1-16-14",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "is",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "matthew 1:16",
-          "englishIndex": 13,
-          "alignmentGroupId": "murdock-matthew-1-16#english-14",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
     },
     {
       "id": "coptic-j13",
@@ -2701,17 +2623,24 @@
             "sourceReference": "matthew 1:16",
             "unitId": "murdock-matthew-1-16",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              12,
+              13,
+              14
+            ],
+            "evidence": [
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "PARALLEL_CORPUS_ALIGNMENT"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "status": "adjudicated",
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "who is called",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -2919,7 +2848,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {

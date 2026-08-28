@@ -110,7 +110,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -215,21 +215,17 @@
             "sourceReference": "mark 9:10",
             "unitId": "murdock-mark-9-10",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              4
-            ],
-            "evidence": [
-              "SEDRA_LEXICAL_MATCH"
-            ],
+            "englishIndices": [],
+            "evidence": [],
             "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "status": "no-certified-equivalent",
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
-          "gloss": "saying",
+          "gloss": "",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
         }
       },
       "byzantine": {
@@ -256,6 +252,154 @@
         "type": "text",
         "greek": "τον",
         "latin": "interrogabant"
+      }
+    },
+    {
+      "id": "r3",
+      "papyrus": {
+        "type": "lost"
+      },
+      "vaticanus": {
+        "type": "text",
+        "text": "λογον",
+        "provenance": {
+          "witness": "GA 03",
+          "source": "INTF NTVMR transcription",
+          "documentId": 20003,
+          "readingLayer": "original-hand",
+          "sourceReference": "mark 9:10",
+          "diplomatic": "λογον",
+          "intfSha256": "fa65f1b3dde89cb01b8c522827aab481136e694db65418fa4c984993ba737272",
+          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
+          "corroboration": "exact",
+          "englishCertification": {
+            "layer": "primary-shadow",
+            "rule": "certifiable-exact",
+            "alignment": {
+              "similarity": 1,
+              "tagntReference": "Mrk.9.10",
+              "tagntPosition": 3,
+              "tagntGreek": "λόγον"
+            },
+            "lexicalVerification": {
+              "source": "TBESG/Abbott-Smith",
+              "strong": "G3056",
+              "lemma": "λόγος",
+              "briefGloss": "word"
+            },
+            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
+            "status": "internally-certified"
+          }
+        },
+        "gloss": {
+          "gloss": "saying",
+          "source": "TAGNT",
+          "tooltip": "G3056 · N-ASM · TBESG: word · λόγος"
+        }
+      },
+      "sinaiticus": {
+        "type": "text",
+        "text": "λόγον",
+        "gloss": {
+          "gloss": "saying",
+          "source": "TAGNT"
+        }
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "verbum",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "mark 9:9",
+          "sourceToken": 2,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
+            "sourceReference": "mark 9:9",
+            "scope": "lexical-row-ownership",
+            "latinIndex": 1,
+            "action": "display",
+            "englishIndices": [
+              3,
+              4
+            ],
+            "anchorEnglishIndex": 4,
+            "evidence": [
+              "MONOTONIC_LEXICAL_OWNER",
+              "LEXICON_CONTEXT_CANDIDATE"
+            ],
+            "translationUnit": null,
+            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
+            "status": "internally-adjudicated-not-independent-scholarly-review"
+          }
+        },
+        "gloss": {
+          "gloss": "the word",
+          "source": "DouayRheims",
+          "tooltip": "Douay-Rheims 1899 · Latin: verbum · English: word"
+        }
+      },
+      "peshitta": {
+        "type": "text",
+        "text": "ܒܢܦܫܗܘܢ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "mark 9:10",
+          "sourceToken": 3,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "mark 9:10",
+            "unitId": "murdock-mark-9-10",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              4,
+              13
+            ],
+            "evidence": [
+              "PARALLEL_CORPUS_ALIGNMENT"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
+          }
+        },
+        "gloss": {
+          "gloss": "saying saying",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
+      },
+      "byzantine": {
+        "type": "text",
+        "text": "λόγον",
+        "provenance": {
+          "sourceId": "robinson-pierpont-2018",
+          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
+          "sourceReference": "mark 9:10",
+          "sourceToken": 3,
+          "sourceFile": "data/sources/byzantine/MAR.csv",
+          "sourceSha256": "80e7a72edb34474381c0287b58e2feea1d2495bf8318503dbaee570d4c056550",
+          "upstreamTag": "v3.3.2",
+          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
+          "verification": "source-token-order-verified"
+        },
+        "gloss": {
+          "gloss": "saying",
+          "source": "TAGNT",
+          "tooltip": "RP2018 Strong G3056 · N-ASM · TBESG/Abbott-Smith: word"
+        }
+      },
+      "bezae": {
+        "type": "text",
+        "greek": "λογον",
+        "latin": "illum"
       }
     },
     {
@@ -419,149 +563,6 @@
       }
     },
     {
-      "id": "r3",
-      "papyrus": {
-        "type": "lost"
-      },
-      "vaticanus": {
-        "type": "text",
-        "text": "λογον",
-        "provenance": {
-          "witness": "GA 03",
-          "source": "INTF NTVMR transcription",
-          "documentId": 20003,
-          "readingLayer": "original-hand",
-          "sourceReference": "mark 9:10",
-          "diplomatic": "λογον",
-          "intfSha256": "fa65f1b3dde89cb01b8c522827aab481136e694db65418fa4c984993ba737272",
-          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
-          "corroboration": "exact",
-          "englishCertification": {
-            "layer": "primary-shadow",
-            "rule": "certifiable-exact",
-            "alignment": {
-              "similarity": 1,
-              "tagntReference": "Mrk.9.10",
-              "tagntPosition": 3,
-              "tagntGreek": "λόγον"
-            },
-            "lexicalVerification": {
-              "source": "TBESG/Abbott-Smith",
-              "strong": "G3056",
-              "lemma": "λόγος",
-              "briefGloss": "word"
-            },
-            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
-            "status": "internally-certified"
-          }
-        },
-        "gloss": {
-          "gloss": "saying",
-          "source": "TAGNT",
-          "tooltip": "G3056 · N-ASM · TBESG: word · λόγος"
-        }
-      },
-      "sinaiticus": {
-        "type": "text",
-        "text": "λόγον",
-        "gloss": {
-          "gloss": "saying",
-          "source": "TAGNT"
-        }
-      },
-      "vulgate": {
-        "type": "text",
-        "text": "verbum",
-        "provenance": {
-          "sourceId": "vulgate-clementine",
-          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
-          "sourceReference": "mark 9:9",
-          "sourceToken": 2,
-          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
-          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
-            "sourceReference": "mark 9:9",
-            "scope": "lexical-row-ownership",
-            "latinIndex": 1,
-            "action": "display",
-            "englishIndices": [
-              3,
-              4
-            ],
-            "anchorEnglishIndex": 4,
-            "evidence": [
-              "MONOTONIC_LEXICAL_OWNER",
-              "LEXICON_CONTEXT_CANDIDATE"
-            ],
-            "translationUnit": null,
-            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
-            "status": "internally-adjudicated-not-independent-scholarly-review"
-          }
-        },
-        "gloss": {
-          "gloss": "the word",
-          "source": "DouayRheims",
-          "tooltip": "Douay-Rheims 1899 · Latin: verbum · English: word"
-        }
-      },
-      "peshitta": {
-        "type": "text",
-        "text": "ܒܢܦܫܗܘܢ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "mark 9:10",
-          "sourceToken": 3,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "mark 9:10",
-            "unitId": "murdock-mark-9-10",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
-            "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
-          }
-        },
-        "gloss": {
-          "gloss": "",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
-        }
-      },
-      "byzantine": {
-        "type": "text",
-        "text": "λόγον",
-        "provenance": {
-          "sourceId": "robinson-pierpont-2018",
-          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
-          "sourceReference": "mark 9:10",
-          "sourceToken": 3,
-          "sourceFile": "data/sources/byzantine/MAR.csv",
-          "sourceSha256": "80e7a72edb34474381c0287b58e2feea1d2495bf8318503dbaee570d4c056550",
-          "upstreamTag": "v3.3.2",
-          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
-          "verification": "source-token-order-verified"
-        },
-        "gloss": {
-          "gloss": "saying",
-          "source": "TAGNT",
-          "tooltip": "RP2018 Strong G3056 · N-ASM · TBESG/Abbott-Smith: word"
-        }
-      },
-      "bezae": {
-        "type": "text",
-        "greek": "λογον",
-        "latin": "illum"
-      }
-    },
-    {
       "id": "r4",
       "papyrus": {
         "type": "lost"
@@ -668,7 +669,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -818,7 +819,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -967,7 +968,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -1120,7 +1121,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -1387,7 +1388,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -1528,21 +1529,17 @@
             "sourceReference": "mark 9:10",
             "unitId": "murdock-mark-9-10",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              13
-            ],
-            "evidence": [
-              "SEDRA_LEXICAL_MATCH"
-            ],
+            "englishIndices": [],
+            "evidence": [],
             "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "status": "no-certified-equivalent",
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
-          "gloss": "saying",
+          "gloss": "",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
         }
       },
       "byzantine": {
@@ -1649,7 +1646,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -1794,7 +1791,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -1940,7 +1937,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -2083,7 +2080,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -2201,7 +2198,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {

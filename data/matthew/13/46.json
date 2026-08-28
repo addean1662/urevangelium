@@ -75,7 +75,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -250,7 +250,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -503,17 +503,23 @@
             "sourceReference": "matthew 13:46",
             "unitId": "murdock-matthew-13-46",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              2,
+              3
+            ],
+            "evidence": [
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "PARALLEL_CORPUS_ALIGNMENT"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "status": "adjudicated",
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "he found",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -686,7 +692,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -866,7 +872,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -1025,7 +1031,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -1208,7 +1214,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -1308,46 +1314,6 @@
           "sourceReference": "matthew 13:46",
           "englishIndex": 7,
           "alignmentGroupId": "murdock-matthew-13-46#english-8",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
-    },
-    {
-      "id": "peshitta-english-matthew-13-46-10",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "he",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "matthew 13:46",
-          "englishIndex": 9,
-          "alignmentGroupId": "murdock-matthew-13-46#english-10",
           "status": "published-translation-row"
         }
       },
@@ -1462,21 +1428,22 @@
             "unitId": "murdock-matthew-13-46",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              3,
+              9,
               10,
               12
             ],
             "evidence": [
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
               "SEDRA_LEXICAL_MATCH",
               "CROSS_TRADITION_EXACT_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
-          "gloss": "found went sold",
+          "gloss": "he went sold",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1647,7 +1614,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -1827,7 +1794,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -2130,7 +2097,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -2199,46 +2166,6 @@
         }
       },
       "_copticDraft": true
-    },
-    {
-      "id": "peshitta-english-matthew-13-46-3",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "he",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "matthew 13:46",
-          "englishIndex": 2,
-          "alignmentGroupId": "murdock-matthew-13-46#english-3",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
     },
     {
       "id": "r12",
@@ -2347,7 +2274,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -2496,7 +2423,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -2673,7 +2600,7 @@
             "evidence": [],
             "sedraStatus": 200,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {

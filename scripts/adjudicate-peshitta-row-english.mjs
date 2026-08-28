@@ -20,6 +20,7 @@ const SEMANTIC_GROUPS = [['think','contemplate','ponder','imagine'],['beget','co
 // supply a function-word lexical match.
 const SYRIAC_FUNCTION_GLOSSES = new Map(Object.entries({
   '\u0721\u0722':['of','from','out','than'],
+  '\u0715\u0721\u0722\u0717':['whom'],
   '\u0720\u0717':['to','him'], '\u0720\u0717\u0718\u0722':['to','them'],
   '\u0720\u0710':['not','no'], '\u0718\u0720\u0710':['and','not','no'], '\u0715\u0720\u0710':['not','without'],
   '\u0713\u071d\u072a':['for'], '\u071f\u0715':['when','while','as'], '\u0718\u071f\u0715':['and','when','while','as'],
@@ -34,7 +35,7 @@ const SYRIAC_FUNCTION_GLOSSES = new Map(Object.entries({
   '\u0710\u071d\u071f':['as','like'], '\u0721\u071b\u0720\u0717\u0722\u0710':['therefore']
 }));
 const SYRIAC_FUNCTION_CAPACITY = new Map([['\u0720\u0717',2],['\u0720\u0717\u0718\u0722',2],['\u0718\u0720\u0710',2],['\u0718\u071f\u0715',2],['\u0712\u0717',2],['\u0718\u0715\u071d\u0722',2]]);
-const IRREGULAR = new Map(Object.entries({am:'be',is:'be',are:'be',was:'be',were:'be',been:'be',being:'be',art:'be',wast:'be',has:'have',hath:'have',had:'have',does:'do',doth:'do',did:'do',done:'do',says:'say',saith:'say',said:'say',saw:'see',seen:'see',came:'come',went:'go',gone:'go',gave:'give',given:'give',made:'make',knew:'know',known:'know',brought:'bring',thought:'think',told:'tell',sent:'send',wrote:'write',written:'write',rose:'rise',risen:'rise',begat:'beget',begot:'beget',begotten:'beget',contemplated:'contemplate',conceived:'conceive',appeared:'appear',men:'man',women:'woman',children:'child',brethren:'brother',feet:'foot',me:'i',my:'i',mine:'i',us:'we',our:'we',ours:'we',thee:'you',thou:'you',thy:'you',thine:'you',ye:'you',him:'he',his:'he',her:'she',them:'they',their:'they'}));
+const IRREGULAR = new Map(Object.entries({am:'be',is:'be',are:'be',was:'be',were:'be',been:'be',being:'be',art:'be',wast:'be',has:'have',hath:'have',had:'have',does:'do',doth:'do',did:'do',done:'do',says:'say',saith:'say',said:'say',saw:'see',seen:'see',came:'come',went:'go',gone:'go',gave:'give',given:'give',made:'make',knew:'know',known:'know',brought:'bring',thought:'think',told:'tell',sent:'send',wrote:'write',written:'write',rose:'rise',risen:'rise',begat:'beget',begot:'beget',begotten:'beget',born:'bear',contemplated:'contemplate',conceived:'conceive',appeared:'appear',men:'man',women:'woman',children:'child',brethren:'brother',feet:'foot',me:'i',my:'i',mine:'i',us:'we',our:'we',ours:'we',thee:'you',thou:'you',thy:'you',thine:'you',ye:'you',him:'he',his:'he',her:'she',them:'they',their:'they'}));
 
 function lemma(value) {
   const word = value.toLocaleLowerCase('en').replace(/[^a-z]/gu, '');
@@ -61,9 +62,8 @@ function evidenceFor(row) {
   const record = sedraByToken.get(row.peshitta.text);
   const lexicalSurfaces = (record?.analyses ?? []).flatMap((analysis) => analysis.englishGlosses ?? []);
   const families = {greek:terms([gloss(row.papyrus),gloss(row.vaticanus),gloss(row.sinaiticus),gloss(row.byzantine)]),latin:terms([gloss(row.vulgate)]),coptic:terms([gloss(row.coptic)])};
-  const contentTerms = [...terms(lexicalSurfaces)].filter((term)=>!FUNCTION_WORDS.has(term));
-  const atomicFunctionTerms=lexicalSurfaces.map((surface)=>surface.trim().match(/^([A-Za-z]+)[.!?]?$/u)?.[1]).filter(Boolean).map(lemma).filter((term)=>FUNCTION_WORDS.has(term));
-  return { lexical: new Set([...contentTerms,...atomicFunctionTerms]), families, sedraStatus: record?.status ?? 'MISSING' };
+  const atomicTerms=terms(lexicalSurfaces.map((surface)=>surface.trim().match(/^(?:to )?([A-Za-z]+)[.!?]?$/u)?.[1]).filter(Boolean));
+  return { lexical: atomicTerms, families, sedraStatus: record?.status ?? 'MISSING' };
 }
 
 let translationModel;

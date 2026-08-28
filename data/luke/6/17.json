@@ -137,19 +137,18 @@
             "unitId": "murdock-luke-6-17",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              2,
-              38
+              2
             ],
             "evidence": [
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
-          "gloss": "descended came",
+          "gloss": "descended",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -182,6 +181,1837 @@
       "coptic": {
         "type": "empty"
       }
+    },
+    {
+      "id": "r2",
+      "papyrus": {
+        "type": "extant",
+        "fragments": [
+          {
+            "id": "P75",
+            "date": "c. 175–225 CE"
+          }
+        ],
+        "text": "καταβασ",
+        "condition": {
+          "missingAfter": [
+            5,
+            6,
+            7
+          ]
+        },
+        "gloss": {
+          "gloss": "having descended",
+          "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P75",
+          "sourceToken": 2,
+          "diplomatic": "καταβασ",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 2,
+              "diplomatic": "καταβασ",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
+          "agreeingSigla": [
+            "P75"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
+        }
+      },
+      "vaticanus": {
+        "type": "text",
+        "text": "καταβας",
+        "provenance": {
+          "witness": "GA 03",
+          "source": "INTF NTVMR transcription",
+          "documentId": 20003,
+          "readingLayer": "original-hand",
+          "sourceReference": "luke 6:17",
+          "diplomatic": "καταβας",
+          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
+          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
+          "corroboration": "normalized",
+          "englishCertification": {
+            "layer": "primary-shadow",
+            "rule": "certifiable-exact",
+            "alignment": {
+              "similarity": 1,
+              "tagntReference": "Luk.6.17",
+              "tagntPosition": 2,
+              "tagntGreek": "καταβὰς"
+            },
+            "lexicalVerification": {
+              "source": "TBESG/Abbott-Smith",
+              "strong": "G2597",
+              "lemma": "καταβαίνω",
+              "briefGloss": "to come/go down"
+            },
+            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
+            "status": "internally-certified"
+          }
+        },
+        "gloss": {
+          "gloss": "having descended",
+          "source": "TAGNT",
+          "tooltip": "G2597 · V-2AAP-NSM · TBESG: to come/go down · καταβαίνω"
+        }
+      },
+      "sinaiticus": {
+        "type": "text",
+        "text": "καταβὰς",
+        "gloss": {
+          "gloss": "having descended",
+          "source": "TAGNT"
+        }
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "descendens",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 2,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
+            "sourceReference": "luke 6:17",
+            "scope": "lexical-row-ownership",
+            "latinIndex": 1,
+            "action": "display",
+            "englishIndices": [
+              1,
+              2
+            ],
+            "anchorEnglishIndex": 2,
+            "evidence": [
+              "MONOTONIC_LEXICAL_OWNER",
+              "LEXICON_CONTEXT_CANDIDATE"
+            ],
+            "translationUnit": null,
+            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
+            "status": "internally-adjudicated-not-independent-scholarly-review"
+          }
+        },
+        "gloss": {
+          "gloss": "coming down",
+          "source": "DouayRheims",
+          "tooltip": "Douay-Rheims 1899 · Latin: descendens · English: down"
+        }
+      },
+      "peshitta": {
+        "type": "text",
+        "text": "ܥܡܗܘܢ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 2,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "luke 6:17",
+            "unitId": "murdock-luke-6-17",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              3,
+              4
+            ],
+            "evidence": [
+              "SEDRA_LEXICAL_MATCH",
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
+          }
+        },
+        "gloss": {
+          "gloss": "with them,",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
+      },
+      "byzantine": {
+        "type": "text",
+        "text": "καταβὰς",
+        "provenance": {
+          "sourceId": "robinson-pierpont-2018",
+          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 2,
+          "sourceFile": "data/sources/byzantine/LUK.csv",
+          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
+          "upstreamTag": "v3.3.2",
+          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
+          "verification": "source-token-order-verified"
+        },
+        "gloss": {
+          "gloss": "having descended",
+          "source": "TAGNT",
+          "tooltip": "RP2018 Strong G2597 · V-2AAP-NSM · TBESG/Abbott-Smith: to come/go down"
+        }
+      },
+      "bezae": {
+        "type": "text",
+        "greek": "καταβας",
+        "latin": "descendens"
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲁϥⲉⲓ",
+        "gloss": {
+          "gloss": "come, go",
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲉⲓ · come, go"
+        },
+        "provenance": {
+          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
+          "edition": "Sahidica NT 4.1.0",
+          "versionDate": "2021-03-31",
+          "sourceFile": "42_Luke_06.tt",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 1,
+          "diplomatic": "ⲁϥⲉⲓ",
+          "sourceSha256": "45ec86874665801fea5cf9734fb425b6f810ed8348cdf70ef765cc41507e4a74",
+          "verification": "exact-source-word-group",
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲉⲓ",
+            "partOfSpeech": "V",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
+        }
+      },
+      "_copticDraft": true
+    },
+    {
+      "id": "r3",
+      "papyrus": {
+        "type": "extant",
+        "fragments": [
+          {
+            "id": "P75",
+            "date": "c. 175–225 CE"
+          }
+        ],
+        "text": "μετ",
+        "condition": {
+          "supplied": "editor"
+        },
+        "gloss": {
+          "gloss": "with",
+          "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P75",
+          "sourceToken": 3,
+          "diplomatic": "μετ",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 3,
+              "diplomatic": "μετ",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
+          "agreeingSigla": [
+            "P75"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
+        }
+      },
+      "vaticanus": {
+        "type": "text",
+        "text": "μετ",
+        "provenance": {
+          "witness": "GA 03",
+          "source": "INTF NTVMR transcription",
+          "documentId": 20003,
+          "readingLayer": "original-hand",
+          "sourceReference": "luke 6:17",
+          "diplomatic": "μετ",
+          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
+          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
+          "corroboration": "exact",
+          "englishCertification": {
+            "layer": "primary-shadow",
+            "rule": "certifiable-exact",
+            "alignment": {
+              "similarity": 1,
+              "tagntReference": "Luk.6.17",
+              "tagntPosition": 3,
+              "tagntGreek": "μετ᾽"
+            },
+            "lexicalVerification": {
+              "source": "TBESG/Abbott-Smith",
+              "strong": "G3326",
+              "lemma": "μετά",
+              "briefGloss": "with/after"
+            },
+            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
+            "status": "internally-certified"
+          }
+        },
+        "gloss": {
+          "gloss": "with",
+          "source": "TAGNT",
+          "tooltip": "G3326 · PREP · TBESG: with/after · μετά"
+        }
+      },
+      "sinaiticus": {
+        "type": "text",
+        "text": "μετ᾽",
+        "gloss": {
+          "gloss": "with",
+          "source": "TAGNT"
+        }
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "cum",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 3,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
+            "sourceReference": "luke 6:17",
+            "scope": "lexical-row-ownership",
+            "latinIndex": 2,
+            "action": "display",
+            "englishIndices": [
+              3
+            ],
+            "anchorEnglishIndex": 3,
+            "evidence": [
+              "MONOTONIC_LEXICAL_OWNER",
+              "LEXICON_CONTEXT_CANDIDATE"
+            ],
+            "translationUnit": null,
+            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
+            "status": "internally-adjudicated-not-independent-scholarly-review"
+          }
+        },
+        "gloss": {
+          "gloss": "with",
+          "source": "DouayRheims",
+          "tooltip": "Douay-Rheims 1899 · Latin: cum · English: with"
+        }
+      },
+      "peshitta": {
+        "type": "empty"
+      },
+      "byzantine": {
+        "type": "text",
+        "text": "μετ",
+        "provenance": {
+          "sourceId": "robinson-pierpont-2018",
+          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 3,
+          "sourceFile": "data/sources/byzantine/LUK.csv",
+          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
+          "upstreamTag": "v3.3.2",
+          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
+          "verification": "source-token-order-verified"
+        },
+        "gloss": {
+          "gloss": "with",
+          "source": "TAGNT",
+          "tooltip": "RP2018 Strong G3326 · PREP · TBESG/Abbott-Smith: with/after"
+        }
+      },
+      "bezae": {
+        "type": "text",
+        "greek": "μετ",
+        "latin": "cum"
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲇⲉ",
+        "gloss": {
+          "gloss": "and, so, then, for",
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲇⲉ · and, so, then, for (marking shift in narrative, or change in subject; introducing new content)"
+        },
+        "provenance": {
+          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
+          "edition": "Sahidica NT 4.1.0",
+          "versionDate": "2021-03-31",
+          "sourceFile": "42_Luke_06.tt",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 2,
+          "diplomatic": "ⲇⲉ",
+          "sourceSha256": "45ec86874665801fea5cf9734fb425b6f810ed8348cdf70ef765cc41507e4a74",
+          "verification": "exact-source-word-group",
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲇⲉ",
+            "partOfSpeech": "PTC",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
+        }
+      },
+      "_copticDraft": true
+    },
+    {
+      "id": "r4",
+      "papyrus": {
+        "type": "extant",
+        "fragments": [
+          {
+            "id": "P75",
+            "date": "c. 175–225 CE"
+          }
+        ],
+        "text": "αυτων",
+        "condition": {
+          "damaged": true,
+          "damagedAfter": [
+            4
+          ],
+          "missingAfter": [
+            1,
+            2,
+            3
+          ]
+        },
+        "gloss": {
+          "gloss": "them",
+          "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P75",
+          "sourceToken": 4,
+          "diplomatic": "αυτων",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 4,
+              "diplomatic": "αυτων",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
+          "agreeingSigla": [
+            "P75"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
+        }
+      },
+      "vaticanus": {
+        "type": "text",
+        "text": "αυτων",
+        "provenance": {
+          "witness": "GA 03",
+          "source": "INTF NTVMR transcription",
+          "documentId": 20003,
+          "readingLayer": "original-hand",
+          "sourceReference": "luke 6:17",
+          "diplomatic": "αυτων",
+          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
+          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
+          "corroboration": "exact",
+          "englishCertification": {
+            "layer": "primary-shadow",
+            "rule": "certifiable-exact",
+            "alignment": {
+              "similarity": 1,
+              "tagntReference": "Luk.6.17",
+              "tagntPosition": 4,
+              "tagntGreek": "αὐτῶν"
+            },
+            "lexicalVerification": {
+              "source": "TBESG/Abbott-Smith",
+              "strong": "G0846",
+              "lemma": "αὐτός",
+              "briefGloss": "it/s/he"
+            },
+            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
+            "status": "internally-certified"
+          }
+        },
+        "gloss": {
+          "gloss": "them",
+          "source": "TAGNT",
+          "tooltip": "G0846 · P-GPM · TBESG: it/s/he · αὐτός"
+        }
+      },
+      "sinaiticus": {
+        "type": "text",
+        "text": "αὐτῶν",
+        "gloss": {
+          "gloss": "them",
+          "source": "TAGNT"
+        }
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "illis",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 4,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
+            "sourceReference": "luke 6:17",
+            "scope": "lexical-row-ownership",
+            "latinIndex": 3,
+            "action": "display",
+            "englishIndices": [
+              4
+            ],
+            "anchorEnglishIndex": 4,
+            "evidence": [
+              "MONOTONIC_LEXICAL_OWNER",
+              "LEXICON_CONTEXT_CANDIDATE"
+            ],
+            "translationUnit": null,
+            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
+            "status": "internally-adjudicated-not-independent-scholarly-review"
+          }
+        },
+        "gloss": {
+          "gloss": "them",
+          "source": "DouayRheims",
+          "tooltip": "Douay-Rheims 1899 · Latin: illis · English: them"
+        }
+      },
+      "peshitta": {
+        "type": "text",
+        "text": "ܝܫܘܥ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 3,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "luke 6:17",
+            "unitId": "murdock-luke-6-17",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              0,
+              1
+            ],
+            "evidence": [
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "SEDRA_LEXICAL_MATCH"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
+          }
+        },
+        "gloss": {
+          "gloss": "And Jesus",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
+      },
+      "byzantine": {
+        "type": "text",
+        "text": "αὐτῶν",
+        "provenance": {
+          "sourceId": "robinson-pierpont-2018",
+          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 4,
+          "sourceFile": "data/sources/byzantine/LUK.csv",
+          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
+          "upstreamTag": "v3.3.2",
+          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
+          "verification": "source-token-order-verified"
+        },
+        "gloss": {
+          "gloss": "them",
+          "source": "TAGNT",
+          "tooltip": "RP2018 Strong G0846 · P-GPM · TBESG/Abbott-Smith: it/s/he"
+        }
+      },
+      "bezae": {
+        "type": "text",
+        "greek": "αυτων",
+        "latin": "eis"
+      },
+      "coptic": {
+        "type": "empty"
+      }
+    },
+    {
+      "id": "r5",
+      "papyrus": {
+        "type": "extant",
+        "fragments": [
+          {
+            "id": "P75",
+            "date": "c. 175–225 CE"
+          }
+        ],
+        "text": "εστη",
+        "gloss": {
+          "gloss": "He stood",
+          "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P75",
+          "sourceToken": 5,
+          "diplomatic": "εστη",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 5,
+              "diplomatic": "εστη",
+              "classification": "unique-guide-row"
+            }
+          ],
+          "agreeingSigla": [
+            "P75"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
+        }
+      },
+      "vaticanus": {
+        "type": "text",
+        "text": "εστη",
+        "provenance": {
+          "witness": "GA 03",
+          "source": "INTF NTVMR transcription",
+          "documentId": 20003,
+          "readingLayer": "original-hand",
+          "sourceReference": "luke 6:17",
+          "diplomatic": "εστη",
+          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
+          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
+          "corroboration": "exact",
+          "englishCertification": {
+            "layer": "primary-shadow",
+            "rule": "certifiable-exact",
+            "alignment": {
+              "similarity": 1,
+              "tagntReference": "Luk.6.17",
+              "tagntPosition": 5,
+              "tagntGreek": "ἔστη"
+            },
+            "lexicalVerification": {
+              "source": "TBESG/Abbott-Smith",
+              "strong": "G2476",
+              "lemma": "ἵστημι",
+              "briefGloss": "to stand"
+            },
+            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
+            "status": "internally-certified"
+          }
+        },
+        "gloss": {
+          "gloss": "He stood",
+          "source": "TAGNT",
+          "tooltip": "G2476 · V-2AAI-3S · TBESG: to stand · ἵστημι"
+        }
+      },
+      "sinaiticus": {
+        "type": "text",
+        "text": "ἔστη",
+        "gloss": {
+          "gloss": "He stood",
+          "source": "TAGNT"
+        }
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "stetit",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 5,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
+            "sourceReference": "luke 6:17",
+            "scope": "lexical-row-ownership",
+            "latinIndex": 4,
+            "action": "display",
+            "englishIndices": [
+              5,
+              6
+            ],
+            "anchorEnglishIndex": 6,
+            "evidence": [
+              "MONOTONIC_LEXICAL_OWNER",
+              "LEXICON_CONTEXT_CANDIDATE",
+              "WHITAKER_MORPHOLOGY_SUPPORTED_ENGLISH_FUNCTION",
+              "WHITAKER_FINITE_VERB_SUPPORTED_SUBJECT"
+            ],
+            "translationUnit": null,
+            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
+            "status": "internally-adjudicated-not-independent-scholarly-review"
+          }
+        },
+        "gloss": {
+          "gloss": "he stood",
+          "source": "DouayRheims",
+          "tooltip": "Douay-Rheims 1899 · Latin: stetit · English: stood"
+        }
+      },
+      "peshitta": {
+        "type": "text",
+        "text": "ܘܩܡ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 4,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "luke 6:17",
+            "unitId": "murdock-luke-6-17",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [],
+            "evidence": [],
+            "sedraStatus": 200,
+            "status": "no-certified-equivalent",
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
+          }
+        },
+        "gloss": {
+          "gloss": "",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+        }
+      },
+      "byzantine": {
+        "type": "text",
+        "text": "ἔστη",
+        "provenance": {
+          "sourceId": "robinson-pierpont-2018",
+          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 5,
+          "sourceFile": "data/sources/byzantine/LUK.csv",
+          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
+          "upstreamTag": "v3.3.2",
+          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
+          "verification": "source-token-order-verified"
+        },
+        "gloss": {
+          "gloss": "He stood",
+          "source": "TAGNT",
+          "tooltip": "RP2018 Strong G2476 · V-2AAI-3S · TBESG/Abbott-Smith: to stand"
+        }
+      },
+      "bezae": {
+        "type": "text",
+        "greek": "εστη",
+        "latin": "stetit"
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲉⲡⲉⲥⲏⲧ",
+        "gloss": {
+          "gloss": "ground, bottom, lowest part",
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲉⲥⲏⲧ · ground, bottom, lowest part"
+        },
+        "provenance": {
+          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
+          "edition": "Sahidica NT 4.1.0",
+          "versionDate": "2021-03-31",
+          "sourceFile": "42_Luke_06.tt",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 3,
+          "diplomatic": "ⲉⲡⲉⲥⲏⲧ",
+          "sourceSha256": "45ec86874665801fea5cf9734fb425b6f810ed8348cdf70ef765cc41507e4a74",
+          "verification": "exact-source-word-group",
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲉⲥⲏⲧ",
+            "partOfSpeech": "N",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
+        }
+      },
+      "_copticDraft": true
+    },
+    {
+      "id": "r6",
+      "papyrus": {
+        "type": "extant",
+        "fragments": [
+          {
+            "id": "P75",
+            "date": "c. 175–225 CE"
+          }
+        ],
+        "text": "επι",
+        "gloss": {
+          "gloss": "on",
+          "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P75",
+          "sourceToken": 6,
+          "diplomatic": "επι",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 6,
+              "diplomatic": "επι",
+              "classification": "unique-guide-row"
+            }
+          ],
+          "agreeingSigla": [
+            "P75"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
+        }
+      },
+      "vaticanus": {
+        "type": "text",
+        "text": "επι",
+        "provenance": {
+          "witness": "GA 03",
+          "source": "INTF NTVMR transcription",
+          "documentId": 20003,
+          "readingLayer": "original-hand",
+          "sourceReference": "luke 6:17",
+          "diplomatic": "επι",
+          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
+          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
+          "corroboration": "exact",
+          "englishCertification": {
+            "layer": "primary-shadow",
+            "rule": "certifiable-exact",
+            "alignment": {
+              "similarity": 1,
+              "tagntReference": "Luk.6.17",
+              "tagntPosition": 6,
+              "tagntGreek": "ἐπὶ"
+            },
+            "lexicalVerification": {
+              "source": "TBESG/Abbott-Smith",
+              "strong": "G1909",
+              "lemma": "ἐπί",
+              "briefGloss": "upon/to/against"
+            },
+            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
+            "status": "internally-certified"
+          }
+        },
+        "gloss": {
+          "gloss": "on",
+          "source": "TAGNT",
+          "tooltip": "G1909 · PREP · TBESG: upon/to/against · ἐπί"
+        }
+      },
+      "sinaiticus": {
+        "type": "text",
+        "text": "ἐπὶ",
+        "gloss": {
+          "gloss": "on",
+          "source": "TAGNT"
+        }
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "in",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 6,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
+            "sourceReference": "luke 6:17",
+            "scope": "lexical-row-ownership",
+            "latinIndex": 5,
+            "action": "display",
+            "englishIndices": [
+              7
+            ],
+            "anchorEnglishIndex": 7,
+            "evidence": [
+              "MONOTONIC_LEXICAL_OWNER",
+              "EXACT_SURFACE_CONTEXT_CANDIDATE"
+            ],
+            "translationUnit": null,
+            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
+            "status": "internally-adjudicated-not-independent-scholarly-review"
+          }
+        },
+        "gloss": {
+          "gloss": "in",
+          "source": "DouayRheims",
+          "tooltip": "Douay-Rheims 1899 · Latin: in · English: in"
+        }
+      },
+      "peshitta": {
+        "type": "text",
+        "text": "ܒܦܩܥܬܐ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 5,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "luke 6:17",
+            "unitId": "murdock-luke-6-17",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              7,
+              8,
+              9
+            ],
+            "evidence": [
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "SEDRA_LEXICAL_MATCH"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
+          }
+        },
+        "gloss": {
+          "gloss": "in the plain;",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
+      },
+      "byzantine": {
+        "type": "text",
+        "text": "ἐπὶ",
+        "provenance": {
+          "sourceId": "robinson-pierpont-2018",
+          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 6,
+          "sourceFile": "data/sources/byzantine/LUK.csv",
+          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
+          "upstreamTag": "v3.3.2",
+          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
+          "verification": "source-token-order-verified"
+        },
+        "gloss": {
+          "gloss": "on",
+          "source": "TAGNT",
+          "tooltip": "RP2018 Strong G1909 · PREP · TBESG/Abbott-Smith: upon/to/against"
+        }
+      },
+      "bezae": {
+        "type": "text",
+        "greek": "επει",
+        "latin": "in"
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲛⲙⲙⲁⲩ",
+        "gloss": {
+          "gloss": "with",
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲙⲛ · with"
+        },
+        "provenance": {
+          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
+          "edition": "Sahidica NT 4.1.0",
+          "versionDate": "2021-03-31",
+          "sourceFile": "42_Luke_06.tt",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 4,
+          "diplomatic": "ⲛⲙⲙⲁⲩ",
+          "sourceSha256": "45ec86874665801fea5cf9734fb425b6f810ed8348cdf70ef765cc41507e4a74",
+          "verification": "exact-source-word-group",
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲙⲛ",
+            "partOfSpeech": "PREP",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
+        }
+      },
+      "_copticDraft": true
+    },
+    {
+      "id": "r7",
+      "papyrus": {
+        "type": "extant",
+        "fragments": [
+          {
+            "id": "P75",
+            "date": "c. 175–225 CE"
+          }
+        ],
+        "text": "τοπου",
+        "gloss": {
+          "gloss": "a place",
+          "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P75",
+          "sourceToken": 7,
+          "diplomatic": "τοπου",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 7,
+              "diplomatic": "τοπου",
+              "classification": "unique-guide-row"
+            }
+          ],
+          "agreeingSigla": [
+            "P75"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
+        }
+      },
+      "vaticanus": {
+        "type": "text",
+        "text": "τοπου",
+        "provenance": {
+          "witness": "GA 03",
+          "source": "INTF NTVMR transcription",
+          "documentId": 20003,
+          "readingLayer": "original-hand",
+          "sourceReference": "luke 6:17",
+          "diplomatic": "τοπου",
+          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
+          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
+          "corroboration": "exact",
+          "englishCertification": {
+            "layer": "primary-shadow",
+            "rule": "certifiable-exact",
+            "alignment": {
+              "similarity": 1,
+              "tagntReference": "Luk.6.17",
+              "tagntPosition": 7,
+              "tagntGreek": "τόπου"
+            },
+            "lexicalVerification": {
+              "source": "TBESG/Abbott-Smith",
+              "strong": "G5117",
+              "lemma": "τόπος",
+              "briefGloss": "place"
+            },
+            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
+            "status": "internally-certified"
+          }
+        },
+        "gloss": {
+          "gloss": "a place",
+          "source": "TAGNT",
+          "tooltip": "G5117 · N-GSM · TBESG: place · τόπος"
+        }
+      },
+      "sinaiticus": {
+        "type": "text",
+        "text": "τόπου",
+        "gloss": {
+          "gloss": "a place",
+          "source": "TAGNT"
+        }
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "loco",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 7,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
+            "sourceReference": "luke 6:17",
+            "scope": "lexical-row-ownership",
+            "latinIndex": 6,
+            "action": "display",
+            "englishIndices": [
+              10
+            ],
+            "anchorEnglishIndex": 10,
+            "evidence": [
+              "UNIQUE_LOCAL_TRANSPOSITION_OWNER",
+              "LEXICON_CONTEXT_CANDIDATE"
+            ],
+            "translationUnit": null,
+            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
+            "status": "internally-adjudicated-not-independent-scholarly-review"
+          }
+        },
+        "gloss": {
+          "gloss": "place",
+          "source": "DouayRheims",
+          "tooltip": "Douay-Rheims 1899 · Latin: loco · English: place"
+        }
+      },
+      "peshitta": {
+        "type": "empty"
+      },
+      "byzantine": {
+        "type": "text",
+        "text": "τόπου",
+        "provenance": {
+          "sourceId": "robinson-pierpont-2018",
+          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 7,
+          "sourceFile": "data/sources/byzantine/LUK.csv",
+          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
+          "upstreamTag": "v3.3.2",
+          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
+          "verification": "source-token-order-verified"
+        },
+        "gloss": {
+          "gloss": "a place",
+          "source": "TAGNT",
+          "tooltip": "RP2018 Strong G5117 · N-GSM · TBESG/Abbott-Smith: place"
+        }
+      },
+      "bezae": {
+        "type": "text",
+        "greek": "τοπου",
+        "latin": "loco"
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲁϥⲁϩⲉⲣⲁⲧϥ",
+        "gloss": {
+          "gloss": "stand, stay, wait",
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲱϩⲉ · stand, stay, wait"
+        },
+        "provenance": {
+          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
+          "edition": "Sahidica NT 4.1.0",
+          "versionDate": "2021-03-31",
+          "sourceFile": "42_Luke_06.tt",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 5,
+          "diplomatic": "ⲁϥⲁϩⲉⲣⲁⲧϥ",
+          "sourceSha256": "45ec86874665801fea5cf9734fb425b6f810ed8348cdf70ef765cc41507e4a74",
+          "verification": "exact-source-word-group",
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲱϩⲉ",
+            "partOfSpeech": "V",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
+        }
+      },
+      "_copticDraft": true
+    },
+    {
+      "id": "r8",
+      "papyrus": {
+        "type": "extant",
+        "fragments": [
+          {
+            "id": "P75",
+            "date": "c. 175–225 CE"
+          }
+        ],
+        "text": "πεδινου",
+        "condition": {
+          "damaged": true,
+          "damagedAfter": [
+            1
+          ],
+          "missingAfter": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "gloss": {
+          "gloss": "level.",
+          "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P75",
+          "sourceToken": 8,
+          "diplomatic": "πεδινου",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 8,
+              "diplomatic": "πεδινου",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
+          "agreeingSigla": [
+            "P75"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
+        }
+      },
+      "vaticanus": {
+        "type": "text",
+        "text": "πεδινου",
+        "provenance": {
+          "witness": "GA 03",
+          "source": "INTF NTVMR transcription",
+          "documentId": 20003,
+          "readingLayer": "original-hand",
+          "sourceReference": "luke 6:17",
+          "diplomatic": "πεδινου",
+          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
+          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
+          "corroboration": "exact",
+          "englishCertification": {
+            "layer": "primary-shadow",
+            "rule": "certifiable-exact",
+            "alignment": {
+              "similarity": 1,
+              "tagntReference": "Luk.6.17",
+              "tagntPosition": 8,
+              "tagntGreek": "πεδινοῦ"
+            },
+            "lexicalVerification": {
+              "source": "TBESG/Abbott-Smith",
+              "strong": "G3977",
+              "lemma": "πεδινός",
+              "briefGloss": "level"
+            },
+            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
+            "status": "internally-certified"
+          }
+        },
+        "gloss": {
+          "gloss": "level.",
+          "source": "TAGNT",
+          "tooltip": "G3977 · A-GSM · TBESG: level · πεδινός"
+        }
+      },
+      "sinaiticus": {
+        "type": "text",
+        "text": "πεδινοῦ.",
+        "gloss": {
+          "gloss": "level.",
+          "source": "TAGNT"
+        }
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "campestri",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 8,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
+            "sourceReference": "luke 6:17",
+            "scope": "lexical-row-ownership",
+            "latinIndex": 7,
+            "action": "display",
+            "englishIndices": [
+              8,
+              9
+            ],
+            "anchorEnglishIndex": 9,
+            "evidence": [
+              "UNIQUE_LOCAL_TRANSPOSITION_OWNER",
+              "LEXICON_CONTEXT_CANDIDATE"
+            ],
+            "translationUnit": null,
+            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
+            "status": "internally-adjudicated-not-independent-scholarly-review"
+          }
+        },
+        "gloss": {
+          "gloss": "a plain",
+          "source": "DouayRheims",
+          "tooltip": "Douay-Rheims 1899 · Latin: campestri · English: plain"
+        }
+      },
+      "peshitta": {
+        "type": "text",
+        "text": "ܘܟܢܫܐ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 6,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "luke 6:17",
+            "unitId": "murdock-luke-6-17",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              17,
+              18,
+              19
+            ],
+            "evidence": [
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "SEDRA_LEXICAL_MATCH"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
+          }
+        },
+        "gloss": {
+          "gloss": "and a multitude",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
+      },
+      "byzantine": {
+        "type": "text",
+        "text": "πεδινοῦ",
+        "provenance": {
+          "sourceId": "robinson-pierpont-2018",
+          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 8,
+          "sourceFile": "data/sources/byzantine/LUK.csv",
+          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
+          "upstreamTag": "v3.3.2",
+          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
+          "verification": "source-token-order-verified"
+        },
+        "gloss": {
+          "gloss": "level.",
+          "source": "TAGNT",
+          "tooltip": "RP2018 Strong G3977 · A-GSM · TBESG/Abbott-Smith: level"
+        }
+      },
+      "bezae": {
+        "type": "text",
+        "greek": "πεδεινου",
+        "latin": "campestri"
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ϩⲓⲟⲩⲙⲁ",
+        "gloss": {
+          "gloss": "place",
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲙⲁ · place"
+        },
+        "provenance": {
+          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
+          "edition": "Sahidica NT 4.1.0",
+          "versionDate": "2021-03-31",
+          "sourceFile": "42_Luke_06.tt",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 6,
+          "diplomatic": "ϩⲓⲟⲩⲙⲁ",
+          "sourceSha256": "45ec86874665801fea5cf9734fb425b6f810ed8348cdf70ef765cc41507e4a74",
+          "verification": "exact-source-word-group",
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲙⲁ",
+            "partOfSpeech": "N",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
+        }
+      },
+      "_copticDraft": true
+    },
+    {
+      "id": "r9",
+      "papyrus": {
+        "type": "extant",
+        "fragments": [
+          {
+            "id": "P75",
+            "date": "c. 175–225 CE"
+          }
+        ],
+        "text": "και",
+        "condition": {
+          "supplied": "editor"
+        },
+        "gloss": {
+          "gloss": "and",
+          "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P75",
+          "sourceToken": 9,
+          "diplomatic": "και",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 9,
+              "diplomatic": "και",
+              "classification": "conditioned-contextual-guide-row"
+            }
+          ],
+          "agreeingSigla": [
+            "P75"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
+        }
+      },
+      "vaticanus": {
+        "type": "text",
+        "text": "και",
+        "provenance": {
+          "witness": "GA 03",
+          "source": "INTF NTVMR transcription",
+          "documentId": 20003,
+          "readingLayer": "original-hand",
+          "sourceReference": "luke 6:17",
+          "diplomatic": "και",
+          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
+          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
+          "corroboration": "exact",
+          "englishCertification": {
+            "layer": "primary-shadow",
+            "rule": "certifiable-exact",
+            "alignment": {
+              "similarity": 1,
+              "tagntReference": "Luk.6.17",
+              "tagntPosition": 9,
+              "tagntGreek": "καὶ"
+            },
+            "lexicalVerification": {
+              "source": "TBESG/Abbott-Smith",
+              "strong": "G2532",
+              "lemma": "καί",
+              "briefGloss": "and"
+            },
+            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
+            "status": "internally-certified"
+          }
+        },
+        "gloss": {
+          "gloss": "and",
+          "source": "TAGNT",
+          "tooltip": "G2532 · CONJ · TBESG: and · καί"
+        }
+      },
+      "sinaiticus": {
+        "type": "text",
+        "text": "καὶ",
+        "gloss": {
+          "gloss": "and",
+          "source": "TAGNT"
+        }
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "et",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 9,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
+            "sourceReference": "luke 6:17",
+            "scope": "lexical-row-ownership",
+            "latinIndex": 8,
+            "action": "display",
+            "englishIndices": [
+              11
+            ],
+            "anchorEnglishIndex": 11,
+            "evidence": [
+              "MONOTONIC_LEXICAL_OWNER",
+              "LEXICON_CONTEXT_CANDIDATE"
+            ],
+            "translationUnit": null,
+            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
+            "status": "internally-adjudicated-not-independent-scholarly-review"
+          }
+        },
+        "gloss": {
+          "gloss": "and",
+          "source": "DouayRheims",
+          "tooltip": "Douay-Rheims 1899 · Latin: et · English: and"
+        }
+      },
+      "peshitta": {
+        "type": "text",
+        "text": "ܤܓܝܐܐ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 7,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "luke 6:17",
+            "unitId": "murdock-luke-6-17",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              10,
+              11,
+              12
+            ],
+            "evidence": [
+              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
+              "PARALLEL_CORPUS_ALIGNMENT"
+            ],
+            "sedraStatus": 404,
+            "status": "adjudicated",
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
+          }
+        },
+        "gloss": {
+          "gloss": "and a great",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
+      },
+      "byzantine": {
+        "type": "text",
+        "text": "καὶ",
+        "provenance": {
+          "sourceId": "robinson-pierpont-2018",
+          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 9,
+          "sourceFile": "data/sources/byzantine/LUK.csv",
+          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
+          "upstreamTag": "v3.3.2",
+          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
+          "verification": "source-token-order-verified"
+        },
+        "gloss": {
+          "gloss": "and",
+          "source": "TAGNT",
+          "tooltip": "RP2018 Strong G2532 · CONJ · TBESG/Abbott-Smith: and"
+        }
+      },
+      "bezae": {
+        "type": "text",
+        "greek": "και",
+        "latin": "et"
+      },
+      "coptic": {
+        "type": "empty"
+      }
+    },
+    {
+      "id": "r10",
+      "papyrus": {
+        "type": "extant",
+        "fragments": [
+          {
+            "id": "P75",
+            "date": "c. 175–225 CE"
+          }
+        ],
+        "text": "οχλοσ",
+        "condition": {
+          "damaged": true,
+          "damagedAfter": [
+            2
+          ],
+          "missingAfter": [
+            1
+          ]
+        },
+        "gloss": {
+          "gloss": "a crowd",
+          "source": "TAGNT"
+        },
+        "provenance": {
+          "authority": "CNTR papyrus transcription",
+          "governingSiglum": "P75",
+          "sourceToken": 10,
+          "diplomatic": "οχλοσ",
+          "sourceAttestations": [
+            {
+              "siglum": "P75",
+              "sourceToken": 10,
+              "diplomatic": "οχλοσ",
+              "classification": "conditioned-unique-guide-row"
+            }
+          ],
+          "agreeingSigla": [
+            "P75"
+          ],
+          "dissentingReadings": [],
+          "verification": "machine-compared-rule-qualified"
+        }
+      },
+      "vaticanus": {
+        "type": "text",
+        "text": "οχλος",
+        "provenance": {
+          "witness": "GA 03",
+          "source": "INTF NTVMR transcription",
+          "documentId": 20003,
+          "readingLayer": "original-hand",
+          "sourceReference": "luke 6:17",
+          "diplomatic": "οχλος",
+          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
+          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
+          "corroboration": "normalized",
+          "englishCertification": {
+            "layer": "primary-shadow",
+            "rule": "certifiable-exact",
+            "alignment": {
+              "similarity": 1,
+              "tagntReference": "Luk.6.17",
+              "tagntPosition": 10,
+              "tagntGreek": "ὄχλος"
+            },
+            "lexicalVerification": {
+              "source": "TBESG/Abbott-Smith",
+              "strong": "G3793",
+              "lemma": "ὄχλος",
+              "briefGloss": "crowd"
+            },
+            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
+            "status": "internally-certified"
+          }
+        },
+        "gloss": {
+          "gloss": "a crowd",
+          "source": "TAGNT",
+          "tooltip": "G3793 · N-NSM · TBESG: crowd · ὄχλος"
+        }
+      },
+      "sinaiticus": {
+        "type": "text",
+        "text": "ὄχλος",
+        "gloss": {
+          "gloss": "a crowd",
+          "source": "TAGNT"
+        }
+      },
+      "vulgate": {
+        "type": "text",
+        "text": "turba",
+        "provenance": {
+          "sourceId": "vulgate-clementine",
+          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 10,
+          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
+          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
+            "sourceReference": "luke 6:17",
+            "scope": "lexical-row-ownership",
+            "latinIndex": 9,
+            "action": "blank-compressed",
+            "englishIndices": [],
+            "anchorEnglishIndex": null,
+            "evidence": [
+              "SHARED_COMPRESSED_ENGLISH_PAIR",
+              "LEXICON_CONTEXT_CANDIDATE"
+            ],
+            "translationUnit": null,
+            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
+            "status": "internally-adjudicated-not-independent-scholarly-review"
+          }
+        }
+      },
+      "peshitta": {
+        "type": "text",
+        "text": "ܕܬܠܡܝܕܘܗܝ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 8,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "luke 6:17",
+            "unitId": "murdock-luke-6-17",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              13,
+              16,
+              38
+            ],
+            "evidence": [
+              "PARALLEL_CORPUS_ALIGNMENT"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
+          }
+        },
+        "gloss": {
+          "gloss": "company disciples, came",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
+      },
+      "byzantine": {
+        "type": "text",
+        "text": "ὄχλος",
+        "provenance": {
+          "sourceId": "robinson-pierpont-2018",
+          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 10,
+          "sourceFile": "data/sources/byzantine/LUK.csv",
+          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
+          "upstreamTag": "v3.3.2",
+          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
+          "verification": "source-token-order-verified"
+        },
+        "gloss": {
+          "gloss": "a crowd",
+          "source": "TAGNT",
+          "tooltip": "RP2018 Strong G3793 · N-NSM · TBESG/Abbott-Smith: crowd"
+        }
+      },
+      "bezae": {
+        "type": "text",
+        "greek": "οχλος",
+        "latin": "turbae"
+      },
+      "coptic": {
+        "type": "text",
+        "text": "ⲉϥⲟⲩⲟϣⲥ",
+        "gloss": {
+          "gloss": "become broad, be broad, at ease",
+          "source": "Crum",
+          "tooltip": "KELLIA CCL v1.2 · ⲟⲩⲱϣⲥ · become broad, be broad, at ease"
+        },
+        "provenance": {
+          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
+          "edition": "Sahidica NT 4.1.0",
+          "versionDate": "2021-03-31",
+          "sourceFile": "42_Luke_06.tt",
+          "sourceReference": "luke 6:17",
+          "sourceToken": 7,
+          "diplomatic": "ⲉϥⲟⲩⲟϣⲥ",
+          "sourceSha256": "45ec86874665801fea5cf9734fb425b6f810ed8348cdf70ef765cc41507e4a74",
+          "verification": "exact-source-word-group",
+          "placementMethod": "positional",
+          "englishCertification": {
+            "status": "lexical-range-certified",
+            "rule": "exact-scriptorium-lemma-to-ccl",
+            "lemma": "ⲟⲩⲱϣⲥ",
+            "partOfSpeech": "VSTAT",
+            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
+            "lexicalSourceDate": "2020-07-16",
+            "doi": "10.17169/refubium-27566",
+            "license": "CC BY-SA 4.0",
+            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
+            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
+            "scope": "documented lexical range; contextual sense not independently selected"
+          }
+        }
+      },
+      "_copticDraft": true
     },
     {
       "id": "peshitta-english-luke-6-17-40",
@@ -624,1837 +2454,6 @@
       }
     },
     {
-      "id": "r2",
-      "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
-          }
-        ],
-        "text": "καταβασ",
-        "condition": {
-          "missingAfter": [
-            5,
-            6,
-            7
-          ]
-        },
-        "gloss": {
-          "gloss": "having descended",
-          "source": "TAGNT"
-        },
-        "provenance": {
-          "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P75",
-          "sourceToken": 2,
-          "diplomatic": "καταβασ",
-          "sourceAttestations": [
-            {
-              "siglum": "P75",
-              "sourceToken": 2,
-              "diplomatic": "καταβασ",
-              "classification": "conditioned-unique-guide-row"
-            }
-          ],
-          "agreeingSigla": [
-            "P75"
-          ],
-          "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
-      },
-      "vaticanus": {
-        "type": "text",
-        "text": "καταβας",
-        "provenance": {
-          "witness": "GA 03",
-          "source": "INTF NTVMR transcription",
-          "documentId": 20003,
-          "readingLayer": "original-hand",
-          "sourceReference": "luke 6:17",
-          "diplomatic": "καταβας",
-          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
-          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
-          "corroboration": "normalized",
-          "englishCertification": {
-            "layer": "primary-shadow",
-            "rule": "certifiable-exact",
-            "alignment": {
-              "similarity": 1,
-              "tagntReference": "Luk.6.17",
-              "tagntPosition": 2,
-              "tagntGreek": "καταβὰς"
-            },
-            "lexicalVerification": {
-              "source": "TBESG/Abbott-Smith",
-              "strong": "G2597",
-              "lemma": "καταβαίνω",
-              "briefGloss": "to come/go down"
-            },
-            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
-            "status": "internally-certified"
-          }
-        },
-        "gloss": {
-          "gloss": "having descended",
-          "source": "TAGNT",
-          "tooltip": "G2597 · V-2AAP-NSM · TBESG: to come/go down · καταβαίνω"
-        }
-      },
-      "sinaiticus": {
-        "type": "text",
-        "text": "καταβὰς",
-        "gloss": {
-          "gloss": "having descended",
-          "source": "TAGNT"
-        }
-      },
-      "vulgate": {
-        "type": "text",
-        "text": "descendens",
-        "provenance": {
-          "sourceId": "vulgate-clementine",
-          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 2,
-          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
-          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
-            "sourceReference": "luke 6:17",
-            "scope": "lexical-row-ownership",
-            "latinIndex": 1,
-            "action": "display",
-            "englishIndices": [
-              1,
-              2
-            ],
-            "anchorEnglishIndex": 2,
-            "evidence": [
-              "MONOTONIC_LEXICAL_OWNER",
-              "LEXICON_CONTEXT_CANDIDATE"
-            ],
-            "translationUnit": null,
-            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
-            "status": "internally-adjudicated-not-independent-scholarly-review"
-          }
-        },
-        "gloss": {
-          "gloss": "coming down",
-          "source": "DouayRheims",
-          "tooltip": "Douay-Rheims 1899 · Latin: descendens · English: down"
-        }
-      },
-      "peshitta": {
-        "type": "text",
-        "text": "ܥܡܗܘܢ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 2,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "luke 6:17",
-            "unitId": "murdock-luke-6-17",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              3,
-              4
-            ],
-            "evidence": [
-              "SEDRA_LEXICAL_MATCH",
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
-          }
-        },
-        "gloss": {
-          "gloss": "with them,",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
-      },
-      "byzantine": {
-        "type": "text",
-        "text": "καταβὰς",
-        "provenance": {
-          "sourceId": "robinson-pierpont-2018",
-          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 2,
-          "sourceFile": "data/sources/byzantine/LUK.csv",
-          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
-          "upstreamTag": "v3.3.2",
-          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
-          "verification": "source-token-order-verified"
-        },
-        "gloss": {
-          "gloss": "having descended",
-          "source": "TAGNT",
-          "tooltip": "RP2018 Strong G2597 · V-2AAP-NSM · TBESG/Abbott-Smith: to come/go down"
-        }
-      },
-      "bezae": {
-        "type": "text",
-        "greek": "καταβας",
-        "latin": "descendens"
-      },
-      "coptic": {
-        "type": "text",
-        "text": "ⲁϥⲉⲓ",
-        "gloss": {
-          "gloss": "come, go",
-          "source": "Crum",
-          "tooltip": "KELLIA CCL v1.2 · ⲉⲓ · come, go"
-        },
-        "provenance": {
-          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
-          "edition": "Sahidica NT 4.1.0",
-          "versionDate": "2021-03-31",
-          "sourceFile": "42_Luke_06.tt",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 1,
-          "diplomatic": "ⲁϥⲉⲓ",
-          "sourceSha256": "45ec86874665801fea5cf9734fb425b6f810ed8348cdf70ef765cc41507e4a74",
-          "verification": "exact-source-word-group",
-          "placementMethod": "positional",
-          "englishCertification": {
-            "status": "lexical-range-certified",
-            "rule": "exact-scriptorium-lemma-to-ccl",
-            "lemma": "ⲉⲓ",
-            "partOfSpeech": "V",
-            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
-            "lexicalSourceDate": "2020-07-16",
-            "doi": "10.17169/refubium-27566",
-            "license": "CC BY-SA 4.0",
-            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
-            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
-            "scope": "documented lexical range; contextual sense not independently selected"
-          }
-        }
-      },
-      "_copticDraft": true
-    },
-    {
-      "id": "r3",
-      "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
-          }
-        ],
-        "text": "μετ",
-        "condition": {
-          "supplied": "editor"
-        },
-        "gloss": {
-          "gloss": "with",
-          "source": "TAGNT"
-        },
-        "provenance": {
-          "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P75",
-          "sourceToken": 3,
-          "diplomatic": "μετ",
-          "sourceAttestations": [
-            {
-              "siglum": "P75",
-              "sourceToken": 3,
-              "diplomatic": "μετ",
-              "classification": "conditioned-unique-guide-row"
-            }
-          ],
-          "agreeingSigla": [
-            "P75"
-          ],
-          "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
-      },
-      "vaticanus": {
-        "type": "text",
-        "text": "μετ",
-        "provenance": {
-          "witness": "GA 03",
-          "source": "INTF NTVMR transcription",
-          "documentId": 20003,
-          "readingLayer": "original-hand",
-          "sourceReference": "luke 6:17",
-          "diplomatic": "μετ",
-          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
-          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
-          "corroboration": "exact",
-          "englishCertification": {
-            "layer": "primary-shadow",
-            "rule": "certifiable-exact",
-            "alignment": {
-              "similarity": 1,
-              "tagntReference": "Luk.6.17",
-              "tagntPosition": 3,
-              "tagntGreek": "μετ᾽"
-            },
-            "lexicalVerification": {
-              "source": "TBESG/Abbott-Smith",
-              "strong": "G3326",
-              "lemma": "μετά",
-              "briefGloss": "with/after"
-            },
-            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
-            "status": "internally-certified"
-          }
-        },
-        "gloss": {
-          "gloss": "with",
-          "source": "TAGNT",
-          "tooltip": "G3326 · PREP · TBESG: with/after · μετά"
-        }
-      },
-      "sinaiticus": {
-        "type": "text",
-        "text": "μετ᾽",
-        "gloss": {
-          "gloss": "with",
-          "source": "TAGNT"
-        }
-      },
-      "vulgate": {
-        "type": "text",
-        "text": "cum",
-        "provenance": {
-          "sourceId": "vulgate-clementine",
-          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 3,
-          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
-          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
-            "sourceReference": "luke 6:17",
-            "scope": "lexical-row-ownership",
-            "latinIndex": 2,
-            "action": "display",
-            "englishIndices": [
-              3
-            ],
-            "anchorEnglishIndex": 3,
-            "evidence": [
-              "MONOTONIC_LEXICAL_OWNER",
-              "LEXICON_CONTEXT_CANDIDATE"
-            ],
-            "translationUnit": null,
-            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
-            "status": "internally-adjudicated-not-independent-scholarly-review"
-          }
-        },
-        "gloss": {
-          "gloss": "with",
-          "source": "DouayRheims",
-          "tooltip": "Douay-Rheims 1899 · Latin: cum · English: with"
-        }
-      },
-      "peshitta": {
-        "type": "empty"
-      },
-      "byzantine": {
-        "type": "text",
-        "text": "μετ",
-        "provenance": {
-          "sourceId": "robinson-pierpont-2018",
-          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 3,
-          "sourceFile": "data/sources/byzantine/LUK.csv",
-          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
-          "upstreamTag": "v3.3.2",
-          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
-          "verification": "source-token-order-verified"
-        },
-        "gloss": {
-          "gloss": "with",
-          "source": "TAGNT",
-          "tooltip": "RP2018 Strong G3326 · PREP · TBESG/Abbott-Smith: with/after"
-        }
-      },
-      "bezae": {
-        "type": "text",
-        "greek": "μετ",
-        "latin": "cum"
-      },
-      "coptic": {
-        "type": "text",
-        "text": "ⲇⲉ",
-        "gloss": {
-          "gloss": "and, so, then, for",
-          "source": "Crum",
-          "tooltip": "KELLIA CCL v1.2 · ⲇⲉ · and, so, then, for (marking shift in narrative, or change in subject; introducing new content)"
-        },
-        "provenance": {
-          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
-          "edition": "Sahidica NT 4.1.0",
-          "versionDate": "2021-03-31",
-          "sourceFile": "42_Luke_06.tt",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 2,
-          "diplomatic": "ⲇⲉ",
-          "sourceSha256": "45ec86874665801fea5cf9734fb425b6f810ed8348cdf70ef765cc41507e4a74",
-          "verification": "exact-source-word-group",
-          "placementMethod": "positional",
-          "englishCertification": {
-            "status": "lexical-range-certified",
-            "rule": "exact-scriptorium-lemma-to-ccl",
-            "lemma": "ⲇⲉ",
-            "partOfSpeech": "PTC",
-            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
-            "lexicalSourceDate": "2020-07-16",
-            "doi": "10.17169/refubium-27566",
-            "license": "CC BY-SA 4.0",
-            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
-            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
-            "scope": "documented lexical range; contextual sense not independently selected"
-          }
-        }
-      },
-      "_copticDraft": true
-    },
-    {
-      "id": "r4",
-      "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
-          }
-        ],
-        "text": "αυτων",
-        "condition": {
-          "damaged": true,
-          "damagedAfter": [
-            4
-          ],
-          "missingAfter": [
-            1,
-            2,
-            3
-          ]
-        },
-        "gloss": {
-          "gloss": "them",
-          "source": "TAGNT"
-        },
-        "provenance": {
-          "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P75",
-          "sourceToken": 4,
-          "diplomatic": "αυτων",
-          "sourceAttestations": [
-            {
-              "siglum": "P75",
-              "sourceToken": 4,
-              "diplomatic": "αυτων",
-              "classification": "conditioned-unique-guide-row"
-            }
-          ],
-          "agreeingSigla": [
-            "P75"
-          ],
-          "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
-      },
-      "vaticanus": {
-        "type": "text",
-        "text": "αυτων",
-        "provenance": {
-          "witness": "GA 03",
-          "source": "INTF NTVMR transcription",
-          "documentId": 20003,
-          "readingLayer": "original-hand",
-          "sourceReference": "luke 6:17",
-          "diplomatic": "αυτων",
-          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
-          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
-          "corroboration": "exact",
-          "englishCertification": {
-            "layer": "primary-shadow",
-            "rule": "certifiable-exact",
-            "alignment": {
-              "similarity": 1,
-              "tagntReference": "Luk.6.17",
-              "tagntPosition": 4,
-              "tagntGreek": "αὐτῶν"
-            },
-            "lexicalVerification": {
-              "source": "TBESG/Abbott-Smith",
-              "strong": "G0846",
-              "lemma": "αὐτός",
-              "briefGloss": "it/s/he"
-            },
-            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
-            "status": "internally-certified"
-          }
-        },
-        "gloss": {
-          "gloss": "them",
-          "source": "TAGNT",
-          "tooltip": "G0846 · P-GPM · TBESG: it/s/he · αὐτός"
-        }
-      },
-      "sinaiticus": {
-        "type": "text",
-        "text": "αὐτῶν",
-        "gloss": {
-          "gloss": "them",
-          "source": "TAGNT"
-        }
-      },
-      "vulgate": {
-        "type": "text",
-        "text": "illis",
-        "provenance": {
-          "sourceId": "vulgate-clementine",
-          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 4,
-          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
-          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
-            "sourceReference": "luke 6:17",
-            "scope": "lexical-row-ownership",
-            "latinIndex": 3,
-            "action": "display",
-            "englishIndices": [
-              4
-            ],
-            "anchorEnglishIndex": 4,
-            "evidence": [
-              "MONOTONIC_LEXICAL_OWNER",
-              "LEXICON_CONTEXT_CANDIDATE"
-            ],
-            "translationUnit": null,
-            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
-            "status": "internally-adjudicated-not-independent-scholarly-review"
-          }
-        },
-        "gloss": {
-          "gloss": "them",
-          "source": "DouayRheims",
-          "tooltip": "Douay-Rheims 1899 · Latin: illis · English: them"
-        }
-      },
-      "peshitta": {
-        "type": "text",
-        "text": "ܝܫܘܥ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 3,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "luke 6:17",
-            "unitId": "murdock-luke-6-17",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              0,
-              1
-            ],
-            "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
-              "SEDRA_LEXICAL_MATCH"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
-          }
-        },
-        "gloss": {
-          "gloss": "And Jesus",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
-      },
-      "byzantine": {
-        "type": "text",
-        "text": "αὐτῶν",
-        "provenance": {
-          "sourceId": "robinson-pierpont-2018",
-          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 4,
-          "sourceFile": "data/sources/byzantine/LUK.csv",
-          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
-          "upstreamTag": "v3.3.2",
-          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
-          "verification": "source-token-order-verified"
-        },
-        "gloss": {
-          "gloss": "them",
-          "source": "TAGNT",
-          "tooltip": "RP2018 Strong G0846 · P-GPM · TBESG/Abbott-Smith: it/s/he"
-        }
-      },
-      "bezae": {
-        "type": "text",
-        "greek": "αυτων",
-        "latin": "eis"
-      },
-      "coptic": {
-        "type": "empty"
-      }
-    },
-    {
-      "id": "r5",
-      "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
-          }
-        ],
-        "text": "εστη",
-        "gloss": {
-          "gloss": "He stood",
-          "source": "TAGNT"
-        },
-        "provenance": {
-          "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P75",
-          "sourceToken": 5,
-          "diplomatic": "εστη",
-          "sourceAttestations": [
-            {
-              "siglum": "P75",
-              "sourceToken": 5,
-              "diplomatic": "εστη",
-              "classification": "unique-guide-row"
-            }
-          ],
-          "agreeingSigla": [
-            "P75"
-          ],
-          "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
-      },
-      "vaticanus": {
-        "type": "text",
-        "text": "εστη",
-        "provenance": {
-          "witness": "GA 03",
-          "source": "INTF NTVMR transcription",
-          "documentId": 20003,
-          "readingLayer": "original-hand",
-          "sourceReference": "luke 6:17",
-          "diplomatic": "εστη",
-          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
-          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
-          "corroboration": "exact",
-          "englishCertification": {
-            "layer": "primary-shadow",
-            "rule": "certifiable-exact",
-            "alignment": {
-              "similarity": 1,
-              "tagntReference": "Luk.6.17",
-              "tagntPosition": 5,
-              "tagntGreek": "ἔστη"
-            },
-            "lexicalVerification": {
-              "source": "TBESG/Abbott-Smith",
-              "strong": "G2476",
-              "lemma": "ἵστημι",
-              "briefGloss": "to stand"
-            },
-            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
-            "status": "internally-certified"
-          }
-        },
-        "gloss": {
-          "gloss": "He stood",
-          "source": "TAGNT",
-          "tooltip": "G2476 · V-2AAI-3S · TBESG: to stand · ἵστημι"
-        }
-      },
-      "sinaiticus": {
-        "type": "text",
-        "text": "ἔστη",
-        "gloss": {
-          "gloss": "He stood",
-          "source": "TAGNT"
-        }
-      },
-      "vulgate": {
-        "type": "text",
-        "text": "stetit",
-        "provenance": {
-          "sourceId": "vulgate-clementine",
-          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 5,
-          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
-          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
-            "sourceReference": "luke 6:17",
-            "scope": "lexical-row-ownership",
-            "latinIndex": 4,
-            "action": "display",
-            "englishIndices": [
-              5,
-              6
-            ],
-            "anchorEnglishIndex": 6,
-            "evidence": [
-              "MONOTONIC_LEXICAL_OWNER",
-              "LEXICON_CONTEXT_CANDIDATE",
-              "WHITAKER_MORPHOLOGY_SUPPORTED_ENGLISH_FUNCTION",
-              "WHITAKER_FINITE_VERB_SUPPORTED_SUBJECT"
-            ],
-            "translationUnit": null,
-            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
-            "status": "internally-adjudicated-not-independent-scholarly-review"
-          }
-        },
-        "gloss": {
-          "gloss": "he stood",
-          "source": "DouayRheims",
-          "tooltip": "Douay-Rheims 1899 · Latin: stetit · English: stood"
-        }
-      },
-      "peshitta": {
-        "type": "text",
-        "text": "ܘܩܡ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 4,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "luke 6:17",
-            "unitId": "murdock-luke-6-17",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
-            "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
-          }
-        },
-        "gloss": {
-          "gloss": "",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
-        }
-      },
-      "byzantine": {
-        "type": "text",
-        "text": "ἔστη",
-        "provenance": {
-          "sourceId": "robinson-pierpont-2018",
-          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 5,
-          "sourceFile": "data/sources/byzantine/LUK.csv",
-          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
-          "upstreamTag": "v3.3.2",
-          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
-          "verification": "source-token-order-verified"
-        },
-        "gloss": {
-          "gloss": "He stood",
-          "source": "TAGNT",
-          "tooltip": "RP2018 Strong G2476 · V-2AAI-3S · TBESG/Abbott-Smith: to stand"
-        }
-      },
-      "bezae": {
-        "type": "text",
-        "greek": "εστη",
-        "latin": "stetit"
-      },
-      "coptic": {
-        "type": "text",
-        "text": "ⲉⲡⲉⲥⲏⲧ",
-        "gloss": {
-          "gloss": "ground, bottom, lowest part",
-          "source": "Crum",
-          "tooltip": "KELLIA CCL v1.2 · ⲉⲥⲏⲧ · ground, bottom, lowest part"
-        },
-        "provenance": {
-          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
-          "edition": "Sahidica NT 4.1.0",
-          "versionDate": "2021-03-31",
-          "sourceFile": "42_Luke_06.tt",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 3,
-          "diplomatic": "ⲉⲡⲉⲥⲏⲧ",
-          "sourceSha256": "45ec86874665801fea5cf9734fb425b6f810ed8348cdf70ef765cc41507e4a74",
-          "verification": "exact-source-word-group",
-          "placementMethod": "positional",
-          "englishCertification": {
-            "status": "lexical-range-certified",
-            "rule": "exact-scriptorium-lemma-to-ccl",
-            "lemma": "ⲉⲥⲏⲧ",
-            "partOfSpeech": "N",
-            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
-            "lexicalSourceDate": "2020-07-16",
-            "doi": "10.17169/refubium-27566",
-            "license": "CC BY-SA 4.0",
-            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
-            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
-            "scope": "documented lexical range; contextual sense not independently selected"
-          }
-        }
-      },
-      "_copticDraft": true
-    },
-    {
-      "id": "r6",
-      "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
-          }
-        ],
-        "text": "επι",
-        "gloss": {
-          "gloss": "on",
-          "source": "TAGNT"
-        },
-        "provenance": {
-          "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P75",
-          "sourceToken": 6,
-          "diplomatic": "επι",
-          "sourceAttestations": [
-            {
-              "siglum": "P75",
-              "sourceToken": 6,
-              "diplomatic": "επι",
-              "classification": "unique-guide-row"
-            }
-          ],
-          "agreeingSigla": [
-            "P75"
-          ],
-          "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
-      },
-      "vaticanus": {
-        "type": "text",
-        "text": "επι",
-        "provenance": {
-          "witness": "GA 03",
-          "source": "INTF NTVMR transcription",
-          "documentId": 20003,
-          "readingLayer": "original-hand",
-          "sourceReference": "luke 6:17",
-          "diplomatic": "επι",
-          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
-          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
-          "corroboration": "exact",
-          "englishCertification": {
-            "layer": "primary-shadow",
-            "rule": "certifiable-exact",
-            "alignment": {
-              "similarity": 1,
-              "tagntReference": "Luk.6.17",
-              "tagntPosition": 6,
-              "tagntGreek": "ἐπὶ"
-            },
-            "lexicalVerification": {
-              "source": "TBESG/Abbott-Smith",
-              "strong": "G1909",
-              "lemma": "ἐπί",
-              "briefGloss": "upon/to/against"
-            },
-            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
-            "status": "internally-certified"
-          }
-        },
-        "gloss": {
-          "gloss": "on",
-          "source": "TAGNT",
-          "tooltip": "G1909 · PREP · TBESG: upon/to/against · ἐπί"
-        }
-      },
-      "sinaiticus": {
-        "type": "text",
-        "text": "ἐπὶ",
-        "gloss": {
-          "gloss": "on",
-          "source": "TAGNT"
-        }
-      },
-      "vulgate": {
-        "type": "text",
-        "text": "in",
-        "provenance": {
-          "sourceId": "vulgate-clementine",
-          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 6,
-          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
-          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
-            "sourceReference": "luke 6:17",
-            "scope": "lexical-row-ownership",
-            "latinIndex": 5,
-            "action": "display",
-            "englishIndices": [
-              7
-            ],
-            "anchorEnglishIndex": 7,
-            "evidence": [
-              "MONOTONIC_LEXICAL_OWNER",
-              "EXACT_SURFACE_CONTEXT_CANDIDATE"
-            ],
-            "translationUnit": null,
-            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
-            "status": "internally-adjudicated-not-independent-scholarly-review"
-          }
-        },
-        "gloss": {
-          "gloss": "in",
-          "source": "DouayRheims",
-          "tooltip": "Douay-Rheims 1899 · Latin: in · English: in"
-        }
-      },
-      "peshitta": {
-        "type": "text",
-        "text": "ܒܦܩܥܬܐ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 5,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "luke 6:17",
-            "unitId": "murdock-luke-6-17",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              7,
-              8,
-              9
-            ],
-            "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
-              "SEDRA_LEXICAL_MATCH"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
-          }
-        },
-        "gloss": {
-          "gloss": "in the plain;",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
-      },
-      "byzantine": {
-        "type": "text",
-        "text": "ἐπὶ",
-        "provenance": {
-          "sourceId": "robinson-pierpont-2018",
-          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 6,
-          "sourceFile": "data/sources/byzantine/LUK.csv",
-          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
-          "upstreamTag": "v3.3.2",
-          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
-          "verification": "source-token-order-verified"
-        },
-        "gloss": {
-          "gloss": "on",
-          "source": "TAGNT",
-          "tooltip": "RP2018 Strong G1909 · PREP · TBESG/Abbott-Smith: upon/to/against"
-        }
-      },
-      "bezae": {
-        "type": "text",
-        "greek": "επει",
-        "latin": "in"
-      },
-      "coptic": {
-        "type": "text",
-        "text": "ⲛⲙⲙⲁⲩ",
-        "gloss": {
-          "gloss": "with",
-          "source": "Crum",
-          "tooltip": "KELLIA CCL v1.2 · ⲙⲛ · with"
-        },
-        "provenance": {
-          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
-          "edition": "Sahidica NT 4.1.0",
-          "versionDate": "2021-03-31",
-          "sourceFile": "42_Luke_06.tt",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 4,
-          "diplomatic": "ⲛⲙⲙⲁⲩ",
-          "sourceSha256": "45ec86874665801fea5cf9734fb425b6f810ed8348cdf70ef765cc41507e4a74",
-          "verification": "exact-source-word-group",
-          "placementMethod": "positional",
-          "englishCertification": {
-            "status": "lexical-range-certified",
-            "rule": "exact-scriptorium-lemma-to-ccl",
-            "lemma": "ⲙⲛ",
-            "partOfSpeech": "PREP",
-            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
-            "lexicalSourceDate": "2020-07-16",
-            "doi": "10.17169/refubium-27566",
-            "license": "CC BY-SA 4.0",
-            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
-            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
-            "scope": "documented lexical range; contextual sense not independently selected"
-          }
-        }
-      },
-      "_copticDraft": true
-    },
-    {
-      "id": "r7",
-      "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
-          }
-        ],
-        "text": "τοπου",
-        "gloss": {
-          "gloss": "a place",
-          "source": "TAGNT"
-        },
-        "provenance": {
-          "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P75",
-          "sourceToken": 7,
-          "diplomatic": "τοπου",
-          "sourceAttestations": [
-            {
-              "siglum": "P75",
-              "sourceToken": 7,
-              "diplomatic": "τοπου",
-              "classification": "unique-guide-row"
-            }
-          ],
-          "agreeingSigla": [
-            "P75"
-          ],
-          "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
-      },
-      "vaticanus": {
-        "type": "text",
-        "text": "τοπου",
-        "provenance": {
-          "witness": "GA 03",
-          "source": "INTF NTVMR transcription",
-          "documentId": 20003,
-          "readingLayer": "original-hand",
-          "sourceReference": "luke 6:17",
-          "diplomatic": "τοπου",
-          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
-          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
-          "corroboration": "exact",
-          "englishCertification": {
-            "layer": "primary-shadow",
-            "rule": "certifiable-exact",
-            "alignment": {
-              "similarity": 1,
-              "tagntReference": "Luk.6.17",
-              "tagntPosition": 7,
-              "tagntGreek": "τόπου"
-            },
-            "lexicalVerification": {
-              "source": "TBESG/Abbott-Smith",
-              "strong": "G5117",
-              "lemma": "τόπος",
-              "briefGloss": "place"
-            },
-            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
-            "status": "internally-certified"
-          }
-        },
-        "gloss": {
-          "gloss": "a place",
-          "source": "TAGNT",
-          "tooltip": "G5117 · N-GSM · TBESG: place · τόπος"
-        }
-      },
-      "sinaiticus": {
-        "type": "text",
-        "text": "τόπου",
-        "gloss": {
-          "gloss": "a place",
-          "source": "TAGNT"
-        }
-      },
-      "vulgate": {
-        "type": "text",
-        "text": "loco",
-        "provenance": {
-          "sourceId": "vulgate-clementine",
-          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 7,
-          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
-          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
-            "sourceReference": "luke 6:17",
-            "scope": "lexical-row-ownership",
-            "latinIndex": 6,
-            "action": "display",
-            "englishIndices": [
-              10
-            ],
-            "anchorEnglishIndex": 10,
-            "evidence": [
-              "UNIQUE_LOCAL_TRANSPOSITION_OWNER",
-              "LEXICON_CONTEXT_CANDIDATE"
-            ],
-            "translationUnit": null,
-            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
-            "status": "internally-adjudicated-not-independent-scholarly-review"
-          }
-        },
-        "gloss": {
-          "gloss": "place",
-          "source": "DouayRheims",
-          "tooltip": "Douay-Rheims 1899 · Latin: loco · English: place"
-        }
-      },
-      "peshitta": {
-        "type": "empty"
-      },
-      "byzantine": {
-        "type": "text",
-        "text": "τόπου",
-        "provenance": {
-          "sourceId": "robinson-pierpont-2018",
-          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 7,
-          "sourceFile": "data/sources/byzantine/LUK.csv",
-          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
-          "upstreamTag": "v3.3.2",
-          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
-          "verification": "source-token-order-verified"
-        },
-        "gloss": {
-          "gloss": "a place",
-          "source": "TAGNT",
-          "tooltip": "RP2018 Strong G5117 · N-GSM · TBESG/Abbott-Smith: place"
-        }
-      },
-      "bezae": {
-        "type": "text",
-        "greek": "τοπου",
-        "latin": "loco"
-      },
-      "coptic": {
-        "type": "text",
-        "text": "ⲁϥⲁϩⲉⲣⲁⲧϥ",
-        "gloss": {
-          "gloss": "stand, stay, wait",
-          "source": "Crum",
-          "tooltip": "KELLIA CCL v1.2 · ⲱϩⲉ · stand, stay, wait"
-        },
-        "provenance": {
-          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
-          "edition": "Sahidica NT 4.1.0",
-          "versionDate": "2021-03-31",
-          "sourceFile": "42_Luke_06.tt",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 5,
-          "diplomatic": "ⲁϥⲁϩⲉⲣⲁⲧϥ",
-          "sourceSha256": "45ec86874665801fea5cf9734fb425b6f810ed8348cdf70ef765cc41507e4a74",
-          "verification": "exact-source-word-group",
-          "placementMethod": "positional",
-          "englishCertification": {
-            "status": "lexical-range-certified",
-            "rule": "exact-scriptorium-lemma-to-ccl",
-            "lemma": "ⲱϩⲉ",
-            "partOfSpeech": "V",
-            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
-            "lexicalSourceDate": "2020-07-16",
-            "doi": "10.17169/refubium-27566",
-            "license": "CC BY-SA 4.0",
-            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
-            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
-            "scope": "documented lexical range; contextual sense not independently selected"
-          }
-        }
-      },
-      "_copticDraft": true
-    },
-    {
-      "id": "r8",
-      "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
-          }
-        ],
-        "text": "πεδινου",
-        "condition": {
-          "damaged": true,
-          "damagedAfter": [
-            1
-          ],
-          "missingAfter": [
-            2,
-            3,
-            4,
-            5,
-            6,
-            7
-          ]
-        },
-        "gloss": {
-          "gloss": "level.",
-          "source": "TAGNT"
-        },
-        "provenance": {
-          "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P75",
-          "sourceToken": 8,
-          "diplomatic": "πεδινου",
-          "sourceAttestations": [
-            {
-              "siglum": "P75",
-              "sourceToken": 8,
-              "diplomatic": "πεδινου",
-              "classification": "conditioned-unique-guide-row"
-            }
-          ],
-          "agreeingSigla": [
-            "P75"
-          ],
-          "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
-      },
-      "vaticanus": {
-        "type": "text",
-        "text": "πεδινου",
-        "provenance": {
-          "witness": "GA 03",
-          "source": "INTF NTVMR transcription",
-          "documentId": 20003,
-          "readingLayer": "original-hand",
-          "sourceReference": "luke 6:17",
-          "diplomatic": "πεδινου",
-          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
-          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
-          "corroboration": "exact",
-          "englishCertification": {
-            "layer": "primary-shadow",
-            "rule": "certifiable-exact",
-            "alignment": {
-              "similarity": 1,
-              "tagntReference": "Luk.6.17",
-              "tagntPosition": 8,
-              "tagntGreek": "πεδινοῦ"
-            },
-            "lexicalVerification": {
-              "source": "TBESG/Abbott-Smith",
-              "strong": "G3977",
-              "lemma": "πεδινός",
-              "briefGloss": "level"
-            },
-            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
-            "status": "internally-certified"
-          }
-        },
-        "gloss": {
-          "gloss": "level.",
-          "source": "TAGNT",
-          "tooltip": "G3977 · A-GSM · TBESG: level · πεδινός"
-        }
-      },
-      "sinaiticus": {
-        "type": "text",
-        "text": "πεδινοῦ.",
-        "gloss": {
-          "gloss": "level.",
-          "source": "TAGNT"
-        }
-      },
-      "vulgate": {
-        "type": "text",
-        "text": "campestri",
-        "provenance": {
-          "sourceId": "vulgate-clementine",
-          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 8,
-          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
-          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
-            "sourceReference": "luke 6:17",
-            "scope": "lexical-row-ownership",
-            "latinIndex": 7,
-            "action": "display",
-            "englishIndices": [
-              8,
-              9
-            ],
-            "anchorEnglishIndex": 9,
-            "evidence": [
-              "UNIQUE_LOCAL_TRANSPOSITION_OWNER",
-              "LEXICON_CONTEXT_CANDIDATE"
-            ],
-            "translationUnit": null,
-            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
-            "status": "internally-adjudicated-not-independent-scholarly-review"
-          }
-        },
-        "gloss": {
-          "gloss": "a plain",
-          "source": "DouayRheims",
-          "tooltip": "Douay-Rheims 1899 · Latin: campestri · English: plain"
-        }
-      },
-      "peshitta": {
-        "type": "text",
-        "text": "ܘܟܢܫܐ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 6,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "luke 6:17",
-            "unitId": "murdock-luke-6-17",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              17,
-              18,
-              19
-            ],
-            "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
-              "SEDRA_LEXICAL_MATCH"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
-          }
-        },
-        "gloss": {
-          "gloss": "and a multitude",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
-      },
-      "byzantine": {
-        "type": "text",
-        "text": "πεδινοῦ",
-        "provenance": {
-          "sourceId": "robinson-pierpont-2018",
-          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 8,
-          "sourceFile": "data/sources/byzantine/LUK.csv",
-          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
-          "upstreamTag": "v3.3.2",
-          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
-          "verification": "source-token-order-verified"
-        },
-        "gloss": {
-          "gloss": "level.",
-          "source": "TAGNT",
-          "tooltip": "RP2018 Strong G3977 · A-GSM · TBESG/Abbott-Smith: level"
-        }
-      },
-      "bezae": {
-        "type": "text",
-        "greek": "πεδεινου",
-        "latin": "campestri"
-      },
-      "coptic": {
-        "type": "text",
-        "text": "ϩⲓⲟⲩⲙⲁ",
-        "gloss": {
-          "gloss": "place",
-          "source": "Crum",
-          "tooltip": "KELLIA CCL v1.2 · ⲙⲁ · place"
-        },
-        "provenance": {
-          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
-          "edition": "Sahidica NT 4.1.0",
-          "versionDate": "2021-03-31",
-          "sourceFile": "42_Luke_06.tt",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 6,
-          "diplomatic": "ϩⲓⲟⲩⲙⲁ",
-          "sourceSha256": "45ec86874665801fea5cf9734fb425b6f810ed8348cdf70ef765cc41507e4a74",
-          "verification": "exact-source-word-group",
-          "placementMethod": "positional",
-          "englishCertification": {
-            "status": "lexical-range-certified",
-            "rule": "exact-scriptorium-lemma-to-ccl",
-            "lemma": "ⲙⲁ",
-            "partOfSpeech": "N",
-            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
-            "lexicalSourceDate": "2020-07-16",
-            "doi": "10.17169/refubium-27566",
-            "license": "CC BY-SA 4.0",
-            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
-            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
-            "scope": "documented lexical range; contextual sense not independently selected"
-          }
-        }
-      },
-      "_copticDraft": true
-    },
-    {
-      "id": "r9",
-      "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
-          }
-        ],
-        "text": "και",
-        "condition": {
-          "supplied": "editor"
-        },
-        "gloss": {
-          "gloss": "and",
-          "source": "TAGNT"
-        },
-        "provenance": {
-          "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P75",
-          "sourceToken": 9,
-          "diplomatic": "και",
-          "sourceAttestations": [
-            {
-              "siglum": "P75",
-              "sourceToken": 9,
-              "diplomatic": "και",
-              "classification": "conditioned-contextual-guide-row"
-            }
-          ],
-          "agreeingSigla": [
-            "P75"
-          ],
-          "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
-      },
-      "vaticanus": {
-        "type": "text",
-        "text": "και",
-        "provenance": {
-          "witness": "GA 03",
-          "source": "INTF NTVMR transcription",
-          "documentId": 20003,
-          "readingLayer": "original-hand",
-          "sourceReference": "luke 6:17",
-          "diplomatic": "και",
-          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
-          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
-          "corroboration": "exact",
-          "englishCertification": {
-            "layer": "primary-shadow",
-            "rule": "certifiable-exact",
-            "alignment": {
-              "similarity": 1,
-              "tagntReference": "Luk.6.17",
-              "tagntPosition": 9,
-              "tagntGreek": "καὶ"
-            },
-            "lexicalVerification": {
-              "source": "TBESG/Abbott-Smith",
-              "strong": "G2532",
-              "lemma": "καί",
-              "briefGloss": "and"
-            },
-            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
-            "status": "internally-certified"
-          }
-        },
-        "gloss": {
-          "gloss": "and",
-          "source": "TAGNT",
-          "tooltip": "G2532 · CONJ · TBESG: and · καί"
-        }
-      },
-      "sinaiticus": {
-        "type": "text",
-        "text": "καὶ",
-        "gloss": {
-          "gloss": "and",
-          "source": "TAGNT"
-        }
-      },
-      "vulgate": {
-        "type": "text",
-        "text": "et",
-        "provenance": {
-          "sourceId": "vulgate-clementine",
-          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 9,
-          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
-          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
-            "sourceReference": "luke 6:17",
-            "scope": "lexical-row-ownership",
-            "latinIndex": 8,
-            "action": "display",
-            "englishIndices": [
-              11
-            ],
-            "anchorEnglishIndex": 11,
-            "evidence": [
-              "MONOTONIC_LEXICAL_OWNER",
-              "LEXICON_CONTEXT_CANDIDATE"
-            ],
-            "translationUnit": null,
-            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
-            "status": "internally-adjudicated-not-independent-scholarly-review"
-          }
-        },
-        "gloss": {
-          "gloss": "and",
-          "source": "DouayRheims",
-          "tooltip": "Douay-Rheims 1899 · Latin: et · English: and"
-        }
-      },
-      "peshitta": {
-        "type": "text",
-        "text": "ܤܓܝܐܐ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 7,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "luke 6:17",
-            "unitId": "murdock-luke-6-17",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              10,
-              11,
-              12
-            ],
-            "evidence": [
-              "FUNCTION_WORD_WITH_SUPPORTED_HEAD",
-              "PARALLEL_CORPUS_ALIGNMENT"
-            ],
-            "sedraStatus": 404,
-            "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
-          }
-        },
-        "gloss": {
-          "gloss": "and a great",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
-      },
-      "byzantine": {
-        "type": "text",
-        "text": "καὶ",
-        "provenance": {
-          "sourceId": "robinson-pierpont-2018",
-          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 9,
-          "sourceFile": "data/sources/byzantine/LUK.csv",
-          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
-          "upstreamTag": "v3.3.2",
-          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
-          "verification": "source-token-order-verified"
-        },
-        "gloss": {
-          "gloss": "and",
-          "source": "TAGNT",
-          "tooltip": "RP2018 Strong G2532 · CONJ · TBESG/Abbott-Smith: and"
-        }
-      },
-      "bezae": {
-        "type": "text",
-        "greek": "και",
-        "latin": "et"
-      },
-      "coptic": {
-        "type": "empty"
-      }
-    },
-    {
-      "id": "r10",
-      "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
-          }
-        ],
-        "text": "οχλοσ",
-        "condition": {
-          "damaged": true,
-          "damagedAfter": [
-            2
-          ],
-          "missingAfter": [
-            1
-          ]
-        },
-        "gloss": {
-          "gloss": "a crowd",
-          "source": "TAGNT"
-        },
-        "provenance": {
-          "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P75",
-          "sourceToken": 10,
-          "diplomatic": "οχλοσ",
-          "sourceAttestations": [
-            {
-              "siglum": "P75",
-              "sourceToken": 10,
-              "diplomatic": "οχλοσ",
-              "classification": "conditioned-unique-guide-row"
-            }
-          ],
-          "agreeingSigla": [
-            "P75"
-          ],
-          "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
-      },
-      "vaticanus": {
-        "type": "text",
-        "text": "οχλος",
-        "provenance": {
-          "witness": "GA 03",
-          "source": "INTF NTVMR transcription",
-          "documentId": 20003,
-          "readingLayer": "original-hand",
-          "sourceReference": "luke 6:17",
-          "diplomatic": "οχλος",
-          "intfSha256": "0854e4371ec4e2b4f9db4c0045ae0cc5afe1177e5601bcaae681ff754e46c078",
-          "cntrRevision": "4c0e9f94117ec3dc4ae40094aec044bb7a416a53",
-          "corroboration": "normalized",
-          "englishCertification": {
-            "layer": "primary-shadow",
-            "rule": "certifiable-exact",
-            "alignment": {
-              "similarity": 1,
-              "tagntReference": "Luk.6.17",
-              "tagntPosition": 10,
-              "tagntGreek": "ὄχλος"
-            },
-            "lexicalVerification": {
-              "source": "TBESG/Abbott-Smith",
-              "strong": "G3793",
-              "lemma": "ὄχλος",
-              "briefGloss": "crowd"
-            },
-            "decisionSha256": "478c7c6529ec4820a1bcd0844c9a14c70bce86eb991b55594c9cff79cd184e54",
-            "status": "internally-certified"
-          }
-        },
-        "gloss": {
-          "gloss": "a crowd",
-          "source": "TAGNT",
-          "tooltip": "G3793 · N-NSM · TBESG: crowd · ὄχλος"
-        }
-      },
-      "sinaiticus": {
-        "type": "text",
-        "text": "ὄχλος",
-        "gloss": {
-          "gloss": "a crowd",
-          "source": "TAGNT"
-        }
-      },
-      "vulgate": {
-        "type": "text",
-        "text": "turba",
-        "provenance": {
-          "sourceId": "vulgate-clementine",
-          "sourceTitle": "Biblia Sacra juxta Vulgatam Clementinam",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 10,
-          "sourceFile": "data/sources/vulgate/VulgClementine.txt",
-          "sourceSha256": "F2BCC2BF6C7CCEC7258AE096A200F9C685B783A9E0A656232365792EBEC028AC",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "Douay-Rheims American Edition of 1899 (Challoner tradition)",
-            "sourceReference": "luke 6:17",
-            "scope": "lexical-row-ownership",
-            "latinIndex": 9,
-            "action": "blank-compressed",
-            "englishIndices": [],
-            "anchorEnglishIndex": null,
-            "evidence": [
-              "SHARED_COMPRESSED_ENGLISH_PAIR",
-              "LEXICON_CONTEXT_CANDIDATE"
-            ],
-            "translationUnit": null,
-            "adjudicationSha256": "4d690fd0b798798ef29a190e83c6ea6e2403fc3d02eb94d3d3a3355a4703af25",
-            "status": "internally-adjudicated-not-independent-scholarly-review"
-          }
-        }
-      },
-      "peshitta": {
-        "type": "text",
-        "text": "ܕܬܠܡܝܕܘܗܝ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 8,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "luke 6:17",
-            "unitId": "murdock-luke-6-17",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              13,
-              16,
-              32
-            ],
-            "evidence": [
-              "PARALLEL_CORPUS_ALIGNMENT"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
-          }
-        },
-        "gloss": {
-          "gloss": "company disciples, seashore",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
-      },
-      "byzantine": {
-        "type": "text",
-        "text": "ὄχλος",
-        "provenance": {
-          "sourceId": "robinson-pierpont-2018",
-          "sourceTitle": "The New Testament in the Original Greek: Byzantine Textform 2018",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 10,
-          "sourceFile": "data/sources/byzantine/LUK.csv",
-          "sourceSha256": "68edd943238ec1cb51fd1ba7f0f59ff0d9b6841fe780ea6812449e9b0debee98",
-          "upstreamTag": "v3.3.2",
-          "upstreamCommit": "27a45ff1b7be6c17ccbfeac414f3f55732ae8e28",
-          "verification": "source-token-order-verified"
-        },
-        "gloss": {
-          "gloss": "a crowd",
-          "source": "TAGNT",
-          "tooltip": "RP2018 Strong G3793 · N-NSM · TBESG/Abbott-Smith: crowd"
-        }
-      },
-      "bezae": {
-        "type": "text",
-        "greek": "οχλος",
-        "latin": "turbae"
-      },
-      "coptic": {
-        "type": "text",
-        "text": "ⲉϥⲟⲩⲟϣⲥ",
-        "gloss": {
-          "gloss": "become broad, be broad, at ease",
-          "source": "Crum",
-          "tooltip": "KELLIA CCL v1.2 · ⲟⲩⲱϣⲥ · become broad, be broad, at ease"
-        },
-        "provenance": {
-          "authority": "Sahidica NT via Coptic SCRIPTORIUM",
-          "edition": "Sahidica NT 4.1.0",
-          "versionDate": "2021-03-31",
-          "sourceFile": "42_Luke_06.tt",
-          "sourceReference": "luke 6:17",
-          "sourceToken": 7,
-          "diplomatic": "ⲉϥⲟⲩⲟϣⲥ",
-          "sourceSha256": "45ec86874665801fea5cf9734fb425b6f810ed8348cdf70ef765cc41507e4a74",
-          "verification": "exact-source-word-group",
-          "placementMethod": "positional",
-          "englishCertification": {
-            "status": "lexical-range-certified",
-            "rule": "exact-scriptorium-lemma-to-ccl",
-            "lemma": "ⲟⲩⲱϣⲥ",
-            "partOfSpeech": "VSTAT",
-            "lexicalSource": "KELLIA Comprehensive Coptic Lexicon v1.2",
-            "lexicalSourceDate": "2020-07-16",
-            "doi": "10.17169/refubium-27566",
-            "license": "CC BY-SA 4.0",
-            "sourceXmlSha256": "df955699223d9c91aae671cfcdfeaca5a16e0812e35bbe91ff142c3fd639775d",
-            "derivedLookupSha256": "078b2c54392d45dddb9823ddb632943d6fb4597e141e58d1f660023eb7d95790",
-            "scope": "documented lexical range; contextual sense not independently selected"
-          }
-        }
-      },
-      "_copticDraft": true
-    },
-    {
       "id": "r11",
       "papyrus": {
         "type": "extant",
@@ -2591,7 +2590,7 @@
             "evidence": [],
             "sedraStatus": 404,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -2991,7 +2990,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -3174,7 +3173,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -3365,7 +3364,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -3464,46 +3463,6 @@
           "sourceReference": "luke 6:17",
           "englishIndex": 15,
           "alignmentGroupId": "murdock-luke-6-17#english-16",
-          "status": "published-translation-row"
-        }
-      },
-      "byzantine": {
-        "type": "empty"
-      },
-      "bezae": {
-        "type": "empty"
-      }
-    },
-    {
-      "id": "peshitta-english-luke-6-17-32",
-      "rowKind": "translation-expansion",
-      "papyrus": {
-        "type": "empty"
-      },
-      "coptic": {
-        "type": "empty"
-      },
-      "sinaiticus": {
-        "type": "empty"
-      },
-      "vaticanus": {
-        "type": "empty"
-      },
-      "vulgate": {
-        "type": "empty"
-      },
-      "peshitta": {
-        "type": "translation",
-        "gloss": {
-          "gloss": "the",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
-        },
-        "provenance": {
-          "authority": "James Murdock 1851",
-          "sourceReference": "luke 6:17",
-          "englishIndex": 31,
-          "alignmentGroupId": "murdock-luke-6-17#english-32",
           "status": "published-translation-row"
         }
       },
@@ -3962,7 +3921,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -4174,7 +4133,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -4388,7 +4347,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -4882,7 +4841,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -5115,7 +5074,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -5330,7 +5289,7 @@
             "evidence": [],
             "sedraStatus": 404,
             "status": "no-certified-equivalent",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -5617,7 +5576,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
@@ -5992,6 +5951,7 @@
             "unitId": "murdock-luke-6-17",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
+              31,
               33,
               34
             ],
@@ -6001,11 +5961,11 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
-          "gloss": "of Tyre",
+          "gloss": "the of Tyre",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -6056,6 +6016,46 @@
         }
       },
       "_copticDraft": true
+    },
+    {
+      "id": "peshitta-english-luke-6-17-33",
+      "rowKind": "translation-expansion",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "translation",
+        "gloss": {
+          "gloss": "seashore",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · English-only expansion; no certified Syriac lexical equivalent"
+        },
+        "provenance": {
+          "authority": "James Murdock 1851",
+          "sourceReference": "luke 6:17",
+          "englishIndex": 32,
+          "alignmentGroupId": "murdock-luke-6-17#english-33",
+          "status": "published-translation-row"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      }
     },
     {
       "id": "r30",
@@ -6202,7 +6202,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "d9ca83c9eff5ea328ab5a917e966c32e9a4cc53b6bf5b4393023e73d6a1e5f72"
+            "adjudicationSha256": "afde8ece9be878ddf6fd6661bbdaf3e319260a0277816c54a1f19c3fa95bc663"
           }
         },
         "gloss": {
