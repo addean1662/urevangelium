@@ -21,7 +21,7 @@ function splitCrum(text: string): { display: string } {
 }
 
 export function GlossCell({ gloss, className = '', rowSpan, highlighted = false, onPointerEnter, onPointerLeave, onFocus, onBlur }: Props) {
-  const base = `px-2 py-1.5 text-base border-b border-rule-hairline align-middle transition-colors ${highlighted ? 'bg-accent-gold/15' : ''} ${className}`;
+  const base = `px-2 py-1.5 text-base break-words border-b border-rule-hairline align-middle transition-colors ${highlighted ? 'bg-accent-gold/15' : ''} ${className}`;
   const interactionProps = { rowSpan, onPointerEnter, onPointerLeave, onFocus, onBlur };
 
   if (!gloss) {

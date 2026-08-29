@@ -103,17 +103,21 @@
             "sourceReference": "luke 23:8",
             "unitId": "murdock-luke-23-8",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              1
+            ],
+            "evidence": [
+              "MURDOCK_PHRASE_CONTEXT"
+            ],
             "sedraStatus": 404,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "Herod",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -279,21 +283,18 @@
             "unitId": "murdock-luke-23-8",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              0,
-              1,
-              2
+              0
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH",
-              "MURDOCK_PHRASE_CONTEXT"
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "And Herod rejoiced",
+          "gloss": "And",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -476,7 +477,39 @@
         }
       },
       "peshitta": {
-        "type": "empty"
+        "type": "text",
+        "text": "ܟܕ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "luke 23:8",
+          "sourceToken": 3,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "luke 23:8",
+            "unitId": "murdock-luke-23-8",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              3,
+              4
+            ],
+            "evidence": [
+              "MURDOCK_PHRASE_CONTEXT",
+              "SEDRA_LEXICAL_MATCH"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          }
+        },
+        "gloss": {
+          "gloss": "greatly when",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
       },
       "byzantine": {
         "type": "text",
@@ -645,12 +678,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܟܕ",
+        "text": "ܚܙܝܗܝ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "luke 23:8",
-          "sourceToken": 3,
+          "sourceToken": 4,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -660,20 +693,20 @@
             "unitId": "murdock-luke-23-8",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              3,
-              4
+              5,
+              6
             ],
             "evidence": [
-              "MURDOCK_PHRASE_CONTEXT",
-              "SEDRA_LEXICAL_MATCH"
+              "ETCBC_MORPHOLOGICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "greatly when",
+          "gloss": "he saw",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1008,12 +1041,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܚܙܝܗܝ",
+        "text": "ܠܝܫܘܥ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "luke 23:8",
-          "sourceToken": 4,
+          "sourceToken": 5,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -1023,20 +1056,18 @@
             "unitId": "murdock-luke-23-8",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              5,
-              6
+              7
             ],
             "evidence": [
-              "ETCBC_MORPHOLOGICAL_MATCH",
-              "SEDRA_LEXICAL_MATCH"
+              "INDEPENDENT_WITNESS_ROW_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "he saw",
+          "gloss": "Jesus,",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1208,39 +1239,7 @@
         }
       },
       "peshitta": {
-        "type": "text",
-        "text": "ܠܝܫܘܥ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "luke 23:8",
-          "sourceToken": 5,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "luke 23:8",
-            "unitId": "murdock-luke-23-8",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              7,
-              8
-            ],
-            "evidence": [
-              "SEDRA_LEXICAL_MATCH",
-              "ETCBC_MORPHOLOGICAL_MATCH"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
-          }
-        },
-        "gloss": {
-          "gloss": "Jesus, for",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
+        "type": "empty"
       },
       "byzantine": {
         "type": "text",
@@ -1436,17 +1435,21 @@
             "sourceReference": "luke 23:8",
             "unitId": "murdock-luke-23-8",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              2
+            ],
+            "evidence": [
+              "MURDOCK_PHRASE_CONTEXT"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "rejoiced",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -1827,17 +1830,22 @@
             "sourceReference": "luke 23:8",
             "unitId": "murdock-luke-23-8",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              8,
+              9
+            ],
+            "evidence": [
+              "MURDOCK_PHRASE_CONTEXT"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "for he",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -2034,20 +2042,18 @@
             "unitId": "murdock-luke-23-8",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              9,
               10
             ],
             "evidence": [
-              "ETCBC_MORPHOLOGICAL_MATCH",
               "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "he had",
+          "gloss": "had",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2256,7 +2262,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
@@ -2459,18 +2465,22 @@
             "unitId": "murdock-luke-23-8",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              13
+              16,
+              17,
+              18
             ],
             "evidence": [
-              "MURDOCK_PHRASE_CONTEXT"
+              "SEDRA_LEXICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT",
+              "INDEPENDENT_WITNESS_ROW_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "to",
+          "gloss": "for a long",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2534,6 +2544,33 @@
         }
       },
       "_copticDraft": true
+    },
+    {
+      "id": "peshitta-luke-23-8-source-11",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "empty"
+      },
+      "byzantine": {
+        "type": "empty"
+      }
     },
     {
       "id": "r14",
@@ -2654,12 +2691,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܠܡܚܙܝܗ",
+        "text": "ܡܢ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "luke 23:8",
-          "sourceToken": 11,
+          "sourceToken": 12,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -2669,21 +2706,18 @@
             "unitId": "murdock-luke-23-8",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              14,
-              15,
-              16
+              26
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH",
-              "ETCBC_MORPHOLOGICAL_MATCH"
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "see him for",
+          "gloss": "of",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2871,12 +2905,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܡܢ",
+        "text": "ܠܡܚܙܝܗ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "luke 23:8",
-          "sourceToken": 12,
+          "sourceToken": 11,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -2886,18 +2920,29 @@
             "unitId": "murdock-luke-23-8",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              17
+              14,
+              15
             ],
             "evidence": [
-              "MURDOCK_PHRASE_CONTEXT"
+              "INDEPENDENT_WITNESS_ROW_MATCH",
+              "ETCBC_MORPHOLOGICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          },
+          "sharedRowAlignment": {
+            "status": "deterministically-realigned",
+            "authority": "sedra-independent-two-family",
+            "concepts": [
+              "see"
+            ],
+            "previousRowId": "peshitta-luke-23-8-source-11",
+            "targetRowId": "r15"
           }
         },
         "gloss": {
-          "gloss": "a",
+          "gloss": "see him",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -3103,20 +3148,18 @@
             "unitId": "murdock-luke-23-8",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              18,
               19
             ],
             "evidence": [
-              "MURDOCK_PHRASE_CONTEXT",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "long time,",
+          "gloss": "time,",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -3181,6 +3224,64 @@
         }
       },
       "_copticDraft": true
+    },
+    {
+      "id": "peshitta-luke-23-8-source-14",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "text",
+        "text": "ܤܓܝܐܐ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "luke 23:8",
+          "sourceToken": 14,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "luke 23:8",
+            "unitId": "murdock-luke-23-8",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              21,
+              22
+            ],
+            "evidence": [
+              "MURDOCK_PHRASE_CONTEXT"
+            ],
+            "sedraStatus": 404,
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          }
+        },
+        "gloss": {
+          "gloss": "he had",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      }
     },
     {
       "id": "r17",
@@ -3294,12 +3395,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܤܓܝܐܐ",
+        "text": "ܡܛܠ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "luke 23:8",
-          "sourceToken": 14,
+          "sourceToken": 15,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -3308,17 +3409,21 @@
             "sourceReference": "luke 23:8",
             "unitId": "murdock-luke-23-8",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
-            "sedraStatus": 404,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "englishIndices": [
+              20
+            ],
+            "evidence": [
+              "INDEPENDENT_WITNESS_ROW_MATCH"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "because",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -3657,37 +3762,7 @@
         }
       },
       "peshitta": {
-        "type": "text",
-        "text": "ܡܛܠ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "luke 23:8",
-          "sourceToken": 15,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "luke 23:8",
-            "unitId": "murdock-luke-23-8",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              20
-            ],
-            "evidence": [
-              "SEDRA_LEXICAL_MATCH"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
-          }
-        },
-        "gloss": {
-          "gloss": "because",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
+        "type": "empty"
       },
       "byzantine": {
         "type": "text",
@@ -3801,21 +3876,20 @@
             "unitId": "murdock-luke-23-8",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              21,
-              22,
-              23
+              24,
+              25
             ],
             "evidence": [
-              "ETCBC_MORPHOLOGICAL_MATCH",
+              "INDEPENDENT_WITNESS_ROW_MATCH",
               "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "he had heard",
+          "gloss": "many things",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -4014,18 +4088,18 @@
             "unitId": "murdock-luke-23-8",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              24
+              13
             ],
             "evidence": [
               "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "many",
+          "gloss": "to",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -4225,21 +4299,18 @@
             "unitId": "murdock-luke-23-8",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              25,
-              26,
               27
             ],
             "evidence": [
-              "MURDOCK_PHRASE_CONTEXT",
               "ETCBC_MORPHOLOGICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "things of him,",
+          "gloss": "him,",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -4555,17 +4626,21 @@
             "sourceReference": "luke 23:8",
             "unitId": "murdock-luke-23-8",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              23
+            ],
+            "evidence": [
+              "MURDOCK_PHRASE_CONTEXT"
+            ],
             "sedraStatus": 404,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "heard",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -4628,6 +4703,179 @@
         }
       },
       "_copticDraft": true
+    },
+    {
+      "id": "peshitta-luke-23-8-source-20",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "text",
+        "text": "ܘܡܤܒܪ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "luke 23:8",
+          "sourceToken": 20,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "luke 23:8",
+            "unitId": "murdock-luke-23-8",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              28
+            ],
+            "evidence": [
+              "MURDOCK_PHRASE_CONTEXT"
+            ],
+            "sedraStatus": 404,
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          }
+        },
+        "gloss": {
+          "gloss": "and",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      }
+    },
+    {
+      "id": "peshitta-luke-23-8-source-21",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "text",
+        "text": "ܗܘܐ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "luke 23:8",
+          "sourceToken": 21,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "luke 23:8",
+            "unitId": "murdock-luke-23-8",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              29,
+              30
+            ],
+            "evidence": [
+              "ETCBC_MORPHOLOGICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          }
+        },
+        "gloss": {
+          "gloss": "he hoped",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      }
+    },
+    {
+      "id": "peshitta-luke-23-8-source-22",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "text",
+        "text": "ܕܡܕܡ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "luke 23:8",
+          "sourceToken": 22,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "luke 23:8",
+            "unitId": "murdock-luke-23-8",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              31
+            ],
+            "evidence": [
+              "MURDOCK_PHRASE_CONTEXT"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          }
+        },
+        "gloss": {
+          "gloss": "to",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      }
     },
     {
       "id": "r25",
@@ -4748,12 +4996,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܘܡܤܒܪ",
+        "text": "ܐܬܐ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "luke 23:8",
-          "sourceToken": 20,
+          "sourceToken": 23,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -4763,18 +5011,18 @@
             "unitId": "murdock-luke-23-8",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              28
+              34
             ],
             "evidence": [
-              "MURDOCK_PHRASE_CONTEXT"
+              "INDEPENDENT_WITNESS_ROW_MATCH"
             ],
-            "sedraStatus": 404,
+            "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "and",
+          "gloss": "sign",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -4958,39 +5206,7 @@
         }
       },
       "peshitta": {
-        "type": "text",
-        "text": "ܗܘܐ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "luke 23:8",
-          "sourceToken": 21,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "luke 23:8",
-            "unitId": "murdock-luke-23-8",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              29,
-              30
-            ],
-            "evidence": [
-              "ETCBC_MORPHOLOGICAL_MATCH",
-              "MURDOCK_PHRASE_CONTEXT"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
-          }
-        },
-        "gloss": {
-          "gloss": "he hoped",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
+        "type": "empty"
       },
       "byzantine": {
         "type": "text",
@@ -5157,12 +5373,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܕܡܕܡ",
+        "text": "ܢܚܙܐ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "luke 23:8",
-          "sourceToken": 22,
+          "sourceToken": 24,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -5172,19 +5388,20 @@
             "unitId": "murdock-luke-23-8",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              31,
-              32
+              32,
+              33
             ],
             "evidence": [
+              "INDEPENDENT_WITNESS_ROW_MATCH",
               "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "to see",
+          "gloss": "see some",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -5368,39 +5585,7 @@
         }
       },
       "peshitta": {
-        "type": "text",
-        "text": "ܐܬܐ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "luke 23:8",
-          "sourceToken": 23,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "luke 23:8",
-            "unitId": "murdock-luke-23-8",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              33,
-              34
-            ],
-            "evidence": [
-              "MURDOCK_PHRASE_CONTEXT",
-              "SEDRA_LEXICAL_MATCH"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
-          }
-        },
-        "gloss": {
-          "gloss": "some sign",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
+        "type": "empty"
       },
       "byzantine": {
         "type": "text",
@@ -5549,33 +5734,7 @@
         }
       },
       "peshitta": {
-        "type": "text",
-        "text": "ܢܚܙܐ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "luke 23:8",
-          "sourceToken": 24,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "luke 23:8",
-            "unitId": "murdock-luke-23-8",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
-            "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
-          }
-        },
-        "gloss": {
-          "gloss": "",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
-        }
+        "type": "empty"
       },
       "byzantine": {
         "type": "text",
@@ -5746,7 +5905,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {

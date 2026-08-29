@@ -4,6 +4,33 @@
   "verse": 75,
   "rows": [
     {
+      "id": "peshitta-matthew-26-75-source-1",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "empty"
+      },
+      "byzantine": {
+        "type": "empty"
+      }
+    },
+    {
       "id": "r1",
       "papyrus": {
         "type": "lost"
@@ -92,12 +119,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܘܐܬܕܟܪ",
+        "text": "ܟܐܦܐ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "matthew 26:75",
-          "sourceToken": 1,
+          "sourceToken": 2,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -107,18 +134,20 @@
             "unitId": "murdock-matthew-26-75",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              0
+              0,
+              1
             ],
             "evidence": [
-              "ETCBC_MORPHOLOGICAL_MATCH"
+              "MURDOCK_PHRASE_CONTEXT",
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "And",
+          "gloss": "And Cephas",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -240,12 +269,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܟܐܦܐ",
+        "text": "ܘܐܬܕܟܪ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "matthew 26:75",
-          "sourceToken": 2,
+          "sourceToken": 1,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -255,20 +284,27 @@
             "unitId": "murdock-matthew-26-75",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              1,
               2
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH",
-              "MURDOCK_PHRASE_CONTEXT"
+              "INDEPENDENT_WITNESS_ROW_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          },
+          "sharedRowAlignment": {
+            "status": "deterministically-realigned",
+            "authority": "sedra-independent-two-family",
+            "concepts": [
+              "remember"
+            ],
+            "previousRowId": "peshitta-matthew-26-75-source-1",
+            "targetRowId": "r2"
           }
         },
         "gloss": {
-          "gloss": "Cephas remembered",
+          "gloss": "remembered",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -522,7 +558,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
@@ -767,20 +803,20 @@
             "unitId": "murdock-matthew-26-75",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              5,
-              6
+              6,
+              7
             ],
             "evidence": [
-              "ETCBC_MORPHOLOGICAL_MATCH",
-              "SEDRA_LEXICAL_MATCH"
+              "SEDRA_LEXICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "of Jesus,",
+          "gloss": "Jesus, who",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1171,20 +1207,18 @@
             "unitId": "murdock-matthew-26-75",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              7,
               8
             ],
             "evidence": [
-              "ETCBC_MORPHOLOGICAL_MATCH",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "who said",
+          "gloss": "said",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1326,7 +1360,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
@@ -1393,6 +1427,33 @@
         }
       },
       "_copticDraft": true
+    },
+    {
+      "id": "peshitta-matthew-26-75-source-7",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "empty"
+      },
+      "byzantine": {
+        "type": "empty"
+      }
     },
     {
       "id": "r11",
@@ -1487,12 +1548,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܕܩܕܡ",
+        "text": "ܕܢܩܪܐ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "matthew 26:75",
-          "sourceToken": 7,
+          "sourceToken": 8,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -1502,18 +1563,18 @@
             "unitId": "murdock-matthew-26-75",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              11
+              5
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH"
+              "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "Before",
+          "gloss": "of",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1666,12 +1727,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܕܢܩܪܐ",
+        "text": "ܕܩܕܡ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "matthew 26:75",
-          "sourceToken": 8,
+          "sourceToken": 7,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -1681,18 +1742,27 @@
             "unitId": "murdock-matthew-26-75",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              12
+              11
             ],
             "evidence": [
-              "MURDOCK_PHRASE_CONTEXT"
+              "INDEPENDENT_WITNESS_ROW_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          },
+          "sharedRowAlignment": {
+            "status": "deterministically-realigned",
+            "authority": "sedra-independent-two-family",
+            "concepts": [
+              "before"
+            ],
+            "previousRowId": "peshitta-matthew-26-75-source-7",
+            "targetRowId": "r12"
           }
         },
         "gloss": {
-          "gloss": "the",
+          "gloss": "Before",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1871,7 +1941,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
@@ -2048,7 +2118,6 @@
             "unitId": "murdock-matthew-26-75",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              15,
               16,
               17
             ],
@@ -2058,11 +2127,11 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "thou wilt three",
+          "gloss": "wilt three",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2234,17 +2303,21 @@
             "sourceReference": "matthew 26:75",
             "unitId": "murdock-matthew-26-75",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              12
+            ],
+            "evidence": [
+              "MURDOCK_PHRASE_CONTEXT"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "the",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -2420,7 +2493,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
@@ -2751,7 +2824,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
@@ -2893,18 +2966,20 @@
             "scope": "syriac-lexical-cell",
             "englishIndices": [
               21,
-              22
+              22,
+              23
             ],
             "evidence": [
+              "MURDOCK_PHRASE_CONTEXT",
               "ETCBC_MORPHOLOGICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "And he",
+          "gloss": "And he went",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -3073,19 +3148,18 @@
             "unitId": "murdock-matthew-26-75",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              23,
-              24
+              15
             ],
             "evidence": [
               "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "went out,",
+          "gloss": "thou",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -3258,6 +3332,7 @@
             "unitId": "murdock-matthew-26-75",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
+              24,
               25,
               26
             ],
@@ -3266,11 +3341,11 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "and wept",
+          "gloss": "out, and wept",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -3410,11 +3485,11 @@
               27
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH"
+              "INDEPENDENT_WITNESS_ROW_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {

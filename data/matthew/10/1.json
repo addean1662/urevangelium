@@ -4,6 +4,33 @@
   "verse": 1,
   "rows": [
     {
+      "id": "peshitta-matthew-10-1-source-1",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "empty"
+      },
+      "byzantine": {
+        "type": "empty"
+      }
+    },
+    {
       "id": "r1",
       "papyrus": {
         "type": "lost"
@@ -92,12 +119,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܘܩܪܐ",
+        "text": "ܠܬܪܥܤܪ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "matthew 10:1",
-          "sourceToken": 1,
+          "sourceToken": 2,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -107,19 +134,20 @@
             "unitId": "murdock-matthew-10-1",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              0,
-              1
+              1,
+              2
             ],
             "evidence": [
-              "ETCBC_MORPHOLOGICAL_MATCH"
+              "ETCBC_MORPHOLOGICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT"
             ],
-            "sedraStatus": 200,
+            "sedraStatus": 404,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "And he",
+          "gloss": "he called",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -242,12 +270,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܠܬܪܥܤܪ",
+        "text": "ܘܩܪܐ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "matthew 10:1",
-          "sourceToken": 2,
+          "sourceToken": 1,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -257,19 +285,27 @@
             "unitId": "murdock-matthew-10-1",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              2,
-              3
+              0
             ],
             "evidence": [
               "MURDOCK_PHRASE_CONTEXT"
             ],
-            "sedraStatus": 404,
+            "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          },
+          "sharedRowAlignment": {
+            "status": "deterministically-realigned",
+            "authority": "sedra-independent-two-family",
+            "concepts": [
+              "call"
+            ],
+            "previousRowId": "peshitta-matthew-10-1-source-1",
+            "targetRowId": "r2"
           }
         },
         "gloss": {
-          "gloss": "called his",
+          "gloss": "And",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -674,20 +710,22 @@
             "unitId": "murdock-matthew-10-1",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
+              3,
               4,
-              5,
-              6
+              5
             ],
             "evidence": [
-              "MURDOCK_PHRASE_CONTEXT"
+              "ETCBC_MORPHOLOGICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT",
+              "INDEPENDENT_WITNESS_ROW_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "twelve disciples to",
+          "gloss": "his twelve disciples",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -845,11 +883,12 @@
             ],
             "evidence": [
               "ETCBC_MORPHOLOGICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
@@ -1145,18 +1184,18 @@
             "unitId": "murdock-matthew-10-1",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              10
+              6
             ],
             "evidence": [
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "them",
+          "gloss": "to",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1325,18 +1364,20 @@
             "unitId": "murdock-matthew-10-1",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
+              10,
               11
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH"
+              "MURDOCK_PHRASE_CONTEXT",
+              "INDEPENDENT_WITNESS_ROW_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "authority",
+          "gloss": "them authority",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1399,6 +1440,63 @@
             "scope": "documented lexical range; contextual sense not independently selected"
           }
         }
+      }
+    },
+    {
+      "id": "peshitta-matthew-10-1-source-7",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "text",
+        "text": "ܥܠ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "matthew 10:1",
+          "sourceToken": 7,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "matthew 10:1",
+            "unitId": "murdock-matthew-10-1",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              12
+            ],
+            "evidence": [
+              "SEDRA_LEXICAL_MATCH"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          }
+        },
+        "gloss": {
+          "gloss": "over",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
       }
     },
     {
@@ -1493,7 +1591,37 @@
         }
       },
       "peshitta": {
-        "type": "empty"
+        "type": "text",
+        "text": "ܪܘܚܐ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "matthew 10:1",
+          "sourceToken": 8,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "matthew 10:1",
+            "unitId": "murdock-matthew-10-1",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              14
+            ],
+            "evidence": [
+              "INDEPENDENT_WITNESS_ROW_MATCH"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          }
+        },
+        "gloss": {
+          "gloss": "spirits",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
       },
       "byzantine": {
         "type": "text",
@@ -1644,12 +1772,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܥܠ",
+        "text": "ܛܢܦܬܐ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "matthew 10:1",
-          "sourceToken": 7,
+          "sourceToken": 9,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -1659,18 +1787,18 @@
             "unitId": "murdock-matthew-10-1",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              12
+              13
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH"
+              "INDEPENDENT_WITNESS_ROW_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "over",
+          "gloss": "unclean",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1823,39 +1951,7 @@
         }
       },
       "peshitta": {
-        "type": "text",
-        "text": "ܪܘܚܐ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "matthew 10:1",
-          "sourceToken": 8,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "matthew 10:1",
-            "unitId": "murdock-matthew-10-1",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              13,
-              14
-            ],
-            "evidence": [
-              "MURDOCK_PHRASE_CONTEXT",
-              "SEDRA_LEXICAL_MATCH"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
-          }
-        },
-        "gloss": {
-          "gloss": "unclean spirits",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
+        "type": "empty"
       },
       "byzantine": {
         "type": "text",
@@ -2156,38 +2252,7 @@
         }
       },
       "peshitta": {
-        "type": "text",
-        "text": "ܛܢܦܬܐ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "matthew 10:1",
-          "sourceToken": 9,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "matthew 10:1",
-            "unitId": "murdock-matthew-10-1",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              15,
-              16
-            ],
-            "evidence": [
-              "MURDOCK_PHRASE_CONTEXT"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
-          }
-        },
-        "gloss": {
-          "gloss": "to cast",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
+        "type": "empty"
       },
       "byzantine": {
         "type": "text",
@@ -2353,7 +2418,8 @@
             "scope": "syriac-lexical-cell",
             "englishIndices": [
               17,
-              18
+              18,
+              19
             ],
             "evidence": [
               "ETCBC_MORPHOLOGICAL_MATCH",
@@ -2361,11 +2427,11 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "them out,",
+          "gloss": "them out, and",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2654,19 +2720,19 @@
             "unitId": "murdock-matthew-10-1",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              19,
-              20
+              15,
+              16
             ],
             "evidence": [
               "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 404,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "and to",
+          "gloss": "to cast",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2840,6 +2906,7 @@
             "unitId": "murdock-matthew-10-1",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
+              20,
               21,
               22
             ],
@@ -2849,11 +2916,11 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "heal every",
+          "gloss": "to heal every",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -3149,7 +3216,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
@@ -3328,12 +3395,12 @@
               25
             ],
             "evidence": [
-              "ETCBC_MORPHOLOGICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {

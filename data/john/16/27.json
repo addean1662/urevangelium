@@ -161,17 +161,21 @@
             "sourceReference": "john 16:27",
             "unitId": "murdock-john-16-27",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              3
+            ],
+            "evidence": [
+              "INDEPENDENT_WITNESS_ROW_MATCH"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "himself",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -402,20 +406,18 @@
             "unitId": "murdock-john-16-27",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              0,
-              1
+              0
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH",
-              "MURDOCK_PHRASE_CONTEXT"
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "for the",
+          "gloss": "for",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -769,7 +771,39 @@
         }
       },
       "peshitta": {
-        "type": "empty"
+        "type": "text",
+        "text": "ܐܒܐ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "john 16:27",
+          "sourceToken": 3,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "john 16:27",
+            "unitId": "murdock-john-16-27",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              1,
+              2
+            ],
+            "evidence": [
+              "MURDOCK_PHRASE_CONTEXT",
+              "INDEPENDENT_WITNESS_ROW_MATCH"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          }
+        },
+        "gloss": {
+          "gloss": "the Father",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
       },
       "byzantine": {
         "type": "text",
@@ -976,12 +1010,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܐܒܐ",
+        "text": "ܪܚܡ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "john 16:27",
-          "sourceToken": 3,
+          "sourceToken": 4,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -991,21 +1025,18 @@
             "unitId": "murdock-john-16-27",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              2,
-              3,
               4
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH",
-              "MURDOCK_PHRASE_CONTEXT"
+              "INDEPENDENT_WITNESS_ROW_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "Father himself loveth",
+          "gloss": "loveth",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1211,33 +1242,7 @@
         }
       },
       "peshitta": {
-        "type": "text",
-        "text": "ܪܚܡ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "john 16:27",
-          "sourceToken": 4,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "john 16:27",
-            "unitId": "murdock-john-16-27",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
-            "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
-          }
-        },
-        "gloss": {
-          "gloss": "",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
-        }
+        "type": "empty"
       },
       "byzantine": {
         "type": "text",
@@ -1461,17 +1466,21 @@
             "sourceReference": "john 16:27",
             "unitId": "murdock-john-16-27",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              6
+            ],
+            "evidence": [
+              "INDEPENDENT_WITNESS_ROW_MATCH"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "because",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -1693,21 +1702,18 @@
             "unitId": "murdock-john-16-27",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              5,
-              6,
-              7
+              5
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH",
-              "MURDOCK_PHRASE_CONTEXT"
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "you, because ye",
+          "gloss": "you,",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2151,21 +2157,18 @@
             "unitId": "murdock-john-16-27",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              8,
-              9,
               10
             ],
             "evidence": [
-              "MURDOCK_PHRASE_CONTEXT",
               "ETCBC_MORPHOLOGICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "have loved me,",
+          "gloss": "me,",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2387,21 +2390,20 @@
             "unitId": "murdock-john-16-27",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              11,
-              12,
-              13
+              14,
+              15,
+              16
             ],
             "evidence": [
-              "ETCBC_MORPHOLOGICAL_MATCH",
               "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "and have believed",
+          "gloss": "that I proceeded",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2607,20 +2609,21 @@
             "unitId": "murdock-john-16-27",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              14,
-              15
+              11,
+              12,
+              13
             ],
             "evidence": [
-              "ETCBC_MORPHOLOGICAL_MATCH",
-              "SEDRA_LEXICAL_MATCH"
+              "MURDOCK_PHRASE_CONTEXT",
+              "INDEPENDENT_WITNESS_ROW_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "that I",
+          "gloss": "and have believed",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2849,20 +2852,21 @@
             "unitId": "murdock-john-16-27",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              16,
-              17
+              17,
+              18,
+              19
             ],
             "evidence": [
-              "MURDOCK_PHRASE_CONTEXT",
-              "SEDRA_LEXICAL_MATCH"
+              "SEDRA_LEXICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "proceeded from",
+          "gloss": "from the presence",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -3282,19 +3286,19 @@
             "unitId": "murdock-john-16-27",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              18,
-              19
+              8,
+              9
             ],
             "evidence": [
               "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "the presence",
+          "gloss": "have loved",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -3708,18 +3712,19 @@
             "scope": "syriac-lexical-cell",
             "englishIndices": [
               20,
-              21
+              21,
+              22
             ],
             "evidence": [
               "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "of the",
+          "gloss": "of the Father.",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -3908,18 +3913,18 @@
             "unitId": "murdock-john-16-27",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              22
+              7
             ],
             "evidence": [
               "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "Father.",
+          "gloss": "ye",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }

@@ -109,6 +109,7 @@ describe('Matthew 1:20 Peshitta row-cell alignment', () => {
     const { container } = render(<AlignmentTable data={{ ...matthewOneTwentyData, rows: completeRows } as VerseData} />);
     const cells = [...container.querySelectorAll('td[title^="Murdock 1851"]')];
     expect(cells.some((cell) => cell.textContent === 'an angel')).toBe(true);
+    expect(cells.some((cell) => cell.textContent === 'of the Lord')).toBe(true);
     expect(cells.some((cell) => cell.textContent === 'appeared')).toBe(true);
     expect(cells.some((cell) => cell.textContent === 'to him')).toBe(true);
     expect(cells.some((cell) => cell.textContent === 'in a dream,')).toBe(true);

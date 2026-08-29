@@ -140,7 +140,6 @@
             "unitId": "murdock-john-17-26",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              0,
               1,
               2
             ],
@@ -150,11 +149,11 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "And I have",
+          "gloss": "I have",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -339,11 +338,12 @@
               5
             ],
             "evidence": [
-              "MURDOCK_PHRASE_CONTEXT"
+              "MURDOCK_PHRASE_CONTEXT",
+              "INDEPENDENT_WITNESS_ROW_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
@@ -897,11 +897,11 @@
             "evidence": [
               "MURDOCK_PHRASE_CONTEXT",
               "ETCBC_MORPHOLOGICAL_MATCH",
-              "SEDRA_LEXICAL_MATCH"
+              "INDEPENDENT_WITNESS_ROW_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
@@ -1108,18 +1108,18 @@
             "unitId": "murdock-john-17-26",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              9
+              0
             ],
             "evidence": [
-              "ETCBC_MORPHOLOGICAL_MATCH"
+              "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "and",
+          "gloss": "And",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1483,20 +1483,20 @@
             "unitId": "murdock-john-17-26",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              10,
-              11
+              9,
+              10
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH",
-              "MURDOCK_PHRASE_CONTEXT"
+              "MURDOCK_PHRASE_CONTEXT",
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "I will",
+          "gloss": "and I",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1675,39 +1675,7 @@
         }
       },
       "peshitta": {
-        "type": "text",
-        "text": "ܕܚܘܒܐ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "john 17:26",
-          "sourceToken": 6,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "john 17:26",
-            "unitId": "murdock-john-17-26",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              12,
-              13,
-              14
-            ],
-            "evidence": [
-              "MURDOCK_PHRASE_CONTEXT"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
-          }
-        },
-        "gloss": {
-          "gloss": "make it known;",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
+        "type": "empty"
       },
       "byzantine": {
         "type": "text",
@@ -2044,7 +2012,39 @@
         }
       },
       "peshitta": {
-        "type": "empty"
+        "type": "text",
+        "text": "ܕܚܘܒܐ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "john 17:26",
+          "sourceToken": 6,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "john 17:26",
+            "unitId": "murdock-john-17-26",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              20,
+              21,
+              22
+            ],
+            "evidence": [
+              "MURDOCK_PHRASE_CONTEXT"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          }
+        },
+        "gloss": {
+          "gloss": "which thou lovedst",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
       },
       "byzantine": {
         "type": "text",
@@ -2247,9 +2247,9 @@
             "unitId": "murdock-john-17-26",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
+              14,
               15,
-              16,
-              17
+              16
             ],
             "evidence": [
               "MURDOCK_PHRASE_CONTEXT",
@@ -2257,11 +2257,11 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "so that the",
+          "gloss": "known; so that",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2467,22 +2467,20 @@
             "unitId": "murdock-john-17-26",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
+              17,
               18,
-              19,
-              20
+              19
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH",
-              "MURDOCK_PHRASE_CONTEXT",
-              "ETCBC_MORPHOLOGICAL_MATCH"
+              "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "love, with which",
+          "gloss": "the love, with",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2681,20 +2679,21 @@
             "unitId": "murdock-john-17-26",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              21,
-              22,
-              23
+              11,
+              12,
+              13
             ],
             "evidence": [
+              "ETCBC_MORPHOLOGICAL_MATCH",
               "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "thou lovedst me,",
+          "gloss": "will make it",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -3092,21 +3091,22 @@
             "unitId": "murdock-john-17-26",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              24,
-              25,
-              26
+              26,
+              27,
+              28
             ],
             "evidence": [
-              "MURDOCK_PHRASE_CONTEXT",
-              "SEDRA_LEXICAL_MATCH"
+              "SEDRA_LEXICAL_MATCH",
+              "ETCBC_MORPHOLOGICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "may be in",
+          "gloss": "in them, and",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -3463,22 +3463,20 @@
             "unitId": "murdock-john-17-26",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              27,
-              28,
-              29
+              23,
+              24
             ],
             "evidence": [
-              "MURDOCK_PHRASE_CONTEXT",
-              "ETCBC_MORPHOLOGICAL_MATCH",
-              "SEDRA_LEXICAL_MATCH"
+              "SEDRA_LEXICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "them, and I",
+          "gloss": "me, may",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -3680,17 +3678,21 @@
             "sourceReference": "john 17:26",
             "unitId": "murdock-john-17-26",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              25
+            ],
+            "evidence": [
+              "SEDRA_LEXICAL_MATCH"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "be",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -3891,20 +3893,22 @@
             "unitId": "murdock-john-17-26",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
+              29,
               30,
               31
             ],
             "evidence": [
+              "MURDOCK_PHRASE_CONTEXT",
               "SEDRA_LEXICAL_MATCH",
               "ETCBC_MORPHOLOGICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "in them.",
+          "gloss": "I in them.",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }

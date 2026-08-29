@@ -155,7 +155,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
@@ -370,20 +370,20 @@
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              1,
-              2
+              2,
+              3
             ],
             "evidence": [
-              "MURDOCK_PHRASE_CONTEXT",
-              "SEDRA_LEXICAL_MATCH"
+              "SEDRA_LEXICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "are of",
+          "gloss": "of your",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -720,20 +720,18 @@
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              3,
               4
             ],
             "evidence": [
-              "MURDOCK_PHRASE_CONTEXT",
-              "SEDRA_LEXICAL_MATCH"
+              "INDEPENDENT_WITNESS_ROW_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "your father,",
+          "gloss": "father,",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -1081,7 +1079,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
@@ -1295,17 +1293,21 @@
             "sourceReference": "john 8:44",
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              1
+            ],
+            "evidence": [
+              "SEDRA_LEXICAL_MATCH"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "are",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -1498,7 +1500,39 @@
         }
       },
       "peshitta": {
-        "type": "empty"
+        "type": "text",
+        "text": "ܘܪܓܬܗ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "john 8:44",
+          "sourceToken": 6,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "john 8:44",
+            "unitId": "murdock-john-8-44",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              8,
+              9
+            ],
+            "evidence": [
+              "MURDOCK_PHRASE_CONTEXT",
+              "SEDRA_LEXICAL_MATCH"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          }
+        },
+        "gloss": {
+          "gloss": "the lust",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
       },
       "byzantine": {
         "type": "text",
@@ -1625,7 +1659,38 @@
         "type": "empty"
       },
       "peshitta": {
-        "type": "empty"
+        "type": "text",
+        "text": "ܕܐܒܘܟܘܢ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "john 8:44",
+          "sourceToken": 7,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "john 8:44",
+            "unitId": "murdock-john-8-44",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              11,
+              12
+            ],
+            "evidence": [
+              "MURDOCK_PHRASE_CONTEXT"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          }
+        },
+        "gloss": {
+          "gloss": "your father",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
       },
       "byzantine": {
         "type": "text",
@@ -1788,12 +1853,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܘܪܓܬܗ",
+        "text": "ܨܒܝܢ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "john 8:44",
-          "sourceToken": 6,
+          "sourceToken": 8,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -1803,22 +1868,20 @@
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              7,
-              8,
-              9
+              14,
+              15
             ],
             "evidence": [
               "ETCBC_MORPHOLOGICAL_MATCH",
-              "MURDOCK_PHRASE_CONTEXT",
-              "SEDRA_LEXICAL_MATCH"
+              "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "and the lust",
+          "gloss": "are disposed",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -2141,41 +2204,7 @@
         }
       },
       "peshitta": {
-        "type": "text",
-        "text": "ܕܐܒܘܟܘܢ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "john 8:44",
-          "sourceToken": 7,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "john 8:44",
-            "unitId": "murdock-john-8-44",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              10,
-              11,
-              12
-            ],
-            "evidence": [
-              "ETCBC_MORPHOLOGICAL_MATCH",
-              "MURDOCK_PHRASE_CONTEXT",
-              "SEDRA_LEXICAL_MATCH"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
-          }
-        },
-        "gloss": {
-          "gloss": "of your father",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
+        "type": "empty"
       },
       "byzantine": {
         "type": "text",
@@ -2367,38 +2396,7 @@
         }
       },
       "peshitta": {
-        "type": "text",
-        "text": "ܨܒܝܢ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "john 8:44",
-          "sourceToken": 8,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "john 8:44",
-            "unitId": "murdock-john-8-44",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              13,
-              14
-            ],
-            "evidence": [
-              "ETCBC_MORPHOLOGICAL_MATCH"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
-          }
-        },
-        "gloss": {
-          "gloss": "ye are",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
+        "type": "empty"
       },
       "byzantine": {
         "type": "text",
@@ -2607,17 +2605,21 @@
             "sourceReference": "john 8:44",
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              13
+            ],
+            "evidence": [
+              "SEDRA_LEXICAL_MATCH"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "ye",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -2808,22 +2810,20 @@
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              15,
               16,
               17
             ],
             "evidence": [
               "MURDOCK_PHRASE_CONTEXT",
-              "ETCBC_MORPHOLOGICAL_MATCH",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "disposed to do.",
+          "gloss": "to do.",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -3042,7 +3042,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
@@ -3265,7 +3265,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
@@ -3464,39 +3464,7 @@
         }
       },
       "peshitta": {
-        "type": "text",
-        "text": "ܒܪܫܝܬ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "john 8:44",
-          "sourceToken": 13,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "john 8:44",
-            "unitId": "murdock-john-8-44",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              21,
-              22
-            ],
-            "evidence": [
-              "MURDOCK_PHRASE_CONTEXT",
-              "SEDRA_LEXICAL_MATCH"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
-          }
-        },
-        "gloss": {
-          "gloss": "the beginning",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
+        "type": "empty"
       },
       "byzantine": {
         "type": "text",
@@ -3884,12 +3852,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܩܛܠ",
+        "text": "ܒܪܫܝܬ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "john 8:44",
-          "sourceToken": 14,
+          "sourceToken": 13,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -3898,17 +3866,23 @@
             "sourceReference": "john 8:44",
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              22,
+              23
+            ],
+            "evidence": [
+              "INDEPENDENT_WITNESS_ROW_MATCH",
+              "MURDOCK_PHRASE_CONTEXT"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "beginning a",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -3971,6 +3945,63 @@
         }
       },
       "_copticDraft": true
+    },
+    {
+      "id": "peshitta-john-8-44-source-14",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "text",
+        "text": "ܩܛܠ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "john 8:44",
+          "sourceToken": 14,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "john 8:44",
+            "unitId": "murdock-john-8-44",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              7
+            ],
+            "evidence": [
+              "MURDOCK_PHRASE_CONTEXT"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          }
+        },
+        "gloss": {
+          "gloss": "and",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
+      },
+      "byzantine": {
+        "type": "empty"
+      }
     },
     {
       "id": "r21",
@@ -4117,19 +4148,19 @@
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              23,
-              24
+              25,
+              26
             ],
             "evidence": [
               "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "a manslayer,",
+          "gloss": "and abode",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -4292,33 +4323,7 @@
         }
       },
       "peshitta": {
-        "type": "text",
-        "text": "ܗܘ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "john 8:44",
-          "sourceToken": 16,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "john 8:44",
-            "unitId": "murdock-john-8-44",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
-            "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
-          }
-        },
-        "gloss": {
-          "gloss": "",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
-        }
+        "type": "empty"
       },
       "byzantine": {
         "type": "text",
@@ -4477,7 +4482,37 @@
         "type": "empty"
       },
       "peshitta": {
-        "type": "empty"
+        "type": "text",
+        "text": "ܗܘ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "john 8:44",
+          "sourceToken": 16,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "john 8:44",
+            "unitId": "murdock-john-8-44",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              34
+            ],
+            "evidence": [
+              "SEDRA_LEXICAL_MATCH"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          }
+        },
+        "gloss": {
+          "gloss": "is",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
       },
       "byzantine": {
         "type": "text",
@@ -4655,20 +4690,20 @@
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              25,
-              26
+              29,
+              30
             ],
             "evidence": [
-              "ETCBC_MORPHOLOGICAL_MATCH",
-              "MURDOCK_PHRASE_CONTEXT"
+              "MURDOCK_PHRASE_CONTEXT",
+              "INDEPENDENT_WITNESS_ROW_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "and abode",
+          "gloss": "the truth;",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -4881,21 +4916,18 @@
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              27,
-              28,
-              29
+              27
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH",
-              "MURDOCK_PHRASE_CONTEXT"
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "not in the",
+          "gloss": "not",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -5110,18 +5142,18 @@
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              30
+              10
             ],
             "evidence": [
               "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "truth;",
+          "gloss": "of",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -5331,20 +5363,18 @@
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              31,
-              32
+              31
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH",
-              "MURDOCK_PHRASE_CONTEXT"
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "for the",
+          "gloss": "for",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -5607,20 +5637,19 @@
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              33,
-              34
+              32,
+              33
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH",
               "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "truth is",
+          "gloss": "the truth",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -5830,18 +5859,18 @@
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              35
+              21
             ],
             "evidence": [
               "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "not",
+          "gloss": "the",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -6232,19 +6261,21 @@
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
+              35,
               36,
               37
             ],
             "evidence": [
+              "MURDOCK_PHRASE_CONTEXT",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "in him,",
+          "gloss": "not in him,",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -6308,6 +6339,33 @@
         }
       },
       "_copticDraft": true
+    },
+    {
+      "id": "peshitta-john-8-44-source-24",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "empty"
+      },
+      "byzantine": {
+        "type": "empty"
+      }
     },
     {
       "id": "r32",
@@ -6439,12 +6497,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܐܡܬܝ",
+        "text": "ܕܡܡܠܠ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "john 8:44",
-          "sourceToken": 24,
+          "sourceToken": 25,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -6454,20 +6512,20 @@
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              38,
-              39
+              40,
+              41
             ],
             "evidence": [
-              "MURDOCK_PHRASE_CONTEXT",
-              "SEDRA_LEXICAL_MATCH"
+              "ETCBC_MORPHOLOGICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "and when",
+          "gloss": "he speaketh",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -6662,12 +6720,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܕܡܡܠܠ",
+        "text": "ܐܡܬܝ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "john 8:44",
-          "sourceToken": 25,
+          "sourceToken": 24,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -6677,20 +6735,29 @@
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              40,
-              41
+              38,
+              39
             ],
             "evidence": [
-              "ETCBC_MORPHOLOGICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT",
               "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          },
+          "sharedRowAlignment": {
+            "status": "deterministically-realigned",
+            "authority": "sedra-independent-two-family",
+            "concepts": [
+              "when"
+            ],
+            "previousRowId": "peshitta-john-8-44-source-24",
+            "targetRowId": "r33"
           }
         },
         "gloss": {
-          "gloss": "he speaketh",
+          "gloss": "and when",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -6911,7 +6978,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
@@ -7257,17 +7324,23 @@
             "sourceReference": "john 8:44",
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              46,
+              47
+            ],
+            "evidence": [
+              "SEDRA_LEXICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "from himself,",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -7329,6 +7402,33 @@
         }
       },
       "_copticDraft": true
+    },
+    {
+      "id": "peshitta-john-8-44-source-28",
+      "papyrus": {
+        "type": "empty"
+      },
+      "coptic": {
+        "type": "empty"
+      },
+      "vaticanus": {
+        "type": "empty"
+      },
+      "sinaiticus": {
+        "type": "empty"
+      },
+      "bezae": {
+        "type": "empty"
+      },
+      "vulgate": {
+        "type": "empty"
+      },
+      "peshitta": {
+        "type": "empty"
+      },
+      "byzantine": {
+        "type": "empty"
+      }
     },
     {
       "id": "r37",
@@ -7460,12 +7560,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܕܝܠܗ",
+        "text": "ܗܘ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "john 8:44",
-          "sourceToken": 28,
+          "sourceToken": 29,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -7474,17 +7574,22 @@
             "sourceReference": "john 8:44",
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              49,
+              50
+            ],
+            "evidence": [
+              "SEDRA_LEXICAL_MATCH"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "he is",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -7801,12 +7906,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܗܘ",
+        "text": "ܕܝܠܗ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "john 8:44",
-          "sourceToken": 29,
+          "sourceToken": 28,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -7816,18 +7921,29 @@
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              44
+              44,
+              45
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH"
+              "ETCBC_MORPHOLOGICAL_MATCH",
+              "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          },
+          "sharedRowAlignment": {
+            "status": "deterministically-realigned",
+            "authority": "sedra-independent-two-family",
+            "concepts": [
+              "own"
+            ],
+            "previousRowId": "peshitta-john-8-44-source-28",
+            "targetRowId": "r39"
           }
         },
         "gloss": {
-          "gloss": "he",
+          "gloss": "he speaketh",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -8008,21 +8124,18 @@
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              45,
-              46,
-              47
+              24
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH",
               "MURDOCK_PHRASE_CONTEXT"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "speaketh from himself,",
+          "gloss": "manslayer,",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -8359,7 +8472,7 @@
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
@@ -8543,17 +8656,23 @@
             "sourceReference": "john 8:44",
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
-            "englishIndices": [],
-            "evidence": [],
+            "englishIndices": [
+              51,
+              52
+            ],
+            "evidence": [
+              "MURDOCK_PHRASE_CONTEXT",
+              "SEDRA_LEXICAL_MATCH"
+            ],
             "sedraStatus": 200,
-            "status": "no-certified-equivalent",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "",
+          "gloss": "a liar,",
           "source": "Murdock",
-          "tooltip": "Murdock 1851 · no certified English equivalent assigned"
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
       },
       "byzantine": {
@@ -8730,21 +8849,20 @@
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              49,
-              50,
-              51
+              56,
+              57
             ],
             "evidence": [
-              "SEDRA_LEXICAL_MATCH",
-              "MURDOCK_PHRASE_CONTEXT"
+              "MURDOCK_PHRASE_CONTEXT",
+              "SEDRA_LEXICAL_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "he is a",
+          "gloss": "of it.",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -8874,7 +8992,37 @@
         "type": "empty"
       },
       "peshitta": {
-        "type": "empty"
+        "type": "text",
+        "text": "ܐܦ",
+        "provenance": {
+          "sourceId": "peshitta-scrollmapper",
+          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
+          "sourceReference": "john 8:44",
+          "sourceToken": 34,
+          "sourceFile": "data/sources/peshitta/Peshitta.txt",
+          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
+          "verification": "source-token-order-verified",
+          "englishAlignment": {
+            "authority": "James Murdock 1851",
+            "sourceReference": "john 8:44",
+            "unitId": "murdock-john-8-44",
+            "scope": "syriac-lexical-cell",
+            "englishIndices": [
+              28
+            ],
+            "evidence": [
+              "MURDOCK_PHRASE_CONTEXT"
+            ],
+            "sedraStatus": 200,
+            "status": "adjudicated",
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
+          }
+        },
+        "gloss": {
+          "gloss": "in",
+          "source": "Murdock",
+          "tooltip": "Murdock 1851 · Syriac lexical alignment"
+        }
       },
       "byzantine": {
         "type": "text",
@@ -9064,12 +9212,12 @@
       },
       "peshitta": {
         "type": "text",
-        "text": "ܐܦ",
+        "text": "ܐܒܘܗ",
         "provenance": {
           "sourceId": "peshitta-scrollmapper",
           "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
           "sourceReference": "john 8:44",
-          "sourceToken": 34,
+          "sourceToken": 35,
           "sourceFile": "data/sources/peshitta/Peshitta.txt",
           "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
           "verification": "source-token-order-verified",
@@ -9079,20 +9227,21 @@
             "unitId": "murdock-john-8-44",
             "scope": "syriac-lexical-cell",
             "englishIndices": [
-              52,
               53,
-              54
+              54,
+              55
             ],
             "evidence": [
-              "MURDOCK_PHRASE_CONTEXT"
+              "MURDOCK_PHRASE_CONTEXT",
+              "INDEPENDENT_WITNESS_ROW_MATCH"
             ],
             "sedraStatus": 200,
             "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
+            "adjudicationSha256": "c7d8ba6cba6a822e5b1e129bf3cb7ee9d14c5fb6ce22a189b44a1780ba7b0f11"
           }
         },
         "gloss": {
-          "gloss": "liar, and the",
+          "gloss": "and the father",
           "source": "Murdock",
           "tooltip": "Murdock 1851 · Syriac lexical alignment"
         }
@@ -9248,40 +9397,7 @@
         }
       },
       "peshitta": {
-        "type": "text",
-        "text": "ܐܒܘܗ",
-        "provenance": {
-          "sourceId": "peshitta-scrollmapper",
-          "sourceTitle": "Peshitta New Testament (scrollmapper electronic text)",
-          "sourceReference": "john 8:44",
-          "sourceToken": 35,
-          "sourceFile": "data/sources/peshitta/Peshitta.txt",
-          "sourceSha256": "6E6E13089148E2D9809103F4B0BBB602D95086C28B37F44B086E800C5690651B",
-          "verification": "source-token-order-verified",
-          "englishAlignment": {
-            "authority": "James Murdock 1851",
-            "sourceReference": "john 8:44",
-            "unitId": "murdock-john-8-44",
-            "scope": "syriac-lexical-cell",
-            "englishIndices": [
-              55,
-              56,
-              57
-            ],
-            "evidence": [
-              "SEDRA_LEXICAL_MATCH",
-              "MURDOCK_PHRASE_CONTEXT"
-            ],
-            "sedraStatus": 200,
-            "status": "adjudicated",
-            "adjudicationSha256": "2cf69b41e7587f0826c1a9f176e3ea01563bb4d3275d4d3094d3c2d513721bbf"
-          }
-        },
-        "gloss": {
-          "gloss": "father of it.",
-          "source": "Murdock",
-          "tooltip": "Murdock 1851 · Syriac lexical alignment"
-        }
+        "type": "empty"
       },
       "byzantine": {
         "type": "text",

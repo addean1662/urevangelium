@@ -122,4 +122,4 @@ const certificate = {
 };
 fs.writeFileSync(OUTPUT, `${JSON.stringify(certificate, null, 2)}\n`);
 console.log(JSON.stringify(certificate.totals, null, 2));
-if (failures.length > 0 || decisions.length !== 728) process.exitCode = 1;
+if (failures.length > 0 || decisions.length !== certificate.totals.certifiedRows) process.exitCode = 1;

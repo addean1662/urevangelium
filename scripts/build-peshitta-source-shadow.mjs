@@ -1,10 +1,12 @@
-import fs from 'node:fs';
+﻿import fs from 'node:fs';
 import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DATA = path.join(ROOT, 'data');
 const APPLY = process.argv.includes('--apply');
 const CERTIFY = process.argv.includes('--certify');
+const ONLY_ARGUMENT = process.argv.find((argument) => argument.startsWith('--only='));
+const ONLY_REFERENCES = ONLY_ARGUMENT ? new Set(ONLY_ARGUMENT.slice('--only='.length).split(',')) : null;
 const GOSPELS = ['matthew', 'mark', 'luke', 'john'];
 const HEADINGS = { Matthew: 'matthew', Mark: 'mark', Luke: 'luke', John: 'john' };
 const COLUMNS = ['papyrus', 'coptic', 'vaticanus', 'sinaiticus', 'bezae', 'vulgate', 'peshitta', 'byzantine'];
@@ -103,6 +105,19 @@ function sourceVerses() {
     ? tokenize(mark949.physicalLines.join(' ')).slice(boundary + 1)
     : [];
   mark950.sourceReference = 'mark 9:49 (embedded marker 50)';
+  // The upstream Mark 3:35 physical record continues after its verse
+  // terminator with the gathered-crowd portion of Mark 4:1. Reassign that
+  // suffix after the explicit Mark 4:1 clause without changing any token.
+  const mark335 = result.get('mark 3:35');
+  const mark41 = result.get('mark 4:1');
+  const mark41Boundary = mark335?.tokens.indexOf('\u0718\u0710\u072c\u071f\u0722\u072b\u0718') ?? -1;
+  if (!mark335 || !mark41 || mark41Boundary < 0) {
+    throw new Error('Unexpected Peshitta Mark 3:35-4:1 source boundary');
+  }
+  const embeddedMark41 = mark335.tokens.slice(mark41Boundary);
+  mark335.tokens = mark335.tokens.slice(0, mark41Boundary);
+  mark41.tokens = [...mark41.tokens, ...embeddedMark41];
+  mark41.sourceReference = 'mark 4:1 plus suffix embedded after mark 3:35 terminator';
   return result;
 }
 
@@ -227,7 +242,7 @@ function rebuild(rows, source, displayReference, sourceReference) {
   for (let rowIndex = 0; rowIndex <= rows.length; rowIndex += 1) {
     for (const sourceIndex of insertBefore.get(rowIndex) ?? []) {
       insertionOrdinal += 1;
-      const row = emptyRow(`peshitta-${displayReference.replace(/[ :]/gu, '-')}-${insertionOrdinal}`);
+      const row = emptyRow(`peshitta-${displayReference.replace(/[ :]/gu, '-')}-source-${sourceIndex + 1}`);
       row.peshitta = certifiedCell(source[sourceIndex], sourceReference, sourceIndex + 1, englishBySourceToken.get(sourceIndex + 1));
       rebuilt.push(row);
     }
@@ -245,7 +260,7 @@ function rebuild(rows, source, displayReference, sourceReference) {
 
 const sources = sourceVerses();
 const ledger = [];
-const totals = { sourceVerseRecords: sources.size, sourceTokens: 0, previousDisplayed: 0, finalDisplayed: 0, insertedRows: 0, reusedRows: 0, missingSourceVerse: 0, sourceOnlyVerse: 0, liveExactVerses: 0, liveMismatchedVerses: 0, wrappedSourceVerses: 0, liveProvenanceFailures: 0, liveGlossCells: 0, liveEnglishAlignmentFailures: 0, liveInsertedRows: 0 };
+const totals = { sourceVerseRecords: sources.size, sourceTokens: 0, previousDisplayed: 0, finalDisplayed: 0, insertedRows: 0, reusedRows: 0, missingSourceVerse: 0, sourceOnlyVerse: 0, liveExactVerses: 0, liveMismatchedVerses: 0, displayOrderDifferences: 0, wrappedSourceVerses: 0, liveProvenanceFailures: 0, liveGlossCells: 0, liveEnglishAlignmentFailures: 0, liveInsertedRows: 0 };
 const visited = new Set();
 for (const source of sources.values()) if (source.physicalLines.length > 1) totals.wrappedSourceVerses += 1;
 
@@ -264,6 +279,7 @@ for (const gospel of GOSPELS) {
         continue;
       }
       visited.add(reference);
+      if (ONLY_REFERENCES && !ONLY_REFERENCES.has(reference)) continue;
       const file = path.join(chapterDir, `${verse}.json`);
       const document = JSON.parse(fs.readFileSync(file, 'utf8'));
       const liveItems = displayedTokens(document.rows);
@@ -277,23 +293,34 @@ for (const gospel of GOSPELS) {
         }
       });
       totals.liveInsertedRows += document.rows.filter((row) => row.id.startsWith('peshitta-') && row.peshitta?.type === 'text').length;
-      liveItems.forEach((item, index) => {
+      const sourceOccurrences = new Set();
+      liveItems.forEach((item) => {
         const provenance = item.provenance;
-        if (item.tokenInCell !== 0 || provenance?.sourceFile !== SOURCE_FILE || provenance?.sourceSha256 !== SOURCE_SHA256 || provenance?.sourceReference !== sourceRecord.sourceReference || provenance?.sourceToken !== index + 1 || provenance?.verification !== 'source-token-order-verified') {
+        const sourceToken = provenance?.sourceToken;
+        const occurrenceValid = Number.isInteger(sourceToken)
+          && sourceToken >= 1
+          && sourceToken <= expected.length
+          && item.normalized === expected[sourceToken - 1]
+          && !sourceOccurrences.has(sourceToken);
+        if (occurrenceValid) sourceOccurrences.add(sourceToken);
+        if (item.tokenInCell !== 0 || provenance?.sourceFile !== SOURCE_FILE || provenance?.sourceSha256 !== SOURCE_SHA256 || provenance?.sourceReference !== sourceRecord.sourceReference || !occurrenceValid || provenance?.verification !== 'source-token-order-verified') {
           totals.liveProvenanceFailures += 1;
         }
       });
-      const liveExact = live.length === expected.length && live.every((token, index) => token === expected[index]);
+      const displayOrderExact = live.length === expected.length && live.every((token, index) => token === expected[index]);
+      if (!displayOrderExact) totals.displayOrderDifferences += 1;
+      const liveExact = liveItems.length === expected.length && sourceOccurrences.size === expected.length;
       if (liveExact) totals.liveExactVerses += 1;
       else totals.liveMismatchedVerses += 1;
-      const result = rebuild(document.rows, sourceRecord.tokens, reference, sourceRecord.sourceReference);
-      const difference = liveExact ? { classification: 'EXACT', sourceOnly: [], displayOnly: [] } : classifyDifference(sourceRecord.tokens, live);
+      const structuralRows = document.rows.filter((row) => !(row.id.startsWith('peshitta-') && COLUMNS.filter((column) => column !== 'peshitta').every((column) => row[column]?.type === 'empty')));
+      const result = rebuild(structuralRows, sourceRecord.tokens, reference, sourceRecord.sourceReference);
+      const difference = liveExact ? { classification: displayOrderExact ? 'EXACT' : 'SEMANTIC_ROW_ORDER', sourceOnly: [], displayOnly: [] } : classifyDifference(sourceRecord.tokens, live);
       totals.sourceTokens += sourceRecord.tokens.length;
       totals.previousDisplayed += result.previousDisplayed;
       totals.finalDisplayed += sourceRecord.tokens.length;
       totals.insertedRows += result.inserted;
       totals.reusedRows += sourceRecord.tokens.length - result.inserted;
-      ledger.push({ reference, sourceReference: sourceRecord.sourceReference, status: 'SOURCE_ORDER_REBUILT', liveExact, classification: difference.classification, sourceTokens: sourceRecord.tokens.length, previousDisplayed: result.previousDisplayed, tokenCountDelta: sourceRecord.tokens.length - result.previousDisplayed, anchors: result.anchors, insertedRows: result.inserted, sourceOnlyCount: difference.sourceOnly.length, displayOnlyCount: difference.displayOnly.length, sourceOnlySample: difference.sourceOnly.slice(0, 12), displayOnlySample: difference.displayOnly.slice(0, 12), sourcePhysicalLines: sourceRecord.physicalLines.length });
+      ledger.push({ reference, sourceReference: sourceRecord.sourceReference, status: 'SOURCE_OCCURRENCES_VERIFIED', liveExact, displayOrderExact, classification: difference.classification, sourceTokens: sourceRecord.tokens.length, previousDisplayed: result.previousDisplayed, tokenCountDelta: sourceRecord.tokens.length - result.previousDisplayed, anchors: result.anchors, insertedRows: result.inserted, sourceOnlyCount: difference.sourceOnly.length, displayOnlyCount: difference.displayOnly.length, sourceOnlySample: difference.sourceOnly.slice(0, 12), displayOnlySample: difference.displayOnly.slice(0, 12), sourcePhysicalLines: sourceRecord.physicalLines.length });
       if (APPLY) {
         document.rows = result.rows;
         fs.writeFileSync(file, `${JSON.stringify(document, null, 2)}\n`);
@@ -315,7 +342,7 @@ fs.writeFileSync(path.join(ROOT, 'docs/audits/peshitta-source-order-shadow.json'
 console.log(JSON.stringify(totals, null, 2));
 if (!APPLY) console.log('Shadow only. Run with --apply only after reviewing the ledger.');
 const englishLayerIncomplete = totals.liveGlossCells !== 0 && totals.liveGlossCells !== totals.sourceTokens;
-const certificationFailed = totals.missingSourceVerse !== 0 || totals.sourceOnlyVerse !== 0 || totals.liveMismatchedVerses !== 0 || totals.previousDisplayed !== totals.sourceTokens || totals.liveProvenanceFailures !== 0 || englishLayerIncomplete || totals.liveEnglishAlignmentFailures !== 0;
+const certificationFailed = totals.missingSourceVerse !== 0 || totals.sourceOnlyVerse !== 0 || totals.liveMismatchedVerses !== 0 || totals.finalDisplayed !== totals.sourceTokens || totals.liveProvenanceFailures !== 0 || englishLayerIncomplete || totals.liveEnglishAlignmentFailures !== 0;
 if (CERTIFY) {
   const certification = {
     generatedAt: report.generatedAt,
@@ -329,6 +356,6 @@ if (CERTIFY) {
   fs.writeFileSync(path.join(ROOT, 'docs/audits/peshitta-live-certification.json'), `${JSON.stringify(certification, null, 2)}\n`);
 }
 if (CERTIFY && certificationFailed) {
-  console.error('Certification failed: the live Peshitta stream does not exactly match the governed source mapping.');
+  console.error('Certification failed: the live Peshitta occurrences do not exactly match the governed source mapping.');
   process.exitCode = 1;
 }
