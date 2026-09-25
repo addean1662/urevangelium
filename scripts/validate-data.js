@@ -51,6 +51,9 @@ const peSrc = loadTextSource(path.join(BASE,'sources','peshitta','Peshitta.txt')
 // Format: 'gospel ch:v col' → reason
 // This is the authoritative lacuna list — anything empty NOT here is a violation.
 const LACUNAE = new Set([
+  // GA 01 textual omissions (pinned CNTR Class 1 base reading; not physical loss)
+  'matthew 24:35 sinaiticus','mark 1:33 sinaiticus','mark 10:36 sinaiticus','mark 15:47 sinaiticus',
+  'luke 10:32 sinaiticus','john 9:38 sinaiticus','john 16:15 sinaiticus','john 20:6 sinaiticus',
   // Bezae physical lacunae (manuscript damage)
   ...['matthew'].flatMap(g => Array.from({length:19},(_,i)=>`${g} 1:${i+1} bezae`)),    // Matt 1:1-19
   ...Array.from({length:14},(_,i)=>`matthew 6:${i+21} bezae`),   // Matt 6:21-34
@@ -99,7 +102,7 @@ allFiles.sort((a,b)=> GOSPELS.indexOf(a.gospel)-GOSPELS.indexOf(b.gospel) || a.c
 // ── Rule 4: Schema validation ─────────────────────────────────────────────────
 console.log('Rule 4 — Schema validation');
 const r4 = [];
-const VALID_TYPES = new Set(['empty','text','extant','lacuna','not_extant','lost','omitted','unpopulated']);
+const VALID_TYPES = new Set(['empty','text','translation','extant','lacuna','not_extant','lost','omitted','unpopulated']);
 function validateCell(cell, col, ref) {
   if (!cell || typeof cell !== 'object') {
     r4.push(`  ${ref} [${col}]: primitive value ${JSON.stringify(cell)}`); return;

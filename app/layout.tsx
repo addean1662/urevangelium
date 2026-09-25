@@ -3,9 +3,11 @@ import './globals.css';
 import { SiteFooter } from '@/components/SiteFooter';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://urevangelium.com'),
   title: 'Urevangelium — The Gospels across their earliest witnesses',
   description:
     'Word-by-word alignment of the four Gospels across six manuscript witnesses: Earliest Papyrus, Vaticanus, Sinaiticus, Vulgate, Peshitta, Byzantine.',
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

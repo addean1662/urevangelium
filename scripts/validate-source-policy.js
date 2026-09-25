@@ -35,7 +35,7 @@ for (const rel of REQUIRED_FILES) if (!fs.existsSync(path.join(ROOT, rel))) erro
 
 const generator = fs.readFileSync(path.join(ROOT, 'scripts', 'generate-verses.js'), 'utf8');
 if (generator.includes("vaticanus:  { type: 'text', text: w.greek")) warnings.push('Vaticanus legacy generator still substitutes TAGNT Greek; manifest requires rebuild.');
-if (generator.includes('const sinaText = w.spellingWH ?? w.greek')) warnings.push('Sinaiticus legacy generator still substitutes Westcott–Hort/TAGNT; manifest requires rebuild.');
+if (generator.includes('const sinaText = w.spellingWH ?? w.greek') && !fs.existsSync(path.join(ROOT, 'docs', 'audits', 'sinaiticus', 'source-certificate.json'))) warnings.push('Sinaiticus legacy generator still substitutes Westcott-Hort/TAGNT and no certified replacement is present.');
 if (generator.includes('const byzText = byzFromCsv ?? w.spellingByz ?? w.greek')) warnings.push('Byzantine legacy generator still permits silent TAGNT fallback; manifest prohibits it.');
 
 for (const gospel of ['matthew', 'mark', 'luke', 'john']) {

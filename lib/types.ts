@@ -9,6 +9,7 @@ export const GLOSS_SOURCES = [
   'Swanson',      // Swanson Greek NT
   'Lexical',      // Certified Vaticanus lexical-source chain
   'System',       // Site-generated residual annotation with explicit provenance
+  'Anderson',     // H. T. Anderson's 1918 translation of Codex Sinaiticus (public domain)
   // Coptic witnesses
   'Horner',       // G. W. Horner, The Coptic Version of the NT in the Southern Dialect (public domain)
   'Crum',         // W. E. Crum, A Coptic Dictionary (Oxford, 1939) via KELLIA Comprehensive Coptic Lexicon (CC BY-SA 4.0)

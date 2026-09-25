@@ -19,7 +19,7 @@ export default function CertificationSystemsPage() {
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
       <div className="border-b border-rule-hairline bg-bg-elevated px-4 py-2 text-sm text-ink-muted">
-        <Link href="/matthew/1/1" className="hover:text-ink-primary">← Back to the Gospel table</Link>
+        <Link href="/matthew/1/1" className="hover:text-ink-primary">Back to the Gospel table</Link>
         <span className="mx-2">/</span><span className="font-medium text-ink-primary">Certification systems</span>
       </div>
       <main className="mx-auto w-full max-w-7xl flex-1 px-6 py-10">
@@ -49,12 +49,40 @@ export default function CertificationSystemsPage() {
               <article id={column.id} key={column.id} className="scroll-mt-24 overflow-hidden rounded-lg border border-rule-strong bg-bg-elevated">
                 <div className="border-b border-rule-hairline px-5 py-4"><p className="text-xs uppercase tracking-wider text-ink-muted">Position {column.position} · {column.tradition}</p><h2 className="mt-1 text-2xl font-semibold text-ink-primary">{column.label}</h2><p className="mt-1 text-sm text-ink-secondary">{column.displayedObject}</p></div>
                 <div className="flex flex-col gap-2 p-5 lg:flex-row lg:items-stretch">
-                  {stage('1 · Governing text', names(text))}<div className="self-center text-accent-gold">→</div>
-                  {stage('2 · Independent checks', names(checks))}<div className="self-center text-accent-gold">→</div>
-                  {stage('3 · Placement and English', names(aids))}<div className="self-center text-accent-gold">→</div>
-                  {stage('4 · Rule gate', <><p>{column.rules[0]}</p><p className="mt-2"><strong>Never:</strong> {column.prohibited[0]}.</p></>)}<div className="self-center text-accent-gold">→</div>
+                  {stage('1 · Governing text', names(text))}
+                  {stage('2 · Independent checks', names(checks))}
+                  {stage('3 · Placement and English', names(aids))}
+                  {stage('4 · Rule gate', <><p>{column.rules[0]}</p><p className="mt-2"><strong>Never:</strong> {column.prohibited[0]}.</p></>)}
                   {stage('5 · Public result', <><p>{outcome[column.status]}</p><p className="mt-2 font-medium text-ink-primary">Current status: {column.status}</p></>)}
                 </div>
+                {column.id === 'peshitta' && (
+                  <div className="border-t border-rule-hairline bg-bg-page px-5 py-5">
+                    <h3 className="text-lg font-semibold text-ink-primary">Certified Peshitta allocation standard</h3>
+                    <p className="mt-2 max-w-5xl text-sm leading-relaxed text-ink-secondary">Urevangelium does not translate the Peshitta. The Syriac comes only from the pinned source text, and every displayed English word comes only from the admitted 1851 Murdock Gospel units. The system decides placement; it does not compose wording.</p>
+                    <dl className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                      <div className="rounded border border-rule-hairline bg-bg-elevated p-4"><dt className="text-xs font-semibold uppercase tracking-wider text-ink-muted">Source inventory</dt><dd className="mt-2 text-sm leading-relaxed text-ink-secondary"><strong className="text-ink-primary">50,477</strong> Syriac tokens across <strong className="text-ink-primary">3,779</strong> Gospel records, with zero missing, altered, duplicated, or unexpected occurrences.</dd></div>
+                      <div className="rounded border border-rule-hairline bg-bg-elevated p-4"><dt className="text-xs font-semibold uppercase tracking-wider text-ink-muted">Published English</dt><dd className="mt-2 text-sm leading-relaxed text-ink-secondary"><strong className="text-ink-primary">84,133</strong> Murdock words preserved verbatim and accounted for once. No project-generated English and no wording borrowed from another column.</dd></div>
+                      <div className="rounded border border-rule-hairline bg-bg-elevated p-4"><dt className="text-xs font-semibold uppercase tracking-wider text-ink-muted">Parent assignments</dt><dd className="mt-2 text-sm leading-relaxed text-ink-secondary"><strong className="text-ink-primary">50,464</strong> populated Syriac parents. Each receives a contiguous phrase of no more than three Murdock words under deterministic evidence priorities.</dd></div>
+                      <div className="rounded border border-rule-hairline bg-bg-elevated p-4"><dt className="text-xs font-semibold uppercase tracking-wider text-ink-muted">Governed alignment</dt><dd className="mt-2 text-sm leading-relaxed text-ink-secondary"><strong className="text-ink-primary">2,726</strong> shared-row decisions certified: 1,950 source-order boundary spans, 458 contextual lexical correspondences, 278 verse-level Syriac units, and 40 multirow lexical spans.</dd></div>
+                    </dl>
+                    <div className="mt-5 grid gap-5 lg:grid-cols-2">
+                      <section className="rounded border border-rule-hairline bg-bg-elevated p-4"><h4 className="font-semibold text-ink-primary">Deterministic evidence order</h4><ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-ink-secondary"><li>Admit exact atomic SEDRA IV headword evidence.</li><li>Admit pinned ETCBC/SyrNT morphological evidence.</li><li>Require corroboration from two independent witness families among Greek, Latin, and Coptic for cross-tradition placement evidence; dependent Greek columns count as one family. This evidence controls placement only.</li><li>Allocate the remaining contiguous Murdock phrase context in stable source order with fixed tie-breaking.</li></ol></section>
+                      <section className="rounded border border-rule-hairline bg-bg-elevated p-4"><h4 className="font-semibold text-ink-primary">Explicit edge cases</h4><ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-ink-secondary"><li><strong className="text-ink-primary">13 blank Syriac parents</strong> remain across ten verses because those Murdock units contain fewer English words than Syriac source tokens.</li><li><strong className="text-ink-primary">15 English-only expansion words</strong> remain because every honest adjacent Syriac parent is already at the three-word ceiling.</li><li>Neither category may be erased by inventing, duplicating, dropping, merging, or proportionally redistributing words.</li></ul></section>
+                    </div>
+                    <section className="mt-5 rounded border border-rule-hairline bg-bg-elevated p-4">
+                      <h4 className="font-semibold text-ink-primary">Release gates</h4>
+                      <ul className="mt-3 grid gap-2 text-sm leading-relaxed text-ink-secondary md:grid-cols-2">
+                        <li><strong className="text-ink-primary">Source:</strong> all 3,779 records must exactly match the pinned 50,477-token inventory.</li>
+                        <li><strong className="text-ink-primary">English:</strong> all 84,133 Murdock words must be admitted, ordered within their cells, and accounted for once.</li>
+                        <li><strong className="text-ink-primary">Parentage:</strong> zero avoidable blank parents, no cell over three words, and no absorbable expansion.</li>
+                        <li><strong className="text-ink-primary">Alignment:</strong> every governed shared-row decision must carry a certified relation and supporting provenance.</li>
+                        <li><strong className="text-ink-primary">Display:</strong> Syriac remains right-aligned, English remains left-aligned, and every phrase remains in an ordinary cell.</li>
+                        <li><strong className="text-ink-primary">Forbidden:</strong> merges, continuations, arrows, cross-verse spans, AI translation, and borrowed English.</li>
+                      </ul>
+                    </section>
+                    <p className="mt-5 rounded border-l-4 border-accent-gold bg-bg-elevated px-4 py-3 text-sm leading-relaxed text-ink-secondary"><strong className="text-ink-primary">Certification boundary:</strong> source completeness, published-English accounting, deterministic parentage, and governed shared-row placement are internally certified. Independent Syriacist review remains a separate scholarly step.</p>
+                  </div>
+                )}
                 <div className="border-t border-rule-hairline px-5 py-4 text-sm text-ink-secondary"><strong className="text-ink-primary">Exception rule:</strong> when independent evidence does not converge, the system labels the result provisional or withholds it. It does not resolve disagreement by majority vote across dependent sources, and English meaning never crosses from another tradition column.</div>
               </article>
             );

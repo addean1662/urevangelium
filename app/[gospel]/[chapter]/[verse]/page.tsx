@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import type { Gospel } from '@/lib/types';
 import { GOSPELS } from '@/lib/types';
 import { VERSE_COUNTS } from '@/lib/verseCounts';
@@ -54,6 +55,9 @@ export default async function PassagePage({ params }: { params: Params }) {
 
       <div className="flex items-center gap-2 px-4 py-2 border-b border-rule-hairline bg-bg-elevated">
         <h2 className="text-lg font-semibold text-ink-primary">{passageLabel}</h2>
+        <Link href={`/transcript/${g}/${chapter}/${verse}`} className="ml-auto text-xs text-ink-muted underline underline-offset-2 hover:text-accent-gold">
+          Text &amp; API
+        </Link>
       </div>
 
       <PassageNav gospel={g} chapter={chapter} verse={verse} />
