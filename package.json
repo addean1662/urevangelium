@@ -10,6 +10,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "validate:sources": "node scripts/validate-source-policy.js",
+    "build:alignment-streams": "node scripts/build-stream-evidence.mjs",
+    "audit:alignment-streams": "node --experimental-strip-types scripts/audit-streams.mjs",
     "audit:vaticanus": "node scripts/vaticanus-pilot.mjs",
     "shadow:vaticanus": "node scripts/build-vaticanus-shadow.mjs",
     "review:vaticanus:matthew1": "node scripts/review-vaticanus-matthew1.mjs",

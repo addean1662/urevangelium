@@ -94,6 +94,7 @@ const PapyrusFragmentSchema = z.object({
 
 const PapyrusExtantCellSchema = z.object({
   type: z.literal('extant'),
+  provenance: z.record(z.string(), z.unknown()).optional(),
   fragments: z.array(PapyrusFragmentSchema).min(1),
   text: z.string(),
   condition: z.object({

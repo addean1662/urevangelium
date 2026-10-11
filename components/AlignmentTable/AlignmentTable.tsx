@@ -56,7 +56,7 @@ const BEZAE_LACUNAE: Array<{
   { gospel: 'john',    sc: 1,  sv: 17, ec: 3,  ev: 25, note: 'Resumes at 3:26',  href: '/john/3/26'     },
 ];
 
-function getBezaeLacuna(gospel: string, ch: number, v: number): { note: string; href: string } | null {
+export function getBezaeLacuna(gospel: string, ch: number, v: number): { note: string; href: string } | null {
   const cur = ch * 1000 + v;
   for (const r of BEZAE_LACUNAE) {
     if (gospel !== r.gospel) continue;

@@ -4,7 +4,8 @@ import type { Gospel } from '@/lib/types';
 import { GOSPELS } from '@/lib/types';
 import { VERSE_COUNTS } from '@/lib/verseCounts';
 import { loadVerse } from '@/lib/data';
-import { AlignmentTable } from '@/components/AlignmentTable/AlignmentTable';
+import { AlignmentExplorer } from '@/components/AlignmentTable/AlignmentExplorer';
+import { loadStreamEvidence } from '@/lib/alignment/loadStreamEvidence';
 import { LineageTimeline } from '@/components/LineageTimeline';
 import { GospelSelector } from '@/components/GospelSelector';
 import { PassageNav } from '@/components/PassageNav';
@@ -65,7 +66,7 @@ export default async function PassagePage({ params }: { params: Params }) {
       <main className="flex-1 p-4">
         {data ? (
           <>
-            <AlignmentTable data={data} nextFragment={nextFragment} nextFragmentHref={nextFragmentHref} />
+            <AlignmentExplorer key={passageLabel} data={data} evidence={loadStreamEvidence(data)} nextFragment={nextFragment} nextFragmentHref={nextFragmentHref} />
             <LineageTimeline />
           </>
         ) : (

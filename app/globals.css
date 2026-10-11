@@ -193,3 +193,14 @@ body {
    optical-size and weight corrections beyond font-family. */
 .font-syriac { font-family: var(--font-syriac); font-size: 1.25em; line-height: 1.2; color: #4A4035; }
 .font-coptic { font-family: var(--font-coptic); font-size: 1.05em; line-height: 1.4; }
+
+/* Each witness table has independent rows. The shared-row view keeps its rules. */
+.word-stream-table td { border-bottom: 0; overflow-wrap: anywhere; }
+.word-stream-table tr[data-word-id] td:first-child { white-space: nowrap; overflow-wrap: normal; }
+[data-stream='bezaeLatin'] td { text-align: left; }
+.word-stream-table tr[data-word-id] { transition: background-color 100ms ease; }
+.word-stream-table tr[data-highlighted='true'] { background-color: #ecd391; }
+.word-stream-table tr[data-provisional='true'] { background-color: #f4e8c8; outline: 1px dashed var(--color-ink-muted); outline-offset: -1px; }
+@media (prefers-reduced-motion: reduce) {
+  .word-stream-table tr[data-word-id] { transition: none; }
+}

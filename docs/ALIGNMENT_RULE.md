@@ -1,5 +1,7 @@
 # Alignment Rule
 
+The Word streams preview follows [the 2026-10-11 decision](decisions/2026-10-11-word-streams.md): independent source sequences with explicit hover correspondence replace shared visual rows in that view. The semantic and source-authority rules below still apply. Comparison rows retains the original layout.
+
 ## Primary Rule: Propositional Content (Semantic Contribution)
 
 Alignment in Urevangelium is governed by **propositional content** — the semantic contribution a word makes to the meaning of the clause — not by morphological form, word order, or syntactic category.

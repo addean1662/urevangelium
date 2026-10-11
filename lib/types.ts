@@ -208,6 +208,8 @@ export type WitnessCell = TextCell | TranslationOnlyCell | EmptyCell | OmittedCe
 // The Earliest Papyrus column has its own cell type
 export type PapyrusExtantCell = {
   type: 'extant';
+  /** Composite witness occurrence evidence, preserved from the source corpus. */
+  provenance?: Record<string, unknown>;
   fragments: PapyrusFragment[];  // all fragments covering this word
   text: string;
   condition?: {
