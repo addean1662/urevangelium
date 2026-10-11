@@ -47,7 +47,11 @@ Verification completed: 223 tests across 21 files; corpus occurrence/gloss prese
 
 Browser verification on the local Next server confirmed Mark 1:1 correspondence at independent vertical positions, displaced Luke 1:1 Latin `multi`, Bezae Latin sequence, zero horizontal word-cell borders, and no captured browser errors. Long Bezae Greek words were checked for overlap with the Latin column. The affected UI and full-corpus preservation tests were rerun after the final display refinements.
 
-Local entry point: `http://localhost:3101/mark/1/1`. No production deployment was made. Automatic approval review rejected uploading the application/corpus payload to Vercel without explicit authorization for that destination and payload; a hosted preview awaits that authorization.
+Local entry point: `http://localhost:3101/mark/1/1`.
+
+Hosted preview, deployed after explicit owner authorization on 2026-10-11: [Mark 1:1](https://urevangelium-8n956qjqa-anthony-deans-projects.vercel.app/mark/1/1). Application commit: `e3e771a3a`; Vercel deployment: `dpl_EmdvxXWAMCvyRLvZRgrkqfp4FJPD`. The existing project's large-function setting was applied to this preview using deployment-scoped build and runtime environment flags. Production and persistent project environment settings were not changed. Existing Vercel access protection remains enabled.
+
+Hosted browser checks confirmed seven corresponding words for Mark 1:1 “God,” the unique Byzantine article highlighting alone, a three-source Greek article subset, and the displaced Coptic “streets” group in dynamically rendered Matthew 12:19. Word cells have zero horizontal borders, and no browser warnings or errors were captured. Authenticated API checks for all five pilot passages compared 639 source/English cells against the local corpus, with zero differences. The hosted build passed compilation, TypeScript checks and static generation; it retains the existing file-tracing warnings noted above.
 
 The preview is suitable for reviewing the interaction and the named examples. Full corpus semantic alignment remains an editorial workstream. The project-authored pilot decisions and inherited certificates must not be advertised as independent scholarly review.
 
