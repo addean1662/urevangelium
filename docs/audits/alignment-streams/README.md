@@ -8,12 +8,13 @@ The preview implements independent source sequences and hover/focus corresponden
 - Hover/focus across corresponding occurrences; click/Enter/Space pinning; Escape clearing.
 - Source-specific, shared-by-a-subset, repeated-word, compound, displaced-word, absence and uncertain-link behavior.
 - Independent Greek and Latin sequences within Bezae; Vaticanus/Sinaiticus switching; the original Comparison rows view.
-- Five contextual pilot passages: Matthew 1:1, Mark 1:1, Luke 1:1, John 1:1 and Matthew 12:19. The Luke and Matthew 12 examples adjudicate selected difficult groups, not the full verse.
+- Six contextual passages: Matthew 1:1, Matthew 3:1, Mark 1:1, Luke 1:1, John 1:1 and Matthew 12:19. The Luke and Matthew 12 examples adjudicate selected difficult groups, not the full verse.
+- Existing comparison links participate by default across the corpus, visibly marked as under review. Unambiguous Bezae/Vulgate Latin form matching follows displaced occurrences, with Greek counterparts supplied by the corresponding documented or provisional group. See [the correction decision](../../decisions/2026-10-11-corpus-highlighting.md).
 - Snapshot validation before using occurrence decisions; changed text/English/provenance invalidates stale evidence.
 
 ## Source readiness
 
-Counts below come from `model-coverage.json`. “Linked” includes explicit project decisions and computational Greek form correspondences; **it is not a count of independently certified semantic alignments**. The unresolved counts deliberately avoid promoting old row placement into a claim of equivalence.
+The table below records the initial release's coverage. Updated counts are in `model-coverage.json`, including `highlightedWithCounterpart` and `provisionalOnly` for the default interaction. “Linked” includes explicit project decisions and computational form correspondences; **it is not a count of independently certified semantic alignments**. Unresolved means no documented/form link; it does not mean the existing provisional comparison is hidden.
 
 | Source | Preserved words | Linked | Unresolved | Remaining work |
 |---|---:|---:|---:|---|
@@ -46,6 +47,8 @@ The generator reads existing certificates and the bounded pilot decisions. It wr
 Verification completed: 223 tests across 21 files; corpus occurrence/gloss preservation and schema-to-evidence fingerprints for all 3,779 verses; source policy validation with zero errors or blocker warnings; TypeScript and production build. The build reports existing broad file-tracing warnings in `lib/data.ts`.
 
 Browser verification on the local Next server confirmed Mark 1:1 correspondence at independent vertical positions, displaced Luke 1:1 Latin `multi`, Bezae Latin sequence, zero horizontal word-cell borders, and no captured browser errors. Long Bezae Greek words were checked for overlap with the Latin column. The affected UI and full-corpus preservation tests were rerun after the final display refinements.
+
+The corpus-highlighting correction passed 227 tests across 21 files, the all-verse preservation/precedence checks, source policy validation, TypeScript, changed-file ESLint and a production build. Browser checks against that build confirmed the corrected Matthew 3:1 days group from Sahidic, Vulgate and Peshitta, Bezae Latin `praedicans` with Greek `κηρυσσων`, and default provisional cross-source interaction in Matthew 3:2. No browser errors were captured. Existing comparison links remain under semantic review; this verification tests their availability and precedence, not the correctness of every inherited placement.
 
 Local entry point: `http://localhost:3101/mark/1/1`.
 

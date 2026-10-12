@@ -103,7 +103,7 @@ export function WordStreams({ model, nextFragment, nextFragmentHref }: Props) {
   const [hovered, setHovered] = useState<string | null>(null);
   const [focused, setFocused] = useState<string | null>(null);
   const [pinned, setPinned] = useState<string | null>(null);
-  const [provisional, setProvisional] = useState(false);
+  const [provisional, setProvisional] = useState(true);
   const active = pinned ?? hovered ?? focused;
   const established = linkedWordIds(model, active);
   const highlighted = linkedWordIds(model, active, provisional);
@@ -133,15 +133,15 @@ export function WordStreams({ model, nextFragment, nextFragmentHref }: Props) {
     <div onKeyDown={event => { if (event.key === 'Escape') clear(); }}>
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2 text-sm text-ink-secondary">
         <p>Hover or focus a word to see its counterparts. Click to keep the highlight; Escape clears it.</p>
-        <label className="flex cursor-pointer items-center gap-2"><input type="checkbox" checked={provisional} onChange={event => setProvisional(event.target.checked)} /> Include provisional row links</label>
+        <label className="flex cursor-pointer items-center gap-2"><input type="checkbox" checked={provisional} onChange={event => setProvisional(event.target.checked)} /> Show existing alignment links (under review)</label>
       </div>
       <div className="mb-3 min-h-16 rounded bg-bg-elevated px-3 py-2 text-sm" aria-live="polite" aria-atomic="true">
         {activeWord ? <>
           <span className="font-semibold">{LABELS[activeWord.column]} · {activeWord.text}</span>
-          <span className="ml-2 text-ink-secondary">{activeWord.sourceSpecific ? 'Source-specific word: no discrete counterpart.' : activeLinks.length ? `${visibleCount} highlighted source words. ${activeLinks.some(l => l.status === 'provisional') ? 'Dashed highlights include unverified row placements.' : 'Recorded correspondence or unambiguous Greek form match.'}` : 'No cross-source link established yet; this does not establish that the word is unique.'}</span>
+          <span className="ml-2 text-ink-secondary">{activeWord.sourceSpecific ? 'Source-specific word: no discrete counterpart.' : activeLinks.length ? `${visibleCount} highlighted source words. ${activeLinks.some(l => l.status === 'provisional') ? 'Dashed highlights show existing alignments still under review.' : 'Recorded correspondence or unambiguous source form match.'}` : 'No cross-source link established yet; this does not establish that the word is unique.'}</span>
           {pinned && <button type="button" onClick={clear} className="ml-3 underline underline-offset-2">Clear highlight</button>}
           {activeLinks.length > 0 && <details className="mt-1 text-xs text-ink-secondary"><summary className="cursor-pointer">Correspondence evidence</summary><ul className="mt-1 space-y-1">{activeLinks.map(l => <li key={l.id}>{l.basis}</li>)}</ul></details>}
-        </> : <p className="text-ink-secondary">Source columns read independently. Gold highlights show recorded correspondences or Greek form matches. Unresolved words remain unlinked; absence is never filled with a guessed match.</p>}
+        </> : <p className="text-ink-secondary">Source columns read independently. Gold highlights show recorded correspondences or source form matches. {provisional ? 'Dashed highlights show existing cross-source alignments still under review.' : 'Existing alignment links are hidden; words without a recorded correspondence may highlight alone.'} Absent words are never highlighted.</p>}
       </div>
       <div className="overflow-x-auto">
         <div className="flex min-w-[1440px] items-start">

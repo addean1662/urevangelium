@@ -44,6 +44,13 @@ export function comparisonGreek(text: string): string {
   return NOMINA[key] ?? key;
 }
 
+// Compare Latin witnesses as Latin. Never infer bilingual correspondence from
+// their displayed positions, or change either manuscript's spelling.
+export function comparisonLatin(text: string): string {
+  return text.normalize('NFD').replace(/[\u0300-\u036f]/gu, '').toLocaleLowerCase('la')
+    .replaceAll('æ', 'ae').replaceAll('œ', 'oe').replaceAll('j', 'i').replaceAll('u', 'v').replace(/[^a-z]/gu, '');
+}
+
 /** Retain only occurrence pairs common to every optimal exact-form alignment.
  * Unique displaced forms can be linked without reordering either source.
  * Repeated words with competing matches remain unresolved.
@@ -143,6 +150,8 @@ export function buildStreamModel(data: VerseData, evidence?: StreamEvidence): St
   const anchor = columns.vaticanus.words;
   const normalized = anchor.map(w => comparisonGreek(w.text));
   const exactGroups = new Map(anchor.map(w => [w.id, [w.id]]));
+  const comparisonRows = new Map(STREAM_KEYS.flatMap(k => columns[k].words.map(w => [w.id, w.rowId] as const)));
+  const preferredOccurrences = new Map<string, string>();
   for (const key of ['papyrus', 'sinaiticus', 'bezaeGreek', 'byzantine'] as const) {
     const words = columns[key].words;
     for (const [a, b] of exactOccurrencePairs(normalized, words.map(w => comparisonGreek(w.text)))) {
@@ -151,23 +160,52 @@ export function buildStreamModel(data: VerseData, evidence?: StreamEvidence): St
       if (evidence?.sourceSpecific.includes(member.id)) continue;
       if (links.some(l => l.members.includes(member.id) && !l.members.includes(anchor[a].id))) continue;
       exactGroups.get(anchor[a].id)!.push(member.id);
+      comparisonRows.set(member.id, anchor[a].rowId);
+      preferredOccurrences.set(wordId(key, anchor[a].rowId), member.id);
     }
   }
-  // Expand a documented target only by its unambiguous Greek form equivalents.
+  const latin = columns.vulgate.words, bezaeLatin = columns.bezaeLatin.words;
+  for (const [a, b] of exactOccurrencePairs(latin.map(w => comparisonLatin(w.text)), bezaeLatin.map(w => comparisonLatin(w.text)))) {
+    const left = latin[a], right = bezaeLatin[b];
+    if (left.sourceSpecific || right.sourceSpecific) continue;
+    if (links.some(l => l.members.includes(left.id) !== l.members.includes(right.id) && l.members.some(id => id.startsWith(l.members.includes(left.id) ? 'bezaeLatin:' : 'vulgate:')))) continue;
+    exactGroups.set(left.id, [left.id, right.id]);
+    comparisonRows.set(right.id, left.rowId);
+    preferredOccurrences.set(wordId('bezaeLatin', left.rowId), right.id);
+  }
+  // Expand a documented target only by its unambiguous same-language forms.
   // Do not transitively join distinct semantic or phrase links.
+  const equivalentsById = new Map<string, string[]>();
+  for (const members of exactGroups.values()) for (const id of members) equivalentsById.set(id, members);
   for (const link of links) {
-    const equivalents = link.members.flatMap(id => exactGroups.get(id) ?? []);
+    const equivalents = link.members.flatMap(id => equivalentsById.get(id) ?? []);
     if (equivalents.some(id => !link.members.includes(id))) {
       link.members = [...new Set([...link.members, ...equivalents])];
-      link.basis += ' Additional Greek members are unambiguous form correspondences.';
+      link.basis += ' Additional members are unambiguous same-language form correspondences.';
     }
   }
-  for (const [id, members] of exactGroups) if (members.length > 1 && !links.some(l => members.every(member => l.members.includes(member)))) links.push({ id: `form:${id}`, members, status: 'exact-form', basis: 'Unambiguous Greek occurrence after declared case, accent, sigma and contraction comparison. This is a form correspondence, not independent scholarly certification.' });
+  for (const [id, members] of exactGroups) if (members.length > 1 && !links.some(l => members.every(member => l.members.includes(member)))) links.push({ id: `form:${id}`, members, status: 'exact-form', basis: id.startsWith('vulgate:') ? 'Unambiguous Latin occurrence between Vulgate and Bezae after case, accents, ligatures and i/j, u/v comparison. This is a form correspondence, not independent scholarly certification.' : 'Unambiguous Greek occurrence after declared case, accent, sigma and contraction comparison. This is a form correspondence, not independent scholarly certification.' });
   // The old grid remains inspectable evidence; it never becomes an established
-  // semantic link merely because two cells share a row.
+  // semantic link merely because two cells share a row. A displaced exact form
+  // inherits its anchor's comparison group instead of retaining a conflicting
+  // positional link. Documented decisions and source-specific words win.
+  const documented = new Set(links.filter(l => l.status === 'documented').flatMap(l => l.members));
+  const provisionalRows = new Map<string, string[]>();
+  for (const [id, rowId] of comparisonRows) {
+    if (evidence?.sourceSpecific.includes(id) || documented.has(id)) continue;
+    const preferred = preferredOccurrences.get(`${id.split(':')[0]}:${rowId}`);
+    if (preferred && preferred !== id) continue;
+    const members = provisionalRows.get(rowId) ?? [];
+    members.push(id); provisionalRows.set(rowId, members);
+  }
   for (const row of data.rows) {
-    const members = STREAM_KEYS.map(k => wordId(k, row.id)).filter(id => ids.has(id) && !evidence?.sourceSpecific.includes(id) && !links.some(l => l.status === 'documented' && l.members.includes(id)));
-    if (members.length > 1) links.push({ id: `legacy:${row.id}`, members, status: 'provisional', basis: 'Legacy comparative row; semantic correspondence is not established by placement alone.' });
+    const contextual = links.filter(l => l.status === 'documented' && l.members.includes(wordId('vaticanus', row.id)) && l.members.filter(id => id.startsWith('vaticanus:')).length === 1);
+    // A reviewed word may still have an unreviewed counterpart in another
+    // source. Admit that existing association provisionally, but never add a
+    // competing word from a source already represented by the reviewed group.
+    const candidates = (provisionalRows.get(row.id) ?? []).filter(id => !contextual.some(l => l.members.some(member => member.split(':')[0] === id.split(':')[0])));
+    const members = [...new Set([...candidates, ...(candidates.length ? contextual.flatMap(l => l.members) : [])])];
+    if (members.length > 1 && !links.some(l => members.every(id => l.members.includes(id)))) links.push({ id: `legacy:${row.id}`, members, status: 'provisional', basis: 'Existing comparison alignment, with unambiguous Greek/Latin form matches following their corresponding occurrence. Still under review: comparison placement alone does not establish semantic equivalence.' });
   }
   return { reference: `${data.gospel} ${data.chapter}:${data.verse}`, columns, links };
 }

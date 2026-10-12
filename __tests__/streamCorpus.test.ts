@@ -55,6 +55,16 @@ describe('stream migration corpus invariants', () => {
         for (const link of m.links) {
           expect(link.members.every(id=>allIds.has(id)),`${ref} no absence links`).toBe(true);
           expect(new Set(link.members).size).toBe(link.members.length);
+          expect(link.members.some(id=>evidence.sourceSpecific.includes(id)),`${ref} no source-specific word gains a counterpart`).toBe(false);
+          if (link.status === 'provisional') {
+            // A positional fallback must not attach a second, competing word
+            // from a witness already represented by a contextual decision.
+            for (const reviewed of m.links.filter(l=>l.status === 'documented' && l.members.some(id=>link.members.includes(id)))) {
+              for (const id of link.members.filter(id=>!reviewed.members.includes(id))) {
+                expect(reviewed.members.some(member=>member.split(':')[0] === id.split(':')[0]),`${ref} provisional ${id} contradicts ${reviewed.id}`).toBe(false);
+              }
+            }
+          }
           report.links[link.status]++;
         }
         report.verses++;

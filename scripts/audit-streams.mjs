@@ -10,11 +10,14 @@ for (const gospel of ['matthew','mark','luke','john']) {
   for (const chapter of fs.readdirSync(path.join(root,'data',gospel)).filter(x=>/^\d+$/.test(x))) for (const file of fs.readdirSync(path.join(root,'data',gospel,chapter)).filter(x=>/^\d+\.json$/.test(x))) {
     const d = read(`data/${gospel}/${chapter}/${file}`), m = buildStreamModel(d,index.verses[`${d.chapter}:${d.verse}`]);
     const linked = new Set(m.links.filter(l=>l.status !== 'provisional').flatMap(l=>l.members));
+    const visibleLinks = new Set(m.links.flatMap(l=>l.members));
     for (const key of STREAM_KEYS) {
       const c = m.columns[key];
-      const stats = report.sources[key] ??= { words: 0, linked: 0, sourceSpecific: 0, unresolved: 0, sequenceFallbackVerses: 0, translationExpansions: 0 };
+      const stats = report.sources[key] ??= { words: 0, linked: 0, sourceSpecific: 0, unresolved: 0, highlightedWithCounterpart: 0, provisionalOnly: 0, sequenceFallbackVerses: 0, translationExpansions: 0 };
       stats.words += c.words.length; stats.translationExpansions += c.expansions.length;
       for (const w of c.words) {
+        if (visibleLinks.has(w.id)) stats.highlightedWithCounterpart++;
+        if (visibleLinks.has(w.id) && !linked.has(w.id)) stats.provisionalOnly++;
         if (w.sourceSpecific) stats.sourceSpecific++;
         else if (linked.has(w.id)) stats.linked++;
         else stats.unresolved++;

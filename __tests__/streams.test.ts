@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { buildStreamModel, comparisonGreek, exactOccurrencePairs, linkedWordIds, type StreamEvidence, type StreamModel } from '@/lib/alignment/streams';
+import { buildStreamModel, comparisonGreek, comparisonLatin, exactOccurrencePairs, linkedWordIds, type StreamEvidence, type StreamModel } from '@/lib/alignment/streams';
 import type { VerseData } from '@/lib/types';
 import { pilotLinks } from '@/scripts/streams/pilot-links.mjs';
 
@@ -12,6 +12,43 @@ function fixture(gospel: string, chapter = 1, verse = 1) {
 function model(gospel: string, chapter = 1, verse = 1) { const { data, evidence } = fixture(gospel, chapter, verse); return buildStreamModel(data, evidence); }
 
 describe('occurrence correspondence, independent of display position', () => {
+  it('corrects Matthew 3:1 in both directions across Coptic, Latin and Syriac', () => {
+    const m = model('matthew',3,1);
+    for (const id of ['coptic:r4','vulgate:r2','bezaeLatin:r2','peshitta:r4']) {
+      const ids = linkedWordIds(m,id,true);
+      expect(ids).toContain('vaticanus:r4');
+      expect(ids).toContain('bezaeGreek:r4');
+      expect(ids).not.toContain('vaticanus:r2');
+    }
+    for (const id of ['coptic:r9','bezaeLatin:r14','peshitta:r10','peshitta:r11']) {
+      const ids = linkedWordIds(m,id,true);
+      expect(ids).toContain('bezaeGreek:r10');
+      expect(ids).toContain('vaticanus:r10');
+      expect(ids).not.toContain('vaticanus:r14');
+      expect(ids).not.toContain('vaticanus:r11');
+    }
+    expect(linkedWordIds(m,'coptic:r12',true)).toContain('vaticanus:r9');
+    expect(linkedWordIds(m,'coptic:r12',true)).not.toContain('vaticanus:r12');
+    expect(linkedWordIds(m,'bezaeLatin:r3',true)).toContain('vaticanus:r7');
+    expect(linkedWordIds(m,'bezaeLatin:r3',true)).not.toContain('bezaeGreek:r3');
+  });
+  it('links displaced Bezae Latin by its Vulgate occurrence without pairing it to an unrelated Greek neighbor', () => {
+    const { data } = fixture('mark');
+    const sample = { ...data, rows: [
+      { id:'a',papyrus:{type:'lost'},vaticanus:{type:'text',text:'φωνη'},vulgate:{type:'text',text:'vox'},bezae:{type:'text',greek:'φωνη',latin:'diebus'} },
+      { id:'b',papyrus:{type:'lost'},vaticanus:{type:'text',text:'ημεραις'},vulgate:{type:'text',text:'diebus'},bezae:{type:'text',greek:'ημεραις',latin:'vox'} },
+    ] } as VerseData;
+    const m = buildStreamModel(sample);
+    const ids = linkedWordIds(m,'bezaeLatin:a',true);
+    expect(ids).toContain('bezaeGreek:b');
+    expect(ids).toContain('vaticanus:b');
+    expect(ids).not.toContain('bezaeGreek:a');
+    expect(ids).not.toContain('bezaeLatin:b');
+    expect(linkedWordIds(m,'bezaeGreek:b',true)).toContain('bezaeLatin:a');
+    expect(m.links.find(l=>l.status === 'provisional' && l.members.includes('bezaeLatin:a'))).toBeDefined();
+    expect(comparisonLatin('prædicans')).toBe(comparisonLatin('praedicans'));
+    expect(comparisonLatin('venit')).toBe(comparisonLatin('uenit'));
+  });
   it('links the displaced Mark God word while the extra Byzantine article highlights alone', () => {
     const m = model('mark');
     const ids = linkedWordIds(m, 'vaticanus:r7');

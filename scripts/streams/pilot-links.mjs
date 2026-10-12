@@ -9,6 +9,7 @@ const snapshots = {
   'luke 1:1': 'eeafd4737fce2d6f484d69c3d6961f5ca5a213bb7ca6ade4d33d30b06607d5d3',
   'john 1:1': '7f3e7f8a8248c45bf7f21900a0c11b7575057798b4ec51faed1ac3bea3619cb0',
   'matthew 12:19': '011afe9c03b64267e620370baf3b61400cd0e8727ccf1d11eea6a83af991f9bf',
+  'matthew 3:1': '7f97c74039ae23648f0fdfa2b7cf7a971f3e4811aa5f2c0c6dcd5841eee68906',
 };
 // Project-authored correspondence examples, not independent scholarly certification.
 // Source wording and English allocations are never modified here.
@@ -35,6 +36,20 @@ export function pilotLinks(reference, document) {
   };
   if (reference === 'matthew 1:1') {
     for (const [row, label] of [['r1','book'],['r2','genealogy'],['r3','Jesus'],['r4','Christ'],['r5','son-David'],['r6','David'],['r7','son-Abraham'],['r8','Abraham']]) add(label, at(row, all), `Clause-specific ${label} correspondence, keyed to occurrences. The two occurrences of “son” are separate groups; Bezae physical loss is excluded.`);
+  }
+  if (reference === 'matthew 3:1') {
+    const same = (row, columns) => at(row, columns);
+    const latin = ['vulgate', 'bezaeLatin'];
+    add('in-days', [...same('r1', [...greek, ...latin, 'coptic', 'peshitta'])], 'Opening temporal expression; keep the intact Coptic and Syriac word-groups and distinguish the later locative expression.');
+    add('connector', [...same('r2', [...greek, 'coptic', 'peshitta']), ...same('r4', latin)], 'Greek δε, Coptic ⲇⲉ and Syriac ܕܝܢ correspond to displaced Latin autem. Latin diebus is days, not this connector.');
+    add('days', [...same('r4', [...greek, 'coptic', 'peshitta']), ...same('r2', latin)], 'Greek ημεραις/ημερες, Latin diebus, Coptic ϩⲛⲛⲉϩⲟⲟⲩ and Syriac ܒܝܘܡܬܐ; incorporated prepositions remain attached to the day word-group.');
+    for (const [row, label] of [['r5','those'], ['r6','comes'], ['r15','Judea']]) add(label, same(row, all), `Contextual ${label} correspondence; preserve each source spelling and independent sequence.`);
+    add('John', [...same('r7', all.filter(k => k !== 'bezaeLatin')), 'bezaeLatin:r3'], 'Displaced Bezae Latin iohannes corresponds to John. There is no displayed Bezae Greek John occurrence to invent or fill.');
+    add('Baptist', [...same('r9', all.filter(k => k !== 'coptic')), 'coptic:r12'], 'Coptic ⲡⲃⲁⲡⲧⲓⲥⲧⲏⲥ is the Baptist, not the Greek article at its former comparison position.');
+    add('preaching', [...same('r10', [...greek, 'vulgate', 'peshitta']), 'coptic:r9', 'bezaeLatin:r14', 'peshitta:r11'], 'κηρυσσων / prædicans / praedicans / ⲉϥⲧⲁϣⲉⲟⲉⲓϣ and the Syriac verbal unit ܘܡܟܪܙ ܗܘܐ. The Syriac auxiliary is part of the verbal unit, not the following locative expression; existing English allocation is retained.');
+    add('in-wilderness', [...same('r11', [...greek, ...latin]), 'coptic:r10'], 'The second discrete locative expression, kept distinct from the opening temporal preposition. Fused material stays with the wilderness head.');
+    add('wilderness', [...same('r13', [...greek, ...latin, 'peshitta']), 'coptic:r11'], 'Displaced Coptic ϩⲙⲡϫⲁⲓⲉ and Syriac ܒܚܘܪܒܐ retain their incorporated prepositions and link to wilderness/desert.');
+    for (const row of ['r3','r8','r12','r14']) add(`article-${row}`, same(row, greek), 'Discrete Greek article occurrence only; do not attach displaced Latin names or verbs, or a fused Coptic/Syriac article.');
   }
   if (reference === 'mark 1:1') {
     for (const [row, label] of [['r1','beginning'],['r3','gospel'],['r4','Jesus'],['r5','Christ'],['r6','Son']]) add(label, at(row, all), `Opening-clause ${label} correspondence. A missing discrete counterpart contributes no member.`);
