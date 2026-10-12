@@ -221,15 +221,9 @@
             "date": "c. 175–225 CE"
           }
         ],
-        "text": "ουδεισ",
+        "text": "ουδε·σ",
         "condition": {
-          "missingAfter": [
-            5
-          ]
-        },
-        "gloss": {
-          "gloss": "no one",
-          "source": "TAGNT"
+          "partial": true
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
@@ -241,13 +235,45 @@
               "siglum": "P4",
               "sourceToken": 1,
               "diplomatic": "ουδεισ",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "ουδει^σ",
+              "visible": "ουδε·σ",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 5
+                }
+              ],
+              "supplied": null
             },
             {
               "siglum": "P75",
               "sourceToken": 1,
               "diplomatic": "ουδεισ",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "ο^υ/δ%ε%ι%σ",
+              "visible": "·υδεισ",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 1
+                },
+                {
+                  "kind": "damaged",
+                  "after": 3
+                },
+                {
+                  "kind": "damaged",
+                  "after": 4
+                },
+                {
+                  "kind": "damaged",
+                  "after": 5
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
@@ -255,8 +281,19 @@
             "P75"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "no one",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ουδεισ",
+          "evidenceStatus": "partial"
+        },
+        "editorialNotes": [
+          "P4: partially preserved; dots replace missing letters. Transcription proposes: ουδεισ.",
+          "P75: partially preserved; dots replace missing letters. Transcription proposes: ουδεισ."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -506,14 +543,29 @@
               "siglum": "P4",
               "sourceToken": 2,
               "diplomatic": "πιων",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "πι/ων",
+              "visible": "πιων",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P75",
               "sourceToken": 2,
               "diplomatic": "πειων",
               "classification": "certified-held-existing-or-addition-row",
-              "adjudication": "unique-high-orthographic-row-with-two-greek-guide-consensus"
+              "adjudication": "unique-high-orthographic-row-with-two-greek-guide-consensus",
+              "evidenceStatus": "attested",
+              "raw": "πε%ιων",
+              "visible": "πειων",
+              "conditions": [
+                {
+                  "kind": "damaged",
+                  "after": 2
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
@@ -523,10 +575,18 @@
             {
               "siglum": "P75",
               "sourceToken": 2,
-              "diplomatic": "πειων"
+              "diplomatic": "πειων",
+              "evidenceStatus": "attested"
             }
           ],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "having drunk",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "πιων",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -803,10 +863,6 @@
           {
             "id": "P4",
             "date": "c. 150–200 CE"
-          },
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
           }
         ],
         "text": "παλαιον",
@@ -824,22 +880,66 @@
               "siglum": "P4",
               "sourceToken": 3,
               "diplomatic": "παλαιον",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "παλαιον",
+              "visible": "παλαιον",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P75",
               "sourceToken": 3,
               "diplomatic": "παλαιον",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "πα^λ^α^ι^ο^ν^",
+              "visible": "π······",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 2
+                },
+                {
+                  "kind": "missing",
+                  "after": 3
+                },
+                {
+                  "kind": "missing",
+                  "after": 4
+                },
+                {
+                  "kind": "missing",
+                  "after": 5
+                },
+                {
+                  "kind": "missing",
+                  "after": 6
+                },
+                {
+                  "kind": "missing",
+                  "after": 7
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P4",
-            "P75"
+            "P4"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "old wine",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "παλαιον",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P75: partially preserved; dots replace missing letters. Transcription proposes: παλαιον."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -1162,10 +1262,6 @@
           {
             "id": "P4",
             "date": "c. 150–200 CE"
-          },
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
           }
         ],
         "text": "θελει",
@@ -1183,22 +1279,41 @@
               "siglum": "P4",
               "sourceToken": 4,
               "diplomatic": "θελει",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "θελει",
+              "visible": "θελει",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P75",
               "sourceToken": 4,
               "diplomatic": "θελει",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~θελει",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             }
           ],
           "agreeingSigla": [
-            "P4",
-            "P75"
+            "P4"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "desires",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "θελει",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P75: editorial restoration; no readable text recorded for this word. Transcription proposes: θελει."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -1480,10 +1595,6 @@
           {
             "id": "P4",
             "date": "c. 150–200 CE"
-          },
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
           }
         ],
         "text": "νεον",
@@ -1501,22 +1612,54 @@
               "siglum": "P4",
               "sourceToken": 5,
               "diplomatic": "νεον",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "νε/ον",
+              "visible": "νεον",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P75",
               "sourceToken": 5,
               "diplomatic": "νεον",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "ν^ε^ο%ν",
+              "visible": "··ον",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 1
+                },
+                {
+                  "kind": "missing",
+                  "after": 2
+                },
+                {
+                  "kind": "damaged",
+                  "after": 3
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P4",
-            "P75"
+            "P4"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "new,",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "νεον",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P75: partially preserved; dots replace missing letters. Transcription proposes: νεον."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -1733,10 +1876,6 @@
           {
             "id": "P4",
             "date": "c. 150–200 CE"
-          },
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
           }
         ],
         "text": "λεγει",
@@ -1754,22 +1893,41 @@
               "siglum": "P4",
               "sourceToken": 6,
               "diplomatic": "λεγει",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "λεγει",
+              "visible": "λεγει",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P75",
               "sourceToken": 6,
               "diplomatic": "λεγει",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "/~λεγει",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             }
           ],
           "agreeingSigla": [
-            "P4",
-            "P75"
+            "P4"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "he says",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "λεγει",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P75: editorial restoration; no readable text recorded for this word. Transcription proposes: λεγει."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -1958,13 +2116,28 @@
               "siglum": "P4",
               "sourceToken": 7,
               "diplomatic": "γαρ",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "γαρ",
+              "visible": "γαρ",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P75",
               "sourceToken": 7,
               "diplomatic": "γαρ",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "γ%αρ",
+              "visible": "γαρ",
+              "conditions": [
+                {
+                  "kind": "damaged",
+                  "after": 1
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
@@ -1972,7 +2145,14 @@
             "P75"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "for;",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "γαρ",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -2192,10 +2372,6 @@
           {
             "id": "P4",
             "date": "c. 150–200 CE"
-          },
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
           }
         ],
         "text": "ο",
@@ -2213,22 +2389,41 @@
               "siglum": "P4",
               "sourceToken": 8,
               "diplomatic": "ο",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "ο",
+              "visible": "ο",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P75",
               "sourceToken": 8,
               "diplomatic": "ο",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~ο",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             }
           ],
           "agreeingSigla": [
-            "P4",
-            "P75"
+            "P4"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "The",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ο",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P75: editorial restoration; no readable text recorded for this word. Transcription proposes: ο."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -2380,10 +2575,6 @@
           {
             "id": "P4",
             "date": "c. 150–200 CE"
-          },
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
           }
         ],
         "text": "παλαιοσ",
@@ -2401,22 +2592,41 @@
               "siglum": "P4",
               "sourceToken": 9,
               "diplomatic": "παλαιοσ",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "παλαι/οσ",
+              "visible": "παλαιοσ",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P75",
               "sourceToken": 9,
               "diplomatic": "παλαιοσ",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~παλαιοσ",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             }
           ],
           "agreeingSigla": [
-            "P4",
-            "P75"
+            "P4"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "old",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "παλαιοσ",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P75: editorial restoration; no readable text recorded for this word. Transcription proposes: παλαιοσ."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -2642,10 +2852,6 @@
           {
             "id": "P4",
             "date": "c. 150–200 CE"
-          },
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
           }
         ],
         "text": "χρηστοσ",
@@ -2663,22 +2869,70 @@
               "siglum": "P4",
               "sourceToken": 10,
               "diplomatic": "χρηστοσ",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "χρηστοσ",
+              "visible": "χρηστοσ",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P75",
               "sourceToken": 10,
               "diplomatic": "χρηστοσ",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "+χ^ρ^η^σ^τ^ο^σ%",
+              "visible": "······σ",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 1
+                },
+                {
+                  "kind": "missing",
+                  "after": 2
+                },
+                {
+                  "kind": "missing",
+                  "after": 3
+                },
+                {
+                  "kind": "missing",
+                  "after": 4
+                },
+                {
+                  "kind": "missing",
+                  "after": 5
+                },
+                {
+                  "kind": "missing",
+                  "after": 6
+                },
+                {
+                  "kind": "damaged",
+                  "after": 7
+                }
+              ],
+              "supplied": "vid"
             }
           ],
           "agreeingSigla": [
-            "P4",
-            "P75"
+            "P4"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "good",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "χρηστοσ",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P75: partially preserved; dots replace missing letters. Transcription proposes: χρηστοσ."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -2836,18 +3090,11 @@
           {
             "id": "P4",
             "date": "c. 150–200 CE"
-          },
-          {
-            "id": "P75",
-            "date": "c. 175–225 CE"
           }
         ],
         "text": "εστιν",
         "condition": {
-          "damaged": true,
-          "damagedAfter": [
-            4
-          ]
+          "damaged": true
         },
         "gloss": {
           "gloss": "is.",
@@ -2863,22 +3110,55 @@
               "siglum": "P4",
               "sourceToken": 11,
               "diplomatic": "εστιν",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "εστι%ν",
+              "visible": "εστιν",
+              "conditions": [
+                {
+                  "kind": "damaged",
+                  "after": 4
+                }
+              ],
+              "supplied": null
             },
             {
               "siglum": "P75",
               "sourceToken": 11,
               "diplomatic": "εστιν",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "εστ^ιν%",
+              "visible": "εσ·ιν",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 3
+                },
+                {
+                  "kind": "damaged",
+                  "after": 5
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P4",
-            "P75"
+            "P4"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "is.",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "εστιν",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P75: partially preserved; dots replace missing letters. Transcription proposes: εστιν."
+        ]
       },
       "vaticanus": {
         "type": "text",

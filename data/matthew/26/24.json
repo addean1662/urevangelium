@@ -32,13 +32,23 @@
               "siglum": "P45",
               "sourceToken": 1,
               "diplomatic": "ο",
-              "classification": "contextual-repeated-guide-row"
+              "classification": "contextual-repeated-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "ο",
+              "visible": "ο",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 1,
               "diplomatic": "ο",
-              "classification": "contextual-repeated-guide-row"
+              "classification": "contextual-repeated-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "/ο",
+              "visible": "ο",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
@@ -46,7 +56,14 @@
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "<the>",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ο",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -168,28 +185,18 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P37",
             "date": "c. 250–300 CE"
           }
         ],
         "text": "μεν",
-        "condition": {
-          "missingAfter": [
-            2,
-            3
-          ]
-        },
         "gloss": {
           "gloss": "Indeed",
           "source": "TAGNT"
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 2,
           "diplomatic": "μεν",
           "sourceAttestations": [
@@ -197,22 +204,50 @@
               "siglum": "P45",
               "sourceToken": 2,
               "diplomatic": "μεν",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "με^ν^",
+              "visible": "μ··",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 2
+                },
+                {
+                  "kind": "missing",
+                  "after": 3
+                }
+              ],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 2,
               "diplomatic": "μεν",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "μεν",
+              "visible": "μεν",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45",
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "Indeed",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "μεν",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: partially preserved; dots replace missing letters. Transcription proposes: μεν."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -398,50 +433,64 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
+            "id": "P37",
+            "date": "c. 250–300 CE"
           }
         ],
-        "text": "υσ",
-        "condition": {
-          "supplied": "editor"
-        },
-        "gloss": {
-          "gloss": "the Son",
-          "source": "TAGNT"
-        },
+        "text": "υιοσ",
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 3,
-          "diplomatic": "υσ",
+          "diplomatic": "υιοσ",
           "sourceAttestations": [
             {
               "siglum": "P45",
               "sourceToken": 3,
               "diplomatic": "υσ",
               "classification": "certified-held-existing-or-addition-row",
-              "adjudication": "source-order-placement-in-equal-cardinality-bounded-context"
+              "adjudication": "source-order-placement-in-equal-cardinality-bounded-context",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~=υσ",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             },
             {
               "siglum": "P37",
               "sourceToken": 3,
               "diplomatic": "υιοσ",
-              "classification": "contextual-repeated-guide-row"
+              "classification": "contextual-repeated-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "υιοσ",
+              "visible": "υιοσ",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45"
+            "P37"
           ],
           "dissentingReadings": [
             {
-              "siglum": "P37",
+              "siglum": "P45",
               "sourceToken": 3,
-              "diplomatic": "υιοσ"
+              "diplomatic": "υσ",
+              "evidenceStatus": "fully-supplied"
             }
           ],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "the Son",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "υσ",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: editorial restoration; no readable text recorded for this word. Transcription proposes: υσ."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -692,25 +741,18 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P37",
             "date": "c. 250–300 CE"
           }
         ],
         "text": "του",
-        "condition": {
-          "supplied": "editor"
-        },
         "gloss": {
           "gloss": "<the>",
           "source": "TAGNT"
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 4,
           "diplomatic": "του",
           "sourceAttestations": [
@@ -718,22 +760,41 @@
               "siglum": "P45",
               "sourceToken": 4,
               "diplomatic": "του",
-              "classification": "conditioned-contextual-guide-row"
+              "classification": "conditioned-contextual-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~του",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             },
             {
               "siglum": "P37",
               "sourceToken": 4,
               "diplomatic": "του",
-              "classification": "contextual-repeated-guide-row"
+              "classification": "contextual-repeated-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "του",
+              "visible": "του",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45",
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "<the>",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "του",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: editorial restoration; no readable text recorded for this word. Transcription proposes: του."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -850,27 +911,18 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P37",
             "date": "c. 250–300 CE"
           }
         ],
         "text": "ανθρωπου",
-        "condition": {
-          "missingAfter": [
-            1
-          ]
-        },
         "gloss": {
           "gloss": "of Man",
           "source": "TAGNT"
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 5,
           "diplomatic": "ανθρωπου",
           "sourceAttestations": [
@@ -878,22 +930,46 @@
               "siglum": "P45",
               "sourceToken": 5,
               "diplomatic": "ανθρωπου",
-              "classification": "conditioned-contextual-guide-row"
+              "classification": "conditioned-contextual-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "α^νθρωπου",
+              "visible": "·νθρωπου",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 1
+                }
+              ],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 5,
               "diplomatic": "ανθρωπου",
-              "classification": "contextual-repeated-guide-row"
+              "classification": "contextual-repeated-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "ανθρωπου",
+              "visible": "ανθρωπου",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45",
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "of Man",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ανθρωπου",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: partially preserved; dots replace missing letters. Transcription proposes: ανθρωπου."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -1203,13 +1279,23 @@
               "siglum": "P45",
               "sourceToken": 6,
               "diplomatic": "υπαγει",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "υπαγει",
+              "visible": "υπαγει",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 6,
               "diplomatic": "υπαγει",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "υπαγει",
+              "visible": "υπαγει",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
@@ -1217,7 +1303,14 @@
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "goes",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "υπαγει",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -1438,30 +1531,18 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P37",
             "date": "c. 250–300 CE"
           }
         ],
         "text": "καθωσ",
-        "condition": {
-          "missingAfter": [
-            2,
-            3,
-            4,
-            5
-          ]
-        },
         "gloss": {
           "gloss": "even as",
           "source": "TAGNT"
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 7,
           "diplomatic": "καθωσ",
           "sourceAttestations": [
@@ -1469,22 +1550,58 @@
               "siglum": "P45",
               "sourceToken": 7,
               "diplomatic": "καθωσ",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "κα^θ^ω^σ^",
+              "visible": "κ····",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 2
+                },
+                {
+                  "kind": "missing",
+                  "after": 3
+                },
+                {
+                  "kind": "missing",
+                  "after": 4
+                },
+                {
+                  "kind": "missing",
+                  "after": 5
+                }
+              ],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 7,
               "diplomatic": "καθωσ",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "καθωσ",
+              "visible": "καθωσ",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45",
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "even as",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "καθωσ",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: partially preserved; dots replace missing letters. Transcription proposes: καθωσ."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -1703,17 +1820,13 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P37",
             "date": "c. 250–300 CE"
           }
         ],
         "text": "γεγραπται",
         "condition": {
-          "supplied": "editor"
+          "damaged": true
         },
         "gloss": {
           "gloss": "it has been written",
@@ -1721,7 +1834,7 @@
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 8,
           "diplomatic": "γεγραπται",
           "sourceAttestations": [
@@ -1729,22 +1842,46 @@
               "siglum": "P45",
               "sourceToken": 8,
               "diplomatic": "γεγραπται",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~γεγραπται",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             },
             {
               "siglum": "P37",
               "sourceToken": 8,
               "diplomatic": "γεγραπται",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "γεγραπ%ται",
+              "visible": "γεγραπται",
+              "conditions": [
+                {
+                  "kind": "damaged",
+                  "after": 6
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45",
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "it has been written",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "γεγραπται",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: editorial restoration; no readable text recorded for this word. Transcription proposes: γεγραπται."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -1962,21 +2099,11 @@
           {
             "id": "P45",
             "date": "c. 200–250 CE"
-          },
-          {
-            "id": "P37",
-            "date": "c. 250–300 CE"
           }
         ],
-        "text": "περι",
+        "text": "·ερι",
         "condition": {
-          "missingAfter": [
-            1
-          ]
-        },
-        "gloss": {
-          "gloss": "about",
-          "source": "TAGNT"
+          "partial": true
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
@@ -1988,22 +2115,47 @@
               "siglum": "P45",
               "sourceToken": 9,
               "diplomatic": "περι",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "/π^ερι",
+              "visible": "·ερι",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 1
+                }
+              ],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 9,
               "diplomatic": "περι",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~περι",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             }
           ],
           "agreeingSigla": [
-            "P45",
-            "P37"
+            "P45"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "about",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "περι",
+          "evidenceStatus": "partial"
+        },
+        "editorialNotes": [
+          "P45: partially preserved; dots replace missing letters. Transcription proposes: περι.",
+          "P37: editorial restoration; no readable text recorded for this word. Transcription proposes: περι."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -2194,10 +2346,6 @@
           {
             "id": "P45",
             "date": "c. 200–250 CE"
-          },
-          {
-            "id": "P37",
-            "date": "c. 250–300 CE"
           }
         ],
         "text": "αυτου",
@@ -2215,22 +2363,41 @@
               "siglum": "P45",
               "sourceToken": 10,
               "diplomatic": "αυτου",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "αυτου",
+              "visible": "αυτου",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 10,
               "diplomatic": "αυτου",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~αυτου",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             }
           ],
           "agreeingSigla": [
-            "P45",
-            "P37"
+            "P45"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "Him,",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "αυτου",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P37: editorial restoration; no readable text recorded for this word. Transcription proposes: αυτου."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -2437,13 +2604,23 @@
               "siglum": "P45",
               "sourceToken": 11,
               "diplomatic": "ουαι",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "ουαι",
+              "visible": "ουαι",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 11,
               "diplomatic": "ουαι",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "/ουαι",
+              "visible": "ουαι",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
@@ -2451,7 +2628,14 @@
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "woe",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ουαι",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -2689,13 +2873,23 @@
               "siglum": "P45",
               "sourceToken": 12,
               "diplomatic": "δε",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "δε",
+              "visible": "δε",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 12,
               "diplomatic": "δε",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "δε",
+              "visible": "δε",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
@@ -2703,7 +2897,14 @@
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "however",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "δε",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -2922,53 +3123,73 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
+            "id": "P37",
+            "date": "c. 250–300 CE"
           }
         ],
-        "text": "τωι",
-        "condition": {
-          "missingAfter": [
-            2,
-            3
-          ]
-        },
-        "gloss": {
-          "gloss": "for the",
-          "source": "TAGNT"
-        },
+        "text": "τω",
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 13,
-          "diplomatic": "τωι",
+          "diplomatic": "τω",
           "sourceAttestations": [
             {
               "siglum": "P45",
               "sourceToken": 13,
               "diplomatic": "τωι",
               "classification": "certified-held-existing-or-addition-row",
-              "adjudication": "source-order-placement-in-equal-cardinality-bounded-context"
+              "adjudication": "source-order-placement-in-equal-cardinality-bounded-context",
+              "evidenceStatus": "partial",
+              "raw": "τω^ι^",
+              "visible": "τ··",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 2
+                },
+                {
+                  "kind": "missing",
+                  "after": 3
+                }
+              ],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 13,
               "diplomatic": "τω",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "τω",
+              "visible": "τω",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45"
+            "P37"
           ],
           "dissentingReadings": [
             {
-              "siglum": "P37",
+              "siglum": "P45",
               "sourceToken": 13,
-              "diplomatic": "τω"
+              "diplomatic": "τωι",
+              "evidenceStatus": "partial"
             }
           ],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "for the",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "τωι",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: partially preserved; dots replace missing letters. Transcription proposes: τωι."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -3084,57 +3305,89 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
+            "id": "P37",
+            "date": "c. 250–300 CE"
           }
         ],
-        "text": "ανθρωπωι",
-        "condition": {
-          "missingAfter": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ]
-        },
-        "gloss": {
-          "gloss": "man",
-          "source": "TAGNT"
-        },
+        "text": "ανθρωπω",
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 14,
-          "diplomatic": "ανθρωπωι",
+          "diplomatic": "ανθρωπω",
           "sourceAttestations": [
             {
               "siglum": "P45",
               "sourceToken": 14,
               "diplomatic": "ανθρωπωι",
               "classification": "certified-held-existing-or-addition-row",
-              "adjudication": "unique-high-orthographic-row-with-two-greek-guide-consensus"
+              "adjudication": "unique-high-orthographic-row-with-two-greek-guide-consensus",
+              "evidenceStatus": "partial",
+              "raw": "α^ν^θ^ρ^ω^π^ωι",
+              "visible": "······ωι",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 1
+                },
+                {
+                  "kind": "missing",
+                  "after": 2
+                },
+                {
+                  "kind": "missing",
+                  "after": 3
+                },
+                {
+                  "kind": "missing",
+                  "after": 4
+                },
+                {
+                  "kind": "missing",
+                  "after": 5
+                },
+                {
+                  "kind": "missing",
+                  "after": 6
+                }
+              ],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 14,
               "diplomatic": "ανθρωπω",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "ανθρωπω",
+              "visible": "ανθρωπω",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45"
+            "P37"
           ],
           "dissentingReadings": [
             {
-              "siglum": "P37",
+              "siglum": "P45",
               "sourceToken": 14,
-              "diplomatic": "ανθρωπω"
+              "diplomatic": "ανθρωπωι",
+              "evidenceStatus": "partial"
             }
           ],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "man",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ανθρωπωι",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: partially preserved; dots replace missing letters. Transcription proposes: ανθρωπωι."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -3396,13 +3649,23 @@
               "sourceToken": 15,
               "diplomatic": "εκεινωι",
               "classification": "certified-held-existing-or-addition-row",
-              "adjudication": "unique-high-orthographic-row-with-two-greek-guide-consensus"
+              "adjudication": "unique-high-orthographic-row-with-two-greek-guide-consensus",
+              "evidenceStatus": "attested",
+              "raw": "εκεινωι",
+              "visible": "εκεινωι",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 15,
               "diplomatic": "εκεινω",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "εκεινω",
+              "visible": "εκεινω",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
@@ -3412,10 +3675,18 @@
             {
               "siglum": "P37",
               "sourceToken": 15,
-              "diplomatic": "εκεινω"
+              "diplomatic": "εκεινω",
+              "evidenceStatus": "attested"
             }
           ],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "that one",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "εκεινωι",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -3645,13 +3916,23 @@
               "siglum": "P45",
               "sourceToken": 16,
               "diplomatic": "δι",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "δι",
+              "visible": "δι",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 16,
               "diplomatic": "δι",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "δι",
+              "visible": "δι",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
@@ -3659,7 +3940,14 @@
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "through",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "δι",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -3892,31 +4180,18 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P37",
             "date": "c. 250–300 CE"
           }
         ],
         "text": "ου",
-        "condition": {
-          "damaged": true,
-          "damagedAfter": [
-            1
-          ],
-          "missingAfter": [
-            2
-          ]
-        },
         "gloss": {
           "gloss": "whom",
           "source": "TAGNT"
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 17,
           "diplomatic": "ου",
           "sourceAttestations": [
@@ -3924,22 +4199,50 @@
               "siglum": "P45",
               "sourceToken": 17,
               "diplomatic": "ου",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "ο%υ^",
+              "visible": "ο·",
+              "conditions": [
+                {
+                  "kind": "damaged",
+                  "after": 1
+                },
+                {
+                  "kind": "missing",
+                  "after": 2
+                }
+              ],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 17,
               "diplomatic": "ου",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "ου",
+              "visible": "ου",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45",
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "whom",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ου",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: partially preserved; dots replace missing letters. Transcription proposes: ου."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -4158,25 +4461,18 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P37",
             "date": "c. 250–300 CE"
           }
         ],
         "text": "ο",
-        "condition": {
-          "supplied": "editor"
-        },
         "gloss": {
           "gloss": "the",
           "source": "TAGNT"
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 18,
           "diplomatic": "ο",
           "sourceAttestations": [
@@ -4184,22 +4480,41 @@
               "siglum": "P45",
               "sourceToken": 18,
               "diplomatic": "ο",
-              "classification": "conditioned-contextual-guide-row"
+              "classification": "conditioned-contextual-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~ο",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             },
             {
               "siglum": "P37",
               "sourceToken": 18,
               "diplomatic": "ο",
-              "classification": "contextual-repeated-guide-row"
+              "classification": "contextual-repeated-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "ο",
+              "visible": "ο",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45",
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "the",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ο",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: editorial restoration; no readable text recorded for this word. Transcription proposes: ο."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -4320,50 +4635,64 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
+            "id": "P37",
+            "date": "c. 250–300 CE"
           }
         ],
-        "text": "υσ",
-        "condition": {
-          "supplied": "editor"
-        },
-        "gloss": {
-          "gloss": "Son",
-          "source": "TAGNT"
-        },
+        "text": "υιοσ",
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 19,
-          "diplomatic": "υσ",
+          "diplomatic": "υιοσ",
           "sourceAttestations": [
             {
               "siglum": "P45",
               "sourceToken": 19,
               "diplomatic": "υσ",
               "classification": "certified-held-existing-or-addition-row",
-              "adjudication": "source-order-placement-in-equal-cardinality-bounded-context"
+              "adjudication": "source-order-placement-in-equal-cardinality-bounded-context",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~=υσ",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             },
             {
               "siglum": "P37",
               "sourceToken": 19,
               "diplomatic": "υιοσ",
-              "classification": "contextual-repeated-guide-row"
+              "classification": "contextual-repeated-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "υιοσ",
+              "visible": "υιοσ",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45"
+            "P37"
           ],
           "dissentingReadings": [
             {
-              "siglum": "P37",
+              "siglum": "P45",
               "sourceToken": 19,
-              "diplomatic": "υιοσ"
+              "diplomatic": "υσ",
+              "evidenceStatus": "fully-supplied"
             }
           ],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "Son",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "υσ",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: editorial restoration; no readable text recorded for this word. Transcription proposes: υσ."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -4629,25 +4958,18 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P37",
             "date": "c. 250–300 CE"
           }
         ],
         "text": "του",
-        "condition": {
-          "supplied": "editor"
-        },
         "gloss": {
           "gloss": "<the>",
           "source": "TAGNT"
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 20,
           "diplomatic": "του",
           "sourceAttestations": [
@@ -4655,22 +4977,41 @@
               "siglum": "P45",
               "sourceToken": 20,
               "diplomatic": "του",
-              "classification": "conditioned-contextual-guide-row"
+              "classification": "conditioned-contextual-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~του",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             },
             {
               "siglum": "P37",
               "sourceToken": 20,
               "diplomatic": "του",
-              "classification": "contextual-repeated-guide-row"
+              "classification": "contextual-repeated-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "του",
+              "visible": "του",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45",
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "<the>",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "του",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: editorial restoration; no readable text recorded for this word. Transcription proposes: του."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -4835,20 +5176,9 @@
             "date": "c. 250–300 CE"
           }
         ],
-        "text": "ανθρωπου",
+        "text": "······ου",
         "condition": {
-          "missingAfter": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ]
-        },
-        "gloss": {
-          "gloss": "of Man",
-          "source": "TAGNT"
+          "partial": true
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
@@ -4860,13 +5190,53 @@
               "siglum": "P45",
               "sourceToken": 21,
               "diplomatic": "ανθρωπου",
-              "classification": "conditioned-contextual-guide-row"
+              "classification": "conditioned-contextual-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "α^ν^θ^ρ^ω^/π^ου",
+              "visible": "······ου",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 1
+                },
+                {
+                  "kind": "missing",
+                  "after": 2
+                },
+                {
+                  "kind": "missing",
+                  "after": 3
+                },
+                {
+                  "kind": "missing",
+                  "after": 4
+                },
+                {
+                  "kind": "missing",
+                  "after": 5
+                },
+                {
+                  "kind": "missing",
+                  "after": 6
+                }
+              ],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 21,
               "diplomatic": "ανθρωπου",
-              "classification": "conditioned-contextual-guide-row"
+              "classification": "conditioned-contextual-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "ανθρωπου^",
+              "visible": "ανθρωπο·",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 8
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
@@ -4874,8 +5244,19 @@
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "of Man",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ανθρωπου",
+          "evidenceStatus": "partial"
+        },
+        "editorialNotes": [
+          "P45: partially preserved; dots replace missing letters. Transcription proposes: ανθρωπου.",
+          "P37: partially preserved; dots replace missing letters. Transcription proposes: ανθρωπου."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -5137,10 +5518,6 @@
           {
             "id": "P45",
             "date": "c. 200–250 CE"
-          },
-          {
-            "id": "P37",
-            "date": "c. 250–300 CE"
           }
         ],
         "text": "παραδιδοται",
@@ -5158,22 +5535,41 @@
               "siglum": "P45",
               "sourceToken": 22,
               "diplomatic": "παραδιδοται",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "παραδιδοται",
+              "visible": "παραδιδοται",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 22,
               "diplomatic": "παραδιδοται",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~παραδιδοται",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             }
           ],
           "agreeingSigla": [
-            "P45",
-            "P37"
+            "P45"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "is betrayed;",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "παραδιδοται",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P37: editorial restoration; no readable text recorded for this word. Transcription proposes: παραδιδοται."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -5387,29 +5783,18 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P37",
             "date": "c. 250–300 CE"
           }
         ],
         "text": "καλον",
-        "condition": {
-          "missingAfter": [
-            3,
-            4,
-            5
-          ]
-        },
         "gloss": {
           "gloss": "Better",
           "source": "TAGNT"
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 23,
           "diplomatic": "καλον",
           "sourceAttestations": [
@@ -5417,22 +5802,54 @@
               "siglum": "P45",
               "sourceToken": 23,
               "diplomatic": "καλον",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "καλ^ο^ν^",
+              "visible": "κα···",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 3
+                },
+                {
+                  "kind": "missing",
+                  "after": 4
+                },
+                {
+                  "kind": "missing",
+                  "after": 5
+                }
+              ],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 23,
               "diplomatic": "καλον",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "/καλον",
+              "visible": "καλον",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45",
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "Better",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "καλον",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: partially preserved; dots replace missing letters. Transcription proposes: καλον."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -5630,25 +6047,18 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P37",
             "date": "c. 250–300 CE"
           }
         ],
         "text": "ην",
-        "condition": {
-          "supplied": "editor"
-        },
         "gloss": {
           "gloss": "was being",
           "source": "TAGNT"
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 24,
           "diplomatic": "ην",
           "sourceAttestations": [
@@ -5656,22 +6066,41 @@
               "siglum": "P45",
               "sourceToken": 24,
               "diplomatic": "ην",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~ην",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             },
             {
               "siglum": "P37",
               "sourceToken": 24,
               "diplomatic": "ην",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "ην",
+              "visible": "ην",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45",
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "was being",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ην",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: editorial restoration; no readable text recorded for this word. Transcription proposes: ην."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -5860,52 +6289,69 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
+            "id": "P37",
+            "date": "c. 250–300 CE"
           }
         ],
-        "text": "αυτωι",
-        "condition": {
-          "missingAfter": [
-            1
-          ]
-        },
-        "gloss": {
-          "gloss": "for him",
-          "source": "TAGNT"
-        },
+        "text": "αυτω",
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 25,
-          "diplomatic": "αυτωι",
+          "diplomatic": "αυτω",
           "sourceAttestations": [
             {
               "siglum": "P45",
               "sourceToken": 25,
               "diplomatic": "αυτωι",
               "classification": "certified-held-existing-or-addition-row",
-              "adjudication": "unique-high-orthographic-row-with-two-greek-guide-consensus"
+              "adjudication": "unique-high-orthographic-row-with-two-greek-guide-consensus",
+              "evidenceStatus": "partial",
+              "raw": "α^υτωι",
+              "visible": "·υτωι",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 1
+                }
+              ],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 25,
               "diplomatic": "αυτω",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "αυτω",
+              "visible": "αυτω",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45"
+            "P37"
           ],
           "dissentingReadings": [
             {
-              "siglum": "P37",
+              "siglum": "P45",
               "sourceToken": 25,
-              "diplomatic": "αυτω"
+              "diplomatic": "αυτωι",
+              "evidenceStatus": "partial"
             }
           ],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "for him",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "αυτωι",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: partially preserved; dots replace missing letters. Transcription proposes: αυτωι."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -6152,13 +6598,23 @@
               "siglum": "P45",
               "sourceToken": 26,
               "diplomatic": "ει",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "ει",
+              "visible": "ει",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 26,
               "diplomatic": "ει",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "ει",
+              "visible": "ει",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
@@ -6166,7 +6622,14 @@
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "if",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ει",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -6365,13 +6828,23 @@
               "siglum": "P45",
               "sourceToken": 27,
               "diplomatic": "ουκ",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "ουκ",
+              "visible": "ουκ",
+              "conditions": [],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 27,
               "diplomatic": "ουκ",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "ουκ",
+              "visible": "ουκ",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
@@ -6379,7 +6852,14 @@
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "not",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ουκ",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -6599,30 +7079,18 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P37",
             "date": "c. 250–300 CE"
           }
         ],
         "text": "εγεννηθη",
-        "condition": {
-          "missingAfter": [
-            5,
-            6,
-            7,
-            8
-          ]
-        },
         "gloss": {
           "gloss": "was born",
           "source": "TAGNT"
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 28,
           "diplomatic": "εγεννηθη",
           "sourceAttestations": [
@@ -6630,22 +7098,58 @@
               "siglum": "P45",
               "sourceToken": 28,
               "diplomatic": "εγεννηθη",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "εγενν^η^θ^η^",
+              "visible": "εγεν····",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 5
+                },
+                {
+                  "kind": "missing",
+                  "after": 6
+                },
+                {
+                  "kind": "missing",
+                  "after": 7
+                },
+                {
+                  "kind": "missing",
+                  "after": 8
+                }
+              ],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 28,
               "diplomatic": "εγεννηθη",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "εγεννηθη",
+              "visible": "εγεννηθη",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45",
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "was born",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "εγεννηθη",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: partially preserved; dots replace missing letters. Transcription proposes: εγεννηθη."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -6825,25 +7329,18 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P37",
             "date": "c. 250–300 CE"
           }
         ],
         "text": "ο",
-        "condition": {
-          "supplied": "editor"
-        },
         "gloss": {
           "gloss": "the",
           "source": "TAGNT"
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 29,
           "diplomatic": "ο",
           "sourceAttestations": [
@@ -6851,22 +7348,41 @@
               "siglum": "P45",
               "sourceToken": 29,
               "diplomatic": "ο",
-              "classification": "conditioned-contextual-guide-row"
+              "classification": "conditioned-contextual-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~ο",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             },
             {
               "siglum": "P37",
               "sourceToken": 29,
               "diplomatic": "ο",
-              "classification": "contextual-repeated-guide-row"
+              "classification": "contextual-repeated-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "ο",
+              "visible": "ο",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45",
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "the",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ο",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: editorial restoration; no readable text recorded for this word. Transcription proposes: ο."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -6982,25 +7498,18 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P37",
             "date": "c. 250–300 CE"
           }
         ],
         "text": "ανθρωποσ",
-        "condition": {
-          "supplied": "editor"
-        },
         "gloss": {
           "gloss": "man",
           "source": "TAGNT"
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 30,
           "diplomatic": "ανθρωποσ",
           "sourceAttestations": [
@@ -7008,22 +7517,41 @@
               "siglum": "P45",
               "sourceToken": 30,
               "diplomatic": "ανθρωποσ",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~ανθρωποσ",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             },
             {
               "siglum": "P37",
               "sourceToken": 30,
               "diplomatic": "ανθρωποσ",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "ανθρωποσ",
+              "visible": "ανθρωποσ",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45",
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "man",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ανθρωποσ",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: editorial restoration; no readable text recorded for this word. Transcription proposes: ανθρωποσ."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -7235,27 +7763,18 @@
         "type": "extant",
         "fragments": [
           {
-            "id": "P45",
-            "date": "c. 200–250 CE"
-          },
-          {
             "id": "P37",
             "date": "c. 250–300 CE"
           }
         ],
         "text": "εκεινοσ",
-        "condition": {
-          "missingAfter": [
-            1
-          ]
-        },
         "gloss": {
           "gloss": "that.",
           "source": "TAGNT"
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P45",
+          "governingSiglum": "P37",
           "sourceToken": 31,
           "diplomatic": "εκεινοσ",
           "sourceAttestations": [
@@ -7263,22 +7782,46 @@
               "siglum": "P45",
               "sourceToken": 31,
               "diplomatic": "εκεινοσ",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "/ε^κεινοσ",
+              "visible": "·κεινοσ",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 1
+                }
+              ],
+              "supplied": null
             },
             {
               "siglum": "P37",
               "sourceToken": 31,
               "diplomatic": "εκεινοσ",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "εκεινοσ",
+              "visible": "εκεινοσ",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
-            "P45",
             "P37"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "that.",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "εκεινοσ",
+          "evidenceStatus": "attested"
+        },
+        "editorialNotes": [
+          "P45: partially preserved; dots replace missing letters. Transcription proposes: εκεινοσ."
+        ]
       },
       "vaticanus": {
         "type": "text",

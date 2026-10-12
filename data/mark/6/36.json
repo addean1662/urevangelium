@@ -2170,18 +2170,9 @@
             "date": "c. 200–250 CE"
           }
         ],
-        "text": "εαυτοισ",
+        "text": "····οισ",
         "condition": {
-          "missingAfter": [
-            1,
-            2,
-            3,
-            4
-          ]
-        },
-        "gloss": {
-          "gloss": "for themselves",
-          "source": "TAGNT"
+          "partial": true
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
@@ -2193,15 +2184,47 @@
               "siglum": "P45",
               "sourceToken": 1,
               "diplomatic": "εαυτοισ",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "\\&*ε^α^υ^τ^οισ",
+              "visible": "····οισ",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 1
+                },
+                {
+                  "kind": "missing",
+                  "after": 2
+                },
+                {
+                  "kind": "missing",
+                  "after": 3
+                },
+                {
+                  "kind": "missing",
+                  "after": 4
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P45"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "for themselves",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "εαυτοισ",
+          "evidenceStatus": "partial"
+        },
+        "editorialNotes": [
+          "P45: partially preserved; dots replace missing letters. Transcription proposes: εαυτοισ."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -2454,10 +2477,7 @@
         ],
         "text": "τι",
         "condition": {
-          "damaged": true,
-          "damagedAfter": [
-            1
-          ]
+          "damaged": true
         },
         "gloss": {
           "gloss": "something",
@@ -2473,14 +2493,31 @@
               "siglum": "P45",
               "sourceToken": 2,
               "diplomatic": "τι",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "τ%ι",
+              "visible": "τι",
+              "conditions": [
+                {
+                  "kind": "damaged",
+                  "after": 1
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P45"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "something",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "τι",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -2883,14 +2920,26 @@
               "siglum": "P45",
               "sourceToken": 3,
               "diplomatic": "φαγωσιν",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "φαγωσιν",
+              "visible": "φαγωσιν",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P45"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "may eat",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "φαγωσιν",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {

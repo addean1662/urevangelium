@@ -227,13 +227,10 @@ describe('computeAlignment — John 1:1', () => {
     expect(data?.rows.length).toBeGreaterThan(0);
   });
 
-  it('P66 is listed in papyrus fragments', async () => {
+  it('does not manufacture P66 words from verse-level coverage in the fallback', async () => {
     const data = await computeAlignment('john', 1, 1);
     const extantRows = data!.rows.filter(r => r.papyrus.type === 'extant');
-    expect(extantRows.length).toBeGreaterThan(0);
-    const firstExtant = extantRows[0].papyrus as { type: 'extant'; fragments: { id: string }[] };
-    const ids = firstExtant.fragments.map(f => f.id);
-    expect(ids).toContain('P66');
+    expect(extantRows).toHaveLength(0);
   });
 });
 

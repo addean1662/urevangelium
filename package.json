@@ -5,6 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "prebuild": "node lib/sources/checkPapyrusCorpus.mjs",
+    "build:papyrus-attested": "node scripts/enforce-papyrus-attestation.mjs --write",
+    "audit:papyrus-attested": "node lib/sources/checkPapyrusCorpus.mjs",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",

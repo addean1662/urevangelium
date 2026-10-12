@@ -13,7 +13,7 @@ export function PapyrusCell({ cell }: Props) {
   if (cell.type === 'lost') {
     return (
       <td className={base}>
-        <span className="text-xs italic text-semantic-lacuna">lost</span>
+        <HoverTooltip content={cell.editorialNotes?.join(' ')}><span className="text-xs italic text-semantic-lacuna">lost</span></HoverTooltip>
       </td>
     );
   }
@@ -28,7 +28,7 @@ export function PapyrusCell({ cell }: Props) {
   const textContent = cell.nominaSacra ? <NominaSacra ns={cell.nominaSacra} /> : cell.text;
   const sourceText = cell.nominaSacra?.expansion ?? cell.text;
   const translit = transliterateGreek(sourceText);
-  const tip = translit ? <em>{translit}</em> : null;
+  const tip = cell.editorialNotes?.length ? cell.editorialNotes.join(' ') : translit ? <em>{translit}</em> : null;
 
   const sourceLabel = cell.fragments.map(f => f.id).join(' · ');
 
@@ -36,6 +36,7 @@ export function PapyrusCell({ cell }: Props) {
     <td className={base}>
       <div className="flex flex-col items-end gap-0.5">
         <div className="flex max-w-full flex-wrap items-baseline justify-end gap-x-1.5 gap-y-0.5">
+          {cell.condition?.partial && <span className="whitespace-nowrap font-sans text-[10px] font-semibold leading-none text-semantic-damaged">partial</span>}
           {cell.condition?.manuscriptStatus === 'scribal-error-question' ? (
             <span className="whitespace-nowrap font-sans text-[10px] font-semibold leading-none text-semantic-lacuna" aria-label="Source-recorded first-hand false start deleted by correction">
               scribal error?

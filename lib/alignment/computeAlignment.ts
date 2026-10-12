@@ -73,13 +73,9 @@ export async function computeAlignment(
     // Papyrus cell
     let papyrus: PapyrusCell;
     if (coveringPapyri.length > 0) {
-      papyrus = {
-        type: 'extant',
-        fragments: coveringPapyri,
-        text: displayGreek,
-        ...(nomina ? { nominaSacra: nomina } : {}),
-        ...(gloss ? { gloss } : {}),
-      };
+      // Verse coverage cannot establish a papyrus word. The corpus builder must
+      // supply a verified witness/token coordinate before admitting Greek here.
+      papyrus = { type: 'empty' };
     } else {
       papyrus = { type: 'lacuna' };
     }

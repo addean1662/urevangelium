@@ -212,7 +212,9 @@ export type PapyrusExtantCell = {
   provenance?: Record<string, unknown>;
   fragments: PapyrusFragment[];  // all fragments covering this word
   text: string;
+  editorialNotes?: string[];
   condition?: {
+    partial?: boolean;
     damaged?: boolean;
     damagedAfter?: number[];
     /** Verified, freely accessible image/scan containing this displayed reading. */
@@ -225,7 +227,8 @@ export type PapyrusExtantCell = {
   gloss?: GlossCell;
 };
 
-export type PapyrusCell = PapyrusExtantCell | EmptyCell | LostCell | LacunaCell;
+export type PapyrusLostCell = LostCell & { provenance?: Record<string, unknown>; editorialNotes?: string[] };
+export type PapyrusCell = PapyrusExtantCell | EmptyCell | PapyrusLostCell | LacunaCell;
 
 // Bezae Cantabrigiensis (D/05) — bilingual Greek/Latin codex
 // greek and latin are stored separately; no English gloss is shown

@@ -4,13 +4,16 @@ import { streamFingerprintInput } from '../../lib/alignment/streamFingerprint.mj
 // These decisions apply only to the examined source/English snapshot. Regeneration
 // after corpus changes must fail until the examples are reviewed again.
 const snapshots = {
-  'matthew 1:1': 'f7c04bf1adf555c5552d83cf8e8766c8f7ba185566f9b328acd3fc962fe141f7',
+  'matthew 1:1': '221ece7fce9154acfe669d1635219b91aed89086694eb34852de406de875c706',
   'mark 1:1': '7c6d999670fee78f3cbc8dc1479ab8bc93acf881b3b2bf84c22859af31aa43db',
   'luke 1:1': 'eeafd4737fce2d6f484d69c3d6961f5ca5a213bb7ca6ade4d33d30b06607d5d3',
-  'john 1:1': '7f3e7f8a8248c45bf7f21900a0c11b7575057798b4ec51faed1ac3bea3619cb0',
+  'john 1:1': '19ddfceb68c6638085cd110c78869922c1d99a6716c7f1857792cbaff4693449',
   'matthew 12:19': '011afe9c03b64267e620370baf3b61400cd0e8727ccf1d11eea6a83af991f9bf',
-  'matthew 3:1': '7f97c74039ae23648f0fdfa2b7cf7a971f3e4811aa5f2c0c6dcd5841eee68906',
+  'matthew 3:1': '3025993457fa828cb4d830c0162a28aec460125d585e5e3e28d6cbd6ea221e8b',
 };
+// Papyrus admission reviewed 2026-10-12: Matthew 1:1 r7 and Matthew 3:1 r1-r5
+// become loss records; Matthew 3:1 r6 retains only its surviving letters.
+// textAt excludes lost members. Other columns and occurrence identities are unchanged.
 // Project-authored correspondence examples, not independent scholarly certification.
 // Source wording and English allocations are never modified here.
 export function pilotLinks(reference, document) {

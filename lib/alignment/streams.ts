@@ -16,7 +16,7 @@ export type StreamWord = {
   /** Explicitly source-specific is different from an unresolved link. */
   sourceSpecific?: boolean;
 };
-export type StreamAbsence = { rowId: string; state: 'lost' | 'lacuna' | 'omitted' | 'unpopulated' };
+export type StreamAbsence = { rowId: string; state: 'lost' | 'lacuna' | 'omitted' | 'unpopulated'; notes?: string[] };
 export type WordStream = { key: StreamKey; words: StreamWord[]; absences: StreamAbsence[]; expansions: Array<{ rowId: string; gloss: GlossCell }>; order: 'source' | 'composite' | 'comparison'; orderNote?: string };
 export type StreamModel = { reference: string; columns: Record<StreamKey, WordStream>; links: StreamLink[] };
 export type StreamEvidence = {
@@ -86,6 +86,7 @@ function papyrusOrder(words: StreamWord[]): StreamWord[] | null {
     const p = record(record(word.cell).provenance);
     const attestations = Array.isArray(p.sourceAttestations) ? p.sourceAttestations.map(record) : [{ siglum: p.governingSiglum, sourceToken: p.sourceToken }];
     for (const a of attestations) {
+      if (a.evidenceStatus === 'fully-supplied') continue;
       if (typeof a.siglum !== 'string' || typeof a.sourceToken !== 'number') return null;
       const list = byWitness.get(a.siglum) ?? [];
       list.push({ id: word.id, index: a.sourceToken }); byWitness.set(a.siglum, list);
@@ -130,7 +131,7 @@ export function buildStreamModel(data: VerseData, evidence?: StreamEvidence): St
       if (!cell) { stream.absences.push({ rowId: row.id, state: 'unpopulated' }); continue; }
       if (cell.type === 'empty') continue;
       if (cell.type === 'translation') { stream.expansions.push({ rowId: row.id, gloss: cell.gloss }); continue; }
-      if (cell.type !== 'text' && cell.type !== 'extant') { stream.absences.push({ rowId: row.id, state: cell.type }); continue; }
+      if (cell.type !== 'text' && cell.type !== 'extant') { stream.absences.push({ rowId: row.id, state: cell.type, ...('editorialNotes' in cell ? { notes: cell.editorialNotes } : {}) }); continue; }
       const index = evidence?.orders[key]?.[row.id] ?? record(record(cell).provenance).sourceToken;
       stream.words.push({ id: wordId(key, row.id), column: key, rowId: row.id, rowIndex, sourceIndex: typeof index === 'number' ? index : undefined, text: cell.text, cell, gloss: cell.gloss, sourceSpecific: evidence?.sourceSpecific.includes(wordId(key, row.id)) });
     }

@@ -37,15 +37,17 @@ function SourceCell({ word }: { word: StreamWord }) {
 
 function Absences({ stream }: { stream: WordStream }) {
   const states = [...new Set(stream.absences.map(a => a.state))];
+  const label = (state: typeof states[number]) => stream.key === 'papyrus' && state === 'lost' ? 'Lost or unreadable' : ABSENCE_LABELS[state];
   if (!states.length) return stream.words.length ? null : <p className="p-3 text-center text-sm text-ink-muted">No source words in this verse.</p>;
   return (
     <details className="px-3 py-2 text-xs text-ink-muted">
-      <summary className="cursor-pointer">{states.map(state => ABSENCE_LABELS[state]).join(' · ')}</summary>
+      <summary className="cursor-pointer">{states.map(label).join(' · ')}</summary>
       <p className="mt-1">These source states are retained separately from correspondence. An absent or lost word cannot be highlighted.</p>
       <ul className="mt-1 space-y-1">
-        {states.map(state => <li key={state}>{ABSENCE_LABELS[state]}: {stream.absences.filter(a => a.state === state).length} recorded positions.</li>)}
+        {states.map(state => <li key={state}>{label(state)}: {stream.absences.filter(a => a.state === state).length} recorded positions.</li>)}
       </ul>
       <p className="mt-1">See Comparison rows for their recorded positions.</p>
+      {stream.absences.some(item => item.notes?.length) && <ul className="mt-2 space-y-2">{stream.absences.flatMap(item => (item.notes ?? []).map((note, i) => <li key={`${item.rowId}:${i}`}>{note}</li>))}</ul>}
     </details>
   );
 }

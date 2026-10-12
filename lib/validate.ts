@@ -97,7 +97,9 @@ const PapyrusExtantCellSchema = z.object({
   provenance: z.record(z.string(), z.unknown()).optional(),
   fragments: z.array(PapyrusFragmentSchema).min(1),
   text: z.string(),
+  editorialNotes: z.array(z.string()).optional(),
   condition: z.object({
+    partial: z.boolean().optional(),
     damaged: z.boolean().optional(),
     damagedAfter: z.array(z.number().int().nonnegative()).optional(),
     sourceImageUrl: z.string().url().startsWith('https://').optional(),
@@ -112,7 +114,7 @@ const PapyrusExtantCellSchema = z.object({
 const PapyrusCellSchema = z.discriminatedUnion('type', [
   PapyrusExtantCellSchema,
   EmptyCellSchema,
-  LostCellSchema,
+  z.object({ type: z.literal('lost'), provenance: z.record(z.string(), z.unknown()).optional(), editorialNotes: z.array(z.string()).optional() }),
   LacunaCellSchema,
 ]);
 

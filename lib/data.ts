@@ -7,6 +7,8 @@ import { getCachedVerse, cacheVerse } from '@/lib/cache';
 import { computeAlignment } from '@/lib/alignment/computeAlignment';
 import vulgateEnglishManifest from '@/data/sources/vulgate-english/admitted-units.json';
 import peshittaEnglishManifest from '@/data/sources/peshitta/murdock-admitted-units.json';
+import { admitPapyrusVerse } from '@/lib/sources/papyrusEvidence.mjs';
+import { loadPapyrusSourceIndex } from '@/lib/sources/papyrusSourceIndex.mjs';
 export { buildPassagePath, nextVerse, prevVerse } from '@/lib/passageNav';
 
 type VulgateEnglishUnit = NonNullable<VerseData['vulgateEnglishUnit']>;
@@ -57,7 +59,8 @@ function withVulgateEnglish(data: VerseData | null): VerseData | null {
 }
 
 function withCertifiedEnglish(data: VerseData | null): VerseData | null {
-  const withVulgate = withVulgateEnglish(data);
+  const admitted = data ? admitPapyrusVerse(data, loadPapyrusSourceIndex()) as VerseData : null;
+  const withVulgate = withVulgateEnglish(admitted);
   if (!withVulgate) return null;
   const unit = peshittaEnglishUnits[`${withVulgate.gospel} ${withVulgate.chapter}:${withVulgate.verse}`];
   return unit ? { ...withVulgate, peshittaEnglishUnit: unit } : withVulgate;

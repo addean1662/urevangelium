@@ -6,40 +6,39 @@
     {
       "id": "r1",
       "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P88",
-            "date": "c. 4th c. CE"
-          }
-        ],
-        "text": "και",
-        "condition": {
-          "supplied": "editor"
-        },
-        "gloss": {
-          "gloss": "And",
-          "source": "TAGNT"
-        },
+        "type": "lost",
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P88",
-          "sourceToken": 1,
-          "diplomatic": "και",
+          "governingSiglum": null,
+          "sourceToken": null,
+          "diplomatic": null,
           "sourceAttestations": [
             {
               "siglum": "P88",
               "sourceToken": 1,
               "diplomatic": "και",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~και",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             }
           ],
-          "agreeingSigla": [
-            "P88"
-          ],
+          "agreeingSigla": [],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "And",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "και",
+          "evidenceStatus": "fully-supplied"
+        },
+        "editorialNotes": [
+          "P88: editorial restoration; no readable text recorded for this word. Transcription proposes: και."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -286,17 +285,9 @@
             "date": "c. 4th c. CE"
           }
         ],
-        "text": "ερχονται",
+        "text": "···ονται",
         "condition": {
-          "missingAfter": [
-            1,
-            2,
-            3
-          ]
-        },
-        "gloss": {
-          "gloss": "they come",
-          "source": "TAGNT"
+          "partial": true
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
@@ -308,15 +299,43 @@
               "siglum": "P88",
               "sourceToken": 2,
               "diplomatic": "ερχονται",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "ε^ρ^χ^ονται",
+              "visible": "···ονται",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 1
+                },
+                {
+                  "kind": "missing",
+                  "after": 2
+                },
+                {
+                  "kind": "missing",
+                  "after": 3
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P88"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "they come",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ερχονται",
+          "evidenceStatus": "partial"
+        },
+        "editorialNotes": [
+          "P88: partially preserved; dots replace missing letters. Transcription proposes: ερχονται."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -540,20 +559,10 @@
             "date": "c. 4th c. CE"
           }
         ],
-        "text": "φεροντεσ",
+        "text": "φερο·τεσ",
         "condition": {
           "damaged": true,
-          "damagedAfter": [
-            3,
-            4
-          ],
-          "missingAfter": [
-            5
-          ]
-        },
-        "gloss": {
-          "gloss": "bringing",
-          "source": "TAGNT"
+          "partial": true
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
@@ -565,15 +574,43 @@
               "siglum": "P88",
               "sourceToken": 3,
               "diplomatic": "φερο¯τεσ",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "φερ%ο%¯^/τεσ",
+              "visible": "φερο·τεσ",
+              "conditions": [
+                {
+                  "kind": "damaged",
+                  "after": 3
+                },
+                {
+                  "kind": "damaged",
+                  "after": 4
+                },
+                {
+                  "kind": "missing",
+                  "after": 5
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P88"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "bringing",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "φερο¯τεσ",
+          "evidenceStatus": "partial"
+        },
+        "editorialNotes": [
+          "P88: partially preserved; dots replace missing letters. Transcription proposes: φεροντεσ."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -781,14 +818,26 @@
               "siglum": "P88",
               "sourceToken": 4,
               "diplomatic": "προσ",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "προσ",
+              "visible": "προσ",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P88"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "to",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "προσ",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -1013,15 +1062,9 @@
             "date": "c. 4th c. CE"
           }
         ],
-        "text": "αυτον",
+        "text": "αυτο·",
         "condition": {
-          "missingAfter": [
-            5
-          ]
-        },
-        "gloss": {
-          "gloss": "Him",
-          "source": "TAGNT"
+          "partial": true
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
@@ -1033,15 +1076,35 @@
               "siglum": "P88",
               "sourceToken": 5,
               "diplomatic": "αυτον",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "αυτον^",
+              "visible": "αυτο·",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 5
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P88"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "Him",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "αυτον",
+          "evidenceStatus": "partial"
+        },
+        "editorialNotes": [
+          "P88: partially preserved; dots replace missing letters. Transcription proposes: αυτον."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -1279,14 +1342,26 @@
               "siglum": "P88",
               "sourceToken": 6,
               "diplomatic": "παραλυτικον",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "παραλυτικον",
+              "visible": "παραλυτικον",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P88"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "a paralytic",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "παραλυτικον",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -1508,14 +1583,26 @@
               "sourceToken": 7,
               "diplomatic": "αιρομενον",
               "classification": "certified-held-existing-or-addition-row",
-              "adjudication": "exact-live-form-bounded-by-immediate-source-neighbors"
+              "adjudication": "exact-live-form-bounded-by-immediate-source-neighbors",
+              "evidenceStatus": "attested",
+              "raw": "αιρο/μενον",
+              "visible": "αιρομενον",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P88"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "being carried",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "αιρομενον",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -1734,11 +1821,7 @@
         ],
         "text": "υπο",
         "condition": {
-          "damaged": true,
-          "damagedAfter": [
-            1,
-            3
-          ]
+          "damaged": true
         },
         "gloss": {
           "gloss": "by",
@@ -1754,14 +1837,35 @@
               "siglum": "P88",
               "sourceToken": 8,
               "diplomatic": "υπο",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "υ%πο%",
+              "visible": "υπο",
+              "conditions": [
+                {
+                  "kind": "damaged",
+                  "after": 1
+                },
+                {
+                  "kind": "damaged",
+                  "after": 3
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P88"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "by",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "υπο",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -2044,21 +2148,10 @@
             "date": "c. 4th c. CE"
           }
         ],
-        "text": "τεσσαρων",
+        "text": "τ···αρων",
         "condition": {
           "damaged": true,
-          "damagedAfter": [
-            1
-          ],
-          "missingAfter": [
-            2,
-            3,
-            4
-          ]
-        },
-        "gloss": {
-          "gloss": "four.",
-          "source": "TAGNT"
+          "partial": true
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
@@ -2070,15 +2163,47 @@
               "siglum": "P88",
               "sourceToken": 9,
               "diplomatic": "τεσσαρων",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "τ%ε^σ^σ^αρων",
+              "visible": "τ···αρων",
+              "conditions": [
+                {
+                  "kind": "damaged",
+                  "after": 1
+                },
+                {
+                  "kind": "missing",
+                  "after": 2
+                },
+                {
+                  "kind": "missing",
+                  "after": 3
+                },
+                {
+                  "kind": "missing",
+                  "after": 4
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P88"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "four.",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "τεσσαρων",
+          "evidenceStatus": "partial"
+        },
+        "editorialNotes": [
+          "P88: partially preserved; dots replace missing letters. Transcription proposes: τεσσαρων."
+        ]
       },
       "vaticanus": {
         "type": "text",

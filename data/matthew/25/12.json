@@ -563,12 +563,9 @@
             "date": "c. 4th c. CE"
           }
         ],
-        "text": "ειπεν",
+        "text": "··πεν",
         "condition": {
-          "missingAfter": [
-            1,
-            2
-          ]
+          "partial": true
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
@@ -580,15 +577,34 @@
               "siglum": "P35",
               "sourceToken": 1,
               "diplomatic": "ειπεν",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "\\*ε^ι^πεν",
+              "visible": "··πεν",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 1
+                },
+                {
+                  "kind": "missing",
+                  "after": 2
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P35"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "evidenceStatus": "partial"
+        },
+        "editorialNotes": [
+          "P35: partially preserved; dots replace missing letters. Transcription proposes: ειπεν."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -827,14 +843,26 @@
               "siglum": "P35",
               "sourceToken": 2,
               "diplomatic": "αμην",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "αμην",
+              "visible": "αμην",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P35"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "Amen",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "αμην",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -1125,14 +1153,26 @@
               "siglum": "P35",
               "sourceToken": 3,
               "diplomatic": "λεγω",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "λεγω",
+              "visible": "λεγω",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P35"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "I say",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "λεγω",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -1348,36 +1388,34 @@
     {
       "id": "r7",
       "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P35",
-            "date": "c. 4th c. CE"
-          }
-        ],
-        "text": "υμιν",
-        "condition": {
-          "supplied": "editor"
-        },
+        "type": "lost",
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P35",
-          "sourceToken": 4,
-          "diplomatic": "υμιν",
+          "governingSiglum": null,
+          "sourceToken": null,
+          "diplomatic": null,
           "sourceAttestations": [
             {
               "siglum": "P35",
               "sourceToken": 4,
               "diplomatic": "υμιν",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~υμιν",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             }
           ],
-          "agreeingSigla": [
-            "P35"
-          ],
+          "agreeingSigla": [],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "evidenceStatus": "fully-supplied"
+        },
+        "editorialNotes": [
+          "P35: editorial restoration; no readable text recorded for this word. Transcription proposes: υμιν."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -1601,15 +1639,10 @@
             "date": "c. 4th c. CE"
           }
         ],
-        "text": "ουκ",
+        "text": "·υκ",
         "condition": {
           "damaged": true,
-          "damagedAfter": [
-            2
-          ],
-          "missingAfter": [
-            1
-          ]
+          "partial": true
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
@@ -1621,15 +1654,34 @@
               "siglum": "P35",
               "sourceToken": 5,
               "diplomatic": "ουκ",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "/ο^υ%κ",
+              "visible": "·υκ",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 1
+                },
+                {
+                  "kind": "damaged",
+                  "after": 2
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P35"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "evidenceStatus": "partial"
+        },
+        "editorialNotes": [
+          "P35: partially preserved; dots replace missing letters. Transcription proposes: ουκ."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -1980,14 +2032,21 @@
               "siglum": "P35",
               "sourceToken": 6,
               "diplomatic": "οιδα",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "οιδα",
+              "visible": "οιδα",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P35"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -2223,14 +2282,21 @@
               "siglum": "P35",
               "sourceToken": 7,
               "diplomatic": "υμασ",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "υμασ",
+              "visible": "υμασ",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P35"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {

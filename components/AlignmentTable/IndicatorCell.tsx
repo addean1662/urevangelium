@@ -10,11 +10,12 @@ interface PapyrusIndicatorProps {
 export function PapyrusIndicator({ cell }: PapyrusIndicatorProps) {
   if (cell.type === 'extant') {
     const label = cell.fragments.map((f) => `${f.id} (${f.date})`).join(', ');
-    const sourceState = `papyrus extant — ${label}`;
+    const partial = cell.condition?.partial;
+    const sourceState = `papyrus ${partial ? 'partially preserved' : 'extant'} — ${label}`;
     return (
       <td className={cellBase}>
         <span
-          className={`${dotBase} bg-semantic-extant`}
+          className={`${dotBase} ${partial ? 'bg-semantic-damaged' : 'bg-semantic-extant'}`}
           aria-label={sourceState}
           title={sourceState}
         />

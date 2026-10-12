@@ -6,40 +6,39 @@
     {
       "id": "r1",
       "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P19",
-            "date": "c. 4th–5th c. CE"
-          }
-        ],
-        "text": "μη",
-        "condition": {
-          "supplied": "editor"
-        },
-        "gloss": {
-          "gloss": "Not",
-          "source": "TAGNT"
-        },
+        "type": "lost",
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P19",
-          "sourceToken": 1,
-          "diplomatic": "μη",
+          "governingSiglum": null,
+          "sourceToken": null,
+          "diplomatic": null,
           "sourceAttestations": [
             {
               "siglum": "P19",
               "sourceToken": 1,
               "diplomatic": "μη",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~μη",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             }
           ],
-          "agreeingSigla": [
-            "P19"
-          ],
+          "agreeingSigla": [],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "Not",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "μη",
+          "evidenceStatus": "fully-supplied"
+        },
+        "editorialNotes": [
+          "P19: editorial restoration; no readable text recorded for this word. Transcription proposes: μη."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -276,14 +275,21 @@
               "sourceToken": 2,
               "diplomatic": "ουν",
               "classification": "certified-held-existing-or-addition-row",
-              "adjudication": "source-attested-papyrus-specific-row-between-certified-contextual-anchors"
+              "adjudication": "source-attested-papyrus-specific-row-between-certified-contextual-anchors",
+              "evidenceStatus": "attested",
+              "raw": "/ουν",
+              "visible": "ουν",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P19"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -333,14 +339,26 @@
               "siglum": "P19",
               "sourceToken": 3,
               "diplomatic": "νομισητε",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "νομισητε",
+              "visible": "νομισητε",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P19"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "may you think",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "νομισητε",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -571,14 +589,26 @@
               "siglum": "P19",
               "sourceToken": 4,
               "diplomatic": "οτι",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "οτι",
+              "visible": "οτι",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P19"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "that",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "οτι",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -800,17 +830,9 @@
             "date": "c. 4th–5th c. CE"
           }
         ],
-        "text": "ηλθον",
+        "text": "ηλ···",
         "condition": {
-          "missingAfter": [
-            3,
-            4,
-            5
-          ]
-        },
-        "gloss": {
-          "gloss": "I came",
-          "source": "TAGNT"
+          "partial": true
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
@@ -822,15 +844,43 @@
               "siglum": "P19",
               "sourceToken": 5,
               "diplomatic": "ηλθον",
-              "classification": "conditioned-contextual-guide-row"
+              "classification": "conditioned-contextual-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "ηλθ^ο^ν^",
+              "visible": "ηλ···",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 3
+                },
+                {
+                  "kind": "missing",
+                  "after": 4
+                },
+                {
+                  "kind": "missing",
+                  "after": 5
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P19"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "I came",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ηλθον",
+          "evidenceStatus": "partial"
+        },
+        "editorialNotes": [
+          "P19: partially preserved; dots replace missing letters. Transcription proposes: ηλθον."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -1013,37 +1063,39 @@
     {
       "id": "r5",
       "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P19",
-            "date": "c. 4th–5th c. CE"
-          }
-        ],
-        "text": "βαλειν",
-        "gloss": {
-          "gloss": "to bring",
-          "source": "TAGNT"
-        },
+        "type": "lost",
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P19",
-          "sourceToken": 6,
-          "diplomatic": "βαλειν",
+          "governingSiglum": null,
+          "sourceToken": null,
+          "diplomatic": null,
           "sourceAttestations": [
             {
               "siglum": "P19",
               "sourceToken": 6,
               "diplomatic": "βαλειν",
-              "classification": "contextual-repeated-guide-row"
+              "classification": "contextual-repeated-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "+βαλειν",
+              "visible": "",
+              "conditions": [],
+              "supplied": "vid"
             }
           ],
-          "agreeingSigla": [
-            "P19"
-          ],
+          "agreeingSigla": [],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "to bring",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "βαλειν",
+          "evidenceStatus": "fully-supplied"
+        },
+        "editorialNotes": [
+          "P19: editorial restoration; no readable text recorded for this word. Transcription proposes: βαλειν."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -1245,14 +1297,26 @@
               "siglum": "P19",
               "sourceToken": 7,
               "diplomatic": "ειρηνην",
-              "classification": "contextual-repeated-guide-row"
+              "classification": "contextual-repeated-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "/ειρηνην",
+              "visible": "ειρηνην",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P19"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "peace",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ειρηνην",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -1552,14 +1616,26 @@
               "siglum": "P19",
               "sourceToken": 8,
               "diplomatic": "επι",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "επι",
+              "visible": "επι",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P19"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "to",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "επι",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -1768,14 +1844,26 @@
               "siglum": "P19",
               "sourceToken": 9,
               "diplomatic": "την",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "την",
+              "visible": "την",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P19"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "the",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "την",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -1916,14 +2004,26 @@
               "siglum": "P19",
               "sourceToken": 10,
               "diplomatic": "γην",
-              "classification": "unique-guide-row"
+              "classification": "unique-guide-row",
+              "evidenceStatus": "attested",
+              "raw": "γην",
+              "visible": "γην",
+              "conditions": [],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P19"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "earth;",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "γην",
+          "evidenceStatus": "attested"
         }
       },
       "vaticanus": {
@@ -2139,40 +2239,39 @@
     {
       "id": "r10",
       "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P19",
-            "date": "c. 4th–5th c. CE"
-          }
-        ],
-        "text": "ουκ",
-        "condition": {
-          "supplied": "editor"
-        },
-        "gloss": {
-          "gloss": "not",
-          "source": "TAGNT"
-        },
+        "type": "lost",
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P19",
-          "sourceToken": 11,
-          "diplomatic": "ουκ",
+          "governingSiglum": null,
+          "sourceToken": null,
+          "diplomatic": null,
           "sourceAttestations": [
             {
               "siglum": "P19",
               "sourceToken": 11,
               "diplomatic": "ουκ",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~ουκ",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             }
           ],
-          "agreeingSigla": [
-            "P19"
-          ],
+          "agreeingSigla": [],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "not",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ουκ",
+          "evidenceStatus": "fully-supplied"
+        },
+        "editorialNotes": [
+          "P19: editorial restoration; no readable text recorded for this word. Transcription proposes: ουκ."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -2383,40 +2482,39 @@
     {
       "id": "r11",
       "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P19",
-            "date": "c. 4th–5th c. CE"
-          }
-        ],
-        "text": "ηλθον",
-        "condition": {
-          "supplied": "editor"
-        },
-        "gloss": {
-          "gloss": "I came",
-          "source": "TAGNT"
-        },
+        "type": "lost",
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P19",
-          "sourceToken": 12,
-          "diplomatic": "ηλθον",
+          "governingSiglum": null,
+          "sourceToken": null,
+          "diplomatic": null,
           "sourceAttestations": [
             {
               "siglum": "P19",
               "sourceToken": 12,
               "diplomatic": "ηλθον",
-              "classification": "conditioned-contextual-guide-row"
+              "classification": "conditioned-contextual-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "~ηλθον",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             }
           ],
-          "agreeingSigla": [
-            "P19"
-          ],
+          "agreeingSigla": [],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "I came",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ηλθον",
+          "evidenceStatus": "fully-supplied"
+        },
+        "editorialNotes": [
+          "P19: editorial restoration; no readable text recorded for this word. Transcription proposes: ηλθον."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -2641,40 +2739,39 @@
     {
       "id": "r12",
       "papyrus": {
-        "type": "extant",
-        "fragments": [
-          {
-            "id": "P19",
-            "date": "c. 4th–5th c. CE"
-          }
-        ],
-        "text": "βαλειν",
-        "condition": {
-          "supplied": "editor"
-        },
-        "gloss": {
-          "gloss": "to bring",
-          "source": "TAGNT"
-        },
+        "type": "lost",
         "provenance": {
           "authority": "CNTR papyrus transcription",
-          "governingSiglum": "P19",
-          "sourceToken": 13,
-          "diplomatic": "βαλειν",
+          "governingSiglum": null,
+          "sourceToken": null,
+          "diplomatic": null,
           "sourceAttestations": [
             {
               "siglum": "P19",
               "sourceToken": 13,
               "diplomatic": "βαλειν",
-              "classification": "conditioned-contextual-guide-row"
+              "classification": "conditioned-contextual-guide-row",
+              "evidenceStatus": "fully-supplied",
+              "raw": "/~βαλειν",
+              "visible": "",
+              "conditions": [],
+              "supplied": "editor"
             }
           ],
-          "agreeingSigla": [
-            "P19"
-          ],
+          "agreeingSigla": [],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "to bring",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "βαλειν",
+          "evidenceStatus": "fully-supplied"
+        },
+        "editorialNotes": [
+          "P19: editorial restoration; no readable text recorded for this word. Transcription proposes: βαλειν."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -2894,24 +2991,10 @@
             "date": "c. 4th–5th c. CE"
           }
         ],
-        "text": "ειρηνην",
+        "text": "··ρηνην",
         "condition": {
           "damaged": true,
-          "damagedAfter": [
-            3,
-            4,
-            5,
-            6,
-            7
-          ],
-          "missingAfter": [
-            1,
-            2
-          ]
-        },
-        "gloss": {
-          "gloss": "peace",
-          "source": "TAGNT"
+          "partial": true
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
@@ -2923,15 +3006,59 @@
               "siglum": "P19",
               "sourceToken": 14,
               "diplomatic": "ειρηνην",
-              "classification": "conditioned-contextual-guide-row"
+              "classification": "conditioned-contextual-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "ε^ι^ρ%η%ν%η%ν%",
+              "visible": "··ρηνην",
+              "conditions": [
+                {
+                  "kind": "missing",
+                  "after": 1
+                },
+                {
+                  "kind": "missing",
+                  "after": 2
+                },
+                {
+                  "kind": "damaged",
+                  "after": 3
+                },
+                {
+                  "kind": "damaged",
+                  "after": 4
+                },
+                {
+                  "kind": "damaged",
+                  "after": 5
+                },
+                {
+                  "kind": "damaged",
+                  "after": 6
+                },
+                {
+                  "kind": "damaged",
+                  "after": 7
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P19"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "peace",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "ειρηνην",
+          "evidenceStatus": "partial"
+        },
+        "editorialNotes": [
+          "P19: partially preserved; dots replace missing letters. Transcription proposes: ειρηνην."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -3153,21 +3280,10 @@
             "date": "c. 4th–5th c. CE"
           }
         ],
-        "text": "αλλα",
+        "text": "α···",
         "condition": {
           "damaged": true,
-          "damagedAfter": [
-            1
-          ],
-          "missingAfter": [
-            2,
-            3,
-            4
-          ]
-        },
-        "gloss": {
-          "gloss": "but",
-          "source": "TAGNT"
+          "partial": true
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
@@ -3179,15 +3295,47 @@
               "siglum": "P19",
               "sourceToken": 15,
               "diplomatic": "αλλα",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "α%λ^λ^α^",
+              "visible": "α···",
+              "conditions": [
+                {
+                  "kind": "damaged",
+                  "after": 1
+                },
+                {
+                  "kind": "missing",
+                  "after": 2
+                },
+                {
+                  "kind": "missing",
+                  "after": 3
+                },
+                {
+                  "kind": "missing",
+                  "after": 4
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P19"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "but",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "αλλα",
+          "evidenceStatus": "partial"
+        },
+        "editorialNotes": [
+          "P19: partially preserved; dots replace missing letters. Transcription proposes: αλλα."
+        ]
       },
       "vaticanus": {
         "type": "text",
@@ -3409,25 +3557,10 @@
             "date": "c. 4th–5th c. CE"
           }
         ],
-        "text": "μαχαιραν",
+        "text": "μ·······",
         "condition": {
           "damaged": true,
-          "damagedAfter": [
-            1
-          ],
-          "missingAfter": [
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8
-          ]
-        },
-        "gloss": {
-          "gloss": "a sword.",
-          "source": "TAGNT"
+          "partial": true
         },
         "provenance": {
           "authority": "CNTR papyrus transcription",
@@ -3439,15 +3572,63 @@
               "siglum": "P19",
               "sourceToken": 16,
               "diplomatic": "μαχαιραν",
-              "classification": "conditioned-unique-guide-row"
+              "classification": "conditioned-unique-guide-row",
+              "evidenceStatus": "partial",
+              "raw": "μ%α^χ^α^ι^ρ^α^ν^",
+              "visible": "μ·······",
+              "conditions": [
+                {
+                  "kind": "damaged",
+                  "after": 1
+                },
+                {
+                  "kind": "missing",
+                  "after": 2
+                },
+                {
+                  "kind": "missing",
+                  "after": 3
+                },
+                {
+                  "kind": "missing",
+                  "after": 4
+                },
+                {
+                  "kind": "missing",
+                  "after": 5
+                },
+                {
+                  "kind": "missing",
+                  "after": 6
+                },
+                {
+                  "kind": "missing",
+                  "after": 7
+                },
+                {
+                  "kind": "missing",
+                  "after": 8
+                }
+              ],
+              "supplied": null
             }
           ],
           "agreeingSigla": [
             "P19"
           ],
           "dissentingReadings": [],
-          "verification": "machine-compared-rule-qualified"
-        }
+          "verification": "pinned-transcription-evidence-checked; not-image-certified",
+          "attestationPolicy": "surviving-papyrus-evidence-v1",
+          "archivalGloss": {
+            "gloss": "a sword.",
+            "source": "TAGNT"
+          },
+          "archivalGlossReading": "μαχαιραν",
+          "evidenceStatus": "partial"
+        },
+        "editorialNotes": [
+          "P19: partially preserved; dots replace missing letters. Transcription proposes: μαχαιραν."
+        ]
       },
       "vaticanus": {
         "type": "text",

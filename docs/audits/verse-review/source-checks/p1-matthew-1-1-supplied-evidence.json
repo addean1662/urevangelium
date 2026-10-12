@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-10-12T14:23:30.296255+00:00",
+  "verse": "Matthew 1:1",
+  "witness": "P1",
+  "wordPosition": 7,
+  "finding": "The second son (υιου), between David and Abraham, is fully editorially supplied in the retrieved INTF transcription.",
+  "intf": {
+    "url": "https://ntvmr.uni-muenster.de/community/vmr/api/transcript/get/?docID=10001&indexContent=Matt&detail=pageText",
+    "rawFile": "p1-intf-raw-matthew.xml",
+    "sha256": "3f9e27309506370937b4788bc98fc3242d245f3777fc9fce8a32f36711844dfe",
+    "verseKey": "B01K1V1",
+    "wordXml": "<w><supplied source=\"na28\" reason=\"illegible\">υιου</supplied></w>"
+  },
+  "cntr": {
+    "file": "data/sources/earliest-papyrus/P1.txt",
+    "line": 1,
+    "token": "~υιου",
+    "meaning": "supplied word",
+    "encodingReference": "https://greekcntr.org/resources/technical.pdf#page=16"
+  },
+  "localVerse": {
+    "file": "data/matthew/1/1.json",
+    "rowIndex": 7,
+    "rowId": "r7",
+    "condition": {
+      "supplied": "editor"
+    },
+    "text": "υιου",
+    "type": "extant"
+  },
+  "displayFinding": "PapyrusIndicator labels all type extant cells extant, without checking condition.supplied; PapyrusCell does not expose supplied status.",
+  "verificationGap": "scripts/verify-papyrus-intf.js strips XML child tags when extracting words, so a text-only match cannot verify supplied, unclear, or abbreviation status.",
+  "imageEvidence": {
+    "file": "../images/p1-opening-csntm-678822.png",
+    "scope": "Opening line reviewed; the screenshot does not justify a categorical claim that no ink traces survive."
+  },
+  "interpretation": "INTF says illegible, not explicitly physical loss. This is editorial reconstruction, not proof that the ancient scribe omitted the word. Do not claim that no physical ink survives solely from this encoding.",
+  "status": "confirmed source/display discrepancy; no implementation change or deployment in this investigation",
+  "fullVerseScholarlyScribalSignoff": false
+}

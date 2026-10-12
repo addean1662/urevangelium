@@ -1,8 +1,11 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { admitPapyrusCell } from '../lib/sources/papyrusEvidence.mjs';
+import { loadPapyrusSourceIndex } from '../lib/sources/papyrusSourceIndex.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
+const papyrusSourceIndex = loadPapyrusSourceIndex();
 const audit = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/audits/papyrus-source-order-audit.json'), 'utf8'));
 const transpositionAudit = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/audits/papyrus-transposition-adjudication.json'), 'utf8'));
 const orthographicAudit = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/audits/papyrus-orthographic-adjudication.json'), 'utf8'));
@@ -191,7 +194,7 @@ for (const record of byVerse.values()) {
         guideRowOrder: certification.guideOrder.map((token) => ({ rowId: token.rowId, sourceToken: token.sourceToken })),
       };
     }).filter(Boolean);
-    const next = {
+    const transcriptionCell = {
       type: 'extant',
       fragments,
       text: displayText(selected.diplomatic),
@@ -214,11 +217,12 @@ for (const record of byVerse.values()) {
         verification: 'machine-compared-rule-qualified',
       },
     };
+    const next = admitPapyrusCell(transcriptionCell, `${record.gospel} ${record.reference}`, papyrusSourceIndex);
     row.papyrus = next;
     if (stable(previous) === stable(next)) summary.totals.rowsAlreadyMatching++; else summary.totals.rowsChanged++;
     summary.totals.agreeingBadgesAttached += agreeing.length;
     summary.totals.disagreementsPreserved += dissenting.length;
-    evidence.push({ rowId, selected: { siglum: selected.siglum, sourceToken: selected.sourceIndex + 1, diplomatic: selected.diplomatic }, agreeingSigla: agreeing.map((item) => item.siglum), dissenting: next.provenance.dissentingReadings, previous });
+    evidence.push({ rowId, evidenceState: next.provenance.evidenceStatus, selected: next.type === 'extant' ? { siglum: next.provenance.governingSiglum, sourceToken: next.provenance.sourceToken, diplomatic: next.provenance.diplomatic } : null, agreeingSigla: next.provenance.agreeingSigla, dissenting: next.provenance.dissentingReadings, previous });
   }
 
   if (stable(otherColumns(live.rows)) !== stable(otherColumns(proposed.rows))) {
@@ -273,6 +277,6 @@ fs.writeFileSync(path.join(outDir, 'summary.md'), [
   `- Zero-coverage chapter errors: ${t.zeroCoverageChapterErrors}`,
   `- Application coverage errors: ${t.applicationCoverageErrors}`,
   `- Total invariant errors: ${summary.invariantErrors.length}`, '',
-  'Tokens with unique or contextually resolved guide-row matches are proposed when CNTR records them as extant, damaged-but-readable, editor-supplied, or as identified letters bearing the MES missing-character condition. Ambiguous and unmatched tokens remain held for review.', '',
+  'Transcription tokens, including editorial restorations, are retained as source coordinates. The final attestation gate excludes fully supplied readings from visible text, masks missing letters in partial readings, and retains restorations only in notes. Ambiguous and unmatched placements remain held for review.', '',
 ].join('\n'));
 console.log(JSON.stringify(summary.totals, null, 2));
