@@ -34,13 +34,13 @@ const BOOK_MAP = { '01': 'matthew', '02': 'mark', '03': 'luke', '04': 'john' };
 const GREEK_NS_EXPAND = {
   // Jesus
   'ιηυ': 'ιησου', 'ιην': 'ιησουν', 'ιης': 'ιησους', 'ιη': 'ιησους',
-  'ιν':  'ιησουν',
+  'ιν':  'ιησουν', 'ιυ': 'ιησου',
   // Lord
   'κυ':  'κυριου', 'κω': 'κυριω', 'κν': 'κυριον', 'κς': 'κυριος',
   // God
   'θυ':  'θεου', 'θω': 'θεω', 'θν': 'θεον', 'θσ': 'θεος',
   // Christ
-  'χυ':  'χριστου', 'χω': 'χριστω', 'χν': 'χριστον', 'χσ': 'χριστος',
+  'χυ':  'χριστου', 'χρυ': 'χριστου', 'χω': 'χριστω', 'χν': 'χριστον', 'χσ': 'χριστος',
   // Spirit
   'πνσ': 'πνευματος', 'πνα': 'πνευματα', 'πνι': 'πνευματι',
   // Father
@@ -76,9 +76,9 @@ function normLatin(s) {
 
 // Latin nomina sacra → expanded form for matching
 const LATIN_NS_EXPAND = {
-  'ihm': 'iesvm', 'ihs': 'iesvs', 'ihm': 'iesvm',
+  'ihm': 'iesvm', 'ihs': 'iesvs', 'ihu': 'iesv',
   'dnm': 'dominvm', 'dns': 'dominvs', 'dno': 'domino',
-  'xpm': 'christvm', 'xps': 'christvs',
+  'xpm': 'christvm', 'xps': 'christvs', 'xpi': 'christi',
   'spm': 'spiritvmsanctvm',
 };
 
@@ -262,6 +262,15 @@ function alignLatinToRows(latWords, rows) {
 
 // ── Main ──────────────────────────────────────────────────────────────────────
 
+// A source word that cannot be aligned is still manuscript text. Never let a
+// comparison-row match decide whether it survives the import.
+function assertCompleteAssignments(reference, side, words, assignment) {
+  const missing = words.filter((_, index) => !assignment.has(index));
+  if (missing.length) {
+    throw new Error(`${reference}: refusing lossy Bezae ${side} import; ${missing.length} source words have no comparison row: ${missing.map(word => word.text).join(' ')}. Preserve these occurrences independently before applying.`);
+  }
+}
+
 function main() {
   const [targetGospel, targetChStr, targetVerseStr] = process.argv.slice(2);
   const targetCh = targetChStr  ? parseInt(targetChStr, 10)  : null;
@@ -274,6 +283,7 @@ function main() {
   console.log(`  Latin verse entries: ${latinMap.size}`);
 
   let updated = 0, noJson = 0;
+  const pending = [];
 
   for (const [ref, greekWords] of greekMap) {
     const coords = refToCoords(ref);
@@ -290,19 +300,22 @@ function main() {
     const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
     const { rows } = data;
 
+    const greekAlign = alignGreekToRows(greekWords, rows);
+    const latWords = latinMap.get(ref) ?? [];
+    const latAlign = alignLatinToRows(latWords, rows);
+    assertCompleteAssignments(ref, 'Greek', greekWords, greekAlign);
+    assertCompleteAssignments(ref, 'Latin', latWords, latAlign);
+
     // Reset bezae field on every row
     for (const row of rows) row.bezae = { type: 'empty' };
 
     // --- Greek alignment ---
-    const greekAlign = alignGreekToRows(greekWords, rows);
     for (const [wi, ri] of greekAlign) {
       rows[ri].bezae = { type: 'text', greek: greekWords[wi].text };
     }
 
     // --- Latin alignment ---
-    const latWords = latinMap.get(ref) ?? [];
     if (latWords.length > 0) {
-      const latAlign = alignLatinToRows(latWords, rows);
       for (const [wi, ri] of latAlign) {
         if (rows[ri].bezae?.type === 'text') {
           rows[ri].bezae.latin = latWords[wi].text;
@@ -324,6 +337,12 @@ function main() {
       }
     }
 
+    pending.push({ jsonPath, data });
+  }
+
+  // Validate the entire selected batch before writing any verse, so a later
+  // failed alignment cannot leave a partially regenerated corpus behind.
+  for (const { jsonPath, data } of pending) {
     fs.writeFileSync(jsonPath, JSON.stringify(data, null, 2), 'utf-8');
     updated++;
   }
@@ -334,4 +353,6 @@ function main() {
   console.log(`${'─'.repeat(50)}`);
 }
 
-main();
+if (require.main === module) main();
+
+module.exports = { parseXML, normalizeGreek, alignGreekToRows, alignLatinToRows, refToCoords, assertCompleteAssignments };

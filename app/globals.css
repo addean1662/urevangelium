@@ -198,7 +198,9 @@ body {
 .word-stream-table td { border-bottom: 0; overflow-wrap: anywhere; }
 .word-stream-table tr[data-word-id] td:first-child { white-space: nowrap; overflow-wrap: normal; }
 [data-stream='bezaeLatin'] td { text-align: left; }
-.word-stream-table tr[data-word-id] { transition: background-color 100ms ease; }
+/* Table-row height is a minimum: keep a common reading rhythm across scripts,
+   while wrapped glosses and manuscript annotations can still make a row taller. */
+.word-stream-table tr[data-word-id] { height: 2.5rem; transition: background-color 100ms ease; }
 .word-stream-table tr[data-highlighted='true'] { background-color: #ecd391; }
 .word-stream-table tr[data-provisional='true'] { background-color: #f4e8c8; outline: 1px dashed var(--color-ink-muted); outline-offset: -1px; }
 @media (prefers-reduced-motion: reduce) {

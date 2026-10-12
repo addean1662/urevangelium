@@ -5,7 +5,7 @@ import { streamFingerprintInput } from '../../lib/alignment/streamFingerprint.mj
 // after corpus changes must fail until the examples are reviewed again.
 const snapshots = {
   'matthew 1:1': 'f7c04bf1adf555c5552d83cf8e8766c8f7ba185566f9b328acd3fc962fe141f7',
-  'mark 1:1': '30b29c2d88704b6aed5d8c146084a396e403d9472e80956dc3ea80b5f2a3059d',
+  'mark 1:1': '7c6d999670fee78f3cbc8dc1479ab8bc93acf881b3b2bf84c22859af31aa43db',
   'luke 1:1': 'eeafd4737fce2d6f484d69c3d6961f5ca5a213bb7ca6ade4d33d30b06607d5d3',
   'john 1:1': '7f3e7f8a8248c45bf7f21900a0c11b7575057798b4ec51faed1ac3bea3619cb0',
   'matthew 12:19': '011afe9c03b64267e620370baf3b61400cd0e8727ccf1d11eea6a83af991f9bf',
