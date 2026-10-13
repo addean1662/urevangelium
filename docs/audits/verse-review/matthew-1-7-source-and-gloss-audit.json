@@ -1,0 +1,264 @@
+{
+  "reference": "matthew 1:7",
+  "checkedAt": "2026-10-13T07:03:50.786Z",
+  "scope": "Pinned transcription and edition comparison; source sequences and English occurrence placement. No new manuscript-image certification.",
+  "findings": [
+    {
+      "column": "vulgate",
+      "sourceWords": 12,
+      "rootCause": "The lexical-row ledger found dictionary records but no contextual name candidates. The builder skips proper-name candidates whenever any dictionary entries exist. Final adjudication relabeled Salomon, Abiam and Abias as blank-unit-member, retaining e1/e7/e9 as pending. The UI accurately exposed that missing allocation.",
+      "repair": "Hash-bound whole-verse occurrence review assigns Solomon, the object Abia and the following subject Abia to their respective Latin occurrences. Both canonical word banks and all punctuation stay unchanged.",
+      "sources": [
+        "https://www.biblehub.com/vul/matthew/1.htm",
+        "https://ebible.org/engDRA/MAT01.htm"
+      ],
+      "remainingSameSurfaceReferences": [
+        "matthew 6:29",
+        "matthew 12:42",
+        "luke 11:31",
+        "luke 12:27"
+      ]
+    },
+    {
+      "column": "byzantine",
+      "rootCause": "Parser missed the explicit TR+Byz spelling in TAGNT column 8. RP2018 Asa failed exact alignment to TAGNT base Asaph; the fallback selected the shared G0760 dictionary brief gloss Asaph.",
+      "repair": "Resolve the explicitly named edition spelling only when the same TAGNT record supplies the matching single proper-name lemma and English. Copy the published name Asa. Full source scan finds exactly two affected records: Matthew 1:7 and 1:8. No Greek source text is changed.",
+      "sources": [
+        "data/sources/byzantine/MAT.csv",
+        "data/sources/greek-shared/TAGNT-Mat-Jhn-CC-BY.txt",
+        "data/sources/greek-shared/TBESG-CC-BY.txt"
+      ]
+    },
+    {
+      "column": "papyrus",
+      "display": "ασα·",
+      "pinnedCNTR": "+ασαφ^",
+      "pinnedProposedReading": "ασαφ",
+      "english": "Asaph; †",
+      "status": "Final letter is not displayed as ink. CNTR proposed reading and TAGNT English remain marked as proposed. Published secondary transcription ασα[φ?] is consistent with uncertainty but is not manuscript-image certification.",
+      "otherDistinctReading": "P1 αβεια remains distinct from Vaticanus αβια.",
+      "source": "https://greeknewtestament.net/mt1-7"
+    }
+  ],
+  "report": {
+    "reference": "matthew 1:7",
+    "columns": [
+      {
+        "column": "papyrus",
+        "authority": "Declared CNTR papyrus collection; physical attestation still requires image review",
+        "source": {
+          "status": "compared",
+          "detail": "Admitted cells match the CNTR surviving-character projection. This does not establish completeness or agreement with manuscript images."
+        },
+        "order": {
+          "status": "review",
+          "detail": "Composite order follows recorded witness coordinates; independent coverage and occurrence-order review is pending."
+        },
+        "english": {
+          "status": "review",
+          "detail": "12 stored word glosses; 3 TAGNT glosses of proposed readings marked †; 0 displayed papyrus occurrences have no matching English. Proposed-reading English does not certify missing Greek letters. Independent English-source and semantic review remains pending."
+        },
+        "placement": {
+          "status": "review",
+          "detail": "Independent source-language placement review is pending. Wording and sequence checks do not certify meaning."
+        },
+        "evidence": {
+          "status": "review",
+          "detail": "Manuscript-image certification is pending; transcription agreement is a separate result."
+        }
+      },
+      {
+        "column": "coptic",
+        "authority": "Sahidica NT 4.1.0 / Coptic SCRIPTORIUM",
+        "source": {
+          "status": "compared",
+          "detail": "12 source occurrences match the pinned transcription or edition."
+        },
+        "order": {
+          "status": "compared",
+          "detail": "Displayed sequence matches this source’s own sequence."
+        },
+        "english": {
+          "status": "review",
+          "detail": "An independent wording check for this column’s declared English authorities is pending."
+        },
+        "placement": {
+          "status": "review",
+          "detail": "Independent source-language placement review is pending. Wording and sequence checks do not certify meaning."
+        },
+        "evidence": {
+          "status": "review",
+          "detail": "Comparison is against the declared electronic edition; edition acquisition and scholarly review remain separate."
+        }
+      },
+      {
+        "column": "vaticanus",
+        "authority": "INTF GA 03, original hand, pinned source-word ledger",
+        "source": {
+          "status": "compared",
+          "detail": "15 source occurrences match the pinned transcription or edition."
+        },
+        "order": {
+          "status": "compared",
+          "detail": "Displayed sequence matches this source’s own sequence."
+        },
+        "english": {
+          "status": "review",
+          "detail": "An independent wording check for this column’s declared English authorities is pending."
+        },
+        "placement": {
+          "status": "review",
+          "detail": "Independent source-language placement review is pending. Wording and sequence checks do not certify meaning."
+        },
+        "evidence": {
+          "status": "review",
+          "detail": "Manuscript-image certification is pending; transcription agreement is a separate result."
+        }
+      },
+      {
+        "column": "sinaiticus",
+        "authority": "CNTR GA 01, selected base hand, declared glyph projection",
+        "source": {
+          "status": "compared",
+          "detail": "15 source occurrences match the pinned transcription or edition."
+        },
+        "order": {
+          "status": "compared",
+          "detail": "Displayed sequence matches this source’s own sequence."
+        },
+        "english": {
+          "status": "compared",
+          "detail": "Both English views preserve every character and occurrence from Henry Tompkins Anderson, 1918. 0 occurrences await source grouping. This does not certify semantic placement."
+        },
+        "placement": {
+          "status": "review",
+          "detail": "Independent source-language placement review is pending. Wording and sequence checks do not certify meaning."
+        },
+        "evidence": {
+          "status": "review",
+          "detail": "Manuscript-image certification is pending; transcription agreement is a separate result."
+        }
+      },
+      {
+        "column": "vulgate",
+        "authority": "Clementine Vulgate with registered verse-boundary concordance",
+        "source": {
+          "status": "compared",
+          "detail": "12 source occurrences match the pinned transcription or edition."
+        },
+        "order": {
+          "status": "compared",
+          "detail": "Displayed sequence matches this source’s own sequence."
+        },
+        "english": {
+          "status": "compared",
+          "detail": "Both English views preserve every character and occurrence from Douay-Rheims American Edition of 1899 (Challoner tradition). 0 occurrences await source grouping. This does not certify semantic placement."
+        },
+        "placement": {
+          "status": "review",
+          "detail": "An evidence-backed grouping correction is applied to this display. Both word banks are unchanged; independent scholarly placement review remains pending."
+        },
+        "evidence": {
+          "status": "review",
+          "detail": "Comparison is against the declared electronic edition; edition acquisition and scholarly review remain separate."
+        }
+      },
+      {
+        "column": "bezaeGreek",
+        "authority": "ITSEE/IGNTP Bezae Greek, first encoded reading; independent XML extraction",
+        "source": {
+          "status": "review",
+          "detail": "No verse words in the selected source extraction. Physical loss, omission and reading-layer coverage require separate evidence."
+        },
+        "order": {
+          "status": "review",
+          "detail": "No sequence to compare."
+        },
+        "english": {
+          "status": "not-applicable",
+          "detail": "This side displays manuscript text; the facing Latin is not an English gloss."
+        },
+        "placement": {
+          "status": "not-applicable",
+          "detail": "Greek–Latin correspondence requires bilingual review; no English gloss is displayed."
+        },
+        "evidence": {
+          "status": "review",
+          "detail": "Manuscript-image certification is pending; transcription agreement is a separate result."
+        }
+      },
+      {
+        "column": "bezaeLatin",
+        "authority": "ITSEE/IGNTP Bezae Latin, first encoded reading; independent XML extraction",
+        "source": {
+          "status": "review",
+          "detail": "No verse words in the selected source extraction. Physical loss, omission and reading-layer coverage require separate evidence."
+        },
+        "order": {
+          "status": "review",
+          "detail": "No sequence to compare."
+        },
+        "english": {
+          "status": "not-applicable",
+          "detail": "This side displays manuscript text; the facing Latin is not an English gloss."
+        },
+        "placement": {
+          "status": "not-applicable",
+          "detail": "Greek–Latin correspondence requires bilingual review; no English gloss is displayed."
+        },
+        "evidence": {
+          "status": "review",
+          "detail": "Manuscript-image certification is pending; transcription agreement is a separate result."
+        }
+      },
+      {
+        "column": "peshitta",
+        "authority": "Pinned electronic Peshitta with registered verse-boundary concordance",
+        "source": {
+          "status": "compared",
+          "detail": "9 source occurrences match the pinned transcription or edition."
+        },
+        "order": {
+          "status": "compared",
+          "detail": "Displayed sequence matches this source’s own sequence."
+        },
+        "english": {
+          "status": "compared",
+          "detail": "Both English views preserve every character and occurrence from James Murdock, 1851. 0 occurrences await source grouping. This does not certify semantic placement."
+        },
+        "placement": {
+          "status": "review",
+          "detail": "Independent source-language placement review is pending. Wording and sequence checks do not certify meaning."
+        },
+        "evidence": {
+          "status": "review",
+          "detail": "Comparison is against the declared electronic edition; edition acquisition and scholarly review remain separate."
+        }
+      },
+      {
+        "column": "byzantine",
+        "authority": "Robinson–Pierpont 2018",
+        "source": {
+          "status": "compared",
+          "detail": "15 source occurrences match the pinned transcription or edition."
+        },
+        "order": {
+          "status": "compared",
+          "detail": "Displayed sequence matches this source’s own sequence."
+        },
+        "english": {
+          "status": "review",
+          "detail": "An independent wording check for this column’s declared English authorities is pending."
+        },
+        "placement": {
+          "status": "review",
+          "detail": "Independent source-language placement review is pending. Wording and sequence checks do not certify meaning."
+        },
+        "evidence": {
+          "status": "review",
+          "detail": "Comparison is against the declared electronic edition; edition acquisition and scholarly review remain separate."
+        }
+      }
+    ]
+  }
+}

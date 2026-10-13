@@ -2,9 +2,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { alignSequences } from '../lib/alignment/sequenceAlign.js';
+import { tagntEditionName } from '../lib/sources/tagntEditionName.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const APPLY = process.argv.includes('--apply');
+const APPLY_VARIANT_NAMES = process.argv.includes('--apply-variant-names');
 const GOSPELS = ['matthew', 'mark', 'luke', 'john'];
 const BOOKS = { matthew: 'Mat', mark: 'Mrk', luke: 'Luk', john: 'Jhn' };
 const FILES = { matthew: 'MAT.csv', mark: 'MAR.csv', luke: 'LUK.csv', john: 'JOH.csv' };
@@ -116,11 +118,13 @@ function parseTagnt() {
       const variantGloss = variant.match(/\)\s*(.*?)\s+-\s+G\d+[A-Z]?=/u)?.[1];
       if (variantGloss) gloss = cleanGloss(variantGloss);
     }
+    const editionName = tagntEditionName(columns, 'Byz');
+    if (editionName) { text = editionName.text; gloss = editionName.gloss; }
     const gospel = Object.entries(BOOKS).find(([, code]) => code === reference[1])?.[0];
     if (!gospel || !text) continue;
     const key = `${gospel} ${Number(reference[2])}:${Number(reference[3])}`;
     if (!verses.has(key)) verses.set(key, []);
-    verses.get(key).push({ text, strongCode, strong: strongNumber(strongCode), parsing, gloss });
+    verses.get(key).push({ text, strongCode, strong: strongNumber(strongCode), parsing, gloss, ...(editionName ? { editionName } : {}) });
   }
   return { verses, file: 'data/sources/greek-shared/TAGNT-Mat-Jhn-CC-BY.txt', sha256: sha256(file) };
 }
@@ -223,9 +227,10 @@ const report = {
   totals, decisions,
 };
 
-if (APPLY) {
+if (APPLY || APPLY_VARIANT_NAMES) {
   const byReference = new Map();
   for (const decision of decisions) {
+    if (!APPLY && !(decision.status === 'ADMITTED_CONTEXTUAL_GLOSS' && decision.tagnt?.editionName)) continue;
     if (!byReference.has(decision.reference)) byReference.set(decision.reference, new Map());
     byReference.get(decision.reference).set(decision.rowId, decision);
   }
@@ -236,14 +241,17 @@ if (APPLY) {
     for (const row of document.rows) {
       if (row.byzantine?.type !== 'text') continue;
       const decision = rowDecisions.get(row.id);
-      if (!decision || decision.status === 'HELD') { delete row.byzantine.gloss; continue; }
+      if (!decision) continue;
+      if (decision.status === 'HELD') { delete row.byzantine.gloss; continue; }
       const generated = decision.status !== 'ADMITTED_CONTEXTUAL_GLOSS';
       const lexicalGloss = decision.tbesg?.briefGloss ?? decision.secondary?.lexical?.briefGloss ?? decision.secondary?.morphgntLexicon?.gloss ?? decision.secondary?.rpStrongLexicon?.gloss ?? decision.english;
       row.byzantine.gloss = {
         gloss: decision.english,
         source: generated ? 'System' : 'TAGNT',
         ...(generated ? { generated: true } : {}),
-        tooltip: `RP2018 Strong G${String(decision.rp2018.strong).padStart(4, '0')} · ${decision.rp2018.parsing} · TBESG/Abbott-Smith: ${lexicalGloss}`,
+        tooltip: decision.tagnt?.editionName
+          ? `TAGNT ${decision.tagnt.editionName.reference} · explicit Byz spelling ${decision.tagnt.editionName.text} · published name gloss: ${decision.english}`
+          : `RP2018 Strong G${String(decision.rp2018.strong).padStart(4, '0')} · ${decision.rp2018.parsing} · TBESG/Abbott-Smith: ${lexicalGloss}`,
       };
     }
     fs.writeFileSync(file, `${JSON.stringify(document, null, 2)}\n`);
@@ -251,6 +259,8 @@ if (APPLY) {
 }
 const publishedReport = {
   ...report,
+  ...(APPLY_VARIANT_NAMES && !APPLY ? { status: 'applied-explicit-edition-names-only' } : {}),
+  editionNameDecisions: decisions.filter(d => d.tagnt?.editionName),
   decisionCount: decisions.length,
   decisionSha256: crypto.createHash('sha256').update(JSON.stringify(decisions)).digest('hex'),
   decisionLedgerIncluded: false,

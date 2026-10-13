@@ -19,6 +19,29 @@ function fixture() {
 }
 
 describe('immutable English banks and occurrence placement', () => {
+  it('places all Matthew 1:7 Latin names without conflating the two Abia occurrences or altering either bank', () => {
+    const data = read('data/matthew/1/7.json') as VerseData;
+    const evidence = read('data/alignment-streams/matthew.json').verses['1:7'] as StreamEvidence;
+    const expectations = read('data/verse-verification/matthew.json').verses['1:7'] as VerseExpectations;
+    const model = buildStreamModel(data, evidence), before = JSON.stringify({ data, model, expectations });
+    const views = prepareEnglishViews(model, expectations, reviews), view = views.vulgate!;
+    expect(model.columns.vulgate.words.map(w => w.text)).toEqual(['Salomon', 'autem', 'genuit', 'Roboam', 'Roboam', 'autem', 'genuit', 'Abiam', 'Abias', 'autem', 'genuit', 'Asa']);
+    expect(model.columns.vulgate.words.map(w => groupedEnglish(view, w.id).trim())).toEqual(['Solomon', 'And', 'begot', 'Roboam.', 'Roboam', 'And', 'begot', 'Abia.', 'Abia', 'And', 'begot', 'Asa.']);
+    expect(view.groups['vulgate:r10']).toEqual(['e7']);
+    expect(view.groups['vulgate:r11']).toEqual(['e9']);
+    expect(view.unassigned).toEqual([]);
+    expect(view.issues).toEqual([]);
+    expect(translationOrderOccurrences(view).map(o => o.text).join('')).toBe(expectations.english.vulgate!.english);
+    expect(JSON.stringify({ data, model, expectations })).toBe(before);
+    const { container } = render(<AlignmentExplorer data={data} evidence={evidence} expectations={expectations} englishViews={views} />);
+    expect(screen.queryByLabelText('Vulgate English awaiting alignment')).not.toBeInTheDocument();
+    expect(container.querySelector('[data-english-group="vulgate:r1"]')).toHaveTextContent('Solomon');
+    fireEvent.click(within(screen.getByRole('group', { name: 'Vulgate English view' })).getByRole('button', { name: 'Translation order' }));
+    expect(container.querySelector('[data-translation-order="vulgate"]')!.textContent).toBe(expectations.english.vulgate!.english);
+    fireEvent.mouseEnter(container.querySelector('[data-english-id="vulgate:e7"]')!);
+    expect(container.querySelector('[data-word-id="vulgate:r10"]')).toHaveAttribute('data-highlighted', 'true');
+    expect(container.querySelector('[data-word-id="vulgate:r11"]')).not.toHaveAttribute('data-highlighted', 'true');
+  });
   it('aligns all Matthew 1:5 Latin words using distinct, attested English occurrences across the edition boundary', () => {
     const data = read('data/matthew/1/5.json') as VerseData;
     const evidence = read('data/alignment-streams/matthew.json').verses['1:5'] as StreamEvidence;
