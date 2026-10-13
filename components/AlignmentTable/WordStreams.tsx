@@ -14,7 +14,7 @@ import { GlossCell } from './GlossCell';
 import { getBezaeLacuna } from './AlignmentTable';
 import { groupedEnglish, translationOrderOccurrences, type EnglishView, type EnglishViews } from '@/lib/alignment/englishPresentation';
 import type { SourceExpectation } from '@/lib/verification/verifyVerse';
-import { singlePapyrusWitness, papyrusRunLabels, type PapyrusWitnessLabel } from '@/lib/alignment/papyrusPresentation';
+import { singlePapyrusWitness, papyrusRunLabels, papyrusEnglish, type PapyrusWitnessLabel } from '@/lib/alignment/papyrusPresentation';
 
 const LABELS: Record<StreamKey, string> = {
   papyrus: 'Earliest Papyri', coptic: 'Sahidic', vaticanus: 'Vaticanus', sinaiticus: 'Sinaiticus',
@@ -77,13 +77,12 @@ function StreamColumn({ stream, papyrusConflicts, papyrusWitness, englishView, t
   const sourceOnly = bilingual || independent;
   return (
     <div data-stream={stream.key} className="min-w-0">
-      {independent && <p className="px-2 pb-2 text-center text-xs text-ink-muted">Independent reading order</p>}
       <div className={independent ? 'flex items-start' : ''}>
       <table role="presentation" className={`word-stream-table border-collapse ${independent ? 'w-[47%]' : 'w-full'}`}>
         <colgroup>{sourceOnly ? <col /> : <><col style={{ width: '47%' }} /><col style={{ width: '6%' }} /><col style={{ width: '47%' }} /></>}</colgroup>
         <tbody>
           {stream.words.map((word, index) => (
-            <tr key={word.id} tabIndex={0} role="button" aria-label={`${LABELS[word.column]}: ${word.text}; ${englishView ? groupedEnglish(englishView, word.id).trim() : word.gloss?.gloss ?? ''}`} aria-pressed={pinned === word.id}
+            <tr key={word.id} tabIndex={0} role="button" aria-label={`${LABELS[word.column]}: ${word.text}; ${englishView ? groupedEnglish(englishView, word.id).trim() : word.column === 'papyrus' ? papyrusEnglish(word.cell as PapyrusCellType)?.gloss ?? '' : word.gloss?.gloss ?? ''}`} aria-pressed={pinned === word.id}
               data-word-id={word.id} data-highlighted={highlighted.has(word.id) ? 'true' : undefined}
               data-provisional={highlighted.has(word.id) && !established.has(word.id) ? 'true' : undefined}
               onMouseEnter={() => enter(word.id)} onMouseLeave={() => enter(null)}
@@ -96,22 +95,23 @@ function StreamColumn({ stream, papyrusConflicts, papyrusWitness, englishView, t
                 {word.column === 'papyrus' ? <PapyrusIndicator cell={word.cell as PapyrusCellType} /> : <td aria-hidden="true" />}
                 {englishView ? <td data-english-group={word.id} className="px-2 py-1.5 align-middle text-base italic text-ink-secondary" title={`${englishView.unit.translatorEdition} · ${englishView.review ? 'Evidence-backed grouping; scholarly review pending' : 'Existing grouping; placement review pending'}`}>
                   {(englishView.groups[word.id] ?? []).length ? englishView.groups[word.id].map(id => <span key={id} data-english-id={`${stream.key}:${id}`} className="whitespace-pre-wrap">{englishView.occurrences[Number(id.slice(1))].text}</span>) : <span aria-label="No English assigned" className="not-italic text-ink-muted">—</span>}
-                </td> : <GlossCell gloss={word.gloss} highlighted={Boolean(word.gloss?.spanId && highlightedPhrases.has(`${word.column}:${word.gloss.spanId}`))} />}
+                </td> : <GlossCell gloss={word.column === 'papyrus' ? papyrusEnglish(word.cell as PapyrusCellType) : word.gloss} highlighted={Boolean(word.gloss?.spanId && highlightedPhrases.has(`${word.column}:${word.gloss.spanId}`))} />}
               </>}
             </tr>
           ))}
         </tbody>
       </table>
-      {independent && englishView && <p data-translation-order={stream.key} aria-label={`${LABELS[stream.key]} published English in translation order`} className="w-[53%] whitespace-pre-wrap px-2 py-1.5 text-base italic leading-relaxed text-ink-secondary">
+      {independent && englishView && <div data-translation-order={stream.key} aria-label={`${LABELS[stream.key]} published English in translation order`} className="w-[53%] text-base italic text-ink-secondary">
         {translationOrderOccurrences(englishView).map(occurrence => occurrence.sourceId ? <span key={occurrence.id} data-english-id={`${stream.key}:${occurrence.id}`} role="button" tabIndex={0} aria-pressed={pinned === occurrence.sourceId}
           title="Highlight the source word assigned to this English occurrence; placement review remains separate."
-          className={`cursor-pointer rounded focus-visible:outline-2 focus-visible:outline-accent-gold ${highlighted.has(occurrence.sourceId) ? 'bg-accent-gold/25' : ''}`}
+          className={`block min-h-10 cursor-pointer whitespace-pre-wrap break-words px-2 py-1.5 focus-visible:outline-2 focus-visible:outline-accent-gold ${highlighted.has(occurrence.sourceId) ? 'bg-accent-gold/25' : ''}`}
           onMouseEnter={() => enter(occurrence.sourceId!)} onMouseLeave={() => enter(null)} onFocus={() => focus(occurrence.sourceId!)} onBlur={() => focus(null)}
           onClick={() => pin(occurrence.sourceId!)} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); pin(occurrence.sourceId!); } }}>{occurrence.text}</span>
-          : <span key={occurrence.id} data-english-id={`${stream.key}:${occurrence.id}`} title={englishView.unit.concordance ? 'This published English occurrence corresponds to Latin in the adjacent verse; see Verse numbering.' : 'English occurrence awaiting source alignment'}>{occurrence.text}</span>)}
-      </p>}
+          : <span key={occurrence.id} data-english-id={`${stream.key}:${occurrence.id}`} className="block min-h-10 whitespace-pre-wrap break-words px-2 py-1.5" title={englishView.unit.concordance ? 'This published English occurrence corresponds to Latin in the adjacent verse; see Verse numbering.' : 'English occurrence awaiting source alignment'}>{occurrence.text}</span>)}
+      </div>}
       </div>
       <Absences stream={stream} />
+      {stream.key === 'papyrus' && stream.words.some(word => papyrusEnglish(word.cell as PapyrusCellType)?.proposedReading) && <p className="px-3 py-2 text-xs text-ink-muted">† English for a proposed reading; the Greek is only partly preserved.</p>}
       {stream.orderNote && <p className="px-3 py-2 text-xs text-semantic-damaged">{stream.orderNote}</p>}
       {englishView && <div className="px-3 py-2 text-xs text-ink-muted">
         {englishView.unit.boundaryReview && <details className="mb-2" data-english-boundary={stream.key}>
@@ -193,14 +193,17 @@ export function WordStreams({ model, englishViews, papyrusConflicts, nextFragmen
               {band.tradition}
               {band.tradition === 'Alexandrian' && <button type="button" onClick={() => { setSinaiticus(!sinaiticus); clear(); }} className="rounded border border-ink-on-band-muted/40 px-1 py-0.5 normal-case tracking-normal" aria-label={sinaiticus ? 'Show Vaticanus' : 'Show Sinaiticus'}>{sinaiticus ? 'See Vaticanus' : 'See Sinaiticus'}</button>}
             </div>
-            <div className="flex h-32 flex-col items-center justify-center gap-1 bg-witness-band px-2 text-center text-ink-on-band">
+            <div className="flex h-32 flex-col items-center gap-1 bg-witness-band px-2 pt-3 text-center text-ink-on-band">
               <Link href={`/certification-systems#${band.key === 'papyrus' ? 'earliest-papyri' : band.key === 'coptic' ? 'sahidic' : band.key}`} className="text-sm font-semibold uppercase tracking-wide underline decoration-transparent underline-offset-2 hover:decoration-accent-gold">{band.key === 'bezae' ? 'Bezae' : LABELS[band.streams[0]]}</Link>
               <span className="text-xs text-ink-on-band-muted">{band.key === 'bezae' ? 'Greek · Latin' : ENGLISH[band.streams[0]]}</span>
               <span className="text-[10px] text-ink-on-band-muted">{DATES[band.key]}</span>
-              {band.key === 'coptic' && <span className="text-[10px] text-accent-gold-soft">alignment under review</span>}
-              {band.key === 'papyrus' && <Link href="/earliest-papyri#damage-and-scan-key" className="text-[10px] text-accent-gold-soft underline">damage &amp; scan key</Link>}
+              <div className="h-4 text-[10px] text-accent-gold-soft">
+                {band.key === 'coptic' && <span>alignment under review</span>}
+                {band.key === 'papyrus' && <Link href="/earliest-papyri#damage-and-scan-key" className="underline">damage &amp; scan key</Link>}
+                {englishViews?.[band.streams[0]] && englishModes[band.streams[0]] && <span className="text-ink-on-band-muted">Independent reading order</span>}
+              </div>
               {band.key === 'papyrus' && papyrusWitness && <span data-papyrus-column-witness className="self-stretch text-left text-xs font-normal text-ink-on-band-muted">All displayed words from {papyrusWitness}</span>}
-              {englishViews?.[band.streams[0]] && <div role="group" aria-label={`${LABELS[band.streams[0]]} English view`} className="mt-1 inline-flex rounded border border-ink-on-band-muted/50 p-0.5 text-[10px]">
+              {englishViews?.[band.streams[0]] && <div role="group" aria-label={`${LABELS[band.streams[0]]} English view`} className="inline-flex rounded border border-ink-on-band-muted/50 p-0.5 text-[10px]">
                 {[false, true].map(original => <button key={String(original)} type="button" aria-pressed={Boolean(englishModes[band.streams[0]]) === original}
                   onClick={() => { setEnglishModes(current => ({ ...current, [band.streams[0]]: original })); clear(); }}
                   className={`rounded px-1.5 py-1 ${Boolean(englishModes[band.streams[0]]) === original ? 'bg-bg-elevated text-ink-primary' : 'hover:bg-band'}`}>{original ? 'Translation order' : 'Follow source'}</button>)}

@@ -2,6 +2,7 @@ import type { VerseData } from '@/lib/types';
 import type { StreamKey, StreamModel, StreamWord } from '@/lib/alignment/streams';
 import type { EnglishView, EnglishViews } from '@/lib/alignment/englishPresentation';
 import { englishDisplayOccurrences, translationOrderOccurrences } from '../alignment/englishPresentation.ts';
+import { papyrusEnglish } from '../alignment/papyrusPresentation.ts';
 
 export type Check = { status: 'compared' | 'difference' | 'review' | 'unavailable' | 'not-applicable'; detail: string };
 export type SourceExpectation = {
@@ -66,6 +67,12 @@ function sourceSequence(words: StreamWord[], column: StreamKey): { tokens: strin
 }
 
 function englishCheck(data: VerseData, column: StreamKey, unit?: TranslationUnit | null, view?: EnglishView): Check {
+  if (column === 'papyrus') {
+    const cells = data.rows.map(row => row.papyrus).filter(cell => cell?.type === 'extant');
+    const proposed = cells.filter(cell => papyrusEnglish(cell)?.proposedReading).length;
+    const missing = cells.filter(cell => !papyrusEnglish(cell)).length;
+    return check('review', `${cells.length - proposed - missing} stored word glosses; ${proposed} TAGNT glosses of proposed readings marked †; ${missing} displayed papyrus occurrences have no matching English. Proposed-reading English does not certify missing Greek letters. Independent English-source and semantic review remains pending.`);
+  }
   if (column.startsWith('bezae')) return check('not-applicable', 'This side displays manuscript text; the facing Latin is not an English gloss.');
   if (!unit) return check('review', 'An independent wording check for this column’s declared English authorities is pending.');
   if (view) {

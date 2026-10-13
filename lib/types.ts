@@ -41,6 +41,7 @@ export type GlossCell = {
   experimental?: boolean; // legacy marker for provisional project output
   automaticAnnotation?: boolean; // source-attributed scholarly automatic annotation
   tooltip?: string;    // full lexicon entry for hover display
+  proposedReading?: string; // English for this proposed reading of an incomplete papyrus word; never attested Greek
   spanId?: string;     // shared translation phrase identifier
   spanRole?: 'start' | 'continuation';
 };

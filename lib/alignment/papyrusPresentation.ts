@@ -1,4 +1,4 @@
-import type { PapyrusCell } from '../types';
+import type { GlossCell, PapyrusCell } from '../types';
 import type { SourceExpectation } from '../verification/verifyVerse';
 import { papyrusDisplayText } from '../sources/papyrusEvidence.mjs';
 
@@ -72,4 +72,26 @@ export function papyrusConflictNotes(cell: PapyrusCell, conflicts: SourceExpecta
   const attestations = governingAttestations(cell);
   return conflicts.filter(c => attestations.some(a => a.siglum === c.witness && a.sourceToken === c.sourceToken)).map(c =>
     `${c.witness}, source word ${c.sourceToken}: CNTR displays ${c.cntr || 'no admitted letters'}; INTF marks the surviving-letter projection as ${c.intf}. Dots replace editorially supplied letters. Manuscript-image adjudication is pending.`);
+}
+
+/** Display an existing scholarly gloss of a proposed reading separately from
+ * attested-word English. This never fills Greek gaps or admits a lost word. */
+export function papyrusEnglish(cell: PapyrusCell | undefined): GlossCell | undefined {
+  if (cell?.type !== 'extant') return undefined;
+  if (cell.gloss) return cell.gloss;
+  const provenance = record(cell.provenance), archive = record(provenance.archivalGloss);
+  if (!cell.condition?.partial || provenance.attestationPolicy !== 'surviving-papyrus-evidence-v1'
+    || provenance.evidenceStatus !== 'partial' || archive.source !== 'TAGNT'
+    || typeof archive.gloss !== 'string' || !archive.gloss.trim()
+    || archive.generated || archive.experimental || archive.automaticAnnotation
+    || typeof provenance.archivalGlossReading !== 'string' || typeof provenance.diplomatic !== 'string') return undefined;
+  const normalize = (text: string) => papyrusDisplayText(text).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replaceAll('ς', 'σ');
+  if (normalize(provenance.archivalGlossReading) !== normalize(provenance.diplomatic)) return undefined;
+  const characters = papyrusCharacters(cell);
+  if (!characters?.some(c => c.state === 'missing') || !characters.some(c => c.state !== 'missing' && /\p{L}/u.test(c.text))) return undefined;
+  const reading = papyrusDisplayText(provenance.diplomatic);
+  return {
+    gloss: archive.gloss, source: 'TAGNT', proposedReading: reading,
+    tooltip: `TAGNT English for the proposed reading ${reading}. Only part of the Greek survives; missing letters remain gaps. This does not certify the restoration or manuscript image.${typeof archive.tooltip === 'string' ? ` ${archive.tooltip}` : ''}`,
+  };
 }

@@ -54,11 +54,13 @@ export function GlossCell({ gloss, className = '', rowSpan, highlighted = false,
     <td
       className={`${base} ${continuation ? 'text-ink-muted not-italic text-center' : `${textColor} italic`}`}
       title={gloss.tooltip}
-      aria-label={continuation ? `Continues shared English phrase: ${gloss.tooltip ?? ''}` : undefined}
+      aria-label={gloss.proposedReading ? `English for proposed reading: ${gloss.gloss}` : continuation ? `Continues shared English phrase: ${gloss.tooltip ?? ''}` : undefined}
+      data-proposed-reading-english={gloss.proposedReading ? 'true' : undefined}
       tabIndex={onFocus ? 0 : undefined}
       {...interactionProps}
     >
       {gloss.gloss}
+      {gloss.proposedReading && <sup className="ml-0.5 not-italic text-semantic-damaged" aria-label="Proposed reading">†</sup>}
       {badge}
     </td>
   );

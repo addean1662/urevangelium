@@ -9,7 +9,7 @@ import { transliterateGreek } from '@/lib/transliteration/greek';
 import { transliterateCoptic } from '@/lib/transliteration/coptic';
 import { groupedEnglish, type EnglishViews } from '@/lib/alignment/englishPresentation';
 import type { SourceExpectation } from '@/lib/verification/verifyVerse';
-import type { PapyrusWitnessLabel } from '@/lib/alignment/papyrusPresentation';
+import { papyrusEnglish, type PapyrusWitnessLabel } from '@/lib/alignment/papyrusPresentation';
 
 interface Props {
   row: AlignmentRowType;
@@ -44,7 +44,7 @@ export function AlignmentRow({ row, englishViews, papyrusConflicts, papyrusWitne
     <tr>
       <PapyrusCellComponent cell={row.papyrus} conflicts={papyrusConflicts} columnWitness={papyrusWitness} witnessLabels={papyrusLabels} />
       <PapyrusIndicator cell={row.papyrus} />
-      <GlossCell gloss={cellGloss(row.papyrus)} />
+      <GlossCell gloss={papyrusEnglish(row.papyrus)} />
 
       {row.coptic ? (
         <>
