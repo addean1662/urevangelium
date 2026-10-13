@@ -6,6 +6,10 @@ import { VERSE_COUNTS } from '@/lib/verseCounts';
 import { loadVerse } from '@/lib/data';
 import { AlignmentExplorer } from '@/components/AlignmentTable/AlignmentExplorer';
 import { loadStreamEvidence } from '@/lib/alignment/loadStreamEvidence';
+import { loadVerseExpectations } from '@/lib/verification/loadExpectations';
+import { buildStreamModel } from '@/lib/alignment/streams';
+import { prepareEnglishViews } from '@/lib/verification/prepareEnglishViews';
+import reviewedEnglishGroups from '@/data/english-groups/reviewed.json';
 import { LineageTimeline } from '@/components/LineageTimeline';
 import { GospelSelector } from '@/components/GospelSelector';
 import { PassageNav } from '@/components/PassageNav';
@@ -47,6 +51,9 @@ export default async function PassagePage({ params }: { params: Params }) {
 
   const gospelLabel = GOSPEL_DISPLAY[g];
   const passageLabel = `${gospelLabel} ${chapter}:${verse}`;
+  const evidence = data ? loadStreamEvidence(data) : undefined;
+  const expectations = data ? loadVerseExpectations(data) : undefined;
+  const englishViews = data ? prepareEnglishViews(buildStreamModel(data, evidence), expectations, reviewedEnglishGroups) : undefined;
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -66,7 +73,7 @@ export default async function PassagePage({ params }: { params: Params }) {
       <main className="flex-1 p-4">
         {data ? (
           <>
-            <AlignmentExplorer key={passageLabel} data={data} evidence={loadStreamEvidence(data)} nextFragment={nextFragment} nextFragmentHref={nextFragmentHref} />
+            <AlignmentExplorer key={passageLabel} data={data} evidence={evidence} expectations={expectations} englishViews={englishViews} nextFragment={nextFragment} nextFragmentHref={nextFragmentHref} />
             <LineageTimeline />
           </>
         ) : (

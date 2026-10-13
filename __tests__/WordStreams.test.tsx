@@ -69,6 +69,6 @@ describe('word stream interaction', () => {
     expect(container.querySelectorAll('[data-stream]').length).toBe(8);
     fireEvent.click(screen.getByRole('button',{name:'Comparison rows'}));
     expect(container.querySelectorAll('[data-stream]').length).toBe(0);
-    expect(container.querySelectorAll('thead th').length).toBe(14);
+    expect(screen.getByRole('table', { name: 'Manuscript comparison rows' }).querySelectorAll('thead th').length).toBe(14);
   });
 });

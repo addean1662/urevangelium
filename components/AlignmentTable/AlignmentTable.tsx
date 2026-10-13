@@ -4,9 +4,14 @@ import { useState } from 'react';
 import Link from 'next/link';
 import type { VerseData } from '@/lib/types';
 import { AlignmentRow } from './AlignmentRow';
+import type { EnglishViews } from '@/lib/alignment/englishPresentation';
+import type { SourceExpectation } from '@/lib/verification/verifyVerse';
+import { singlePapyrusWitness, papyrusRunLabels } from '@/lib/alignment/papyrusPresentation';
 
 interface Props {
   data: VerseData;
+  englishViews?: EnglishViews;
+  papyrusConflicts?: SourceExpectation['conflicts'];
   nextFragment?: string | null;
   nextFragmentHref?: string | null;
 }
@@ -82,11 +87,13 @@ const TRADITIONS: TraditionDef[] = [
   { label: 'Byzantine',    getSpan: () => 3 },
 ];
 
-export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) {
+export function AlignmentTable({ data, englishViews, papyrusConflicts, nextFragment, nextFragmentHref }: Props) {
   const [showSinaiticus, setShowSinaiticus] = useState(false);
   const [activeCopticSpanId, setActiveCopticSpanId] = useState<string | null>(null);
 
   const bezaeLacuna = getBezaeLacuna(data.gospel, data.chapter, data.verse);
+  const papyrusWitness = singlePapyrusWitness(data.rows.map(row => row.papyrus));
+  const papyrusLabels = papyrusRunLabels(data.rows.map(row => row.papyrus));
 
   const columns: ColumnDef[] = showSinaiticus
     ? [BASE_COLUMNS[0], BASE_COLUMNS[1], SINAITICUS_COL, ...BASE_COLUMNS.slice(3)]
@@ -113,6 +120,7 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
   return (
     <div className="overflow-x-auto">
       <table
+        aria-label="Manuscript comparison rows"
         className="w-full border-collapse text-left table-fixed"
         style={{ minWidth: '1440px' }}
       >
@@ -182,6 +190,7 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
                     <div className="w-[10%]" />
                     <div className="w-[45%] pl-2">{rightLabel ?? ''}</div>
                   </div>
+                  {col.key === 'papyrus' && papyrusWitness && <p data-papyrus-column-witness className="mt-1 px-2 text-left text-xs font-normal normal-case tracking-normal text-ink-on-band-muted">All displayed words from {papyrusWitness}</p>}
                 </th>
               );
             })}
@@ -189,10 +198,14 @@ export function AlignmentTable({ data, nextFragment, nextFragmentHref }: Props) 
         </thead>
 
         <tbody>
-          {data.rows.map((row) => (
+          {data.rows.map((row, index) => (
             <AlignmentRow
               key={row.id}
               row={row}
+              englishViews={englishViews}
+              papyrusConflicts={papyrusConflicts}
+              papyrusWitness={papyrusWitness}
+              papyrusLabels={papyrusLabels[index]}
               showSinaiticus={showSinaiticus}
               activeCopticSpanId={activeCopticSpanId}
               copticSpanLength={row.coptic?.type === 'text' && row.coptic.gloss?.spanId

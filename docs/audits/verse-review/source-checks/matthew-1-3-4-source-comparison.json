@@ -1,0 +1,2694 @@
+{
+  "scope": "Matthew 1:3-4 source-file and preservation-notation comparison; not manuscript-image certification or a complete English semantic audit.",
+  "sources": {
+    "papyrus": {
+      "path": "data/sources/earliest-papyrus/P1.txt",
+      "sha256": "b73c071248d57107fdf503265c902ca4aacc5e18883dfd68b791767aa3f54266"
+    },
+    "p1Intf": {
+      "path": "docs/audits/verse-review/source-checks/p1-intf-raw-matthew.xml",
+      "sha256": "3f9e27309506370937b4788bc98fc3242d245f3777fc9fce8a32f36711844dfe"
+    },
+    "vaticanus": {
+      "path": "data/sources/vaticanus/intf/matthew.xml",
+      "sha256": "9a0404263e92cf4f741ee3b450e3c2123ffbc586704193473ab88430efb98910"
+    },
+    "coptic": {
+      "path": "data/sources/coptic-tt/40_Matthew_01.tt",
+      "sha256": "e1af499411db14e6dab38bd14c416d3eb579d648918431e76d47c9120ca07b25"
+    },
+    "vulgate": {
+      "path": "data/sources/vulgate/VulgClementine.txt",
+      "sha256": "73b183acbf46fcedbf1e86b9ee6b760f2ff2303ad6795eb149a16c43b62d2c13"
+    },
+    "peshitta": {
+      "path": "data/sources/peshitta/Peshitta.txt",
+      "sha256": "67917b349db144afeb4eff50b82a61c8a39ee0cc9d996b1f13d789a6755252e8"
+    },
+    "byzantine": {
+      "path": "data/sources/byzantine/MAT.csv",
+      "sha256": "e2456be38e59233d3325ce44d7f032318bb73072c4c8aaa2d703905af411e0e2"
+    },
+    "bezaeGreek": {
+      "path": "data/sources/bezae/Bezae-Greek.xml",
+      "sha256": "65f710565dc08841576ad9de313570f4cb07943bb1f953f95ae47bde3f7aa0bc"
+    },
+    "bezaeLatin": {
+      "path": "data/sources/bezae/Bezae-Latin.xml",
+      "sha256": "3c7958a7ebfa5f8ee36a9b478dc6a7afd08acceec54c4ac2fd9391fb96d1ebdf"
+    }
+  },
+  "p1ImageReview": {
+    "url": "https://manuscripts.csntm.org/Manuscript/Group/GA_P1",
+    "imageId": 678823,
+    "screenshot": "../images/p1-matthew-1-3-4-csntm-678823.png",
+    "status": "Photograph inspected; disputed traces not confidently resolved. No independent ink certification."
+  },
+  "findings": [
+    "Zare in P1 and Vaticanus versus Zara in RP2018 is preserved; no harmonization warranted.",
+    "Matthew 1:4 retains P1 Amminadab, Vaticanus Ameinadab, and RP2018 Aminadab.",
+    "System labels the Vaticanus English gloss provenance, not the correctness of its Greek spelling.",
+    "CNTR and INTF disagree on P1 supplied positions. The current admission guard consults CNTR only and cannot detect this disagreement.",
+    "CNTR explicitly describes an optimistic character-certainty policy; this is a possible explanation, not a verified history of these P1 decisions.",
+    "Do not automatically substitute either transcription's preservation decisions for independent image adjudication."
+  ],
+  "records": [
+    {
+      "reference": "matthew 1:3",
+      "rawCntrLine": "40001003 ιουδα%σ% δ%ε εγενν%η%/σ%εν τον φαρεσ και τον ζαρε εκ τησ θα/μ%αρ φαρεσ δε εγεννησεν τον εσρωμ /εσρ^ω^μ% δε εγ%ε%ννησεν τον α%ραμ",
+      "p1Tokens": [
+        {
+          "sourceToken": 1,
+          "cntr": {
+            "raw": "ιουδα%σ%",
+            "diplomatic": "ιουδασ",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [
+              {
+                "kind": "damaged",
+                "after": 5
+              },
+              {
+                "kind": "damaged",
+                "after": 6
+              }
+            ],
+            "evidence": {
+              "status": "attested",
+              "visible": "ιουδασ",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "ιουδασ"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">ιουδ<ns0:unclear>ας</ns0:unclear></ns0:w> ",
+            "letters": [
+              {
+                "character": "ι",
+                "status": "unmarked"
+              },
+              {
+                "character": "ο",
+                "status": "unmarked"
+              },
+              {
+                "character": "υ",
+                "status": "unmarked"
+              },
+              {
+                "character": "δ",
+                "status": "unmarked"
+              },
+              {
+                "character": "α",
+                "status": "unclear"
+              },
+              {
+                "character": "ς",
+                "status": "unclear"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "ιουδας",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r1",
+              "text": "ιουδασ",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 2,
+          "cntr": {
+            "raw": "δ%ε",
+            "diplomatic": "δε",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [
+              {
+                "kind": "damaged",
+                "after": 1
+              }
+            ],
+            "evidence": {
+              "status": "attested",
+              "visible": "δε",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "δε"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\"><ns0:unclear>δ</ns0:unclear>ε</ns0:w> ",
+            "letters": [
+              {
+                "character": "δ",
+                "status": "unclear"
+              },
+              {
+                "character": "ε",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "δε",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r2",
+              "text": "δε",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 3,
+          "cntr": {
+            "raw": "εγενν%η%/σ%εν",
+            "diplomatic": "εγεννησεν",
+            "alternateVerse": null,
+            "breaks": [
+              {
+                "kind": "line",
+                "number": null,
+                "offset": 8
+              }
+            ],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [
+              {
+                "kind": "damaged",
+                "after": 5
+              },
+              {
+                "kind": "damaged",
+                "after": 6
+              },
+              {
+                "kind": "damaged",
+                "after": 7
+              }
+            ],
+            "evidence": {
+              "status": "attested",
+              "visible": "εγεννησεν",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "εγεννησεν"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">εγε<ns0:unclear>ννη</ns0:unclear><ns0:lb break=\"no\" /><ns0:unclear>σεν</ns0:unclear></ns0:w> ",
+            "letters": [
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "γ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unclear"
+              },
+              {
+                "character": "ν",
+                "status": "unclear"
+              },
+              {
+                "character": "η",
+                "status": "unclear"
+              },
+              {
+                "character": "σ",
+                "status": "unclear"
+              },
+              {
+                "character": "ε",
+                "status": "unclear"
+              },
+              {
+                "character": "ν",
+                "status": "unclear"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "εγεννησεν",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r3",
+              "text": "εγεννησεν",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 4,
+          "cntr": {
+            "raw": "τον",
+            "diplomatic": "τον",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "τον",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "τον"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">τον</ns0:w> ",
+            "letters": [
+              {
+                "character": "τ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ο",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "τον",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r4",
+              "text": "τον",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 5,
+          "cntr": {
+            "raw": "φαρεσ",
+            "diplomatic": "φαρεσ",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "φαρεσ",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "φαρεσ"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">φαρες</ns0:w> ",
+            "letters": [
+              {
+                "character": "φ",
+                "status": "unmarked"
+              },
+              {
+                "character": "α",
+                "status": "unmarked"
+              },
+              {
+                "character": "ρ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "ς",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "φαρες",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r5",
+              "text": "φαρεσ",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 6,
+          "cntr": {
+            "raw": "και",
+            "diplomatic": "και",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "και",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "και"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">και</ns0:w> ",
+            "letters": [
+              {
+                "character": "κ",
+                "status": "unmarked"
+              },
+              {
+                "character": "α",
+                "status": "unmarked"
+              },
+              {
+                "character": "ι",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "και",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r6",
+              "text": "και",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 7,
+          "cntr": {
+            "raw": "τον",
+            "diplomatic": "τον",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "τον",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "τον"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">τον</ns0:w> ",
+            "letters": [
+              {
+                "character": "τ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ο",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "τον",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r7",
+              "text": "τον",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 8,
+          "cntr": {
+            "raw": "ζαρε",
+            "diplomatic": "ζαρε",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "ζαρε",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "ζαρε"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">ζαρε</ns0:w> ",
+            "letters": [
+              {
+                "character": "ζ",
+                "status": "unmarked"
+              },
+              {
+                "character": "α",
+                "status": "unmarked"
+              },
+              {
+                "character": "ρ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ε",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "ζαρε",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r8",
+              "text": "ζαρε",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 9,
+          "cntr": {
+            "raw": "εκ",
+            "diplomatic": "εκ",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "εκ",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "εκ"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">εκ</ns0:w> ",
+            "letters": [
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "κ",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "εκ",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r9",
+              "text": "εκ",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 10,
+          "cntr": {
+            "raw": "τησ",
+            "diplomatic": "τησ",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "τησ",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "τησ"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">της</ns0:w> ",
+            "letters": [
+              {
+                "character": "τ",
+                "status": "unmarked"
+              },
+              {
+                "character": "η",
+                "status": "unmarked"
+              },
+              {
+                "character": "ς",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "της",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r10",
+              "text": "τησ",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 11,
+          "cntr": {
+            "raw": "θα/μ%αρ",
+            "diplomatic": "θαμαρ",
+            "alternateVerse": null,
+            "breaks": [
+              {
+                "kind": "line",
+                "number": null,
+                "offset": 2
+              }
+            ],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [
+              {
+                "kind": "damaged",
+                "after": 3
+              }
+            ],
+            "evidence": {
+              "status": "attested",
+              "visible": "θαμαρ",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "θαμαρ"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">θ<ns0:unclear>α</ns0:unclear><ns0:lb break=\"no\" /><ns0:unclear>μ</ns0:unclear>α<ns0:unclear>ρ</ns0:unclear></ns0:w> ",
+            "letters": [
+              {
+                "character": "θ",
+                "status": "unmarked"
+              },
+              {
+                "character": "α",
+                "status": "unclear"
+              },
+              {
+                "character": "μ",
+                "status": "unclear"
+              },
+              {
+                "character": "α",
+                "status": "unmarked"
+              },
+              {
+                "character": "ρ",
+                "status": "unclear"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "θαμαρ",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r11",
+              "text": "θαμαρ",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 12,
+          "cntr": {
+            "raw": "φαρεσ",
+            "diplomatic": "φαρεσ",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "φαρεσ",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "φαρεσ"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">φαρες</ns0:w> ",
+            "letters": [
+              {
+                "character": "φ",
+                "status": "unmarked"
+              },
+              {
+                "character": "α",
+                "status": "unmarked"
+              },
+              {
+                "character": "ρ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "ς",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "φαρες",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r12",
+              "text": "φαρεσ",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 13,
+          "cntr": {
+            "raw": "δε",
+            "diplomatic": "δε",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "δε",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "δε"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">δε</ns0:w> ",
+            "letters": [
+              {
+                "character": "δ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ε",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "δε",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r13",
+              "text": "δε",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 14,
+          "cntr": {
+            "raw": "εγεννησεν",
+            "diplomatic": "εγεννησεν",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "εγεννησεν",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "εγεννησεν"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">εγεννησεν</ns0:w> ",
+            "letters": [
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "γ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              },
+              {
+                "character": "η",
+                "status": "unmarked"
+              },
+              {
+                "character": "σ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "εγεννησεν",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r14",
+              "text": "εγεννησεν",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 15,
+          "cntr": {
+            "raw": "τον",
+            "diplomatic": "τον",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "τον",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "τον"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">τον</ns0:w> ",
+            "letters": [
+              {
+                "character": "τ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ο",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "τον",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r15",
+              "text": "τον",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 16,
+          "cntr": {
+            "raw": "εσρωμ",
+            "diplomatic": "εσρωμ",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "εσρωμ",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "εσρωμ"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\"><ns0:unclear>ε</ns0:unclear>σ<ns0:unclear>ρ</ns0:unclear>ωμ</ns0:w>",
+            "letters": [
+              {
+                "character": "ε",
+                "status": "unclear"
+              },
+              {
+                "character": "σ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ρ",
+                "status": "unclear"
+              },
+              {
+                "character": "ω",
+                "status": "unmarked"
+              },
+              {
+                "character": "μ",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "εσρωμ",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r16",
+              "text": "εσρωμ",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 17,
+          "cntr": {
+            "raw": "/εσρ^ω^μ%",
+            "diplomatic": "εσρωμ",
+            "alternateVerse": null,
+            "breaks": [
+              {
+                "kind": "line",
+                "number": null,
+                "offset": 0
+              }
+            ],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [
+              {
+                "kind": "missing",
+                "after": 3
+              },
+              {
+                "kind": "missing",
+                "after": 4
+              },
+              {
+                "kind": "damaged",
+                "after": 5
+              }
+            ],
+            "evidence": {
+              "status": "partial",
+              "visible": "εσ··μ",
+              "supplied": false,
+              "missingAfter": [
+                3,
+                4
+              ]
+            },
+            "display": "εσ··μ"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">εσ<ns0:supplied>ρω</ns0:supplied><ns0:unclear>μ</ns0:unclear></ns0:w> ",
+            "letters": [
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "σ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ρ",
+                "status": "supplied"
+              },
+              {
+                "character": "ω",
+                "status": "supplied"
+              },
+              {
+                "character": "μ",
+                "status": "unclear"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [
+            3,
+            4
+          ],
+          "intfEvidenceProjection": "εσ··μ",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r17",
+              "text": "εσ··μ",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 18,
+          "cntr": {
+            "raw": "δε",
+            "diplomatic": "δε",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "δε",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "δε"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">δε</ns0:w> ",
+            "letters": [
+              {
+                "character": "δ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ε",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "δε",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r18",
+              "text": "δε",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 19,
+          "cntr": {
+            "raw": "εγ%ε%ννησεν",
+            "diplomatic": "εγεννησεν",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [
+              {
+                "kind": "damaged",
+                "after": 2
+              },
+              {
+                "kind": "damaged",
+                "after": 3
+              }
+            ],
+            "evidence": {
+              "status": "attested",
+              "visible": "εγεννησεν",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "εγεννησεν"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">ε<ns0:unclear>γ</ns0:unclear>ενν<ns0:unclear>η</ns0:unclear>σεν</ns0:w> ",
+            "letters": [
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "γ",
+                "status": "unclear"
+              },
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              },
+              {
+                "character": "η",
+                "status": "unclear"
+              },
+              {
+                "character": "σ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "εγεννησεν",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r19",
+              "text": "εγεννησεν",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 20,
+          "cntr": {
+            "raw": "τον",
+            "diplomatic": "τον",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "τον",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "τον"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">τ<ns0:unclear>ον</ns0:unclear></ns0:w> ",
+            "letters": [
+              {
+                "character": "τ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ο",
+                "status": "unclear"
+              },
+              {
+                "character": "ν",
+                "status": "unclear"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "τον",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r20",
+              "text": "τον",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 21,
+          "cntr": {
+            "raw": "α%ραμ",
+            "diplomatic": "αραμ",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [
+              {
+                "kind": "damaged",
+                "after": 1
+              }
+            ],
+            "evidence": {
+              "status": "attested",
+              "visible": "αραμ",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "αραμ"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\"><ns0:supplied source=\"na28\" reason=\"illegible\">α</ns0:supplied><ns0:unclear>ρ</ns0:unclear><ns0:supplied source=\"na28\" reason=\"illegible\">α</ns0:supplied>μ</ns0:w>",
+            "letters": [
+              {
+                "character": "α",
+                "status": "supplied"
+              },
+              {
+                "character": "ρ",
+                "status": "unclear"
+              },
+              {
+                "character": "α",
+                "status": "supplied"
+              },
+              {
+                "character": "μ",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [
+            1,
+            3
+          ],
+          "intfEvidenceProjection": "·ρ·μ",
+          "supplyDisagreement": true,
+          "savedCells": [
+            {
+              "rowId": "r21",
+              "text": "αραμ",
+              "type": "extant"
+            }
+          ]
+        }
+      ],
+      "sequences": {
+        "coptic": {
+          "sourceWords": [
+            "ⲓⲟⲩⲇⲁⲥ",
+            "ⲇⲉ",
+            "ⲁϥϫⲡⲟ",
+            "ⲙⲫⲁⲣⲉⲥ",
+            "ⲙⲛⲍⲁⲣⲁ",
+            "ⲉⲃⲟⲗ",
+            "ϩⲛⲑⲁⲙⲁⲣ",
+            "ⲫⲁⲣⲉⲥ",
+            "ⲇⲉ",
+            "ⲁϥϫⲡⲟ",
+            "ⲛⲉⲥⲣⲱⲙ",
+            "ⲉⲥⲣⲱⲙ",
+            "ⲇⲉ",
+            "ⲁϥϫⲡⲟ",
+            "ⲛⲁⲣⲁⲙ"
+          ],
+          "savedWords": [
+            "ⲓⲟⲩⲇⲁⲥ",
+            "ⲇⲉ",
+            "ⲁϥϫⲡⲟ",
+            "ⲙⲫⲁⲣⲉⲥ",
+            "ⲙⲛⲍⲁⲣⲁ",
+            "ⲉⲃⲟⲗ",
+            "ϩⲛⲑⲁⲙⲁⲣ",
+            "ⲫⲁⲣⲉⲥ",
+            "ⲇⲉ",
+            "ⲁϥϫⲡⲟ",
+            "ⲛⲉⲥⲣⲱⲙ",
+            "ⲉⲥⲣⲱⲙ",
+            "ⲇⲉ",
+            "ⲁϥϫⲡⲟ",
+            "ⲛⲁⲣⲁⲙ"
+          ],
+          "matchesIgnoringPunctuationCaseAccentsAndSigma": true
+        },
+        "vaticanus": {
+          "sourceWords": [
+            "ιουδας",
+            "δε",
+            "εγεννησεν",
+            "τον",
+            "φαρες",
+            "και",
+            "τον",
+            "ζαρε",
+            "εκ",
+            "της",
+            "θαμαρ",
+            "φαρες",
+            "δε",
+            "εγεννησεν",
+            "τον",
+            "εσρωμ",
+            "εσρωμ",
+            "δε",
+            "εγεννησεν",
+            "τον",
+            "αραμ"
+          ],
+          "savedWords": [
+            "ιουδας",
+            "δε",
+            "εγεννησεν",
+            "τον",
+            "φαρες",
+            "και",
+            "τον",
+            "ζαρε",
+            "εκ",
+            "της",
+            "θαμαρ",
+            "φαρες",
+            "δε",
+            "εγεννησεν",
+            "τον",
+            "εσρωμ",
+            "εσρωμ",
+            "δε",
+            "εγεννησεν",
+            "τον",
+            "αραμ"
+          ],
+          "matchesIgnoringPunctuationCaseAccentsAndSigma": true
+        },
+        "byzantine": {
+          "sourceWords": [
+            "Ἰούδας",
+            "δὲ",
+            "ἐγέννησεν",
+            "τὸν",
+            "Φαρὲς",
+            "καὶ",
+            "τὸν",
+            "Ζαρὰ",
+            "ἐκ",
+            "τῆς",
+            "Θάμαρ·",
+            "Φαρὲς",
+            "δὲ",
+            "ἐγέννησεν",
+            "τὸν",
+            "Ἑσρώμ·",
+            "Ἑσρὼμ",
+            "δὲ",
+            "ἐγέννησεν",
+            "τὸν",
+            "Ἀράμ·"
+          ],
+          "savedWords": [
+            "Ἰούδας",
+            "δὲ",
+            "ἐγέννησεν",
+            "τὸν",
+            "Φαρὲς",
+            "καὶ",
+            "τὸν",
+            "Ζαρὰ",
+            "ἐκ",
+            "τῆς",
+            "Θάμαρ",
+            "Φαρὲς",
+            "δὲ",
+            "ἐγέννησεν",
+            "τὸν",
+            "Ἑσρώμ",
+            "Ἑσρὼμ",
+            "δὲ",
+            "ἐγέννησεν",
+            "τὸν",
+            "Ἀράμ"
+          ],
+          "matchesIgnoringPunctuationCaseAccentsAndSigma": true
+        },
+        "vulgate": {
+          "sourceWords": [
+            "Judas",
+            "autem",
+            "genuit",
+            "Phares,",
+            "et",
+            "Zaram",
+            "de",
+            "Thamar.",
+            "Phares",
+            "autem",
+            "genuit",
+            "Esron.",
+            "Esron",
+            "autem",
+            "genuit",
+            "Aram."
+          ],
+          "savedWords": [
+            "Judas",
+            "autem",
+            "genuit",
+            "Phares",
+            "et",
+            "Zaram",
+            "de",
+            "Thamar",
+            "Phares",
+            "autem",
+            "genuit",
+            "Esron",
+            "Esron",
+            "autem",
+            "genuit",
+            "Aram"
+          ],
+          "matchesIgnoringPunctuationCaseAccentsAndSigma": true
+        },
+        "peshitta": {
+          "sourceWords": [
+            "ܝܗܘܕܐ",
+            "ܐܘܠܕ",
+            "ܠܦܪܨ",
+            "ܘܠܙܪܚ",
+            "ܡܢ",
+            "ܬܡܪ",
+            "ܦܪܨ",
+            "ܐܘܠܕ",
+            "ܠܚܨܪܘܢ",
+            "ܚܨܪܘܢ",
+            "ܐܘܠܕ",
+            "ܠܐܪܡ"
+          ],
+          "savedWords": [
+            "ܝܗܘܕܐ",
+            "ܐܘܠܕ",
+            "ܠܦܪܨ",
+            "ܘܠܙܪܚ",
+            "ܡܢ",
+            "ܬܡܪ",
+            "ܦܪܨ",
+            "ܐܘܠܕ",
+            "ܠܚܨܪܘܢ",
+            "ܚܨܪܘܢ",
+            "ܐܘܠܕ",
+            "ܠܐܪܡ"
+          ],
+          "matchesIgnoringPunctuationCaseAccentsAndSigma": true
+        }
+      },
+      "bezae": {
+        "savedTypes": [
+          "lost"
+        ],
+        "scope": "Both declared TEI sources begin later than these verses; physical lacuna, not a scribal omission."
+      }
+    },
+    {
+      "reference": "matthew 1:4",
+      "rawCntrLine": "40001004 αραμ /δε ε^γε%ννησεν τον αμμι%ν%αδαβ α%μ%/μ%ι^ν%α%δ%α^β δε εγεννησεν τον ναασ%σω¯ /ν%αασ^σων δε εγεννησεν τον σαλ%μ^ω%ν",
+      "p1Tokens": [
+        {
+          "sourceToken": 1,
+          "cntr": {
+            "raw": "αραμ",
+            "diplomatic": "αραμ",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "αραμ",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "αραμ"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\"><ns0:supplied source=\"na28\" reason=\"illegible\">αραμ</ns0:supplied></ns0:w>",
+            "letters": [
+              {
+                "character": "α",
+                "status": "supplied"
+              },
+              {
+                "character": "ρ",
+                "status": "supplied"
+              },
+              {
+                "character": "α",
+                "status": "supplied"
+              },
+              {
+                "character": "μ",
+                "status": "supplied"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "intfEvidenceProjection": "····",
+          "supplyDisagreement": true,
+          "savedCells": [
+            {
+              "rowId": "r1",
+              "text": "αραμ",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 2,
+          "cntr": {
+            "raw": "/δε",
+            "diplomatic": "δε",
+            "alternateVerse": null,
+            "breaks": [
+              {
+                "kind": "line",
+                "number": null,
+                "offset": 0
+              }
+            ],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "δε",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "δε"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">δ<ns0:unclear>ε</ns0:unclear></ns0:w> ",
+            "letters": [
+              {
+                "character": "δ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ε",
+                "status": "unclear"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "δε",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r2",
+              "text": "δε",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 3,
+          "cntr": {
+            "raw": "ε^γε%ννησεν",
+            "diplomatic": "εγεννησεν",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [
+              {
+                "kind": "missing",
+                "after": 1
+              },
+              {
+                "kind": "damaged",
+                "after": 3
+              }
+            ],
+            "evidence": {
+              "status": "partial",
+              "visible": "·γεννησεν",
+              "supplied": false,
+              "missingAfter": [
+                1
+              ]
+            },
+            "display": "·γεννησεν"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\"><ns0:supplied>ε</ns0:supplied><ns0:unclear>γε</ns0:unclear>ννησεν</ns0:w> ",
+            "letters": [
+              {
+                "character": "ε",
+                "status": "supplied"
+              },
+              {
+                "character": "γ",
+                "status": "unclear"
+              },
+              {
+                "character": "ε",
+                "status": "unclear"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              },
+              {
+                "character": "η",
+                "status": "unmarked"
+              },
+              {
+                "character": "σ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [
+            1
+          ],
+          "intfEvidenceProjection": "·γεννησεν",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r3",
+              "text": "·γεννησεν",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 4,
+          "cntr": {
+            "raw": "τον",
+            "diplomatic": "τον",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "τον",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "τον"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">τ<ns0:unclear>ον</ns0:unclear></ns0:w> ",
+            "letters": [
+              {
+                "character": "τ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ο",
+                "status": "unclear"
+              },
+              {
+                "character": "ν",
+                "status": "unclear"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "τον",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r4",
+              "text": "τον",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 5,
+          "cntr": {
+            "raw": "αμμι%ν%αδαβ",
+            "diplomatic": "αμμιναδαβ",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [
+              {
+                "kind": "damaged",
+                "after": 4
+              },
+              {
+                "kind": "damaged",
+                "after": 5
+              }
+            ],
+            "evidence": {
+              "status": "attested",
+              "visible": "αμμιναδαβ",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "αμμιναδαβ"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">αμ<ns0:unclear>μιν</ns0:unclear>αδα<ns0:unclear>β</ns0:unclear></ns0:w> ",
+            "letters": [
+              {
+                "character": "α",
+                "status": "unmarked"
+              },
+              {
+                "character": "μ",
+                "status": "unmarked"
+              },
+              {
+                "character": "μ",
+                "status": "unclear"
+              },
+              {
+                "character": "ι",
+                "status": "unclear"
+              },
+              {
+                "character": "ν",
+                "status": "unclear"
+              },
+              {
+                "character": "α",
+                "status": "unmarked"
+              },
+              {
+                "character": "δ",
+                "status": "unmarked"
+              },
+              {
+                "character": "α",
+                "status": "unmarked"
+              },
+              {
+                "character": "β",
+                "status": "unclear"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "αμμιναδαβ",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r5",
+              "text": "αμμιναδαβ",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 6,
+          "cntr": {
+            "raw": "α%μ%/μ%ι^ν%α%δ%α^β",
+            "diplomatic": "αμμιναδαβ",
+            "alternateVerse": null,
+            "breaks": [
+              {
+                "kind": "line",
+                "number": null,
+                "offset": 4
+              }
+            ],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [
+              {
+                "kind": "damaged",
+                "after": 1
+              },
+              {
+                "kind": "damaged",
+                "after": 2
+              },
+              {
+                "kind": "damaged",
+                "after": 3
+              },
+              {
+                "kind": "missing",
+                "after": 4
+              },
+              {
+                "kind": "damaged",
+                "after": 5
+              },
+              {
+                "kind": "damaged",
+                "after": 6
+              },
+              {
+                "kind": "damaged",
+                "after": 7
+              },
+              {
+                "kind": "missing",
+                "after": 8
+              }
+            ],
+            "evidence": {
+              "status": "partial",
+              "visible": "αμμ·ναδ·β",
+              "supplied": false,
+              "missingAfter": [
+                4,
+                8
+              ]
+            },
+            "display": "αμμ·ναδ·β"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\"><ns0:unclear>αμ</ns0:unclear><ns0:lb break=\"no\" /><ns0:unclear>μ</ns0:unclear><ns0:supplied>ι</ns0:supplied><ns0:unclear>να</ns0:unclear><ns0:supplied source=\"na28\" reason=\"illegible\">δα</ns0:supplied>β</ns0:w> ",
+            "letters": [
+              {
+                "character": "α",
+                "status": "unclear"
+              },
+              {
+                "character": "μ",
+                "status": "unclear"
+              },
+              {
+                "character": "μ",
+                "status": "unclear"
+              },
+              {
+                "character": "ι",
+                "status": "supplied"
+              },
+              {
+                "character": "ν",
+                "status": "unclear"
+              },
+              {
+                "character": "α",
+                "status": "unclear"
+              },
+              {
+                "character": "δ",
+                "status": "supplied"
+              },
+              {
+                "character": "α",
+                "status": "supplied"
+              },
+              {
+                "character": "β",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [
+            4,
+            7,
+            8
+          ],
+          "intfEvidenceProjection": "αμμ·να··β",
+          "supplyDisagreement": true,
+          "savedCells": [
+            {
+              "rowId": "r6",
+              "text": "αμμ·ναδ·β",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 7,
+          "cntr": {
+            "raw": "δε",
+            "diplomatic": "δε",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "δε",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "δε"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">δε</ns0:w> ",
+            "letters": [
+              {
+                "character": "δ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ε",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "δε",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r7",
+              "text": "δε",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 8,
+          "cntr": {
+            "raw": "εγεννησεν",
+            "diplomatic": "εγεννησεν",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "εγεννησεν",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "εγεννησεν"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">εγεννησε<ns0:unclear>ν</ns0:unclear></ns0:w> ",
+            "letters": [
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "γ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              },
+              {
+                "character": "η",
+                "status": "unmarked"
+              },
+              {
+                "character": "σ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unclear"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "εγεννησεν",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r8",
+              "text": "εγεννησεν",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 9,
+          "cntr": {
+            "raw": "τον",
+            "diplomatic": "τον",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "τον",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "τον"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">τον</ns0:w> ",
+            "letters": [
+              {
+                "character": "τ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ο",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "τον",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r9",
+              "text": "τον",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 10,
+          "cntr": {
+            "raw": "ναασ%σω¯",
+            "diplomatic": "ναασσω¯",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [
+              {
+                "kind": "damaged",
+                "after": 4
+              }
+            ],
+            "evidence": {
+              "status": "attested",
+              "visible": "ναασσω¯",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "ναασσων"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">ναασσων</ns0:w>",
+            "letters": [
+              {
+                "character": "ν",
+                "status": "unmarked"
+              },
+              {
+                "character": "α",
+                "status": "unmarked"
+              },
+              {
+                "character": "α",
+                "status": "unmarked"
+              },
+              {
+                "character": "σ",
+                "status": "unmarked"
+              },
+              {
+                "character": "σ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ω",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "ναασσων",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r10",
+              "text": "ναασσων",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 11,
+          "cntr": {
+            "raw": "/ν%αασ^σων",
+            "diplomatic": "ναασσων",
+            "alternateVerse": null,
+            "breaks": [
+              {
+                "kind": "line",
+                "number": null,
+                "offset": 0
+              }
+            ],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [
+              {
+                "kind": "damaged",
+                "after": 1
+              },
+              {
+                "kind": "missing",
+                "after": 4
+              }
+            ],
+            "evidence": {
+              "status": "partial",
+              "visible": "ναα·σων",
+              "supplied": false,
+              "missingAfter": [
+                4
+              ]
+            },
+            "display": "ναα·σων"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\"><ns0:unclear>ν</ns0:unclear>αα<ns0:supplied>σ</ns0:supplied>σων</ns0:w> ",
+            "letters": [
+              {
+                "character": "ν",
+                "status": "unclear"
+              },
+              {
+                "character": "α",
+                "status": "unmarked"
+              },
+              {
+                "character": "α",
+                "status": "unmarked"
+              },
+              {
+                "character": "σ",
+                "status": "supplied"
+              },
+              {
+                "character": "σ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ω",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [
+            4
+          ],
+          "intfEvidenceProjection": "ναα·σων",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r11",
+              "text": "ναα·σων",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 12,
+          "cntr": {
+            "raw": "δε",
+            "diplomatic": "δε",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "δε",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "δε"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">δε</ns0:w> ",
+            "letters": [
+              {
+                "character": "δ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ε",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "δε",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r12",
+              "text": "δε",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 13,
+          "cntr": {
+            "raw": "εγεννησεν",
+            "diplomatic": "εγεννησεν",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "εγεννησεν",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "εγεννησεν"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">εγεννη<ns0:unclear>σ</ns0:unclear>εν</ns0:w> ",
+            "letters": [
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "γ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              },
+              {
+                "character": "η",
+                "status": "unmarked"
+              },
+              {
+                "character": "σ",
+                "status": "unclear"
+              },
+              {
+                "character": "ε",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "εγεννησεν",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r13",
+              "text": "εγεννησεν",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 14,
+          "cntr": {
+            "raw": "τον",
+            "diplomatic": "τον",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [],
+            "evidence": {
+              "status": "attested",
+              "visible": "τον",
+              "supplied": false,
+              "missingAfter": []
+            },
+            "display": "τον"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">τον</ns0:w> ",
+            "letters": [
+              {
+                "character": "τ",
+                "status": "unmarked"
+              },
+              {
+                "character": "ο",
+                "status": "unmarked"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [],
+          "intfEvidenceProjection": "τον",
+          "supplyDisagreement": false,
+          "savedCells": [
+            {
+              "rowId": "r14",
+              "text": "τον",
+              "type": "extant"
+            }
+          ]
+        },
+        {
+          "sourceToken": 15,
+          "cntr": {
+            "raw": "σαλ%μ^ω%ν",
+            "diplomatic": "σαλμων",
+            "alternateVerse": null,
+            "breaks": [],
+            "lineRemnant": false,
+            "verseRemnant": false,
+            "presence": "unspecified",
+            "supplied": null,
+            "abbreviation": null,
+            "conditions": [
+              {
+                "kind": "damaged",
+                "after": 3
+              },
+              {
+                "kind": "missing",
+                "after": 4
+              },
+              {
+                "kind": "damaged",
+                "after": 5
+              }
+            ],
+            "evidence": {
+              "status": "partial",
+              "visible": "σαλ·ων",
+              "supplied": false,
+              "missingAfter": [
+                4
+              ]
+            },
+            "display": "σαλ·ων"
+          },
+          "intf": {
+            "xml": "<ns0:w xmlns:ns0=\"http://www.tei-c.org/ns/1.0\">σα<ns0:unclear>λ</ns0:unclear><ns0:supplied>μω</ns0:supplied>ν</ns0:w>",
+            "letters": [
+              {
+                "character": "σ",
+                "status": "unmarked"
+              },
+              {
+                "character": "α",
+                "status": "unmarked"
+              },
+              {
+                "character": "λ",
+                "status": "unclear"
+              },
+              {
+                "character": "μ",
+                "status": "supplied"
+              },
+              {
+                "character": "ω",
+                "status": "supplied"
+              },
+              {
+                "character": "ν",
+                "status": "unmarked"
+              }
+            ]
+          },
+          "intfSuppliedPositions": [
+            4,
+            5
+          ],
+          "intfEvidenceProjection": "σαλ··ν",
+          "supplyDisagreement": true,
+          "savedCells": [
+            {
+              "rowId": "r15",
+              "text": "σαλ·ων",
+              "type": "extant"
+            }
+          ]
+        }
+      ],
+      "sequences": {
+        "coptic": {
+          "sourceWords": [
+            "ⲁⲣⲁⲙ",
+            "ⲇⲉ",
+            "ⲁϥϫⲡⲟ",
+            "ⲛⲁⲙⲓⲛⲁⲇⲁⲃ",
+            "ⲁⲙⲓⲛⲁⲇⲁⲃ",
+            "ⲇⲉ",
+            "ⲁϥϫⲡⲟ",
+            "ⲛⲛⲁⲁⲥⲥⲱⲛ",
+            "ⲛⲁⲁⲥⲥⲱⲛ",
+            "ⲇⲉ",
+            "ⲁϥϫⲡⲟ",
+            "ⲛⲥⲁⲗⲙⲱⲛ"
+          ],
+          "savedWords": [
+            "ⲁⲣⲁⲙ",
+            "ⲇⲉ",
+            "ⲁϥϫⲡⲟ",
+            "ⲛⲁⲙⲓⲛⲁⲇⲁⲃ",
+            "ⲁⲙⲓⲛⲁⲇⲁⲃ",
+            "ⲇⲉ",
+            "ⲁϥϫⲡⲟ",
+            "ⲛⲛⲁⲁⲥⲥⲱⲛ",
+            "ⲛⲁⲁⲥⲥⲱⲛ",
+            "ⲇⲉ",
+            "ⲁϥϫⲡⲟ",
+            "ⲛⲥⲁⲗⲙⲱⲛ"
+          ],
+          "matchesIgnoringPunctuationCaseAccentsAndSigma": true
+        },
+        "vaticanus": {
+          "sourceWords": [
+            "αραμ",
+            "δε",
+            "εγεννησεν",
+            "τον",
+            "αμειναδαβ",
+            "αμειναδαβ",
+            "δε",
+            "εγεννησεν",
+            "τον",
+            "ναασσων",
+            "ναασσων",
+            "δε",
+            "εγεννησεν",
+            "τον",
+            "σαλμων"
+          ],
+          "savedWords": [
+            "αραμ",
+            "δε",
+            "εγεννησεν",
+            "τον",
+            "αμειναδαβ",
+            "αμειναδαβ",
+            "δε",
+            "εγεννησεν",
+            "τον",
+            "ναασσων",
+            "ναασσων",
+            "δε",
+            "εγεννησεν",
+            "τον",
+            "σαλμων"
+          ],
+          "matchesIgnoringPunctuationCaseAccentsAndSigma": true
+        },
+        "byzantine": {
+          "sourceWords": [
+            "Ἀρὰμ",
+            "δὲ",
+            "ἐγέννησεν",
+            "τὸν",
+            "Ἀμιναδάβ·",
+            "Ἀμιναδὰβ",
+            "δὲ",
+            "ἐγέννησεν",
+            "τὸν",
+            "Ναασσών·",
+            "Ναασσὼν",
+            "δὲ",
+            "ἐγέννησεν",
+            "τὸν",
+            "Σαλμών·"
+          ],
+          "savedWords": [
+            "Ἀρὰμ",
+            "δὲ",
+            "ἐγέννησεν",
+            "τὸν",
+            "Ἀμιναδάβ",
+            "Ἀμιναδὰβ",
+            "δὲ",
+            "ἐγέννησεν",
+            "τὸν",
+            "Ναασσών",
+            "Ναασσὼν",
+            "δὲ",
+            "ἐγέννησεν",
+            "τὸν",
+            "Σαλμών"
+          ],
+          "matchesIgnoringPunctuationCaseAccentsAndSigma": true
+        },
+        "vulgate": {
+          "sourceWords": [
+            "Aram",
+            "autem",
+            "genuit",
+            "Aminadab.",
+            "Aminadab",
+            "autem",
+            "genuit",
+            "Naasson.",
+            "Naasson",
+            "autem",
+            "genuit",
+            "Salmon."
+          ],
+          "savedWords": [
+            "Aram",
+            "autem",
+            "genuit",
+            "Aminadab",
+            "Aminadab",
+            "autem",
+            "genuit",
+            "Naasson",
+            "Naasson",
+            "autem",
+            "genuit",
+            "Salmon"
+          ],
+          "matchesIgnoringPunctuationCaseAccentsAndSigma": true
+        },
+        "peshitta": {
+          "sourceWords": [
+            "ܐܪܡ",
+            "ܐܘܠܕ",
+            "ܠܥܡܝܢܕܒ",
+            "ܥܡܝܢܕܒ",
+            "ܐܘܠܕ",
+            "ܠܢܚܫܘܢ",
+            "ܢܚܫܘܢ",
+            "ܐܘܠܕ",
+            "ܠܤܠܡܘܢ"
+          ],
+          "savedWords": [
+            "ܐܪܡ",
+            "ܐܘܠܕ",
+            "ܠܥܡܝܢܕܒ",
+            "ܥܡܝܢܕܒ",
+            "ܐܘܠܕ",
+            "ܠܢܚܫܘܢ",
+            "ܢܚܫܘܢ",
+            "ܐܘܠܕ",
+            "ܠܤܠܡܘܢ"
+          ],
+          "matchesIgnoringPunctuationCaseAccentsAndSigma": true
+        }
+      },
+      "bezae": {
+        "savedTypes": [
+          "lost"
+        ],
+        "scope": "Both declared TEI sources begin later than these verses; physical lacuna, not a scribal omission."
+      }
+    }
+  ]
+}

@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "prebuild": "node lib/sources/checkPapyrusCorpus.mjs",
+    "prebuild": "node lib/sources/checkPapyrusCorpus.mjs && node lib/verification/checkPreparedSources.mjs",
+    "build:verse-verification": "node --experimental-strip-types scripts/build-verse-verification.mjs",
+    "audit:verse-verification": "node lib/verification/checkPreparedSources.mjs",
     "build:papyrus-attested": "node scripts/enforce-papyrus-attestation.mjs --write",
     "audit:papyrus-attested": "node lib/sources/checkPapyrusCorpus.mjs",
     "start": "next start",
