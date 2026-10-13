@@ -59,8 +59,13 @@ for (const file of ['data/sources/vulgate/VulgClementine.txt', 'data/sources/pes
   'data/sources/peshitta/murdock-admitted-units.json', 'data/sources/vulgate-english/admitted-units.json']) pin(file);
 for (const file of fs.readdirSync(path.join(root, 'data/sources/earliest-papyrus')).filter(f => /^(P[\d+P]+\.txt|coverage-index\.json)$/u.test(f))) pin(`data/sources/earliest-papyrus/${file}`);
 const papyrus = loadPapyrusSourceIndex();
-const disagreementFile = 'docs/audits/verse-review/source-checks/matthew-1-3-4-source-comparison.json';
-const disagreements = read(disagreementFile); pin(disagreementFile);
+const disagreements = { records: [] };
+for (const file of ['docs/audits/verse-review/source-checks/matthew-1-3-4-source-comparison.json',
+  'docs/audits/verse-review/source-checks/matthew-1-5-papyrus-comparison.json']) {
+  disagreements.records.push(...read(file).records); pin(file);
+}
+const boundaryFile = 'data/english-groups/boundary-reviews.json';
+const boundaryReviews = read(boundaryFile); pin(boundaryFile);
 const english = {
   peshitta: read('data/sources/peshitta/murdock-admitted-units.json').units,
   vulgate: read('data/sources/vulgate-english/admitted-units.json').units,
@@ -120,7 +125,9 @@ for (const [b, book] of books.entries()) {
           bezaeGreek: { words: bezae.Greek[ref] ?? [], authority: 'ITSEE/IGNTP Bezae Greek, first encoded reading; independent XML extraction' },
           bezaeLatin: { words: bezae.Latin[ref] ?? [], authority: 'ITSEE/IGNTP Bezae Latin, first encoded reading; independent XML extraction' },
         },
-        english: Object.fromEntries(Object.entries(english).map(([column, units]) => [column, units[ref] ?? null])),
+        english: Object.fromEntries(Object.entries(english).map(([column, units]) => [column, units[ref]
+          ? { ...units[ref], ...(boundaryReviews[ref]?.[column] ? { boundaryReview: boundaryReviews[ref][column] } : {}) }
+          : null])),
       };
       count++;
     }

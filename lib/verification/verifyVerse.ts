@@ -9,7 +9,10 @@ export type SourceExpectation = {
   rows?: Record<string, { type: string; text: string | null }>;
   conflicts?: Array<{ witness: string; sourceToken: number; cntr: string; intf: string }>;
 };
-export type TranslationUnit = { english: string; translatorEdition: string; displayReferences: string[] };
+export type TranslationUnit = {
+  english: string; translatorEdition: string; displayReferences: string[];
+  boundaryReview?: { note: string; relatedReference: string; holdGrouping: boolean; evidence: string[] };
+};
 export type VerseExpectations = {
   sources: Partial<Record<StreamKey, SourceExpectation>>;
   english: Partial<Record<StreamKey, TranslationUnit | null>>;
@@ -131,6 +134,7 @@ export function verifyVerse(data: VerseData, model: StreamModel, expected?: Vers
     });
     const placement = column.startsWith('bezae') ? check('not-applicable', 'Greek–Latin correspondence requires bilingual review; no English gloss is displayed.') : check('review', englishView?.issues.length
       ? englishView.issues.join(' ')
+      : englishView?.unit.boundaryReview ? englishView.unit.boundaryReview.note
       : englishView?.review ? 'An evidence-backed grouping correction is applied to this display. Both word banks are unchanged; independent scholarly placement review remains pending.'
       : repeated.length
       ? `Repeated English occurrences share a source cell (${repeated.map(w => w.rowId).join(', ')}). Inspect their allocation in context; repetition alone does not prove an error.`

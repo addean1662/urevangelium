@@ -112,6 +112,10 @@ function StreamColumn({ stream, papyrusConflicts, papyrusWitness, englishView, t
       </p>}
       </div>
       <Absences stream={stream} />
+      {englishView?.unit.boundaryReview && <p className="px-3 py-2 text-xs text-semantic-damaged" data-english-boundary={stream.key}>
+        {englishView.unit.boundaryReview.note}{' '}
+        <Link className="underline" href={`/${englishView.unit.boundaryReview.relatedReference.replace(' ', '/').replace(':', '/')}`}>See {englishView.unit.boundaryReview.relatedReference}.</Link>
+      </p>}
       {stream.orderNote && <p className="px-3 py-2 text-xs text-semantic-damaged">{stream.orderNote}</p>}
       {englishView && <div className="px-3 py-2 text-xs text-ink-muted">
         {englishView.unit.displayReferences.length > 1 && <p className="mb-2">Complete translation unit: {englishView.unit.displayReferences.join(' · ')}</p>}

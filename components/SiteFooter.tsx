@@ -31,7 +31,7 @@ export function SiteFooter() {
             <FooterLink href="https://byzantinetext.com">byzantinetext.com</FooterLink>
           </p>
           <p className="mb-1">Latin: Clementine Vulgate (1592, public domain)</p>
-          <p className="mb-1">Syriac: Peshitta (BFBS 1905, public domain)</p>
+          <p className="mb-1">Syriac: pinned scrollmapper Peshitta text (public domain); printed exemplar unestablished. English: Murdock 1851.</p>
           <p>
             English glosses: Tyndale House Cambridge STEP Bible (TAGNT) · Whitaker&apos;s Words
             (William Whitaker, public domain) · A Compendious Syriac Dictionary (Jessie Payne

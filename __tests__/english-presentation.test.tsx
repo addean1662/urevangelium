@@ -19,6 +19,42 @@ function fixture() {
 }
 
 describe('immutable English banks and occurrence placement', () => {
+  it('gives Matthew 1:5 Jesse to its own occurrence and reports the edition boundary', () => {
+    const data = read('data/matthew/1/5.json') as VerseData;
+    const evidence = read('data/alignment-streams/matthew.json').verses['1:5'] as StreamEvidence;
+    const expectations = read('data/verse-verification/matthew.json').verses['1:5'] as VerseExpectations;
+    const model = buildStreamModel(data, evidence), before = JSON.stringify({ data, model, expectations });
+    const views = prepareEnglishViews(model, expectations, reviews), view = views.vulgate!;
+    expect(view.review).toBeDefined();
+    expect(groupedEnglish(view, 'vulgate:r21')).toBe('Jesse.');
+    expect(groupedEnglish(view, 'vulgate:vulgate-matthew-1-5-1')).toBe('');
+    expect(view.unit.boundaryReview?.relatedReference).toBe('matthew 1:6');
+    expect(view.unassigned).toEqual([]);
+    expect(view.occurrences.map(o => o.text).join('')).toBe(expectations.english.vulgate!.english);
+    expect(JSON.stringify({ data, model, expectations })).toBe(before);
+    const report = verifyVerse(data, model, expectations, views);
+    expect(report.columns.find(c => c.column === 'vulgate')!.placement.detail).toContain('Verse boundaries differ');
+    expect(report.columns.find(c => c.column === 'papyrus')!.evidence.detail).toContain('token 6: εκ / ··');
+    const { container } = render(<AlignmentExplorer data={data} evidence={evidence} expectations={expectations} englishViews={views} />);
+    expect(container.querySelector('[data-english-boundary="vulgate"]')).toHaveTextContent('a blank here does not mean they are untranslated');
+    expect(container.querySelector('[data-english-group="vulgate:r21"]')).toHaveTextContent('Jesse.');
+  });
+  it('withholds known incorrect Matthew 1:6 allocations while preserving its whole translation', () => {
+    const data = read('data/matthew/1/6.json') as VerseData;
+    const evidence = read('data/alignment-streams/matthew.json').verses['1:6'] as StreamEvidence;
+    const expectations = read('data/verse-verification/matthew.json').verses['1:6'] as VerseExpectations;
+    const model = buildStreamModel(data, evidence), views = prepareEnglishViews(model, expectations, reviews);
+    const view = views.vulgate!;
+    expect(model.columns.vulgate.words.find(w => w.text === 'Salomonem')!.gloss?.gloss).toBe('David');
+    expect(Object.keys(view.groups)).toHaveLength(0);
+    expect(view.unassigned).toHaveLength(view.occurrences.length);
+    expect(view.issues.join(' ')).toContain('David to Salomonem');
+    expect(view.occurrences.map(o => o.text).join('')).toBe(expectations.english.vulgate!.english);
+    const { container } = render(<AlignmentExplorer data={data} evidence={evidence} expectations={expectations} englishViews={views} />);
+    expect(screen.getByLabelText('Vulgate English awaiting alignment')).toHaveTextContent(expectations.english.vulgate!.english);
+    fireEvent.click(within(screen.getByRole('group', { name: 'Vulgate English view' })).getByRole('button', { name: 'Translation order' }));
+    expect(container.querySelector('[data-translation-order="vulgate"]')!.textContent).toBe(expectations.english.vulgate!.english);
+  });
   it('preserves every character including punctuation, quotes and whitespace', () => {
     for (const text of [' “Isaac:  Isaac\nbegat Jacob;” ', '...  ', "Don't change mother-in-law’s name.", '']) {
       expect(englishOccurrences(text).map(w => w.text).join('')).toBe(text);

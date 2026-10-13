@@ -45,7 +45,8 @@ export function buildEnglishView(reference: string, stream: WordStream, unit: Tr
   const view: EnglishView = { unit, occurrences, groups: {}, unassigned: [], issues: [...reviewErrors] };
   const singleVerse = unit.displayReferences.length === 1 && unit.displayReferences[0] === reference;
   const candidates = new Map<string, string[]>();
-  if (!singleVerse) view.issues.push('This complete translation unit spans multiple display verses; word grouping awaits a whole-unit review.');
+  if (unit.boundaryReview?.holdGrouping) view.issues.push(unit.boundaryReview.note);
+  else if (!singleVerse) view.issues.push('This complete translation unit spans multiple display verses; word grouping awaits a whole-unit review.');
   else for (const word of stream.words) {
     const indices = proposal
       ? (proposal.assignments.find(a => a.sourceId === word.id)?.englishIds ?? []).map(id => occurrences.findIndex(o => o.id === id))
