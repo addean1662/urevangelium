@@ -3,7 +3,7 @@ import { fireEvent, render, screen, within } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import { AlignmentExplorer } from '@/components/AlignmentTable/AlignmentExplorer';
 import { buildStreamModel, type StreamEvidence } from '@/lib/alignment/streams';
-import { buildEnglishView, englishOccurrences, groupedEnglish } from '@/lib/alignment/englishPresentation';
+import { buildEnglishView, englishOccurrences, groupedEnglish, translationOrderOccurrences } from '@/lib/alignment/englishPresentation';
 import { prepareEnglishViews } from '@/lib/verification/prepareEnglishViews';
 import { verifyVerse, type VerseExpectations } from '@/lib/verification/verifyVerse';
 import type { VerseData } from '@/lib/types';
@@ -19,7 +19,7 @@ function fixture() {
 }
 
 describe('immutable English banks and occurrence placement', () => {
-  it('gives Matthew 1:5 Jesse to its own occurrence and reports the edition boundary', () => {
+  it('aligns all Matthew 1:5 Latin words using distinct, attested English occurrences across the edition boundary', () => {
     const data = read('data/matthew/1/5.json') as VerseData;
     const evidence = read('data/alignment-streams/matthew.json').verses['1:5'] as StreamEvidence;
     const expectations = read('data/verse-verification/matthew.json').verses['1:5'] as VerseExpectations;
@@ -27,33 +27,47 @@ describe('immutable English banks and occurrence placement', () => {
     const views = prepareEnglishViews(model, expectations, reviews), view = views.vulgate!;
     expect(view.review).toBeDefined();
     expect(groupedEnglish(view, 'vulgate:r21')).toBe('Jesse.');
-    expect(groupedEnglish(view, 'vulgate:vulgate-matthew-1-5-1')).toBe('');
+    expect(groupedEnglish(view, 'vulgate:vulgate-matthew-1-5-1').trim()).toBe('Jesse');
+    expect(model.columns.vulgate.words.every(w => groupedEnglish(view, w.id).trim())).toBe(true);
+    expect(groupedEnglish(view, 'vulgate:vulgate-matthew-1-5-5').trim()).toBe('the king.');
     expect(view.unit.boundaryReview?.relatedReference).toBe('matthew 1:6');
     expect(view.unassigned).toEqual([]);
-    expect(view.occurrences.map(o => o.text).join('')).toBe(expectations.english.vulgate!.english);
+    expect(view.occurrences).toHaveLength(22);
+    expect(translationOrderOccurrences(view).map(o => o.text).join('')).toBe(expectations.english.vulgate!.english);
+    expect(view.occurrences[17]).toMatchObject({ text: 'Jesse ', publishedReference: 'matthew 1:6', publishedIndex: 1 });
     expect(JSON.stringify({ data, model, expectations })).toBe(before);
     const report = verifyVerse(data, model, expectations, views);
-    expect(report.columns.find(c => c.column === 'vulgate')!.placement.detail).toContain('Verse boundaries differ');
+    expect(report.columns.find(c => c.column === 'vulgate')!.english.status).toBe('compared');
     expect(report.columns.find(c => c.column === 'papyrus')!.evidence.detail).toContain('token 6: εκ / ··');
     const { container } = render(<AlignmentExplorer data={data} evidence={evidence} expectations={expectations} englishViews={views} />);
-    expect(container.querySelector('[data-english-boundary="vulgate"]')).toHaveTextContent('a blank here does not mean they are untranslated');
+    expect(container.querySelector('[data-english-boundary="vulgate"]')).not.toHaveAttribute('open');
     expect(container.querySelector('[data-english-group="vulgate:r21"]')).toHaveTextContent('Jesse.');
+    expect(screen.queryByLabelText('Vulgate English awaiting alignment')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Comparison rows' }));
+    expect(within(screen.getByRole('table', { name: 'Manuscript comparison rows' })).getByText('the king.')).toBeInTheDocument();
   });
-  it('withholds known incorrect Matthew 1:6 allocations while preserving its whole translation', () => {
+  it('restores every Matthew 1:6 Latin gloss and keeps the original complete English in Translation order', () => {
     const data = read('data/matthew/1/6.json') as VerseData;
     const evidence = read('data/alignment-streams/matthew.json').verses['1:6'] as StreamEvidence;
     const expectations = read('data/verse-verification/matthew.json').verses['1:6'] as VerseExpectations;
     const model = buildStreamModel(data, evidence), views = prepareEnglishViews(model, expectations, reviews);
     const view = views.vulgate!;
     expect(model.columns.vulgate.words.find(w => w.text === 'Salomonem')!.gloss?.gloss).toBe('David');
-    expect(Object.keys(view.groups)).toHaveLength(0);
-    expect(view.unassigned).toHaveLength(view.occurrences.length);
-    expect(view.issues.join(' ')).toContain('David to Salomonem');
-    expect(view.occurrences.map(o => o.text).join('')).toBe(expectations.english.vulgate!.english);
+    expect(view.review).toBeDefined();
+    expect(model.columns.vulgate.words.map(w => groupedEnglish(view, w.id).trim())).toEqual(['David', 'And', 'the king', 'begot', 'Solomon,', 'of', 'her', 'that', 'had been', 'the wife of Urias.']);
+    expect(view.unassigned).toEqual([]);
+    expect(view.issues).toEqual([]);
+    expect(translationOrderOccurrences(view).map(o => o.text).join('')).toBe(expectations.english.vulgate!.english);
+    expect(verifyVerse(data, model, expectations, views).columns.find(c => c.column === 'vulgate')!.english.status).toBe('compared');
     const { container } = render(<AlignmentExplorer data={data} evidence={evidence} expectations={expectations} englishViews={views} />);
-    expect(screen.getByLabelText('Vulgate English awaiting alignment')).toHaveTextContent(expectations.english.vulgate!.english);
+    expect(screen.queryByLabelText('Vulgate English awaiting alignment')).not.toBeInTheDocument();
+    expect(container.querySelector('[data-english-group="vulgate:r14"]')).toHaveTextContent('Solomon,');
     fireEvent.click(within(screen.getByRole('group', { name: 'Vulgate English view' })).getByRole('button', { name: 'Translation order' }));
     expect(container.querySelector('[data-translation-order="vulgate"]')!.textContent).toBe(expectations.english.vulgate!.english);
+    fireEvent.mouseEnter(container.querySelector('[data-english-id="vulgate:e11"]')!);
+    expect(container.querySelector('[data-word-id="vulgate:r14"]')).toHaveAttribute('data-highlighted', 'true');
+    fireEvent.click(screen.getByRole('button', { name: 'Comparison rows' }));
+    expect(within(screen.getByRole('table', { name: 'Manuscript comparison rows' })).getByText('Solomon,')).toBeInTheDocument();
   });
   it('preserves every character including punctuation, quotes and whitespace', () => {
     for (const text of [' “Isaac:  Isaac\nbegat Jacob;” ', '...  ', "Don't change mother-in-law’s name.", '']) {

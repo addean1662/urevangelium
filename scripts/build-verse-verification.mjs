@@ -11,6 +11,7 @@ import { loadClementineSequences } from '../lib/sources/clementineSequences.mjs'
 import { parseMesLine } from '../lib/sources/cntrMes.js';
 import { loadPapyrusSourceIndex } from '../lib/sources/papyrusSourceIndex.mjs';
 import { admitPapyrusCell } from '../lib/sources/papyrusEvidence.mjs';
+import { prepareEnglishConcordances } from './prepare-english-concordances.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const require = createRequire(import.meta.url);
@@ -71,6 +72,8 @@ const english = {
   vulgate: read('data/sources/vulgate-english/admitted-units.json').units,
   sinaiticus: {},
 };
+const concordanceFile = 'data/english-groups/concordances.json';
+const concordances = prepareEnglishConcordances(english, read(concordanceFile)); pin(concordanceFile);
 for (const book of books) {
   const file = `data/sources/sinaiticus-english/anderson-1918/${book}.json`; pin(file);
   const edition = read(file);
@@ -126,7 +129,8 @@ for (const [b, book] of books.entries()) {
           bezaeLatin: { words: bezae.Latin[ref] ?? [], authority: 'ITSEE/IGNTP Bezae Latin, first encoded reading; independent XML extraction' },
         },
         english: Object.fromEntries(Object.entries(english).map(([column, units]) => [column, units[ref]
-          ? { ...units[ref], ...(boundaryReviews[ref]?.[column] ? { boundaryReview: boundaryReviews[ref][column] } : {}) }
+          ? { ...units[ref], ...(boundaryReviews[ref]?.[column] ? { boundaryReview: boundaryReviews[ref][column] } : {}),
+              ...(concordances[ref]?.[column] ? { concordance: concordances[ref][column] } : {}) }
           : null])),
       };
       count++;

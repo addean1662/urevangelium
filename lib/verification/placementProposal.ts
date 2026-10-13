@@ -8,6 +8,7 @@ export type PlacementPacket = {
   sourceAuthority: string;
   englishAuthority: string;
   translationReferences?: readonly string[];
+  translationConcordance?: unknown;
   source: ReadonlyArray<{ id: string; text: string; provenance?: unknown }>;
   english: ReadonlyArray<{ id: string; text: string }>;
   current: ReadonlyArray<{ sourceId: string; englishIds: readonly string[] }>;

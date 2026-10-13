@@ -12,7 +12,7 @@ import { PapyrusIndicator } from './IndicatorCell';
 import { SyriacCell } from './SyriacCell';
 import { GlossCell } from './GlossCell';
 import { getBezaeLacuna } from './AlignmentTable';
-import { groupedEnglish, type EnglishView, type EnglishViews } from '@/lib/alignment/englishPresentation';
+import { groupedEnglish, translationOrderOccurrences, type EnglishView, type EnglishViews } from '@/lib/alignment/englishPresentation';
 import type { SourceExpectation } from '@/lib/verification/verifyVerse';
 import { singlePapyrusWitness, papyrusRunLabels, type PapyrusWitnessLabel } from '@/lib/alignment/papyrusPresentation';
 
@@ -103,21 +103,24 @@ function StreamColumn({ stream, papyrusConflicts, papyrusWitness, englishView, t
         </tbody>
       </table>
       {independent && englishView && <p data-translation-order={stream.key} aria-label={`${LABELS[stream.key]} published English in translation order`} className="w-[53%] whitespace-pre-wrap px-2 py-1.5 text-base italic leading-relaxed text-ink-secondary">
-        {englishView.occurrences.map(occurrence => occurrence.sourceId ? <span key={occurrence.id} data-english-id={`${stream.key}:${occurrence.id}`} role="button" tabIndex={0} aria-pressed={pinned === occurrence.sourceId}
+        {translationOrderOccurrences(englishView).map(occurrence => occurrence.sourceId ? <span key={occurrence.id} data-english-id={`${stream.key}:${occurrence.id}`} role="button" tabIndex={0} aria-pressed={pinned === occurrence.sourceId}
           title="Highlight the source word assigned to this English occurrence; placement review remains separate."
           className={`cursor-pointer rounded focus-visible:outline-2 focus-visible:outline-accent-gold ${highlighted.has(occurrence.sourceId) ? 'bg-accent-gold/25' : ''}`}
           onMouseEnter={() => enter(occurrence.sourceId!)} onMouseLeave={() => enter(null)} onFocus={() => focus(occurrence.sourceId!)} onBlur={() => focus(null)}
           onClick={() => pin(occurrence.sourceId!)} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); pin(occurrence.sourceId!); } }}>{occurrence.text}</span>
-          : <span key={occurrence.id} data-english-id={`${stream.key}:${occurrence.id}`} title="English occurrence awaiting source alignment">{occurrence.text}</span>)}
+          : <span key={occurrence.id} data-english-id={`${stream.key}:${occurrence.id}`} title={englishView.unit.concordance ? 'This published English occurrence corresponds to Latin in the adjacent verse; see Verse numbering.' : 'English occurrence awaiting source alignment'}>{occurrence.text}</span>)}
       </p>}
       </div>
       <Absences stream={stream} />
-      {englishView?.unit.boundaryReview && <p className="px-3 py-2 text-xs text-semantic-damaged" data-english-boundary={stream.key}>
-        {englishView.unit.boundaryReview.note}{' '}
-        <Link className="underline" href={`/${englishView.unit.boundaryReview.relatedReference.replace(' ', '/').replace(':', '/')}`}>See {englishView.unit.boundaryReview.relatedReference}.</Link>
-      </p>}
       {stream.orderNote && <p className="px-3 py-2 text-xs text-semantic-damaged">{stream.orderNote}</p>}
       {englishView && <div className="px-3 py-2 text-xs text-ink-muted">
+        {englishView.unit.boundaryReview && <details className="mb-2" data-english-boundary={stream.key}>
+          <summary className="cursor-pointer">Verse numbering</summary>
+          <p className="mt-1">{englishView.unit.boundaryReview.note}{' '}
+            <Link className="underline" href={`/${englishView.unit.boundaryReview.relatedReference.replace(' ', '/').replace(':', '/')}`}>See {englishView.unit.boundaryReview.relatedReference}.</Link>
+          </p>
+          {englishView.unit.concordance?.units.map(unit => <div key={unit.reference} className="mt-2"><p>{unit.reference} · {unit.translatorEdition}</p><p className="whitespace-pre-wrap text-base italic text-ink-secondary">{unit.english}</p></div>)}
+        </details>}
         {englishView.unit.displayReferences.length > 1 && <p className="mb-2">Complete translation unit: {englishView.unit.displayReferences.join(' · ')}</p>}
         {!independent && englishView.unassigned.length > 0 && <div className="mb-2" aria-label={`${LABELS[stream.key]} English awaiting alignment`}><p className="font-semibold">English awaiting alignment</p><p className="mt-1 whitespace-pre-wrap text-base italic text-ink-secondary">{englishView.unassigned.map((id, i) => <span key={id}>{i > 0 && Number(id.slice(1)) !== Number(englishView.unassigned[i - 1].slice(1)) + 1 && <span aria-hidden="true" className="not-italic text-ink-muted"> · </span>}<span data-english-id={`${stream.key}:${id}`}>{englishView.occurrences[Number(id.slice(1))].text}</span></span>)}</p></div>}
         <details><summary className="cursor-pointer">{englishView.review ? 'Grouping correction and evidence' : 'English grouping: review pending'}</summary>

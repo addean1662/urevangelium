@@ -2,7 +2,7 @@ import type { StreamKey, StreamModel, WordStream } from './streams';
 import type { TranslationUnit, VerseExpectations } from '../verification/verifyVerse';
 import type { PlacementPacket, PlacementProposal } from '../verification/placementProposal';
 
-export type EnglishOccurrence = { id: string; text: string; sourceId?: string };
+export type EnglishOccurrence = { id: string; text: string; sourceId?: string; publishedReference?: string; publishedIndex?: number };
 export type EnglishView = {
   unit: TranslationUnit;
   occurrences: EnglishOccurrence[];
@@ -23,6 +23,34 @@ export function englishOccurrences(text: string): EnglishOccurrence[] {
   return matches.map((match, i) => ({ id: `e${i}`, text: text.slice(i === 0 ? 0 : match.index, matches[i + 1]?.index ?? text.length) }));
 }
 
+/** Select immutable slices from the independently admitted editions. The build
+ * verifies that selections across all involved pages cover the original banks
+ * exactly once, in published order. No words are copied from review prose. */
+export function englishDisplayOccurrences(unit: TranslationUnit): EnglishOccurrence[] {
+  if (!unit.concordance) return englishOccurrences(unit.english);
+  const result: EnglishOccurrence[] = [];
+  for (const selection of unit.concordance.selections) {
+    const source = unit.concordance.units.find(u => u.reference === selection.reference);
+    if (!source) throw new Error('Missing admitted translation unit in concordance.');
+    const bank = englishOccurrences(source.english);
+    if (!Number.isInteger(selection.start) || !Number.isInteger(selection.end) || selection.start < 0 || selection.end > bank.length || selection.start >= selection.end) throw new Error('Invalid translation-unit occurrence interval.');
+    for (let index = selection.start; index < selection.end; index++) {
+      result.push({ id: `e${result.length}`, text: bank[index].text, publishedReference: source.reference, publishedIndex: index });
+    }
+  }
+  return result;
+}
+
+/** The alternate reading always shows the complete original published verse,
+ * including words whose Latin belongs on a neighboring display page. */
+export function translationOrderOccurrences(view: EnglishView): EnglishOccurrence[] {
+  if (!view.unit.concordance) return view.occurrences;
+  return englishOccurrences(view.unit.english).map((word, index) => {
+    const assigned = view.occurrences.find(o => o.publishedReference === view.unit.sourceReference && o.publishedIndex === index);
+    return { ...word, ...(assigned?.sourceId ? { sourceId: assigned.sourceId } : {}) };
+  });
+}
+
 function recordedIndices(word: WordStream['words'][number]): unknown[] {
   const indices = record(record(record(word.cell).provenance).englishAlignment).englishIndices;
   return Array.isArray(indices) ? indices : [];
@@ -31,9 +59,10 @@ function recordedIndices(word: WordStream['words'][number]): unknown[] {
 export function englishPlacementPacket(reference: string, stream: WordStream, unit: TranslationUnit, sourceAuthority: string): PlacementPacket {
   return {
     reference, column: stream.key, sourceAuthority, englishAuthority: unit.translatorEdition,
-    translationReferences: unit.displayReferences,
+    translationReferences: unit.concordance ? unit.concordance.units.map(u => u.reference) : unit.displayReferences,
+    ...(unit.concordance ? { translationConcordance: unit.concordance } : {}),
     source: stream.words.map(word => ({ id: word.id, text: word.text, provenance: record(word.cell).provenance ?? null })),
-    english: englishOccurrences(unit.english),
+    english: englishDisplayOccurrences(unit),
     current: stream.words.map(word => ({ sourceId: word.id, englishIds: recordedIndices(word).map(i => `e${String(i)}`) })),
   };
 }
@@ -41,11 +70,11 @@ export function englishPlacementPacket(reference: string, stream: WordStream, un
 /** A display projection, never a corpus mutation. Proposals passed here have
  * already been hash- and conservation-checked by the server. */
 export function buildEnglishView(reference: string, stream: WordStream, unit: TranslationUnit, proposal?: PlacementProposal, reviewErrors: string[] = []): EnglishView {
-  const occurrences = englishOccurrences(unit.english);
+  const occurrences = englishDisplayOccurrences(unit);
   const view: EnglishView = { unit, occurrences, groups: {}, unassigned: [], issues: [...reviewErrors] };
   const singleVerse = unit.displayReferences.length === 1 && unit.displayReferences[0] === reference;
   const candidates = new Map<string, string[]>();
-  if (unit.boundaryReview?.holdGrouping) view.issues.push(unit.boundaryReview.note);
+  if (unit.concordance && !proposal) view.issues.push('This verse-boundary mapping requires its matching occurrence review. Published English is retained below.');
   else if (!singleVerse) view.issues.push('This complete translation unit spans multiple display verses; word grouping awaits a whole-unit review.');
   else for (const word of stream.words) {
     const indices = proposal

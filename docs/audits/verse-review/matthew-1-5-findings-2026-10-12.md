@@ -36,4 +36,6 @@ The detailed display-check results and original versus corrected/withheld Vulgat
 
 ## Local validation
 
+**Follow-up:** The temporary grouping hold described below is superseded by the completed [Matthew 1:5–6 alignment repair](vulgate-matthew-1-5-6-alignment-repair-2026-10-12.md). This document retains the earlier audit state for provenance.
+
 The 27 targeted English-presentation and verse-verification tests passed. TypeScript, ESLint for the changed TS/TSX files, and the 3,779-verse prepared-source hash gate passed. Browser inspection confirmed the first Jesse owns the 1:5 English occurrence; the final five Latin tokens remain intact with their boundary note; 1:6 withholds all existing word assignments while preserving its complete English in both views. No browser console errors were observed. Proof: `images/matthew-1-5-vulgate-boundary-local.png`. No build or deployment was performed in this audit turn.

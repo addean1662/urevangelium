@@ -1,6 +1,7 @@
 import type { VerseData } from '@/lib/types';
 import type { StreamKey, StreamModel, StreamWord } from '@/lib/alignment/streams';
 import type { EnglishView, EnglishViews } from '@/lib/alignment/englishPresentation';
+import { englishDisplayOccurrences, translationOrderOccurrences } from '../alignment/englishPresentation.ts';
 
 export type Check = { status: 'compared' | 'difference' | 'review' | 'unavailable' | 'not-applicable'; detail: string };
 export type SourceExpectation = {
@@ -11,7 +12,15 @@ export type SourceExpectation = {
 };
 export type TranslationUnit = {
   english: string; translatorEdition: string; displayReferences: string[];
-  boundaryReview?: { note: string; relatedReference: string; holdGrouping: boolean; evidence: string[] };
+  sourceReference?: string;
+  concordance?: {
+    id: string;
+    units: Array<{ reference: string; english: string; translatorEdition: string; sourceFile?: string }>;
+    selections: Array<{ reference: string; start: number; end: number }>;
+    evidence: string[];
+    rationale: string;
+  };
+  boundaryReview?: { note: string; relatedReference: string; evidence: string[] };
 };
 export type VerseExpectations = {
   sources: Partial<Record<StreamKey, SourceExpectation>>;
@@ -61,11 +70,15 @@ function englishCheck(data: VerseData, column: StreamKey, unit?: TranslationUnit
   if (!unit) return check('review', 'An independent wording check for this column’s declared English authorities is pending.');
   if (view) {
     const ids = [...Object.values(view.groups).flat(), ...view.unassigned];
-    const intact = view.occurrences.map(o => o.text).join('') === unit.english
+    const wanted = englishDisplayOccurrences(unit);
+    const intact = equal(view.occurrences.map(({ id, text, publishedReference, publishedIndex }) => ({ id, text, publishedReference, publishedIndex })), wanted)
+      && translationOrderOccurrences(view).map(o => o.text).join('') === unit.english
       && equal(view.unit, unit) && ids.length === view.occurrences.length && new Set(ids).size === ids.length
       && view.occurrences.every(o => ids.includes(o.id));
     return check(intact ? 'compared' : 'difference', intact
-      ? `Both English views preserve every character and occurrence from ${unit.translatorEdition}. ${view.unassigned.length} occurrences await source grouping. This does not certify semantic placement.`
+      ? unit.concordance
+        ? `All ${wanted.length} English occurrences in the registered verse-boundary mapping are preserved once. Translation order retains this complete published English verse. Cross-page conservation was checked during preparation; semantic placement remains separately reviewable.`
+        : `Both English views preserve every character and occurrence from ${unit.translatorEdition}. ${view.unassigned.length} occurrences await source grouping. This does not certify semantic placement.`
       : 'The English display projection differs from its published translation unit.');
   }
   const ref = `${data.gospel} ${data.chapter}:${data.verse}`;
